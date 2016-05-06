@@ -1,0 +1,6 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'OriginateTheme-Example', :exclusive => true do
+  pod "OriginateTheme", :path => "../"
+end

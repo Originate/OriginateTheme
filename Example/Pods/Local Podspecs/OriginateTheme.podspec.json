@@ -1,0 +1,20 @@
+{
+  "name": "OriginateTheme",
+  "version": "0.0.1",
+  "summary": "A lightweight user interface theming framework.",
+  "homepage": "https://github.com/Originate/OriginateTheme",
+  "license": "MIT",
+  "authors": {
+    "Philip Kluz": "philip.kluz@originate.com"
+  },
+  "source": {
+    "git": "https://github.com/Originate/OriginateTheme.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Sources/**/*",
+  "public_header_files": "Pod/Sources/**/*.h"
+}
