@@ -98,4 +98,4 @@ Typically you would now extend your theme to map the generic properties (`primar
 With this, you have an application specific abstraction on top of the  underlying JSON theme file.
 
 # License
-OriginateUI is available under the MIT license. See the LICENSE file for more info.
+OriginateTheme is available under the MIT license. See the LICENSE file for more info.
