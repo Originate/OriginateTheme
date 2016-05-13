@@ -8,7 +8,7 @@
 
 @import UIKit;
 
-@interface UIColor (OriginateHex)
+@interface UIColor (OriginateThemeHex)
 
 #pragma mark - Methods
 + (instancetype)oth_colorWithHexString:(NSString *)hexString;

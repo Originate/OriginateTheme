@@ -8,7 +8,7 @@
 
 #import "UIColor+OriginateThemeHex.h"
 
-@implementation UIColor (OriginateHex)
+@implementation UIColor (OriginateThemeHex)
 
 + (instancetype)oth_colorWithHexString:(NSString *)hexString
 {

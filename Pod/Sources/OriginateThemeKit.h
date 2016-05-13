@@ -12,4 +12,4 @@
 
 #import "OriginateThemeable.h"
 
-#import "UIColor+OriginateHex.h"
+#import "UIColor+OriginateThemeHex.h"
