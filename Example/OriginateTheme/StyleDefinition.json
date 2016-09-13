@@ -26,53 +26,34 @@
     },
     "components" : {
         "navigationBar" : {
-            "backgroundColor" : "84E0FA",
-            "textColor" : "000000"
+            "colors" : {
+                "backgroundColor" : "84E0FA",
+                "titleColor" : "000000",
+                "descriptionColor" : "979797",
+            },
+            "fonts" : {
+                "textFont" : {
+                    "name" : "HelveticaNeue-Light",
+                    "size" : 14.0
+                },
+                "descriptionFont" : {
+                    "name" : "HelveticaNeue-Light",
+                    "size" : 12.0
+                }
+            }
         },
         "tabBar" : {
-            "backgroundColor" : "FFFFFF",
-            "textColor" : "424242",
-            "selectedTextColor" : "4C66A4"
-        },
-        "button" : {
-            "plain" : {
+            "colors" : {
                 "backgroundColor" : "FFFFFF",
-                "textColor" : "4C66A4"
-            },
-            "destructive" : {
-                "backgroundColor" : "F02F11",
-                "textColor" : "FFFFFF"
-            },
-            "actionable" : {
-                "backgroundColor" : "FFFFFF",
-                "textColor" : "4C66A4"
-            }
-        },
-        "tableView" : {
-            "backgroundColor" : "FFFFFF",
-            "separatorColor" : "E9E9E9",
-            "cell" : {
-                "backgroundColor" : "FFFFFF",
-                "selectedBackgroundColor" : "E6E6E6",
-                "highlightedBackgroundColor" : "E6E6E6",
                 "textColor" : "424242",
-                "selectedTextColor" : "2B2B2B",
-                "highlightedTextColor" : "2B2B2B"
+                "selectedTextColor" : "4C66A4"
+            },
+            "fonts" : {
+                "titleFont" : {
+                    "name" : "HelveticaNeue-Light",
+                    "size" : 14.0
+                }
             }
-        },
-        "collectionView" : {
-            "backgroundColor" : "FFFFFF",
-            "cell" : {
-                "backgroundColor" : "FFFFFF",
-                "selectedBackgroundColor" : "E6E6E6",
-                "highlightedBackgroundColor" : "E6E6E6",
-                "textColor" : "424242",
-                "selectedTextColor" : "2B2B2B",
-                "highlightedTextColor" : "2B2B2B"
-            }
-        },
-        "view" : {
-            "backgroundColor" : "FFFFFF"
         }
     }
 }
