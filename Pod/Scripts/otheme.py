@@ -74,6 +74,16 @@ def parseArguments(argv):
     return (inputFile, outputDirectory)
 
 def parseFonts(fonts):
+    """
+        Method for parsing fonts from a JSON object.
+
+        Parameters
+        ----------
+        fonts: Object
+            Object containing font objecs  and their corresponding keys. For being
+            a valid font object a name and size property has to be available.
+    """
+
     results = []
     for key, value in fonts.iteritems():
         if 'name' not in value or 'size' not in value:
@@ -83,6 +93,16 @@ def parseFonts(fonts):
     return results
 
 def parseColors(colors):
+    """
+        Method for parsing colors from a JSON object.
+
+        Parameters
+        ----------
+        colors: Object
+            Object containing six digit hex color codes and their corresponding keys.
+            A '#' as prefix for the hex color codes is not allowed.
+    """
+
     results = []
     hexPattern = re.compile("^(?:[0-9a-fA-F]{6}){1}$")
     for key, value in colors.iteritems():
@@ -93,6 +113,18 @@ def parseColors(colors):
     return results
 
 def parseComponents(components):
+        """
+            Method for parsing components from of a JSON object.
+
+            Parameters
+            ----------
+            components: Object
+                Object containing component defintions. Each component definition
+                can have multiple colors and fonts declared. The key for the colors
+                is colors and the key for the fonts is fonts. The requirements for these
+                objects are the same as for the parseFonts: or parseColors: method.
+        """
+
     results = []
     for key, value in components.iteritems():
         fonts = []
