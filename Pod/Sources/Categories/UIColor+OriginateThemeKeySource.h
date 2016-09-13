@@ -11,6 +11,6 @@
 @interface UIColor (OriginateThemeKeySource)
 
 #pragma mark - Methods
-+ (UIColor *)colorForKey:(NSString *)key source:(NSDictionary *)definition fallback:(UIColor *)fallback;
++ (UIColor *)colorForKeyPath:(NSString *)keyPath source:(NSDictionary *)definition fallback:(UIColor *)fallback;
 
 @end

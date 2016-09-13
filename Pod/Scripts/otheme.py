@@ -6,6 +6,7 @@ import getopt
 import json
 import os
 import re
+import string
 import sys
 
 class Font():
@@ -113,17 +114,17 @@ def parseColors(colors):
     return results
 
 def parseComponents(components):
-        """
-            Method for parsing components from of a JSON object.
+    """
+        Method for parsing components from of a JSON object.
 
-            Parameters
-            ----------
-            components: Object
-                Object containing component defintions. Each component definition
-                can have multiple colors and fonts declared. The key for the colors
-                is colors and the key for the fonts is fonts. The requirements for these
-                objects are the same as for the parseFonts: or parseColors: method.
-        """
+        Parameters
+        ----------
+        components: Object
+            Object containing component defintions. Each component definition
+            can have multiple colors and fonts declared. The key for the colors
+            is colors and the key for the fonts is fonts. The requirements for these
+            objects are the same as for the parseFonts: or parseColors: method.
+    """
 
     results = []
     for key, value in components.iteritems():
@@ -137,6 +138,36 @@ def parseComponents(components):
             colors = parseColors(value['colors'])
         results.append(Component(key, fonts, colors))
     return results
+
+def generateFontsOutput(outputDirectory, fonts):
+    return
+
+def createStrongUIColorProperty(color):
+    return '@property (nonatomic, strong, readwrite) UIColor *' + color.key + ';'
+
+def generateColorsOutput(outputDirectory, colors):
+
+    # Generate the OriginateThemeColors.h file.
+    with open('./Templates/OriginateThemeColors.h', 'r') as headerFile:
+        # Template Source.
+        template = string.Template(headerFile.read())
+
+        # Create the public properties.
+        OriginateThemeColorsPublicProperties = map(createStrongUIColorProperty, colors)
+
+        # Substitute the properties.
+        result = template.substitute({'OriginateThemeColorsPublicProperties' : '\n'.join(OriginateThemeColorsPublicProperties)})
+
+        # Store the generated OriginateThemeColors.h to the output directory.
+        with open(outputDirectory + 'OriginateThemeColors.h', 'wb') as outputFile:
+            outputFile.write(result)
+
+    # Generate the OriginateThemeColors.m file.
+
+    return
+
+def generateComponentsOutput(outputDirectory, components):
+    return
 
 def main(argv):
     """
@@ -178,7 +209,9 @@ def main(argv):
             sys.exit()
 
     # Create the fonts, colors and components output files.
-    print components
+    generateFontsOutput(outputDirectory, fonts)
+    generateColorsOutput(outputDirectory, colors)
+    generateComponentsOutput(outputDirectory, components)
 
 if __name__ == "__main__":
     main(sys.argv[1:])

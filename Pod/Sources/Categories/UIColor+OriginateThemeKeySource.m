@@ -13,9 +13,9 @@
 
 #pragma mark - UIColor (OriginateThemeKeySource)
 
-+ (UIColor *)colorForKey:(NSString *)key source:(NSDictionary *)definition fallback:(UIColor *)fallback
++ (UIColor *)colorForKeyPath:(NSString *)keyPath source:(NSDictionary *)definition fallback:(UIColor *)fallback
 {
-    NSString *colorValue = [definition valueForKeyPath:key];
+    NSString *colorValue = [definition valueForKeyPath:keyPath];
     
     if ([colorValue length] == 0) {
         return fallback;

@@ -7,6 +7,8 @@
 //
 
 #import "OriginateThemeComponents.h"
+#import "UIColor+OriginateThemeKeySource.h"
+#import "UIFont+OriginateThemeKeySource.h"
 
 NSString * const OUINavigationBarBackgroundColorKeyPath = @"navigationBar.backgroundColor";
 NSString * const OUINavigationBarTextColorKeyPath = @"navigationBar.textColor";
@@ -64,29 +66,14 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
     return self;
 }
 
-+ (UIColor *)colorForKeyPath:(NSString *)keyPath
-                      source:(NSDictionary *)definition
-                    fallback:(UIColor *)fallback
-{
-    NSString *colorValue = [definition valueForKeyPath:keyPath];
-    
-    if ([colorValue length] == 0) {
-        return fallback;
-    }
-    
-    UIColor *color = [UIColor oth_colorWithHexString:colorValue];
-    
-    return color ?: fallback;
-}
-
 #pragma mark - Navigation Bar
 
 - (UIColor *)navigationBarBackgroundColor
 {
     if (!_navigationBarBackgroundColor) {
-        _navigationBarBackgroundColor = [[self class] colorForKeyPath:OUINavigationBarBackgroundColorKeyPath
-                                                               source:self.definition
-                                                             fallback:[UIColor whiteColor]];
+        _navigationBarBackgroundColor = [UIColor colorForKeyPath:OUINavigationBarBackgroundColorKeyPath
+                                                          source:self.definition
+                                                        fallback:[UIColor whiteColor]];
     }
     
     return _navigationBarBackgroundColor;
@@ -95,9 +82,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)navigationBarTextColor
 {
     if (!_navigationBarTextColor) {
-        _navigationBarTextColor = [[self class] colorForKeyPath:OUINavigationBarTextColorKeyPath
-                                                         source:self.definition
-                                                       fallback:[UIColor darkGrayColor]];
+        _navigationBarTextColor = [UIColor colorForKeyPath:OUINavigationBarTextColorKeyPath
+                                                    source:self.definition
+                                                  fallback:[UIColor darkGrayColor]];
     }
     
     return _navigationBarTextColor;
@@ -108,9 +95,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)tabBarBackgroundColor
 {
     if (!_tabBarBackgroundColor) {
-        _tabBarBackgroundColor = [[self class] colorForKeyPath:OUITabBarBackgroundColorKeyPath
-                                                        source:self.definition
-                                                      fallback:[UIColor whiteColor]];
+        _tabBarBackgroundColor = [UIColor colorForKeyPath:OUITabBarBackgroundColorKeyPath
+                                                   source:self.definition
+                                                 fallback:[UIColor whiteColor]];
     }
     
     return _tabBarBackgroundColor;
@@ -119,9 +106,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)tabBarTextColor
 {
     if (!_tabBarTextColor) {
-        _tabBarTextColor = [[self class] colorForKeyPath:OUITabBarTextColorKeyPath
-                                                  source:self.definition
-                                                fallback:[UIColor lightGrayColor]];
+        _tabBarTextColor = [UIColor colorForKeyPath:OUITabBarTextColorKeyPath
+                                             source:self.definition
+                                           fallback:[UIColor lightGrayColor]];
     }
     
     return _tabBarTextColor;
@@ -130,9 +117,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)tabBarSelectedTextColor
 {
     if (!_tabBarSelectedTextColor) {
-        _tabBarSelectedTextColor = [[self class] colorForKeyPath:OUITabBarSelectedTextColorKeyPath
-                                                          source:self.definition
-                                                        fallback:[UIColor darkGrayColor]];
+        _tabBarSelectedTextColor = [UIColor colorForKeyPath:OUITabBarSelectedTextColorKeyPath
+                                                     source:self.definition
+                                                   fallback:[UIColor darkGrayColor]];
     }
     
     return _tabBarSelectedTextColor;
@@ -143,9 +130,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)buttonPlainBackgroundColor
 {
     if (!_buttonPlainBackgroundColor) {
-        _buttonPlainBackgroundColor = [[self class] colorForKeyPath:OUIButtonPlainBackgroundColorKeyPath
-                                                             source:self.definition
-                                                           fallback:[UIColor clearColor]];
+        _buttonPlainBackgroundColor = [UIColor colorForKeyPath:OUIButtonPlainBackgroundColorKeyPath
+                                                        source:self.definition
+                                                      fallback:[UIColor clearColor]];
     }
     
     return _buttonPlainBackgroundColor;
@@ -154,9 +141,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)buttonPlainTextColor
 {
     if (!_buttonPlainTextColor) {
-        _buttonPlainTextColor = [[self class] colorForKeyPath:OUIButtonPlainTextColorKeyPath
-                                                       source:self.definition
-                                                     fallback:[UIColor darkGrayColor]];
+        _buttonPlainTextColor = [UIColor colorForKeyPath:OUIButtonPlainTextColorKeyPath
+                                                  source:self.definition
+                                                fallback:[UIColor darkGrayColor]];
     }
     
     return _buttonPlainTextColor;
@@ -165,9 +152,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)buttonDestructiveBackgroundColor
 {
     if (!_buttonDestructiveBackgroundColor) {
-        _buttonDestructiveBackgroundColor = [[self class] colorForKeyPath:OUIButtonDestructiveBackgroundColorKeyPath
-                                                                   source:self.definition
-                                                                 fallback:[UIColor redColor]];
+        _buttonDestructiveBackgroundColor = [UIColor colorForKeyPath:OUIButtonDestructiveBackgroundColorKeyPath
+                                                              source:self.definition
+                                                            fallback:[UIColor redColor]];
     }
     
     return _buttonDestructiveBackgroundColor;
@@ -176,9 +163,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)buttonDestructiveTextColor
 {
     if (!_buttonDestructiveTextColor) {
-        _buttonDestructiveTextColor = [[self class] colorForKeyPath:OUIButtonDestructiveTextColorKeyPath
-                                                             source:self.definition
-                                                           fallback:[UIColor whiteColor]];
+        _buttonDestructiveTextColor = [UIColor colorForKeyPath:OUIButtonDestructiveTextColorKeyPath
+                                                        source:self.definition
+                                                      fallback:[UIColor whiteColor]];
     }
     
     return _buttonDestructiveTextColor;
@@ -187,9 +174,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)buttonActionableBackgroundColor
 {
     if (!_buttonActionableBackgroundColor) {
-        _buttonActionableBackgroundColor = [[self class] colorForKeyPath:OUIButtonActionableBackgroundColorKeyPath
-                                                                  source:self.definition
-                                                                fallback:[UIColor greenColor]];
+        _buttonActionableBackgroundColor = [UIColor colorForKeyPath:OUIButtonActionableBackgroundColorKeyPath
+                                                             source:self.definition
+                                                           fallback:[UIColor greenColor]];
     }
     
     return _buttonActionableBackgroundColor;
@@ -198,9 +185,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)buttonActionableTextColor
 {
     if (!_buttonActionableTextColor) {
-        _buttonActionableTextColor = [[self class] colorForKeyPath:OUIButtonActionableTextColorKeyPath
-                                                            source:self.definition
-                                                          fallback:[UIColor whiteColor]];
+        _buttonActionableTextColor = [UIColor colorForKeyPath:OUIButtonActionableTextColorKeyPath
+                                                       source:self.definition
+                                                     fallback:[UIColor whiteColor]];
     }
     
     return _buttonActionableTextColor;
@@ -211,9 +198,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)tableViewBackgroundColor
 {
     if (!_tableViewBackgroundColor) {
-        _tableViewBackgroundColor = [[self class] colorForKeyPath:OUITableViewBackgroundColorKeyPath
-                                                           source:self.definition
-                                                         fallback:[UIColor whiteColor]];
+        _tableViewBackgroundColor = [UIColor colorForKeyPath:OUITableViewBackgroundColorKeyPath
+                                                      source:self.definition
+                                                    fallback:[UIColor whiteColor]];
     }
     
     return _tableViewBackgroundColor;
@@ -222,9 +209,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)tableViewSeparatorColor
 {
     if (!_tableViewSeparatorColor) {
-        _tableViewSeparatorColor = [[self class] colorForKeyPath:OUITableViewSeparatorColorKeyPath
-                                                          source:self.definition
-                                                        fallback:[UIColor lightGrayColor]];
+        _tableViewSeparatorColor = [UIColor colorForKeyPath:OUITableViewSeparatorColorKeyPath
+                                                     source:self.definition
+                                                   fallback:[UIColor lightGrayColor]];
     }
     
     return _tableViewSeparatorColor;
@@ -233,9 +220,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)tableViewCellBackgroundColor
 {
     if (!_tableViewCellBackgroundColor) {
-        _tableViewCellBackgroundColor = [[self class] colorForKeyPath:OUITableViewCellBackgroundColorKeyPath
-                                                               source:self.definition
-                                                             fallback:[UIColor whiteColor]];
+        _tableViewCellBackgroundColor = [UIColor colorForKeyPath:OUITableViewCellBackgroundColorKeyPath
+                                                          source:self.definition
+                                                        fallback:[UIColor whiteColor]];
     }
     
     return _tableViewCellBackgroundColor;
@@ -244,9 +231,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)tableViewCellSelectedBackgroundColor
 {
     if (!_tableViewCellSelectedBackgroundColor) {
-        _tableViewCellSelectedBackgroundColor = [[self class] colorForKeyPath:OUITableViewCellSelectedBackgroundColorKeyPath
-                                                                       source:self.definition
-                                                                     fallback:[UIColor lightGrayColor]];
+        _tableViewCellSelectedBackgroundColor = [UIColor colorForKeyPath:OUITableViewCellSelectedBackgroundColorKeyPath
+                                                                  source:self.definition
+                                                                fallback:[UIColor lightGrayColor]];
     }
     
     return _tableViewCellSelectedBackgroundColor;
@@ -255,9 +242,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)tableViewCellHighlightedBackgroundColor
 {
     if (!_tableViewCellHighlightedBackgroundColor) {
-        _tableViewCellHighlightedBackgroundColor = [[self class] colorForKeyPath:OUITableViewCellHighlightedTextColorKeyPath
-                                                                          source:self.definition
-                                                                        fallback:[UIColor lightGrayColor]];
+        _tableViewCellHighlightedBackgroundColor = [UIColor colorForKeyPath:OUITableViewCellHighlightedTextColorKeyPath
+                                                                     source:self.definition
+                                                                   fallback:[UIColor lightGrayColor]];
     }
     
     return _tableViewCellHighlightedBackgroundColor;
@@ -266,9 +253,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)tableViewCellTextColor
 {
     if (!_tableViewCellTextColor) {
-        _tableViewCellTextColor = [[self class] colorForKeyPath:OUITableViewCellTextColorKeyPath
-                                                         source:self.definition
-                                                       fallback:[UIColor darkGrayColor]];
+        _tableViewCellTextColor = [UIColor colorForKeyPath:OUITableViewCellTextColorKeyPath
+                                                    source:self.definition
+                                                  fallback:[UIColor darkGrayColor]];
     }
     
     return _tableViewCellTextColor;
@@ -278,9 +265,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)tableViewCellSelectedTextColor
 {
     if (!_tableViewCellSelectedTextColor) {
-        _tableViewCellSelectedTextColor = [[self class] colorForKeyPath:OUITableViewCellSelectedTextColorKeyPath
-                                                                 source:self.definition
-                                                               fallback:[UIColor darkGrayColor]];
+        _tableViewCellSelectedTextColor = [UIColor colorForKeyPath:OUITableViewCellSelectedTextColorKeyPath
+                                                            source:self.definition
+                                                          fallback:[UIColor darkGrayColor]];
     }
     
     return _tableViewCellSelectedTextColor;
@@ -289,9 +276,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)tableViewCellHighlightedTextColor
 {
     if (!_tableViewCellHighlightedTextColor) {
-        _tableViewCellHighlightedTextColor = [[self class] colorForKeyPath:OUITableViewCellHighlightedTextColorKeyPath
-                                                                    source:self.definition
-                                                                  fallback:[UIColor darkGrayColor]];
+        _tableViewCellHighlightedTextColor = [UIColor colorForKeyPath:OUITableViewCellHighlightedTextColorKeyPath
+                                                               source:self.definition
+                                                             fallback:[UIColor darkGrayColor]];
     }
     
     return _tableViewCellHighlightedTextColor;
@@ -302,20 +289,20 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)collectionViewBackgroundColor
 {
     if (!_collectionViewBackgroundColor) {
-        _collectionViewBackgroundColor = [[self class] colorForKeyPath:OUICollectionViewBackgroundColorKeyPath
-                                                                source:self.definition
-                                                              fallback:[UIColor whiteColor]];
+        _collectionViewBackgroundColor = [UIColor colorForKeyPath:OUICollectionViewBackgroundColorKeyPath
+                                                           source:self.definition
+                                                         fallback:[UIColor whiteColor]];
     }
-    
+
     return _collectionViewBackgroundColor;
 }
 
 - (UIColor *)collectionViewCellBackgroundColor
 {
     if (!_collectionViewCellBackgroundColor) {
-        _collectionViewCellBackgroundColor = [[self class] colorForKeyPath:OUICollectionViewCellBackgroundColorKeyPath
-                                                                    source:self.definition
-                                                                  fallback:[UIColor whiteColor]];
+        _collectionViewCellBackgroundColor = [UIColor colorForKeyPath:OUICollectionViewCellBackgroundColorKeyPath
+                                                               source:self.definition
+                                                             fallback:[UIColor whiteColor]];
     }
     
     return _collectionViewCellBackgroundColor;
@@ -324,9 +311,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)collectionViewCellSelectedBackgroundColor
 {
     if (!_collectionViewCellSelectedBackgroundColor) {
-        _collectionViewCellSelectedBackgroundColor = [[self class] colorForKeyPath:OUICollectionViewCellSelectedBackgroundColorKeyPath
-                                                                            source:self.definition
-                                                                          fallback:[UIColor lightGrayColor]];
+        _collectionViewCellSelectedBackgroundColor = [UIColor colorForKeyPath:OUICollectionViewCellSelectedBackgroundColorKeyPath
+                                                                       source:self.definition
+                                                                     fallback:[UIColor lightGrayColor]];
     }
     
     return _collectionViewCellSelectedBackgroundColor;
@@ -335,9 +322,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)collectionViewCellHighlightedBackgroundColor
 {
     if (!_collectionViewCellHighlightedBackgroundColor) {
-        _collectionViewCellHighlightedBackgroundColor = [[self class] colorForKeyPath:OUICollectionViewCellHighlightedBackgroundColorKeyPath
-                                                                               source:self.definition
-                                                                             fallback:[UIColor lightGrayColor]];
+        _collectionViewCellHighlightedBackgroundColor = [UIColor colorForKeyPath:OUICollectionViewCellHighlightedBackgroundColorKeyPath
+                                                                          source:self.definition
+                                                                        fallback:[UIColor lightGrayColor]];
     }
     
     return _collectionViewCellHighlightedBackgroundColor;
@@ -346,9 +333,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)collectionViewCellTextColor
 {
     if (!_collectionViewCellTextColor) {
-        _collectionViewCellTextColor = [[self class] colorForKeyPath:OUICollectionViewCellTextColorKeyPath
-                                                              source:self.definition
-                                                            fallback:[UIColor darkGrayColor]];
+        _collectionViewCellTextColor = [UIColor colorForKeyPath:OUICollectionViewCellTextColorKeyPath
+                                                         source:self.definition
+                                                       fallback:[UIColor darkGrayColor]];
     }
     
     return _collectionViewCellTextColor;
@@ -357,9 +344,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)collectionViewCellSelectedTextColor
 {
     if (!_collectionViewCellSelectedTextColor) {
-        _collectionViewCellSelectedTextColor = [[self class] colorForKeyPath:OUICollectionViewCellSelectedTextColorKeyPath
-                                                                      source:self.definition
-                                                                    fallback:[UIColor darkGrayColor]];
+        _collectionViewCellSelectedTextColor = [UIColor colorForKeyPath:OUICollectionViewCellSelectedTextColorKeyPath
+                                                                 source:self.definition
+                                                               fallback:[UIColor darkGrayColor]];
     }
     
     return _collectionViewCellSelectedTextColor;
@@ -368,9 +355,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)collectionViewCellHighlightedTextColor
 {
     if (!_collectionViewCellHighlightedTextColor) {
-        _collectionViewCellHighlightedTextColor = [[self class] colorForKeyPath:OUICollectionViewCellHighlightedTextColorKeyPath
-                                                                         source:self.definition
-                                                                       fallback:[UIColor darkGrayColor]];
+        _collectionViewCellHighlightedTextColor = [UIColor colorForKeyPath:OUICollectionViewCellHighlightedTextColorKeyPath
+                                                                    source:self.definition
+                                                                  fallback:[UIColor darkGrayColor]];
     }
     
     return _collectionViewCellHighlightedTextColor;
@@ -381,9 +368,9 @@ NSString * const OUIViewBackgroundColorKeyPath = @"view.backgroundColor";
 - (UIColor *)viewBackgroundColor
 {
     if (!_viewBackgroundColor) {
-        _viewBackgroundColor = [[self class] colorForKeyPath:OUIViewBackgroundColorKeyPath
-                                                      source:self.definition
-                                                    fallback:[UIColor whiteColor]];
+        _viewBackgroundColor = [UIColor colorForKeyPath:OUIViewBackgroundColorKeyPath
+                                                 source:self.definition
+                                               fallback:[UIColor whiteColor]];
     }
     
     return _viewBackgroundColor;

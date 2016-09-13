@@ -41,7 +41,9 @@ NSString * const OUIColorErrorKey = @"error";
 - (UIColor *)primaryColor
 {
     if (!_primaryColor) {
-        _primaryColor = [UIColor colorForKey:OUIColorPrimaryKey source:self.definition fallback:[UIColor oth_hex:0x00A0D8]];
+        _primaryColor = [UIColor colorForKeyPath:OUIColorPrimaryKey
+                                          source:self.definition
+                                        fallback:[UIColor oth_hex:0x00A0D8]];
     }
     
     return _primaryColor;
@@ -50,7 +52,9 @@ NSString * const OUIColorErrorKey = @"error";
 - (UIColor *)secondaryColor
 {
     if (!_secondaryColor) {
-        _secondaryColor = [[OriginateThemeColors class] colorForKey:OUIColorSecondaryKey source:self.definition fallback:[UIColor oth_hex:0xFCD92B]];
+        _secondaryColor = [UIColor colorForKeyPath:OUIColorSecondaryKey
+                                            source:self.definition
+                                          fallback:[UIColor oth_hex:0xFCD92B]];
     }
     
     return _secondaryColor;
@@ -59,7 +63,9 @@ NSString * const OUIColorErrorKey = @"error";
 - (UIColor *)successColor
 {
     if (!_successColor) {
-        _successColor = [[OriginateThemeColors class] colorForKey:OUIColorSuccessKey source:self.definition fallback:[UIColor oth_hex:0x95BE22]];
+        _successColor = [UIColor colorForKeyPath:OUIColorSuccessKey
+                                          source:self.definition
+                                        fallback:[UIColor oth_hex:0x95BE22]];
     }
     
     return _successColor;
@@ -68,7 +74,9 @@ NSString * const OUIColorErrorKey = @"error";
 - (UIColor *)warningColor
 {
     if (!_warningColor) {
-        _warningColor = [[OriginateThemeColors class] colorForKey:OUIColorWarningKey source:self.definition fallback:[UIColor oth_hex:0xFFA500]];
+        _warningColor = [UIColor colorForKeyPath:OUIColorWarningKey
+                                          source:self.definition
+                                        fallback:[UIColor oth_hex:0xFFA500]];
     }
     
     return _warningColor;
@@ -77,7 +85,9 @@ NSString * const OUIColorErrorKey = @"error";
 - (UIColor *)errorColor
 {
     if (!_errorColor) {
-        _errorColor = [[OriginateThemeColors class] colorForKey:OUIColorErrorKey source:self.definition fallback:[UIColor oth_hex:0xFD1111]];
+        _errorColor = [UIColor colorForKeyPath:OUIColorErrorKey
+                                        source:self.definition
+                                      fallback:[UIColor oth_hex:0xFD1111]];
     }
     
     return _errorColor;

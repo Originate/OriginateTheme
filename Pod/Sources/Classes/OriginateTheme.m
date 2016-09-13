@@ -17,8 +17,8 @@
 @property (nonatomic, strong, readwrite) NSDictionary *definition;
 
 @property (nonatomic, strong, readwrite) OriginateThemeColors *colors;
-@property (nonatomic, strong, readwrite) OriginateThemeFonts *fonts;
 @property (nonatomic, strong, readwrite) OriginateThemeComponents *components;
+@property (nonatomic, strong, readwrite) OriginateThemeFonts *fonts;
 
 @end
 
@@ -50,14 +50,7 @@
     return self;
 }
 
-- (OriginateThemeComponents *)components
-{
-    if (!_components) {
-        _components = [[OriginateThemeComponents alloc] initWithDictionary:self.definition[@"components"]];
-    }
-    
-    return _components;
-}
+#pragma mark - OriginateUI (Properties)
 
 - (OriginateThemeColors *)colors
 {
@@ -66,6 +59,15 @@
     }
     
     return _colors;
+}
+
+- (OriginateThemeComponents *)components
+{
+    if (!_components) {
+        _components = [[OriginateThemeComponents alloc] initWithDictionary:self.definition[@"components"]];
+    }
+    
+    return _components;
 }
 
 - (OriginateThemeFonts *)fonts
