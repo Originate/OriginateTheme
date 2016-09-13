@@ -84,7 +84,7 @@ def parseFonts(fonts):
 
 def parseColors(colors):
     results = []
-    hexPattern = re.compile("^(?:[0-9a-fA-F]{3}){1,2}$")
+    hexPattern = re.compile("^(?:[0-9a-fA-F]{6}){1}$")
     for key, value in colors.iteritems():
         if hexPattern.match(value) is None:
             print 'Color with key "' + key + '" is not specified with a valid hex color code.'
@@ -93,7 +93,18 @@ def parseColors(colors):
     return results
 
 def parseComponents(components):
-    return []
+    results = []
+    for key, value in components.iteritems():
+        fonts = []
+        colors = []
+
+        if 'fonts' in value:
+            fonts = parseFonts(value['fonts'])
+
+        if 'colors' in value:
+            colors = parseColors(value['colors'])
+        results.append(Component(key, fonts, colors))
+    return results
 
 def main(argv):
     """
@@ -135,7 +146,7 @@ def main(argv):
             sys.exit()
 
     # Create the fonts, colors and components output files.
-    #print colors
+    print components
 
 if __name__ == "__main__":
     main(sys.argv[1:])
