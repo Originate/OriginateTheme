@@ -9,6 +9,10 @@ import re
 import string
 import sys
 
+###################
+##### Classes #####
+###################
+
 class Font():
     def __init__(self, key, name, size):
         self.key = key
@@ -25,6 +29,10 @@ class Component():
         self.key = key
         self.fonts = fonts
         self.colors = colors
+
+##################
+##### Parser #####
+##################
 
 def parseArguments(argv):
     """
@@ -139,6 +147,22 @@ def parseComponents(components):
         results.append(Component(key, fonts, colors))
     return results
 
+######################
+##### Generators #####
+######################
+
+def createStrongUIFontProperty(font):
+    return
+
+def createFontPropertyKey(font):
+    return
+
+def createFontPropertyKeyDefinition(font):
+    return
+
+def createFontGetter(font):
+    return
+
 def generateFontsOutput(outputDirectory, fonts):
     return
 
@@ -202,6 +226,10 @@ def generateColorsOutput(outputDirectory, colors):
 
 def generateComponentsOutput(outputDirectory, components):
     return
+
+################
+##### Main #####
+################
 
 def main(argv):
     """
