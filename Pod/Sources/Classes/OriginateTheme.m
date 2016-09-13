@@ -29,7 +29,10 @@
     
     if (self) {
         NSError *error;
-        NSString *json = [NSString stringWithContentsOfFile:[URL relativePath] encoding:NSUTF8StringEncoding error:&error];
+        NSString *json = [NSString stringWithContentsOfFile:[URL relativePath]
+                                                   encoding:NSUTF8StringEncoding
+                                                      error:&error];
+        
         NSData *data = [json dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *definition = [NSJSONSerialization JSONObjectWithData:data
                                                                    options:0

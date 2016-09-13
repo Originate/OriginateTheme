@@ -6,9 +6,11 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   OriginateTheme:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
   OriginateTheme: 538a81f63555a776fa6cb3b635b3f08d719db0e5
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 73809eb09fd88839dae6afb3fedf54279333dad8
+
+COCOAPODS: 1.0.1
