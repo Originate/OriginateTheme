@@ -7,14 +7,12 @@
 //
 
 #import "OriginateThemeFonts.h"
+#import "UIFont+OriginateThemeKeySource.h"
 
 NSString * const OUIFontsDefaultKey = @"default";
 NSString * const OUIFontsDefaultBoldKey = @"defaultBold";
 NSString * const OUIFontsDefaultItalicKey = @"defaultItalic";
 NSString * const OUIFontsDefaultLightKey = @"defaultLight";
-
-NSString * const OUIFontNameKey = @"name";
-NSString * const OUIFontSizeKey = @"size";
 
 @interface OriginateThemeFonts ()
 
@@ -41,9 +39,9 @@ NSString * const OUIFontSizeKey = @"size";
 - (UIFont *)defaultFont
 {
     if (!_defaultFont) {
-        _defaultFont = [[OriginateThemeFonts class] fontForKey:OUIFontsDefaultKey
-                                                        source:self.definition
-                                                      fallback:[UIFont systemFontOfSize:[UIFont systemFontSize]]];
+        _defaultFont = [UIFont fontForKey:OUIFontsDefaultKey
+                                   source:self.definition
+                                 fallback:[UIFont systemFontOfSize:[UIFont systemFontSize]]];
     }
     
     return _defaultFont;
@@ -52,9 +50,9 @@ NSString * const OUIFontSizeKey = @"size";
 - (UIFont *)defaultBoldFont
 {
     if (!_defaultBoldFont) {
-        _defaultBoldFont = [[OriginateThemeFonts class] fontForKey:OUIFontsDefaultBoldKey
-                                                            source:self.definition
-                                                          fallback:[UIFont boldSystemFontOfSize:[UIFont systemFontSize]]];
+        _defaultBoldFont = [UIFont fontForKey:OUIFontsDefaultBoldKey
+                                       source:self.definition
+                                     fallback:[UIFont boldSystemFontOfSize:[UIFont systemFontSize]]];
     }
     
     return _defaultBoldFont;
@@ -63,9 +61,9 @@ NSString * const OUIFontSizeKey = @"size";
 - (UIFont *)defaultItalicFont
 {
     if (!_defaultItalicFont) {
-        _defaultItalicFont = [[OriginateThemeFonts class] fontForKey:OUIFontsDefaultItalicKey
-                                                              source:self.definition
-                                                            fallback:[UIFont italicSystemFontOfSize:[UIFont systemFontSize]]];
+        _defaultItalicFont = [UIFont fontForKey:OUIFontsDefaultItalicKey
+                                         source:self.definition
+                                       fallback:[UIFont italicSystemFontOfSize:[UIFont systemFontSize]]];
     }
     
     return _defaultItalicFont;
@@ -74,33 +72,12 @@ NSString * const OUIFontSizeKey = @"size";
 - (UIFont *)defaultLightFont
 {
     if (!_defaultLightFont) {
-        _defaultLightFont = [[OriginateThemeFonts class] fontForKey:OUIFontsDefaultLightKey
-                                                             source:self.definition
-                                                           fallback:[UIFont systemFontOfSize:[UIFont systemFontSize]]];
+        _defaultLightFont = [UIFont fontForKey:OUIFontsDefaultLightKey
+                                        source:self.definition
+                                      fallback:[UIFont systemFontOfSize:[UIFont systemFontSize]]];
     }
     
     return _defaultLightFont;
-}
-
-+ (UIFont *)fontForKey:(NSString *)key
-                source:(NSDictionary *)definition
-              fallback:(UIFont *)fallback
-{
-    NSString *name = definition[key][OUIFontNameKey];
-    CGFloat size = [definition[key][OUIFontSizeKey] doubleValue];
-    
-    if (size == 0.0) {
-        size = [UIFont systemFontSize];
-    }
-    
-    if (!name && fallback) {
-        return fallback;
-    }
-    else if (!name) {
-        return [UIFont systemFontOfSize:size];
-    }
-    
-    return [UIFont fontWithName:name size:size];
 }
 
 @end

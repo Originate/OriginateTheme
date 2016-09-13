@@ -7,9 +7,7 @@
 //
 
 #import "OriginateTheme.h"
+#import "OriginateThemeable.h"
+#import "OriginateThemeColors.h"
 #import "OriginateThemeComponents.h"
 #import "OriginateThemeFonts.h"
-
-#import "OriginateThemeable.h"
-
-#import "UIColor+OriginateThemeHex.h"

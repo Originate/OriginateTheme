@@ -1,6 +1,6 @@
 //
 //  UIImage+OriginateThemeHex.m
-//  OriginateUI
+//  OriginateTheme
 //
 //  Created by Philip Kluz on 2016-05-06.
 //  Copyright (c) 2016 Originate. All rights reserved.

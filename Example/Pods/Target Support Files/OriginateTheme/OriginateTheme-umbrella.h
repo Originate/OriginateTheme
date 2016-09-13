@@ -1,13 +1,6 @@
-#import <UIKit/UIKit.h>
+@import UIKit;
 
-#import "UIColor+OriginateThemeHex.h"
-#import "OriginateTheme.h"
-#import "OriginateThemeable.h"
-#import "OriginateThemeColors.h"
-#import "OriginateThemeComponents.h"
-#import "OriginateThemeFonts.h"
 #import "OriginateThemeKit.h"
 
 FOUNDATION_EXPORT double OriginateThemeVersionNumber;
 FOUNDATION_EXPORT const unsigned char OriginateThemeVersionString[];
-
