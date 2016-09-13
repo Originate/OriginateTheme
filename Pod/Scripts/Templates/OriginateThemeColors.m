@@ -35,7 +35,6 @@ $OriginateThemeColorsPublicPropertiesKeys
 }
 
 #pragma mark - OriginateThemeColor (Properties)
-
 $OriginateThemeColorsPublicPropertiesGetters
 
 @end

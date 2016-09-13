@@ -55,7 +55,7 @@
 - (OriginateThemeColors *)colors
 {
     if (!_colors) {
-        _colors = [[OriginateThemeColors alloc] initWithDictionary:self.definition[@"colors"]];
+        _colors = [[OriginateThemeColors alloc] initWithDictionary:self.definition];
     }
     
     return _colors;
@@ -64,7 +64,7 @@
 - (OriginateThemeComponents *)components
 {
     if (!_components) {
-        _components = [[OriginateThemeComponents alloc] initWithDictionary:self.definition[@"components"]];
+        _components = [[OriginateThemeComponents alloc] initWithDictionary:self.definition];
     }
     
     return _components;
@@ -73,7 +73,7 @@
 - (OriginateThemeFonts *)fonts
 {
     if (!_fonts) {
-        _fonts = [[OriginateThemeFonts alloc] initWithDictionary:self.definition[@"fonts"]];
+        _fonts = [[OriginateThemeFonts alloc] initWithDictionary:self.definition];
     }
     
     return _fonts;
