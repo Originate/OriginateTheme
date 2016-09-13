@@ -11,6 +11,6 @@
 @interface UIFont (OriginateThemeKeySource)
 
 #pragma mark - Methods
-+ (UIFont *)fontForKey:(NSString *)key source:(NSDictionary *)definition fallback:(UIFont *)fallback;
++ (UIFont *)fontForKeyPath:(NSString *)keyPath source:(NSDictionary *)definition fallback:(UIFont *)fallback;
 
 @end

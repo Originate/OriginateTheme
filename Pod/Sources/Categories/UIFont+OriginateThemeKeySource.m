@@ -15,10 +15,10 @@ NSString * const OTHFontSizeKey = @"size";
 
 #pragma mark - UIFont (OriginateThemeKeySource)
 
-+ (UIFont *)fontForKey:(NSString *)key source:(NSDictionary *)definition fallback:(UIFont *)fallback
++ (UIFont *)fontForKeyPath:(NSString *)keyPath source:(NSDictionary *)definition fallback:(UIFont *)fallback
 {
-    NSString *name = [definition valueForKeyPath:[NSString stringWithFormat:@"%@.%@", key, OTHFontNameKey]];
-    CGFloat size = [[definition valueForKeyPath:[NSString stringWithFormat:@"%@.%@", key, OTHFontSizeKey]] doubleValue];
+    NSString *name = [definition valueForKeyPath:[NSString stringWithFormat:@"%@.%@", keyPath, OTHFontNameKey]];
+    CGFloat size = [[definition valueForKeyPath:[NSString stringWithFormat:@"%@.%@", keyPath, OTHFontSizeKey]] doubleValue];
     
     if (size == 0.0) {
         size = [UIFont systemFontSize];
@@ -26,8 +26,7 @@ NSString * const OTHFontSizeKey = @"size";
     
     if (!name && fallback) {
         return fallback;
-    }
-    else if (!name) {
+    } else if (!name) {
         return [UIFont systemFontOfSize:size];
     }
     

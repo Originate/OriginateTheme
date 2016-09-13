@@ -39,9 +39,9 @@ NSString * const OUIFontsDefaultLightKey = @"defaultLight";
 - (UIFont *)defaultFont
 {
     if (!_defaultFont) {
-        _defaultFont = [UIFont fontForKey:OUIFontsDefaultKey
-                                   source:self.definition
-                                 fallback:[UIFont systemFontOfSize:[UIFont systemFontSize]]];
+        _defaultFont = [UIFont fontForKeyPath:OUIFontsDefaultKey
+                                       source:self.definition
+                                     fallback:[UIFont systemFontOfSize:[UIFont systemFontSize]]];
     }
     
     return _defaultFont;
@@ -50,9 +50,9 @@ NSString * const OUIFontsDefaultLightKey = @"defaultLight";
 - (UIFont *)defaultBoldFont
 {
     if (!_defaultBoldFont) {
-        _defaultBoldFont = [UIFont fontForKey:OUIFontsDefaultBoldKey
-                                       source:self.definition
-                                     fallback:[UIFont boldSystemFontOfSize:[UIFont systemFontSize]]];
+        _defaultBoldFont = [UIFont fontForKeyPath:OUIFontsDefaultBoldKey
+                                           source:self.definition
+                                         fallback:[UIFont boldSystemFontOfSize:[UIFont systemFontSize]]];
     }
     
     return _defaultBoldFont;
@@ -61,9 +61,9 @@ NSString * const OUIFontsDefaultLightKey = @"defaultLight";
 - (UIFont *)defaultItalicFont
 {
     if (!_defaultItalicFont) {
-        _defaultItalicFont = [UIFont fontForKey:OUIFontsDefaultItalicKey
-                                         source:self.definition
-                                       fallback:[UIFont italicSystemFontOfSize:[UIFont systemFontSize]]];
+        _defaultItalicFont = [UIFont fontForKeyPath:OUIFontsDefaultItalicKey
+                                             source:self.definition
+                                           fallback:[UIFont italicSystemFontOfSize:[UIFont systemFontSize]]];
     }
     
     return _defaultItalicFont;
@@ -72,9 +72,9 @@ NSString * const OUIFontsDefaultLightKey = @"defaultLight";
 - (UIFont *)defaultLightFont
 {
     if (!_defaultLightFont) {
-        _defaultLightFont = [UIFont fontForKey:OUIFontsDefaultLightKey
-                                        source:self.definition
-                                      fallback:[UIFont systemFontOfSize:[UIFont systemFontSize]]];
+        _defaultLightFont = [UIFont fontForKeyPath:OUIFontsDefaultLightKey
+                                            source:self.definition
+                                          fallback:[UIFont systemFontOfSize:[UIFont systemFontSize]]];
     }
     
     return _defaultLightFont;
