@@ -52,13 +52,38 @@ OriginateTheme introduces the concept of a `theme`. A theme is specified using `
     },
     "components" : {
         "navigationBar" : {
-            "backgroundColor" : "84E0FA",
-            "textColor" : "000000"
+            "colors" : {
+                "backgroundColor" : "84E0FA",
+                "titleColor" : "000000",
+                "descriptionColor" : "979797",
+                ...
+            },
+            "fonts" : {
+                "textFont" : {
+                    "name" : "HelveticaNeue-Light",
+                    "size" : 14.0
+                },
+                "descriptionFont" : {
+                    "name" : "HelveticaNeue-Light",
+                    "size" : 12.0
+                },
+                ...
+            }              
         },
         "tabBar" : {
-            "backgroundColor" : "FFFFFF",
-            "textColor" : "424242",
-            "selectedTextColor" : "4C66A4"
+            "colors" : {
+                "backgroundColor" : "FFFFFF",
+                "textColor" : "424242",
+                "selectedTextColor" : "4C66A4",
+                ...
+            },
+            "fonts" : {
+                "titleFont" : {
+                    "name" : "HelveticaNeue-Light",
+                    "size" : 14.0
+                },
+                ...
+            }            
         },
         ...
     }
