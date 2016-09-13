@@ -5,7 +5,25 @@
 import getopt
 import json
 import os
+import re
 import sys
+
+class Font():
+    def __init__(self, key, name, size):
+        self.key = key
+        self.name = name
+        self.size = size
+
+class Color():
+    def __init__(self, key, color):
+        self.key = key
+        self.color = color
+
+class Component():
+    def __init__(self, key, fonts, colors):
+        self.key = key
+        self.fonts = fonts
+        self.colors = colors
 
 def parseArguments(argv):
     """
@@ -56,10 +74,23 @@ def parseArguments(argv):
     return (inputFile, outputDirectory)
 
 def parseFonts(fonts):
-    return []
+    results = []
+    for key, value in fonts.iteritems():
+        if 'name' not in value or 'size' not in value:
+            print 'Font with key "' + key + '" is not properly formed!'
+            continue
+        results.append(Font(key, value['name'], value['size']))
+    return results
 
 def parseColors(colors):
-    return []
+    results = []
+    hexPattern = re.compile("^(?:[0-9a-fA-F]{3}){1,2}$")
+    for key, value in colors.iteritems():
+        if hexPattern.match(value) is None:
+            print 'Color with key "' + key + '" is not specified with a valid hex color code.'
+            continue
+        results.append(Color(key, value))
+    return results
 
 def parseComponents(components):
     return []
@@ -88,20 +119,23 @@ def main(argv):
             data = json.load(file, 'utf-8')
 
             # Parse fonts.
-            if 'fonts' in inputFile:
-                parseFonts(inputFile['fonts'])
+            if 'fonts' in data:
+                fonts = parseFonts(data['fonts'])
 
             # Parse colors.
-            if 'colors' in inputFile:
-                parseColors(inputFile['colors'])
+            if 'colors' in data:
+                colors = parseColors(data['colors'])
 
             # Parse components.
-            if 'components' in inputFile:
-                parseComponents(inputFile['components'])
+            if 'components' in data:
+                components = parseComponents(data['components'])
 
         except ValueError:
             print 'Decoding JSON input file failed!'
             sys.exit()
+
+    # Create the fonts, colors and components output files.
+    #print colors
 
 if __name__ == "__main__":
     main(sys.argv[1:])
