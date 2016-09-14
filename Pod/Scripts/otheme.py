@@ -294,6 +294,9 @@ def generateColorsOutput(outputDirectory, colors):
     return
 
 def generateComponentsOutput(outputDirectory, components):
+
+    # Generate the
+
     return
 
 ################

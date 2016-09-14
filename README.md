@@ -8,6 +8,8 @@ Execute inside the Example directory.
 ./otheme.py -i ../../Example/OriginateTheme/StyleDefinition.json -o ../../Pod/Sources/Classes/
 ```
 
+In case no valid values for keys in JSON these values will be discarded for the file generation. 
+
 # Installation with CocoaPods
 Add the following lines to your Podfile and run `pod install`.
 

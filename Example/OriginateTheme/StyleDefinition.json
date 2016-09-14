@@ -27,16 +27,16 @@
     "components" : {
         "navigationBar" : {
             "colors" : {
-                "backgroundColor" : "84E0FA",
-                "titleColor" : "000000",
-                "descriptionColor" : "979797"
+                "background" : "84E0FA",
+                "title" : "000000",
+                "description" : "979797"
             },
             "fonts" : {
-                "textFont" : {
+                "text" : {
                     "name" : "HelveticaNeue-Light",
                     "size" : 14.0
                 },
-                "descriptionFont" : {
+                "description" : {
                     "name" : "HelveticaNeue-Light",
                     "size" : 12.0
                 }
@@ -44,12 +44,12 @@
         },
         "tabBar" : {
             "colors" : {
-                "backgroundColor" : "FFFFFF",
-                "textColor" : "424242",
-                "selectedTextColor" : "4C66A4"
+                "background" : "FFFFFF",
+                "text" : "424242",
+                "selectedText" : "4C66A4"
             },
             "fonts" : {
-                "titleFont" : {
+                "title" : {
                     "name" : "HelveticaNeue-Light",
                     "size" : 14.0
                 }
