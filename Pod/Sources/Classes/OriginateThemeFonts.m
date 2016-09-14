@@ -1,5 +1,5 @@
 //
-//  OriginateThemeFonts.h
+//  OriginateThemeFonts.m
 //  OriginateTheme
 //
 //  Created by Robert Weindl on 2016-09-13.
@@ -7,6 +7,8 @@
 //
 
 #import "OriginateThemeFonts.h"
+#import "UIColor+OriginateThemeHex.h";
+#import "UIColor+OriginateThemeKeySource.h";
 #import "UIFont+OriginateThemeKeySource.h"
 
 NSString * const OTHFontsDefaultKeyPathKey = @"fonts.default";
@@ -43,7 +45,8 @@ NSString * const OTHFontsDefaultLightKeyPathKey = @"fonts.defaultLight";
 
 #pragma mark - OriginateThemeFonts (Properties)
 
-- (UIFont *)defaultFont {
+- (UIFont *)defaultFont
+{
     if (!_defaultFont) {
         _defaultFont = [UIFont fontForKeyPath:OTHFontsDefaultKeyPathKey
                                     source:self.definition
@@ -54,7 +57,8 @@ NSString * const OTHFontsDefaultLightKeyPathKey = @"fonts.defaultLight";
 }
 
 
-- (UIFont *)defaultBoldFont {
+- (UIFont *)defaultBoldFont
+{
     if (!_defaultBoldFont) {
         _defaultBoldFont = [UIFont fontForKeyPath:OTHFontsDefaultBoldKeyPathKey
                                     source:self.definition
@@ -65,7 +69,8 @@ NSString * const OTHFontsDefaultLightKeyPathKey = @"fonts.defaultLight";
 }
 
 
-- (UIFont *)defaultItalicFont {
+- (UIFont *)defaultItalicFont
+{
     if (!_defaultItalicFont) {
         _defaultItalicFont = [UIFont fontForKeyPath:OTHFontsDefaultItalicKeyPathKey
                                     source:self.definition
@@ -76,7 +81,8 @@ NSString * const OTHFontsDefaultLightKeyPathKey = @"fonts.defaultLight";
 }
 
 
-- (UIFont *)defaultLightFont {
+- (UIFont *)defaultLightFont
+{
     if (!_defaultLightFont) {
         _defaultLightFont = [UIFont fontForKeyPath:OTHFontsDefaultLightKeyPathKey
                                     source:self.definition

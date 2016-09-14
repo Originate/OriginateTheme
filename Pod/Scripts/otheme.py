@@ -160,21 +160,19 @@ def upcaseFirstLetter(s):
         return s[0].upper() + s[1:]
     return s
 
-def createStrongUIFontReadOnlyProperty(font):
-    return '@property (nonatomic, strong, readonly) UIFont *' + font.key + 'Font;'
+def createProperty(referenceType, accessMode, propertyType, propertyName):
+    return string.Template('@property (nonatomic, ${referenceType}, ${accessMode}) ${propertyType} *${propertyName};').substitute(locals())
 
-def createStrongUIFontReadWriteProperty(font):
-    return '@property (nonatomic, strong, readwrite) UIFont *' + font.key + 'Font;'
+def createPropertyKeyPathKey(prefix, key):
+    return 'OTH' + prefix + upcaseFirstLetter(key) + 'KeyPathKey'
 
-def createFontPropertyKeyPathKey(font):
-    return 'OTHFonts' + upcaseFirstLetter(font.key) + 'KeyPathKey'
-
-def createFontPropertyKeyPathKeyDefinition(font):
-    return 'NSString * const ' + createFontPropertyKeyPathKey(font) + ' = @"fonts.' + font.key + '";'
+def createPropertyKeyPathKeyDefinition(propertyKeyPathKey, propertyKeyPathValue):
+    return 'NSString * const ' + propertyKeyPathKey + ' = @"' + propertyKeyPathValue + '";'
 
 def createFontGetter(font):
     getter = """
-- (UIFont *)$fontKey {
+- (UIFont *)$fontKey
+{
     if (!_$fontKey) {
         _$fontKey = [UIFont fontForKeyPath:$fontKeyPathKey
                                     source:self.definition
@@ -185,63 +183,12 @@ def createFontGetter(font):
 }
 """
 
-    return string.Template(getter).substitute({ 'fontKey' : font.key + 'Font', 'fontKeyPathKey' : createFontPropertyKeyPathKey(font), 'fontName' : font.name , 'fontSize' : font.size })
-
-def generateFontsOutput(outputDirectory, fonts):
-
-    # Generate the OriginateThemeFonts.h file.
-    with open('./Templates/OriginateThemeFonts.h', 'r') as headerFile:
-        # Template Source.
-        template = string.Template(headerFile.read())
-
-        # Create the public properties.
-        OriginateThemeFontsPublicProperties = map(createStrongUIFontReadOnlyProperty, fonts)
-
-        # Substitute the properties.
-        result = template.substitute({'OriginateThemeFontsPublicProperties' : '\n'.join(OriginateThemeFontsPublicProperties)})
-
-        # Store the generated file in the output directory.
-        with open(outputDirectory + 'OriginateThemeFonts.h', 'wb') as outputFile:
-            outputFile.write(result)
-
-    # Generate the OriginateThemeFonts.m file.
-    with open('./Templates/OriginateThemeFonts.m', 'r') as mainFile:
-        # Template Source.
-        template = string.Template(mainFile.read())
-
-        # Create the properties' keys.
-        OriginateThemeFontsPropertiesKeyPathKeys = map(createFontPropertyKeyPathKeyDefinition, fonts)
-
-        # Create the private properties.
-        OriginateThemeFontsPrivateProperties = map(createStrongUIFontReadWriteProperty, fonts)
-
-        # Create the properties' getters.
-        OriginateThemeFontsPropertiesGetters = map(createFontGetter, fonts)
-
-        # Substitute the properties.
-        result = template.substitute({'OriginateThemeFontsPropertiesKeyPathKeys' : '\n'.join(OriginateThemeFontsPropertiesKeyPathKeys), 'OriginateThemeFontsPrivateProperties' : '\n'.join(OriginateThemeFontsPrivateProperties), 'OriginateThemeFontsPropertiesGetters' : '\n'.join(OriginateThemeFontsPropertiesGetters)})
-
-        # Store the generated file in the output directory.
-        with open(outputDirectory + 'OriginateThemeFonts.m', 'wb') as outputFile:
-            outputFile.write(result)
-
-    return
-
-def createStrongUIColorReadOnlyProperty(color):
-    return '@property (nonatomic, strong, readonly) UIColor *' + color.key + 'Color;'
-
-def createStrongUIColorReadWriteProperty(color):
-    return '@property (nonatomic, strong, readwrite) UIColor *' + color.key + 'Color;'
-
-def createColorPropertyKeyPathKey(color):
-    return 'OTHColors' + upcaseFirstLetter(color.key) + 'KeyPathKey'
-
-def createColorPropertyKeyPathKeyDefinition(color):
-    return 'NSString * const ' + createColorPropertyKeyPathKey(color) + ' = @"colors.' + color.key + '";'
+    return string.Template(getter).substitute({ 'fontKey' : font.key + 'Font', 'fontKeyPathKey' : createPropertyKeyPathKey('Fonts', font.key), 'fontName' : font.name , 'fontSize' : font.size })
 
 def createColorGetter(color):
     getter = """
-- (UIColor *)$colorKey {
+- (UIColor *)$colorKey
+{
     if (!_$colorKey) {
         _$colorKey = [UIColor colorForKeyPath:$colorKeyPathKey
                                        source:self.definition
@@ -251,41 +198,82 @@ def createColorGetter(color):
     return _$colorKey;
 }"""
 
-    return string.Template(getter).substitute({ 'colorKey' : color.key + 'Color', 'colorKeyPathKey' : createColorPropertyKeyPathKey(color), 'colorCode' : color.code})
+    return string.Template(getter).substitute({ 'colorKey' : color.key + 'Color', 'colorKeyPathKey' : createPropertyKeyPathKey('Colors', color.key), 'colorCode' : color.code})
 
-def generateColorsOutput(outputDirectory, colors):
 
-    # Generate the OriginateThemeColors.h file.
-    with open('./Templates/OriginateThemeColors.h', 'r') as headerFile:
+def generateFontsOutput(outputDirectory, fonts):
+
+    # Generate the OriginateThemeFonts.h file.
+    with open('./Templates/OriginateThemeTemplate.h', 'r') as headerFile:
         # Template Source.
         template = string.Template(headerFile.read())
 
         # Create the public properties.
-        OriginateThemeColorsPublicProperties = map(createStrongUIColorReadOnlyProperty, colors)
+        OriginateThemeFontsPublicProperties = [createProperty('strong', 'readonly', 'UIFont', f.key + 'Font') for f in fonts];
 
         # Substitute the properties.
-        result = template.substitute({'OriginateThemeColorsPublicProperties' : '\n'.join(OriginateThemeColorsPublicProperties)})
+        result = template.substitute({'OriginateThemePublicProperties' : '\n'.join(OriginateThemeFontsPublicProperties), 'OriginateThemeClassName' : 'OriginateThemeFonts'})
+
+        # Store the generated file in the output directory.
+        with open(outputDirectory + 'OriginateThemeFonts.h', 'wb') as outputFile:
+            outputFile.write(result)
+
+    # Generate the OriginateThemeFonts.m file.
+    with open('./Templates/OriginateThemeTemplate.m', 'r') as mainFile:
+        # Template Source.
+        template = string.Template(mainFile.read())
+
+        # Create the properties' keys.
+        OriginateThemeFontsPropertiesKeyPathKeys = [createPropertyKeyPathKeyDefinition(createPropertyKeyPathKey('Fonts', f.key), 'fonts.' + f.key) for f in fonts]
+
+        # Create the private properties.
+        OriginateThemeFontsPrivateProperties = [createProperty('strong', 'readwrite', 'UIFont', f.key + 'Font') for f in fonts]
+
+        # Create the properties' getters.
+        OriginateThemeFontsPropertiesGetters = [createFontGetter(f) for f in fonts]
+
+        # Substitute the properties.
+        result = template.substitute({'OriginateThemePropertiesKeyPathKeys' : '\n'.join(OriginateThemeFontsPropertiesKeyPathKeys), 'OriginateThemePrivateProperties' : '\n'.join(OriginateThemeFontsPrivateProperties), 'OriginateThemePropertiesGetters' : '\n'.join(OriginateThemeFontsPropertiesGetters), 'OriginateThemeClassName' : 'OriginateThemeFonts'})
+
+        # Store the generated file in the output directory.
+        with open(outputDirectory + 'OriginateThemeFonts.m', 'wb') as outputFile:
+            outputFile.write(result)
+
+    return
+
+def generateColorsOutput(outputDirectory, colors):
+
+    # Generate the OriginateThemeColors.h file.
+    with open('./Templates/OriginateThemeTemplate.h', 'r') as headerFile:
+        # Template Source.
+        template = string.Template(headerFile.read())
+
+        # Create the public properties.
+        OriginateThemeColorsPublicProperties = [createProperty('strong', 'readonly', 'UIColor', c.key + 'Color') for c in colors]
+
+        # Substitute the properties.
+        result = template.substitute({'OriginateThemePublicProperties' : '\n'.join(OriginateThemeColorsPublicProperties), 'OriginateThemeClassName' : 'OriginateThemeColors'})
 
         # Store the generated file in the output directory.
         with open(outputDirectory + 'OriginateThemeColors.h', 'wb') as outputFile:
             outputFile.write(result)
 
     # Generate the OriginateThemeColors.m file.
-    with open('./Templates/OriginateThemeColors.m', 'r') as mainFile:
+    with open('./Templates/OriginateThemeTemplate.m', 'r') as mainFile:
         # Template Source.
         template = string.Template(mainFile.read())
 
         # Create the properties' keys.
-        OriginateThemeColorsPropertiesKeyPathKeys = map(createColorPropertyKeyPathKeyDefinition, colors)
+        OriginateThemeColorsPropertiesKeyPathKeys = [createPropertyKeyPathKeyDefinition(createPropertyKeyPathKey('Colors', c.key), 'colors.' + c.key) for c in colors]
 
         # Create the private properties.
-        OriginateThemeColorsPrivateProperties = map(createStrongUIColorReadWriteProperty, colors);
+        OriginateThemeColorsPrivateProperties = [createProperty('strong', 'readwrite', 'UIColor', c.key + 'Color') for c in colors];
 
         # Create the properties' getters.
-        OriginateThemeColorsPropertiesGetters = map(createColorGetter, colors)
+        OriginateThemeColorsPropertiesGetters = [createColorGetter(c) for c in colors]
 
         # Substitute the properties.
-        result = template.substitute({'OriginateThemeColorsPropertiesKeyPathKeys' : '\n'.join(OriginateThemeColorsPropertiesKeyPathKeys), 'OriginateThemeColorsPrivateProperties' : '\n'.join(OriginateThemeColorsPrivateProperties), 'OriginateThemeColorsPropertiesGetters' : '\n'.join(OriginateThemeColorsPropertiesGetters)})
+        result = template.substitute({'OriginateThemePropertiesKeyPathKeys' : '\n'.join(OriginateThemeColorsPropertiesKeyPathKeys), 'OriginateThemePrivateProperties' : '\n'.join(OriginateThemeColorsPrivateProperties), 'OriginateThemePropertiesGetters' : '\n'.join(OriginateThemeColorsPropertiesGetters), 'OriginateThemeClassName' : 'OriginateThemeColors'})
 
         # Store the generated file in the output directory.
         with open(outputDirectory + 'OriginateThemeColors.m', 'wb') as outputFile:
@@ -295,7 +283,11 @@ def generateColorsOutput(outputDirectory, colors):
 
 def generateComponentsOutput(outputDirectory, components):
 
-    # Generate the
+    # Generate the OriginateThemeComponents.h file.
+    #with open('./Templates/OriginateThemeTemplate.h', 'r') as headerFile:
+        # Template Source.
+
+    # Generate the OriginateThemeComponents.m file.
 
     return
 

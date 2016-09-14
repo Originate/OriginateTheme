@@ -1,5 +1,5 @@
 //
-//  OriginateThemeColors.h
+//  OriginateThemeColors.m
 //  OriginateTheme
 //
 //  Created by Robert Weindl on 2016-09-13.
@@ -7,8 +7,9 @@
 //
 
 #import "OriginateThemeColors.h"
-#import "UIColor+OriginateThemeHex.h"
-#import "UIColor+OriginateThemeKeySource.h"
+#import "UIColor+OriginateThemeHex.h";
+#import "UIColor+OriginateThemeKeySource.h";
+#import "UIFont+OriginateThemeKeySource.h"
 
 NSString * const OTHColorsErrorKeyPathKey = @"colors.error";
 NSString * const OTHColorsPrimaryKeyPathKey = @"colors.primary";
@@ -44,9 +45,10 @@ NSString * const OTHColorsWarningKeyPathKey = @"colors.warning";
     return self;
 }
 
-#pragma mark - OriginateThemeColor (Properties)
+#pragma mark - OriginateThemeColors (Properties)
 
-- (UIColor *)errorColor {
+- (UIColor *)errorColor
+{
     if (!_errorColor) {
         _errorColor = [UIColor colorForKeyPath:OTHColorsErrorKeyPathKey
                                        source:self.definition
@@ -56,7 +58,8 @@ NSString * const OTHColorsWarningKeyPathKey = @"colors.warning";
     return _errorColor;
 }
 
-- (UIColor *)primaryColor {
+- (UIColor *)primaryColor
+{
     if (!_primaryColor) {
         _primaryColor = [UIColor colorForKeyPath:OTHColorsPrimaryKeyPathKey
                                        source:self.definition
@@ -66,7 +69,8 @@ NSString * const OTHColorsWarningKeyPathKey = @"colors.warning";
     return _primaryColor;
 }
 
-- (UIColor *)secondaryColor {
+- (UIColor *)secondaryColor
+{
     if (!_secondaryColor) {
         _secondaryColor = [UIColor colorForKeyPath:OTHColorsSecondaryKeyPathKey
                                        source:self.definition
@@ -76,7 +80,8 @@ NSString * const OTHColorsWarningKeyPathKey = @"colors.warning";
     return _secondaryColor;
 }
 
-- (UIColor *)successColor {
+- (UIColor *)successColor
+{
     if (!_successColor) {
         _successColor = [UIColor colorForKeyPath:OTHColorsSuccessKeyPathKey
                                        source:self.definition
@@ -86,7 +91,8 @@ NSString * const OTHColorsWarningKeyPathKey = @"colors.warning";
     return _successColor;
 }
 
-- (UIColor *)warningColor {
+- (UIColor *)warningColor
+{
     if (!_warningColor) {
         _warningColor = [UIColor colorForKeyPath:OTHColorsWarningKeyPathKey
                                        source:self.definition

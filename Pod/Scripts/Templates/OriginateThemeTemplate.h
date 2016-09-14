@@ -1,5 +1,5 @@
 //
-//  OriginateThemeColors.h
+//  $OriginateThemeClassName.h
 //  OriginateTheme
 //
 //  Created by Robert Weindl on 2016-09-13.
@@ -8,10 +8,10 @@
 
 @import UIKit;
 
-@interface OriginateThemeColors : NSObject
+@interface $OriginateThemeClassName : NSObject
 
 #pragma mark - Properties
-$OriginateThemeColorsPublicProperties
+$OriginateThemePublicProperties
 
 #pragma mark - Methods
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;

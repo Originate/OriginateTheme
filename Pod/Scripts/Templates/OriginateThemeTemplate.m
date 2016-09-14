@@ -1,28 +1,30 @@
 //
-//  OriginateThemeFonts.h
+//  $OriginateThemeClassName.m
 //  OriginateTheme
 //
 //  Created by Robert Weindl on 2016-09-13.
 //  Copyright (c) 2016 Originate. All rights reserved.
 //
 
-#import "OriginateThemeFonts.h"
+#import "$OriginateThemeClassName.h"
+#import "UIColor+OriginateThemeHex.h";
+#import "UIColor+OriginateThemeKeySource.h";
 #import "UIFont+OriginateThemeKeySource.h"
 
-$OriginateThemeFontsPropertiesKeyPathKeys
+$OriginateThemePropertiesKeyPathKeys
 
-@interface OriginateThemeFonts ()
+@interface $OriginateThemeClassName ()
 
 #pragma mark - Properties
 @property (nonatomic, strong, readwrite) NSDictionary *definition;
 
-$OriginateThemeFontsPrivateProperties
+$OriginateThemePrivateProperties
 
 @end
 
-@implementation OriginateThemeFonts
+@implementation $OriginateThemeClassName
 
-#pragma mark - OriginateThemeFonts
+#pragma mark - $OriginateThemeClassName
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
@@ -35,7 +37,7 @@ $OriginateThemeFontsPrivateProperties
     return self;
 }
 
-#pragma mark - OriginateThemeFonts (Properties)
-$OriginateThemeFontsPropertiesGetters
+#pragma mark - $OriginateThemeClassName (Properties)
+$OriginateThemePropertiesGetters
 
 @end
