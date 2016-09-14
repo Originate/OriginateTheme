@@ -204,7 +204,7 @@ def createColorGetter(color):
 def generateFontsOutput(outputDirectory, fonts):
 
     # Generate the OriginateThemeFonts.h file.
-    with open('./Templates/OriginateThemeTemplate.h', 'r') as headerFile:
+    with open('./Template/OriginateThemeTemplate.h', 'r') as headerFile:
         # Template Source.
         template = string.Template(headerFile.read())
 
@@ -219,7 +219,7 @@ def generateFontsOutput(outputDirectory, fonts):
             outputFile.write(result)
 
     # Generate the OriginateThemeFonts.m file.
-    with open('./Templates/OriginateThemeTemplate.m', 'r') as mainFile:
+    with open('./Template/OriginateThemeTemplate.m', 'r') as mainFile:
         # Template Source.
         template = string.Template(mainFile.read())
 
@@ -244,7 +244,7 @@ def generateFontsOutput(outputDirectory, fonts):
 def generateColorsOutput(outputDirectory, colors):
 
     # Generate the OriginateThemeColors.h file.
-    with open('./Templates/OriginateThemeTemplate.h', 'r') as headerFile:
+    with open('./Template/OriginateThemeTemplate.h', 'r') as headerFile:
         # Template Source.
         template = string.Template(headerFile.read())
 
@@ -259,7 +259,7 @@ def generateColorsOutput(outputDirectory, colors):
             outputFile.write(result)
 
     # Generate the OriginateThemeColors.m file.
-    with open('./Templates/OriginateThemeTemplate.m', 'r') as mainFile:
+    with open('./Template/OriginateThemeTemplate.m', 'r') as mainFile:
         # Template Source.
         template = string.Template(mainFile.read())
 
@@ -284,7 +284,7 @@ def generateColorsOutput(outputDirectory, colors):
 def generateComponentsOutput(outputDirectory, components):
 
     # Generate the OriginateThemeComponents.h file.
-    #with open('./Templates/OriginateThemeTemplate.h', 'r') as headerFile:
+    #with open('./Template/OriginateThemeTemplate.h', 'r') as headerFile:
         # Template Source.
 
     # Generate the OriginateThemeComponents.m file.
