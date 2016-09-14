@@ -209,7 +209,7 @@ def generateFontsOutput(outputDirectory, fonts):
         template = string.Template(headerFile.read())
 
         # Create the public properties.
-        OriginateThemeFontsPublicProperties = [createProperty('strong', 'readonly', 'UIFont', f.key + 'Font') for f in fonts];
+        OriginateThemeFontsPublicProperties = [createProperty('strong', 'readonly', 'UIFont', f.key + 'Font') for f in fonts]
 
         # Substitute the properties.
         result = template.substitute({'OriginateThemePublicProperties' : '\n'.join(OriginateThemeFontsPublicProperties), 'OriginateThemeClassName' : 'OriginateThemeFonts'})
@@ -267,7 +267,7 @@ def generateColorsOutput(outputDirectory, colors):
         OriginateThemeColorsPropertiesKeyPathKeys = [createPropertyKeyPathKeyDefinition(createPropertyKeyPathKey('Colors', c.key), 'colors.' + c.key) for c in colors]
 
         # Create the private properties.
-        OriginateThemeColorsPrivateProperties = [createProperty('strong', 'readwrite', 'UIColor', c.key + 'Color') for c in colors];
+        OriginateThemeColorsPrivateProperties = [createProperty('strong', 'readwrite', 'UIColor', c.key + 'Color') for c in colors]
 
         # Create the properties' getters.
         OriginateThemeColorsPropertiesGetters = [createColorGetter(c) for c in colors]
@@ -298,6 +298,33 @@ def generateComponentsOutput(outputDirectory, components):
 
         # Store the generated file in the output directory.
         with open(outputDirectory + 'OriginateThemeComponents.h', 'wb') as outputFile:
+            outputFile.write(result)
+
+    # Generate the OriginateThemeComponents.m file.
+    with open ('./Template/OriginateThemeTemplate.m', 'r') as mainFile:
+        # Template Source.
+        template = string.Template(mainFile.read())
+
+        # Create the properties' keys.
+        OriginateThemeColorsPropertiesKeyPathKeys = [createPropertyKeyPathKeyDefinition(createPropertyKeyPathKey('Components' + upcaseFirstLetter(component.key) + 'Colors', c.key), 'components.' + component.key + '.colors.' + c.key) for component in components for c in component.colors]
+        OriginateThemeFontsPropertiesKeyPathKeys = [createPropertyKeyPathKeyDefinition(createPropertyKeyPathKey('Components' + upcaseFirstLetter(component.key) + 'Fonts', f.key), 'components.' + component.key + '.fonts.' + f.key) for component in components for f in fonts]
+        OriginateThemePropertiesKeyPathKeys = OriginateThemeColorsPropertiesKeyPathKeys + [''] + OriginateThemeFontsPropertiesKeyPathKeys;
+
+        # Create the private properties.
+        OriginateThemeColorsPrivateProperties = [createProperty('strong', 'readwrite', 'UIColor', component.key + upcaseFirstLetter(c.key) + 'Color') for component in components for c in component.colors]
+        OriginateThemeFontsPrivateProperties = [createProperty('strong', 'readwrite', 'UIFont', component.key + upcaseFirstLetter(f.key) + 'Font') for component in components for f in component.fonts]
+        OriginateThemePrivateProperties = OriginateThemeColorsPrivateProperties + [''] + OriginateThemeFontsPrivateProperties
+
+        # Create the properties' getters.
+        # OriginateThemeColorsPropertiesGetters = [createColorGetter(c) for c in colors]
+        # OriginateThemeFontsPropertiesGetters = [createFontGetter(c) for c in colors]
+        # OriginateThemePropertiesGetters =
+
+        # Substitute the properties.
+        result = template.substitute({'OriginateThemePropertiesKeyPathKeys' : '\n'.join(OriginateThemeColorsPropertiesKeyPathKeys), 'OriginateThemePrivateProperties' : '\n'.join(OriginateThemeColorsPrivateProperties), 'OriginateThemePropertiesGetters' : '\n'.join(OriginateThemeColorsPropertiesGetters), 'OriginateThemeClassName' : 'OriginateThemeColors'})
+
+        # Store the generated file in the output directory.
+        with open(outputDirectory + 'OriginateThemeColors.m', 'wb') as outputFile:
             outputFile.write(result)
 
     return
