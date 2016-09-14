@@ -9,12 +9,14 @@
 #import "OriginateThemeFonts.h"
 #import "UIFont+OriginateThemeKeySource.h"
 
-$OriginateThemeFontsPublicPropertiesKeyPathKeys
+$OriginateThemeFontsPropertiesKeyPathKeys
 
 @interface OriginateThemeFonts ()
 
 #pragma mark - Properties
 @property (nonatomic, strong, readwrite) NSDictionary *definition;
+
+$OriginateThemeFontsPrivateProperties
 
 @end
 
@@ -34,6 +36,6 @@ $OriginateThemeFontsPublicPropertiesKeyPathKeys
 }
 
 #pragma mark - OriginateThemeFonts (Properties)
-$OriginateThemeFontsPublicPropertiesGetters
+$OriginateThemeFontsPropertiesGetters
 
 @end

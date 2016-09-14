@@ -19,6 +19,11 @@ NSString * const OTHFontsDefaultLightKeyPathKey = @"fonts.defaultLight";
 #pragma mark - Properties
 @property (nonatomic, strong, readwrite) NSDictionary *definition;
 
+@property (nonatomic, strong, readwrite) UIFont *defaultFont;
+@property (nonatomic, strong, readwrite) UIFont *defaultBoldFont;
+@property (nonatomic, strong, readwrite) UIFont *defaultItalicFont;
+@property (nonatomic, strong, readwrite) UIFont *defaultLightFont;
+
 @end
 
 @implementation OriginateThemeFonts

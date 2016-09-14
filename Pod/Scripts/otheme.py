@@ -4,6 +4,7 @@
 
 import getopt
 import json
+import operator
 import os
 import re
 import string
@@ -18,6 +19,9 @@ class Font():
         self.key = key
         self.name = name
         self.size = size
+
+    def __lt__(self, other):
+        return self.key < other.key
 
 class Color():
     def __init__(self, key, code):
@@ -156,8 +160,11 @@ def upcaseFirstLetter(s):
         return s[0].upper() + s[1:]
     return s
 
-def createStrongUIFontProperty(font):
+def createStrongUIFontReadOnlyProperty(font):
     return '@property (nonatomic, strong, readonly) UIFont *' + font.key + 'Font;'
+
+def createStrongUIFontReadWriteProperty(font):
+    return '@property (nonatomic, strong, readwrite) UIFont *' + font.key + 'Font;'
 
 def createFontPropertyKeyPathKey(font):
     return 'OTHFonts' + upcaseFirstLetter(font.key) + 'KeyPathKey'
@@ -188,7 +195,7 @@ def generateFontsOutput(outputDirectory, fonts):
         template = string.Template(headerFile.read())
 
         # Create the public properties.
-        OriginateThemeFontsPublicProperties = map(createStrongUIFontProperty, fonts)
+        OriginateThemeFontsPublicProperties = map(createStrongUIFontReadOnlyProperty, fonts)
 
         # Substitute the properties.
         result = template.substitute({'OriginateThemeFontsPublicProperties' : '\n'.join(OriginateThemeFontsPublicProperties)})
@@ -202,14 +209,17 @@ def generateFontsOutput(outputDirectory, fonts):
         # Template Source.
         template = string.Template(mainFile.read())
 
-        # Create the public properties' keys.
-        OriginateThemeFontsPublicPropertiesKeyPathKeys = map(createFontPropertyKeyPathKeyDefinition, fonts)
+        # Create the properties' keys.
+        OriginateThemeFontsPropertiesKeyPathKeys = map(createFontPropertyKeyPathKeyDefinition, fonts)
 
-        # Create the public properties' getters.
-        OriginateThemeFontsPublicPropertiesGetters = map(createFontGetter, fonts)
+        # Create the private properties.
+        OriginateThemeFontsPrivateProperties = map(createStrongUIFontReadWriteProperty, fonts)
+
+        # Create the properties' getters.
+        OriginateThemeFontsPropertiesGetters = map(createFontGetter, fonts)
 
         # Substitute the properties.
-        result = template.substitute({'OriginateThemeFontsPublicPropertiesKeyPathKeys' : '\n'.join(OriginateThemeFontsPublicPropertiesKeyPathKeys), 'OriginateThemeFontsPublicPropertiesGetters' : '\n'.join(OriginateThemeFontsPublicPropertiesGetters)})
+        result = template.substitute({'OriginateThemeFontsPropertiesKeyPathKeys' : '\n'.join(OriginateThemeFontsPropertiesKeyPathKeys), 'OriginateThemeFontsPrivateProperties' : '\n'.join(OriginateThemeFontsPrivateProperties), 'OriginateThemeFontsPropertiesGetters' : '\n'.join(OriginateThemeFontsPropertiesGetters)})
 
         # Store the generated file in the output directory.
         with open(outputDirectory + 'OriginateThemeFonts.m', 'wb') as outputFile:
@@ -217,8 +227,11 @@ def generateFontsOutput(outputDirectory, fonts):
 
     return
 
-def createStrongUIColorProperty(color):
+def createStrongUIColorReadOnlyProperty(color):
     return '@property (nonatomic, strong, readonly) UIColor *' + color.key + 'Color;'
+
+def createStrongUIColorReadWriteProperty(color):
+    return '@property (nonatomic, strong, readwrite) UIColor *' + color.key + 'Color;'
 
 def createColorPropertyKeyPathKey(color):
     return 'OTHColors' + upcaseFirstLetter(color.key) + 'KeyPathKey'
@@ -232,7 +245,7 @@ def createColorGetter(color):
     if (!_$colorKey) {
         _$colorKey = [UIColor colorForKeyPath:$colorKeyPathKey
                                        source:self.definition
-                                     fallback:[UIColor oth_hex:0x$colorCode]]
+                                     fallback:[UIColor oth_hex:0x$colorCode]];
     }
 
     return _$colorKey;
@@ -248,7 +261,7 @@ def generateColorsOutput(outputDirectory, colors):
         template = string.Template(headerFile.read())
 
         # Create the public properties.
-        OriginateThemeColorsPublicProperties = map(createStrongUIColorProperty, colors)
+        OriginateThemeColorsPublicProperties = map(createStrongUIColorReadOnlyProperty, colors)
 
         # Substitute the properties.
         result = template.substitute({'OriginateThemeColorsPublicProperties' : '\n'.join(OriginateThemeColorsPublicProperties)})
@@ -262,14 +275,17 @@ def generateColorsOutput(outputDirectory, colors):
         # Template Source.
         template = string.Template(mainFile.read())
 
-        # Create the public properties' keys.
-        OriginateThemeColorsPublicPropertiesKeyPathKeys = map(createColorPropertyKeyPathKeyDefinition, colors)
+        # Create the properties' keys.
+        OriginateThemeColorsPropertiesKeyPathKeys = map(createColorPropertyKeyPathKeyDefinition, colors)
 
-        # Create the public properties' getters.
-        OriginateThemeColorsPublicPropertiesGetters = map(createColorGetter, colors)
+        # Create the private properties.
+        OriginateThemeColorsPrivateProperties = map(createStrongUIColorReadWriteProperty, colors);
+
+        # Create the properties' getters.
+        OriginateThemeColorsPropertiesGetters = map(createColorGetter, colors)
 
         # Substitute the properties.
-        result = template.substitute({'OriginateThemeColorsPublicPropertiesKeyPathKeys' : '\n'.join(OriginateThemeColorsPublicPropertiesKeyPathKeys), 'OriginateThemeColorsPublicPropertiesGetters' : '\n'.join(OriginateThemeColorsPublicPropertiesGetters)})
+        result = template.substitute({'OriginateThemeColorsPropertiesKeyPathKeys' : '\n'.join(OriginateThemeColorsPropertiesKeyPathKeys), 'OriginateThemeColorsPrivateProperties' : '\n'.join(OriginateThemeColorsPrivateProperties), 'OriginateThemeColorsPropertiesGetters' : '\n'.join(OriginateThemeColorsPropertiesGetters)})
 
         # Store the generated file in the output directory.
         with open(outputDirectory + 'OriginateThemeColors.m', 'wb') as outputFile:
@@ -324,9 +340,9 @@ def main(argv):
             sys.exit()
 
     # Create the fonts, colors and components output files.
-    generateFontsOutput(outputDirectory, fonts)
-    generateColorsOutput(outputDirectory, colors)
-    generateComponentsOutput(outputDirectory, components)
+    generateFontsOutput(outputDirectory, sorted(fonts, key = lambda x: x.key))
+    generateColorsOutput(outputDirectory, sorted(colors, key = lambda x: x.key))
+    generateComponentsOutput(outputDirectory, sorted(components, key = lambda x: x.key))
 
 if __name__ == "__main__":
     main(sys.argv[1:])

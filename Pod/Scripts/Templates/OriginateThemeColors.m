@@ -10,12 +10,14 @@
 #import "UIColor+OriginateThemeHex.h"
 #import "UIColor+OriginateThemeKeySource.h"
 
-$OriginateThemeColorsPublicPropertiesKeyPathKeys
+$OriginateThemeColorsPropertiesKeyPathKeys
 
 @interface OriginateThemeColors ()
 
 #pragma mark - Properties
 @property (nonatomic, strong, readwrite) NSDictionary *definition;
+
+$OriginateThemeColorsPrivateProperties
 
 @end
 
@@ -35,6 +37,6 @@ $OriginateThemeColorsPublicPropertiesKeyPathKeys
 }
 
 #pragma mark - OriginateThemeColor (Properties)
-$OriginateThemeColorsPublicPropertiesGetters
+$OriginateThemeColorsPropertiesGetters
 
 @end
