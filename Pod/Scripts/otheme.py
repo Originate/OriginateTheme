@@ -284,10 +284,21 @@ def generateColorsOutput(outputDirectory, colors):
 def generateComponentsOutput(outputDirectory, components):
 
     # Generate the OriginateThemeComponents.h file.
-    #with open('./Template/OriginateThemeTemplate.h', 'r') as headerFile:
+    with open('./Template/OriginateThemeTemplate.h', 'r') as headerFile:
         # Template Source.
+        template = string.Template(headerFile.read())
 
-    # Generate the OriginateThemeComponents.m file.
+        # Create the public properties.
+        OriginateThemeColorsPublicProperties = [createProperty('strong', 'readonly', 'UIColor', component.key + upcaseFirstLetter(c.key) + 'Color') for component in components for c in component.colors]
+        OriginateThemeFontsPublicProperties = [createProperty('strong', 'readonly', 'UIFont', component.key + upcaseFirstLetter(f.key) + 'Font') for component in components for f in component.fonts]
+        OriginateThemePublicProperties = OriginateThemeColorsPublicProperties + [''] + OriginateThemeFontsPublicProperties
+
+        # Substitute the properties.
+        result = template.substitute({'OriginateThemePublicProperties' : '\n'.join(OriginateThemePublicProperties), 'OriginateThemeClassName' : 'OriginateThemeComponents'})
+
+        # Store the generated file in the output directory.
+        with open(outputDirectory + 'OriginateThemeComponents.h', 'wb') as outputFile:
+            outputFile.write(result)
 
     return
 
