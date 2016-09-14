@@ -3,6 +3,11 @@
 
 > A lightweight user interface theming framework.
 
+Execute inside the Example directory.
+```
+./otheme.py -i ../../Example/OriginateTheme/StyleDefinition.json -o ../../Pod/Sources/Classes/
+```
+
 # Installation with CocoaPods
 Add the following lines to your Podfile and run `pod install`.
 

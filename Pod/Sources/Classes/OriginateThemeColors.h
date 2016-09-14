@@ -1,8 +1,8 @@
 //
 //  OriginateThemeColors.h
-//  OriginateUI
+//  OriginateTheme
 //
-//  Created by Philip Kluz on 2016-05-06.
+//  Created by Robert Weindl on 2016-09-13.
 //  Copyright (c) 2016 Originate. All rights reserved.
 //
 
@@ -11,11 +11,11 @@
 @interface OriginateThemeColors : NSObject
 
 #pragma mark - Properties
-@property (nonatomic, strong, readwrite) UIColor *primaryColor;
-@property (nonatomic, strong, readwrite) UIColor *secondaryColor;
-@property (nonatomic, strong, readwrite) UIColor *successColor;
-@property (nonatomic, strong, readwrite) UIColor *warningColor;
-@property (nonatomic, strong, readwrite) UIColor *errorColor;
+@property (nonatomic, strong, readonly) UIColor *errorColor;
+@property (nonatomic, strong, readonly) UIColor *warningColor;
+@property (nonatomic, strong, readonly) UIColor *primaryColor;
+@property (nonatomic, strong, readonly) UIColor *successColor;
+@property (nonatomic, strong, readonly) UIColor *secondaryColor;
 
 #pragma mark - Methods
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;

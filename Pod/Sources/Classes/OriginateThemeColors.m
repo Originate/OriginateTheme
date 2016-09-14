@@ -1,8 +1,8 @@
 //
-//  OriginateThemeColors.m
-//  OriginateUI
+//  OriginateThemeColors.h
+//  OriginateTheme
 //
-//  Created by Philip Kluz on 2016-05-06.
+//  Created by Robert Weindl on 2016-09-13.
 //  Copyright (c) 2016 Originate. All rights reserved.
 //
 
@@ -10,11 +10,11 @@
 #import "UIColor+OriginateThemeHex.h"
 #import "UIColor+OriginateThemeKeySource.h"
 
-NSString * const OUIColorPrimaryKey = @"primary";
-NSString * const OUIColorSecondaryKey = @"secondary";
-NSString * const OUIColorSuccessKey = @"success";
-NSString * const OUIColorWarningKey = @"warning";
-NSString * const OUIColorErrorKey = @"error";
+NSString * const OTHColorsErrorKeyPathKey = @"colors.error";
+NSString * const OTHColorsWarningKeyPathKey = @"colors.warning";
+NSString * const OTHColorsPrimaryKeyPathKey = @"colors.primary";
+NSString * const OTHColorsSuccessKeyPathKey = @"colors.success";
+NSString * const OTHColorsSecondaryKeyPathKey = @"colors.secondary";
 
 @interface OriginateThemeColors ()
 
@@ -30,67 +30,64 @@ NSString * const OUIColorErrorKey = @"error";
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     self = [super init];
-    
+
     if (self) {
         _definition = dictionary;
     }
-    
+
     return self;
 }
 
-- (UIColor *)primaryColor
-{
-    if (!_primaryColor) {
-        _primaryColor = [UIColor colorForKeyPath:OUIColorPrimaryKey
-                                          source:self.definition
-                                        fallback:[UIColor oth_hex:0x00A0D8]];
+#pragma mark - OriginateThemeColor (Properties)
+
+- (UIColor *)errorColor {
+    if (!_errorColor) {
+        _errorColor = [UIColor colorForKeyPath:OTHColorsErrorKeyPathKey
+                                       source:self.definition
+                                     fallback:[UIColor oth_hex:0xbd2c00]]
     }
-    
-    return _primaryColor;
+
+    return _errorColor;
 }
 
-- (UIColor *)secondaryColor
-{
-    if (!_secondaryColor) {
-        _secondaryColor = [UIColor colorForKeyPath:OUIColorSecondaryKey
-                                            source:self.definition
-                                          fallback:[UIColor oth_hex:0xFCD92B]];
-    }
-    
-    return _secondaryColor;
-}
-
-- (UIColor *)successColor
-{
-    if (!_successColor) {
-        _successColor = [UIColor colorForKeyPath:OUIColorSuccessKey
-                                          source:self.definition
-                                        fallback:[UIColor oth_hex:0x95BE22]];
-    }
-    
-    return _successColor;
-}
-
-- (UIColor *)warningColor
-{
+- (UIColor *)warningColor {
     if (!_warningColor) {
-        _warningColor = [UIColor colorForKeyPath:OUIColorWarningKey
-                                          source:self.definition
-                                        fallback:[UIColor oth_hex:0xFFA500]];
+        _warningColor = [UIColor colorForKeyPath:OTHColorsWarningKeyPathKey
+                                       source:self.definition
+                                     fallback:[UIColor oth_hex:0xFFA500]]
     }
-    
+
     return _warningColor;
 }
 
-- (UIColor *)errorColor
-{
-    if (!_errorColor) {
-        _errorColor = [UIColor colorForKeyPath:OUIColorErrorKey
-                                        source:self.definition
-                                      fallback:[UIColor oth_hex:0xFD1111]];
+- (UIColor *)primaryColor {
+    if (!_primaryColor) {
+        _primaryColor = [UIColor colorForKeyPath:OTHColorsPrimaryKeyPathKey
+                                       source:self.definition
+                                     fallback:[UIColor oth_hex:0x00A0D8]]
     }
-    
-    return _errorColor;
+
+    return _primaryColor;
+}
+
+- (UIColor *)successColor {
+    if (!_successColor) {
+        _successColor = [UIColor colorForKeyPath:OTHColorsSuccessKeyPathKey
+                                       source:self.definition
+                                     fallback:[UIColor oth_hex:0x95BE22]]
+    }
+
+    return _successColor;
+}
+
+- (UIColor *)secondaryColor {
+    if (!_secondaryColor) {
+        _secondaryColor = [UIColor colorForKeyPath:OTHColorsSecondaryKeyPathKey
+                                       source:self.definition
+                                     fallback:[UIColor oth_hex:0xFCD92B]]
+    }
+
+    return _secondaryColor;
 }
 
 @end

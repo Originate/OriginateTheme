@@ -151,11 +151,16 @@ def parseComponents(components):
 ##### Generators #####
 ######################
 
+def upcaseFirstLetter(s):
+    if len(s) > 0:
+        return s[0].upper() + s[1:]
+    return s
+
 def createStrongUIFontProperty(font):
-    return '@property (nonatomic, strong, readonly) UIFont *' + font.key + ';'
+    return '@property (nonatomic, strong, readonly) UIFont *' + font.key + 'Font;'
 
 def createFontPropertyKeyPathKey(font):
-    return 'OTHFonts' + font.key.title() + 'KeyPathKey'
+    return 'OTHFonts' + upcaseFirstLetter(font.key) + 'KeyPathKey'
 
 def createFontPropertyKeyPathKeyDefinition(font):
     return 'NSString * const ' + createFontPropertyKeyPathKey(font) + ' = @"fonts.' + font.key + '";'
@@ -173,7 +178,7 @@ def createFontGetter(font):
 }
 """
 
-    return string.Template(getter).substitute({ 'fontKey' : font.key, 'fontKeyPathKey' : createFontPropertyKeyPathKey(font), 'fontName' : font.name , 'fontSize' : font.size })
+    return string.Template(getter).substitute({ 'fontKey' : font.key + 'Font', 'fontKeyPathKey' : createFontPropertyKeyPathKey(font), 'fontName' : font.name , 'fontSize' : font.size })
 
 def generateFontsOutput(outputDirectory, fonts):
 
@@ -213,10 +218,10 @@ def generateFontsOutput(outputDirectory, fonts):
     return
 
 def createStrongUIColorProperty(color):
-    return '@property (nonatomic, strong, readonly) UIColor *' + color.key + ';'
+    return '@property (nonatomic, strong, readonly) UIColor *' + color.key + 'Color;'
 
 def createColorPropertyKeyPathKey(color):
-    return 'OTHColors' + color.key.title() + 'KeyPathKey'
+    return 'OTHColors' + upcaseFirstLetter(color.key) + 'KeyPathKey'
 
 def createColorPropertyKeyPathKeyDefinition(color):
     return 'NSString * const ' + createColorPropertyKeyPathKey(color) + ' = @"colors.' + color.key + '";'
@@ -233,7 +238,7 @@ def createColorGetter(color):
     return _$colorKey;
 }"""
 
-    return string.Template(getter).substitute({ 'colorKey' : color.key, 'colorKeyPathKey' : createColorPropertyKeyPathKey(color), 'colorCode' : color.code})
+    return string.Template(getter).substitute({ 'colorKey' : color.key + 'Color', 'colorKeyPathKey' : createColorPropertyKeyPathKey(color), 'colorCode' : color.code})
 
 def generateColorsOutput(outputDirectory, colors):
 

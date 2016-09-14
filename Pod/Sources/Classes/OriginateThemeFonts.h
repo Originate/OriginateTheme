@@ -1,8 +1,8 @@
 //
 //  OriginateThemeFonts.h
-//  OriginateUI
+//  OriginateTheme
 //
-//  Created by Philip Kluz on 2016-05-06.
+//  Created by Robert Weindl on 2016-09-13.
 //  Copyright (c) 2016 Originate. All rights reserved.
 //
 
@@ -11,10 +11,10 @@
 @interface OriginateThemeFonts : NSObject
 
 #pragma mark - Properties
-@property (nonatomic, strong, readwrite) UIFont *defaultFont;
-@property (nonatomic, strong, readwrite) UIFont *defaultBoldFont;
-@property (nonatomic, strong, readwrite) UIFont *defaultItalicFont;
-@property (nonatomic, strong, readwrite) UIFont *defaultLightFont;
+@property (nonatomic, strong, readonly) UIFont *defaultFont;
+@property (nonatomic, strong, readonly) UIFont *defaultBoldFont;
+@property (nonatomic, strong, readonly) UIFont *defaultItalicFont;
+@property (nonatomic, strong, readonly) UIFont *defaultLightFont;
 
 #pragma mark - Methods
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;

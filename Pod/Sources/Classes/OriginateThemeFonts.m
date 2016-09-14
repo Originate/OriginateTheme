@@ -1,18 +1,18 @@
 //
-//  OriginateThemeFonts.m
-//  OriginateUI
+//  OriginateThemeFonts.h
+//  OriginateTheme
 //
-//  Created by Philip Kluz on 2016-05-06.
+//  Created by Robert Weindl on 2016-09-13.
 //  Copyright (c) 2016 Originate. All rights reserved.
 //
 
 #import "OriginateThemeFonts.h"
 #import "UIFont+OriginateThemeKeySource.h"
 
-NSString * const OUIFontsDefaultKey = @"default";
-NSString * const OUIFontsDefaultBoldKey = @"defaultBold";
-NSString * const OUIFontsDefaultItalicKey = @"defaultItalic";
-NSString * const OUIFontsDefaultLightKey = @"defaultLight";
+NSString * const OTHFontsDefaultKeyPathKey = @"fonts.default";
+NSString * const OTHFontsDefaultBoldKeyPathKey = @"fonts.defaultBold";
+NSString * const OTHFontsDefaultItalicKeyPathKey = @"fonts.defaultItalic";
+NSString * const OTHFontsDefaultLightKeyPathKey = @"fonts.defaultLight";
 
 @interface OriginateThemeFonts ()
 
@@ -28,56 +28,58 @@ NSString * const OUIFontsDefaultLightKey = @"defaultLight";
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     self = [super init];
-    
+
     if (self) {
         _definition = dictionary;
     }
-    
+
     return self;
 }
 
-- (UIFont *)defaultFont
-{
+#pragma mark - OriginateThemeFonts (Properties)
+
+- (UIFont *)defaultFont {
     if (!_defaultFont) {
-        _defaultFont = [UIFont fontForKeyPath:OUIFontsDefaultKey
-                                       source:self.definition
-                                     fallback:[UIFont systemFontOfSize:[UIFont systemFontSize]]];
+        _defaultFont = [UIFont fontForKeyPath:OTHFontsDefaultKeyPathKey
+                                    source:self.definition
+                                  fallback:[UIFont fontWithName:@"HelveticaNeue" size:14.0]];
     }
-    
+
     return _defaultFont;
 }
 
-- (UIFont *)defaultBoldFont
-{
+
+- (UIFont *)defaultBoldFont {
     if (!_defaultBoldFont) {
-        _defaultBoldFont = [UIFont fontForKeyPath:OUIFontsDefaultBoldKey
-                                           source:self.definition
-                                         fallback:[UIFont boldSystemFontOfSize:[UIFont systemFontSize]]];
+        _defaultBoldFont = [UIFont fontForKeyPath:OTHFontsDefaultBoldKeyPathKey
+                                    source:self.definition
+                                  fallback:[UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0]];
     }
-    
+
     return _defaultBoldFont;
 }
 
-- (UIFont *)defaultItalicFont
-{
+
+- (UIFont *)defaultItalicFont {
     if (!_defaultItalicFont) {
-        _defaultItalicFont = [UIFont fontForKeyPath:OUIFontsDefaultItalicKey
-                                             source:self.definition
-                                           fallback:[UIFont italicSystemFontOfSize:[UIFont systemFontSize]]];
+        _defaultItalicFont = [UIFont fontForKeyPath:OTHFontsDefaultItalicKeyPathKey
+                                    source:self.definition
+                                  fallback:[UIFont fontWithName:@"HelveticaNeue-Thin" size:14.0]];
     }
-    
+
     return _defaultItalicFont;
 }
 
-- (UIFont *)defaultLightFont
-{
+
+- (UIFont *)defaultLightFont {
     if (!_defaultLightFont) {
-        _defaultLightFont = [UIFont fontForKeyPath:OUIFontsDefaultLightKey
-                                            source:self.definition
-                                          fallback:[UIFont systemFontOfSize:[UIFont systemFontSize]]];
+        _defaultLightFont = [UIFont fontForKeyPath:OTHFontsDefaultLightKeyPathKey
+                                    source:self.definition
+                                  fallback:[UIFont fontWithName:@"HelveticaNeue-Light" size:14.0]];
     }
-    
+
     return _defaultLightFont;
 }
+
 
 @end
