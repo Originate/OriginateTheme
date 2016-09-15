@@ -11,6 +11,112 @@ import re
 import string
 import sys
 
+#####################
+##### Templates #####
+#####################
+
+def headerTemplate():
+    return """//
+//  $OriginateThemeClassName.h
+//  OriginateTheme
+//
+//  Created by Robert Weindl on 2016-09-13.
+//  Copyright (c) 2016 Originate. All rights reserved.
+//
+
+@import UIKit;
+
+@interface $OriginateThemeClassName : NSObject
+
+#pragma mark - Properties
+$OriginateThemePublicProperties
+
+#pragma mark - Methods
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
+@end
+"""
+
+def mainTemplate():
+    return """//
+//  $OriginateThemeClassName.m
+//  OriginateTheme
+//
+//  Created by Robert Weindl on 2016-09-13.
+//  Copyright (c) 2016 Originate. All rights reserved.
+//
+
+#import "$OriginateThemeClassName.h"
+#import "UIColor+OriginateThemeHex.h";
+#import "UIColor+OriginateThemeKeySource.h";
+#import "UIFont+OriginateThemeKeySource.h"
+
+$OriginateThemePropertiesKeyPathKeys
+
+@interface $OriginateThemeClassName ()
+
+#pragma mark - Properties
+@property (nonatomic, strong, readwrite) NSDictionary *definition;
+
+$OriginateThemePrivateProperties
+
+@end
+
+@implementation $OriginateThemeClassName
+
+#pragma mark - $OriginateThemeClassName
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary
+{
+    self = [super init];
+
+    if (self) {
+        _definition = dictionary;
+    }
+
+    return self;
+}
+
+#pragma mark - $OriginateThemeClassName (Properties)
+$OriginateThemePropertiesGetters
+
+@end
+"""
+
+######################
+##### Properties #####
+######################
+
+def createFontGetter(font, getterName, keyPath):
+    getter = """
+- (UIFont *)$fontKey
+{
+    if (!_$fontKey) {
+        _$fontKey = [UIFont fontForKeyPath:$fontKeyPathKey
+                                    source:self.definition
+                                  fallback:[UIFont fontWithName:@"$fontName" size:$fontSize]];
+    }
+
+    return _$fontKey;
+}"""
+
+    return string.Template(getter).substitute({ 'fontKey' : getterName, 'fontKeyPathKey' : keyPath, 'fontName' : font.name , 'fontSize' : font.size })
+
+def createColorGetter(color, getterName, keyPath):
+    getter = """
+- (UIColor *)$colorKey
+{
+    if (!_$colorKey) {
+        _$colorKey = [UIColor colorForKeyPath:$colorKeyPathKey
+                                       source:self.definition
+                                     fallback:[UIColor oth_hex:0x$colorCode]];
+    }
+
+    return _$colorKey;
+}"""
+
+    return string.Template(getter).substitute({ 'colorKey' : getterName, 'colorKeyPathKey' : keyPath, 'colorCode' : color.code})
+
 ###################
 ##### Classes #####
 ###################
@@ -162,78 +268,43 @@ def createPropertyKeyPathKey(prefix, key):
 def createPropertyKeyPathKeyDefinition(propertyKeyPathKey, propertyKeyPathValue):
     return 'NSString * const ' + propertyKeyPathKey + ' = @"' + propertyKeyPathValue + '";'
 
-def createFontGetter(font, getterName, keyPath):
-    getter = """
-- (UIFont *)$fontKey
-{
-    if (!_$fontKey) {
-        _$fontKey = [UIFont fontForKeyPath:$fontKeyPathKey
-                                    source:self.definition
-                                  fallback:[UIFont fontWithName:@"$fontName" size:$fontSize]];
-    }
-
-    return _$fontKey;
-}"""
-
-    return string.Template(getter).substitute({ 'fontKey' : getterName, 'fontKeyPathKey' : keyPath, 'fontName' : font.name , 'fontSize' : font.size })
-
-def createColorGetter(color, getterName, keyPath):
-    getter = """
-- (UIColor *)$colorKey
-{
-    if (!_$colorKey) {
-        _$colorKey = [UIColor colorForKeyPath:$colorKeyPathKey
-                                       source:self.definition
-                                     fallback:[UIColor oth_hex:0x$colorCode]];
-    }
-
-    return _$colorKey;
-}"""
-
-    return string.Template(getter).substitute({ 'colorKey' : getterName, 'colorKeyPathKey' : keyPath, 'colorCode' : color.code})
-
-
 def generateUITypeClass(outputDirectory, className, dictionary, uiType, getter):
 
     dictionary = [] if not dictionary else dictionary
 
-    # Generate the OriginateThemeFonts.h file.
-    with open('./Template/OriginateThemeTemplate.h', 'r') as headerFile:
-        # Template Source.
-        template = string.Template(headerFile.read())
+    #############################
+    # Generate the header file. #
+    #############################
 
-        # Create the public properties.
-        OriginateThemeFontsPublicProperties = [createProperty('strong', 'readonly', 'UI' + upcaseFirstLetter(uiType), d.key + upcaseFirstLetter(uiType)) for d in dictionary]
+    # Create the public properties.
+    OriginateThemeFontsPublicProperties = [createProperty('strong', 'readonly', 'UI' + upcaseFirstLetter(uiType), d.key + upcaseFirstLetter(uiType)) for d in dictionary]
 
-        # Substitute the properties.
-        result = template.substitute({'OriginateThemePublicProperties' : '\n'.join(OriginateThemeFontsPublicProperties), 'OriginateThemeClassName' : className})
+    # Substitute the properties.
+    result = string.Template(headerTemplate()).substitute({'OriginateThemePublicProperties' : '\n'.join(OriginateThemeFontsPublicProperties), 'OriginateThemeClassName' : className})
 
-        # Store the generated file in the output directory.
-        with open(outputDirectory + className + '.h', 'wb') as outputFile:
-            outputFile.write(result)
+    # Store the generated file in the output directory.
+    with open(outputDirectory + className + '.h', 'wb') as outputFile:
+        outputFile.write(result)
 
-    # Generate the OriginateThemeFonts.m file.
-    with open('./Template/OriginateThemeTemplate.m', 'r') as mainFile:
-        # Template Source.
-        template = string.Template(mainFile.read())
+    ###########################
+    # Generate the main file. #
+    ###########################
 
-        # Create the properties' keys.
-        OriginateThemeFontsPropertiesKeyPathKeys = [createPropertyKeyPathKeyDefinition(createPropertyKeyPathKey(upcaseFirstLetter(uiType) + 's', d.key), uiType + 's.' + d.key) for d in dictionary]
+    # Create the properties' keys.
+    OriginateThemeFontsPropertiesKeyPathKeys = [createPropertyKeyPathKeyDefinition(createPropertyKeyPathKey(upcaseFirstLetter(uiType) + 's', d.key), uiType + 's.' + d.key) for d in dictionary]
 
-        # Create the private properties.
-        OriginateThemeFontsPrivateProperties = [createProperty('strong', 'readwrite', 'UI' + upcaseFirstLetter(uiType), d.key + upcaseFirstLetter(uiType)) for d in dictionary]
+    # Create the private properties.
+    OriginateThemeFontsPrivateProperties = [createProperty('strong', 'readwrite', 'UI' + upcaseFirstLetter(uiType), d.key + upcaseFirstLetter(uiType)) for d in dictionary]
 
-        # Create the properties' getters.
-        OriginateThemeFontsPropertiesGetters = [getter(d, d.key + upcaseFirstLetter(uiType), createPropertyKeyPathKey(upcaseFirstLetter(uiType) + 's', d.key)) for d in dictionary]
+    # Create the properties' getters.
+    OriginateThemeFontsPropertiesGetters = [getter(d, d.key + upcaseFirstLetter(uiType), createPropertyKeyPathKey(upcaseFirstLetter(uiType) + 's', d.key)) for d in dictionary]
 
-        # Substitute the properties.
-        result = template.substitute({'OriginateThemePropertiesKeyPathKeys' : '\n'.join(OriginateThemeFontsPropertiesKeyPathKeys), 'OriginateThemePrivateProperties' : '\n'.join(OriginateThemeFontsPrivateProperties), 'OriginateThemePropertiesGetters' : '\n'.join(OriginateThemeFontsPropertiesGetters), 'OriginateThemeClassName' : className})
+    # Substitute the properties.
+    result = string.Template(mainTemplate()).substitute({'OriginateThemePropertiesKeyPathKeys' : '\n'.join(OriginateThemeFontsPropertiesKeyPathKeys), 'OriginateThemePrivateProperties' : '\n'.join(OriginateThemeFontsPrivateProperties), 'OriginateThemePropertiesGetters' : '\n'.join(OriginateThemeFontsPropertiesGetters), 'OriginateThemeClassName' : className})
 
-        # Store the generated file in the output directory.
-        with open(outputDirectory + className + '.m', 'wb') as outputFile:
-            outputFile.write(result)
-
-    return
+    # Store the generated file in the output directory.
+    with open(outputDirectory + className + '.m', 'wb') as outputFile:
+        outputFile.write(result)
 
 def generateComponentsClass(outputDirectory, className, components):
 
@@ -243,49 +314,45 @@ def generateComponentsClass(outputDirectory, className, components):
     createComponentPropertyName = lambda componentKey, key, uiType: componentKey + upcaseFirstLetter(key) + upcaseFirstLetter(uiType)
     createPropertyDefinition = lambda componentKey, key, uiType, accessType: createProperty('strong', accessType, 'UI' + upcaseFirstLetter(uiType), createComponentPropertyName(componentKey, key, uiType))
 
-    # Generate the OriginateThemeComponents.h file.
-    with open('./Template/OriginateThemeTemplate.h', 'r') as headerFile:
-        # Template Source.
-        template = string.Template(headerFile.read())
+    #############################
+    # Generate the header file. #
+    #############################
 
-        # Create the public properties.
-        OriginateThemePublicProperties = [[[createPropertyDefinition(component.key, c.key, 'color', 'readonly') for c in component.colors], [createPropertyDefinition(component.key, f.key, 'font', 'readonly') for f in component.fonts], ['']] for component in components]
-        OriginateThemePublicProperties = list(itertools.chain.from_iterable(itertools.chain.from_iterable((OriginateThemePublicProperties))))
+    # Create the public properties.
+    OriginateThemePublicProperties = [[[createPropertyDefinition(component.key, c.key, 'color', 'readonly') for c in component.colors], [createPropertyDefinition(component.key, f.key, 'font', 'readonly') for f in component.fonts], ['']] for component in components]
+    OriginateThemePublicProperties = list(itertools.chain.from_iterable(itertools.chain.from_iterable((OriginateThemePublicProperties))))
 
-        # Substitute the properties.
-        result = template.substitute({'OriginateThemePublicProperties' : '\n'.join(OriginateThemePublicProperties), 'OriginateThemeClassName' : className})
+    # Substitute the properties.
+    result = string.Template(headerTemplate()).substitute({'OriginateThemePublicProperties' : '\n'.join(OriginateThemePublicProperties), 'OriginateThemeClassName' : className})
 
-        # Store the generated file in the output directory.
-        with open(outputDirectory + className + '.h', 'wb') as outputFile:
-            outputFile.write(result)
+    # Store the generated file in the output directory.
+    with open(outputDirectory + className + '.h', 'wb') as outputFile:
+        outputFile.write(result)
 
-    # Generate the OriginateThemeComponents.m file.
-    with open ('./Template/OriginateThemeTemplate.m', 'r') as mainFile:
-        # Template Source.
-        template = string.Template(mainFile.read())
+    ###########################
+    # Generate the main file. #
+    ###########################
 
-        # Create the properties' keys.
-        createComponentPropertyKeyPathKey = lambda componentKey, typeKey, typeKeyPath: createPropertyKeyPathKey('Components' + upcaseFirstLetter(componentKey) + upcaseFirstLetter(typeKeyPath), typeKey)
-        createComponentKeyPathKeyDefinitions = lambda componentKey, typeKey, typeKeyPath: createPropertyKeyPathKeyDefinition(createComponentPropertyKeyPathKey(componentKey, typeKey, typeKeyPath), 'components.' + componentKey + '.' + typeKeyPath + '.' + typeKey)
-        OriginateThemePropertiesKeyPathKeys = [[[createComponentKeyPathKeyDefinitions(component.key, c.key, 'colors') for c in component.colors], [createComponentKeyPathKeyDefinitions(component.key, f.key, 'fonts') for f in component.fonts], ['']] for component in components]
-        OriginateThemePropertiesKeyPathKeys = list(itertools.chain.from_iterable(itertools.chain.from_iterable((OriginateThemePropertiesKeyPathKeys))))
+    # Create the properties' keys.
+    createComponentPropertyKeyPathKey = lambda componentKey, typeKey, typeKeyPath: createPropertyKeyPathKey('Components' + upcaseFirstLetter(componentKey) + upcaseFirstLetter(typeKeyPath), typeKey)
+    createComponentKeyPathKeyDefinitions = lambda componentKey, typeKey, typeKeyPath: createPropertyKeyPathKeyDefinition(createComponentPropertyKeyPathKey(componentKey, typeKey, typeKeyPath), 'components.' + componentKey + '.' + typeKeyPath + '.' + typeKey)
+    OriginateThemePropertiesKeyPathKeys = [[[createComponentKeyPathKeyDefinitions(component.key, c.key, 'colors') for c in component.colors], [createComponentKeyPathKeyDefinitions(component.key, f.key, 'fonts') for f in component.fonts], ['']] for component in components]
+    OriginateThemePropertiesKeyPathKeys = list(itertools.chain.from_iterable(itertools.chain.from_iterable((OriginateThemePropertiesKeyPathKeys))))
 
-        # Create the private properties.
-        OriginateThemePrivateProperties = [[[createPropertyDefinition(component.key, c.key, 'color', 'readwrite') for c in component.colors], [createPropertyDefinition(component.key, f.key, 'font', 'readwrite') for f in component.fonts], ['']] for component in components]
-        OriginateThemePrivateProperties = list(itertools.chain.from_iterable(itertools.chain.from_iterable((OriginateThemePrivateProperties))))
+    # Create the private properties.
+    OriginateThemePrivateProperties = [[[createPropertyDefinition(component.key, c.key, 'color', 'readwrite') for c in component.colors], [createPropertyDefinition(component.key, f.key, 'font', 'readwrite') for f in component.fonts], ['']] for component in components]
+    OriginateThemePrivateProperties = list(itertools.chain.from_iterable(itertools.chain.from_iterable((OriginateThemePrivateProperties))))
 
-        # Create the properties' getters.
-        OriginateThemePropertiesGetters = [[[createColorGetter(c, createComponentPropertyName(component.key, c.key, 'color'), createComponentPropertyKeyPathKey(component.key, c.key, 'colors')) for c in component.colors], [createFontGetter(f, createComponentPropertyName(component.key, f.key, 'font'), createComponentPropertyKeyPathKey(component.key, f.key, 'fonts')) for f in component.fonts]] for component in components]
-        OriginateThemePropertiesGetters = list(itertools.chain.from_iterable(itertools.chain.from_iterable((OriginateThemePropertiesGetters))))
+    # Create the properties' getters.
+    OriginateThemePropertiesGetters = [[[createColorGetter(c, createComponentPropertyName(component.key, c.key, 'color'), createComponentPropertyKeyPathKey(component.key, c.key, 'colors')) for c in component.colors], [createFontGetter(f, createComponentPropertyName(component.key, f.key, 'font'), createComponentPropertyKeyPathKey(component.key, f.key, 'fonts')) for f in component.fonts]] for component in components]
+    OriginateThemePropertiesGetters = list(itertools.chain.from_iterable(itertools.chain.from_iterable((OriginateThemePropertiesGetters))))
 
-        # Substitute the properties.
-        result = template.substitute({'OriginateThemePropertiesKeyPathKeys' : '\n'.join(OriginateThemePropertiesKeyPathKeys), 'OriginateThemePrivateProperties' : '\n'.join(OriginateThemePrivateProperties), 'OriginateThemePropertiesGetters' : '\n'.join(OriginateThemePropertiesGetters), 'OriginateThemeClassName' : className})
+    # Substitute the properties.
+    result = string.Template(mainTemplate()).substitute({'OriginateThemePropertiesKeyPathKeys' : '\n'.join(OriginateThemePropertiesKeyPathKeys), 'OriginateThemePrivateProperties' : '\n'.join(OriginateThemePrivateProperties), 'OriginateThemePropertiesGetters' : '\n'.join(OriginateThemePropertiesGetters), 'OriginateThemeClassName' : className})
 
-        # Store the generated file in the output directory.
-        with open(outputDirectory + className + '.m', 'wb') as outputFile:
-            outputFile.write(result)
-
-    return
+    # Store the generated file in the output directory.
+    with open(outputDirectory + className + '.m', 'wb') as outputFile:
+        outputFile.write(result)
 
 ################
 ##### Main #####
@@ -323,7 +390,3 @@ def main(argv):
 
 if __name__ == "__main__":
     main(sys.argv[1:])
-
-#####################
-##### Templates #####
-#####################
