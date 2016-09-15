@@ -1,5 +1,5 @@
 PODS:
-  - OriginateTheme (0.0.1)
+  - OriginateTheme (1.0.0)
 
 DEPENDENCIES:
   - OriginateTheme (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  OriginateTheme: 538a81f63555a776fa6cb3b635b3f08d719db0e5
+  OriginateTheme: 3838ab22e048dfce210cd97dc1f28246f73c7b4c
 
-PODFILE CHECKSUM: 73809eb09fd88839dae6afb3fedf54279333dad8
+PODFILE CHECKSUM: c99ba94004277dcae2d4ec96edfc651936436e53
 
 COCOAPODS: 1.0.1

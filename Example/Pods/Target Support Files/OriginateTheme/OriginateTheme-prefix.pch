@@ -1,4 +1,4 @@
 #ifdef __OBJC__
-@import UIKit;
+#import <UIKit/UIKit.h>
 #endif
 

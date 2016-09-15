@@ -1,6 +1,17 @@
 #!/usr/bin/python
-
 # -*- coding: utf-8 -*-
+
+"""
+    otheme.py
+    Script which creates OriginateTheme class files out of a JSON file.
+
+    Arguments
+    ----------
+        -i: String
+            The input JSON file e.g. `Theme.json`.
+        -o: String
+            The directory where the files should be created in.
+"""
 
 import getopt
 import itertools

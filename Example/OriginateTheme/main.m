@@ -1,9 +1,9 @@
 //
 //  main.m
-//  OriginateUI
+//  OriginateTheme
 //
-//  Created by Philip Kluz on 9/22/15.
-//  Copyright (c) 2015 originate.com. All rights reserved.
+//  Created by Robert Weindl on 2016-09-15.
+//  Copyright © 2016 Originate Inc. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

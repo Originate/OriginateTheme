@@ -1,15 +1,16 @@
 {
   "name": "OriginateTheme",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "summary": "A lightweight user interface theming framework.",
   "homepage": "https://github.com/Originate/OriginateTheme",
   "license": "MIT",
   "authors": {
-    "Philip Kluz": "philip.kluz@originate.com"
+    "Philip Kluz": "philip.kluz@originate.com",
+    "Robert Weindl": "robert.weindl@originate.com"
   },
   "source": {
     "git": "https://github.com/Originate/OriginateTheme.git",
-    "tag": "0.0.1"
+    "tag": "1.0.0"
   },
   "platforms": {
     "ios": "8.0"

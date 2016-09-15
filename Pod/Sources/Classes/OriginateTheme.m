@@ -2,8 +2,8 @@
 //  OriginateTheme.m
 //  OriginateTheme
 //
-//  Created by Philip Kluz on 2016-05-06.
-//  Copyright (c) 2016 Originate. All rights reserved.
+//  Created by Robert Weindl on 2016-09-15.
+//  Copyright © 2016 Originate Inc. All rights reserved.
 //
 
 #import "OriginateTheme.h"

@@ -3,7 +3,7 @@
 //  OriginateTheme
 //
 //  Created by Philip Kluz on 2016-05-06.
-//  Copyright (c) 2016 Originate. All rights reserved.
+//  Copyright © 2016 Originate Inc. All rights reserved.
 //
 
 #import "UIColor+OriginateThemeHex.h"

@@ -10,6 +10,8 @@ Execute inside the Example directory.
 
 In case no valid values for keys in JSON these values will be discarded for the file generation. 
 
+`theme.json` has to be in same directory as `Info.plist`.
+
 # Installation with CocoaPods
 Add the following lines to your Podfile and run `pod install`.
 
