@@ -1,7 +1,7 @@
 {
   "name": "OriginateTheme",
   "version": "1.0.0",
-  "summary": "A lightweight user interface theming framework.",
+  "summary": "OriginateTheme is a lightweight user interface theming framework.",
   "homepage": "https://github.com/Originate/OriginateTheme",
   "license": "MIT",
   "authors": {
@@ -16,6 +16,6 @@
     "ios": "8.0"
   },
   "requires_arc": true,
-  "source_files": "Pod/Sources/**/*",
-  "public_header_files": "Pod/Sources/**/*.h"
+  "source_files": "OriginateTheme/Sources/**/*",
+  "public_header_files": "OriginateTheme/Sources/**/*.h"
 }

@@ -1,0 +1,386 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		643F4E981D8B1F5100EA3595 /* OTColors.h in Headers */ = {isa = PBXBuildFile; fileRef = 643F4E921D8B1F5100EA3595 /* OTColors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		643F4E991D8B1F5100EA3595 /* OTColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 643F4E931D8B1F5100EA3595 /* OTColors.m */; };
+		643F4E9A1D8B1F5100EA3595 /* OTComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 643F4E941D8B1F5100EA3595 /* OTComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		643F4E9B1D8B1F5100EA3595 /* OTComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 643F4E951D8B1F5100EA3595 /* OTComponents.m */; };
+		643F4E9C1D8B1F5100EA3595 /* OTFonts.h in Headers */ = {isa = PBXBuildFile; fileRef = 643F4E961D8B1F5100EA3595 /* OTFonts.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		643F4E9D1D8B1F5100EA3595 /* OTFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 643F4E971D8B1F5100EA3595 /* OTFonts.m */; };
+		6497545A1D8B1ADF00A3B3D0 /* OriginateTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 649754571D8B1ADF00A3B3D0 /* OriginateTheme.h */; };
+		649754631D8B1B1300A3B3D0 /* UIColor+OTHex.h in Headers */ = {isa = PBXBuildFile; fileRef = 6497545D1D8B1B1300A3B3D0 /* UIColor+OTHex.h */; };
+		649754641D8B1B1300A3B3D0 /* UIColor+OTHex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6497545E1D8B1B1300A3B3D0 /* UIColor+OTHex.m */; };
+		649754651D8B1B1300A3B3D0 /* UIColor+OTKeySource.h in Headers */ = {isa = PBXBuildFile; fileRef = 6497545F1D8B1B1300A3B3D0 /* UIColor+OTKeySource.h */; };
+		649754661D8B1B1300A3B3D0 /* UIColor+OTKeySource.m in Sources */ = {isa = PBXBuildFile; fileRef = 649754601D8B1B1300A3B3D0 /* UIColor+OTKeySource.m */; };
+		649754671D8B1B1300A3B3D0 /* UIFont+OTKeySource.h in Headers */ = {isa = PBXBuildFile; fileRef = 649754611D8B1B1300A3B3D0 /* UIFont+OTKeySource.h */; };
+		649754681D8B1B1300A3B3D0 /* UIFont+OTKeySource.m in Sources */ = {isa = PBXBuildFile; fileRef = 649754621D8B1B1300A3B3D0 /* UIFont+OTKeySource.m */; };
+		649754721D8B1B1A00A3B3D0 /* OTTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 649754691D8B1B1A00A3B3D0 /* OTTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		649754731D8B1B1A00A3B3D0 /* OTTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 6497546A1D8B1B1A00A3B3D0 /* OTTheme.m */; };
+		649754741D8B1B1A00A3B3D0 /* OTThemeable.h in Headers */ = {isa = PBXBuildFile; fileRef = 6497546B1D8B1B1A00A3B3D0 /* OTThemeable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		643F4E921D8B1F5100EA3595 /* OTColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTColors.h; sourceTree = "<group>"; };
+		643F4E931D8B1F5100EA3595 /* OTColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTColors.m; sourceTree = "<group>"; };
+		643F4E941D8B1F5100EA3595 /* OTComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTComponents.h; sourceTree = "<group>"; };
+		643F4E951D8B1F5100EA3595 /* OTComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTComponents.m; sourceTree = "<group>"; };
+		643F4E961D8B1F5100EA3595 /* OTFonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTFonts.h; sourceTree = "<group>"; };
+		643F4E971D8B1F5100EA3595 /* OTFonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTFonts.m; sourceTree = "<group>"; };
+		649754481D8B19DB00A3B3D0 /* OriginateTheme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OriginateTheme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		649754571D8B1ADF00A3B3D0 /* OriginateTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OriginateTheme.h; sourceTree = "<group>"; };
+		6497545D1D8B1B1300A3B3D0 /* UIColor+OTHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+OTHex.h"; sourceTree = "<group>"; };
+		6497545E1D8B1B1300A3B3D0 /* UIColor+OTHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+OTHex.m"; sourceTree = "<group>"; };
+		6497545F1D8B1B1300A3B3D0 /* UIColor+OTKeySource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+OTKeySource.h"; sourceTree = "<group>"; };
+		649754601D8B1B1300A3B3D0 /* UIColor+OTKeySource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+OTKeySource.m"; sourceTree = "<group>"; };
+		649754611D8B1B1300A3B3D0 /* UIFont+OTKeySource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+OTKeySource.h"; sourceTree = "<group>"; };
+		649754621D8B1B1300A3B3D0 /* UIFont+OTKeySource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+OTKeySource.m"; sourceTree = "<group>"; };
+		649754691D8B1B1A00A3B3D0 /* OTTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTheme.h; sourceTree = "<group>"; };
+		6497546A1D8B1B1A00A3B3D0 /* OTTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTheme.m; sourceTree = "<group>"; };
+		6497546B1D8B1B1A00A3B3D0 /* OTThemeable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTThemeable.h; sourceTree = "<group>"; };
+		6497547B1D8B1B3E00A3B3D0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		649754441D8B19DB00A3B3D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6497543E1D8B19DB00A3B3D0 = {
+			isa = PBXGroup;
+			children = (
+				6497544A1D8B19DB00A3B3D0 /* OriginateTheme */,
+				649754491D8B19DB00A3B3D0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		649754491D8B19DB00A3B3D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				649754481D8B19DB00A3B3D0 /* OriginateTheme.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6497544A1D8B19DB00A3B3D0 /* OriginateTheme */ = {
+			isa = PBXGroup;
+			children = (
+				649754531D8B1AA900A3B3D0 /* Sources */,
+				649754541D8B1AB000A3B3D0 /* Supporting Files */,
+			);
+			path = OriginateTheme;
+			sourceTree = "<group>";
+		};
+		649754531D8B1AA900A3B3D0 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				649754571D8B1ADF00A3B3D0 /* OriginateTheme.h */,
+				6497545B1D8B1AEA00A3B3D0 /* Categories */,
+				6497545C1D8B1AEF00A3B3D0 /* Classes */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		649754541D8B1AB000A3B3D0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6497547B1D8B1B3E00A3B3D0 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6497545B1D8B1AEA00A3B3D0 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				6497545D1D8B1B1300A3B3D0 /* UIColor+OTHex.h */,
+				6497545E1D8B1B1300A3B3D0 /* UIColor+OTHex.m */,
+				6497545F1D8B1B1300A3B3D0 /* UIColor+OTKeySource.h */,
+				649754601D8B1B1300A3B3D0 /* UIColor+OTKeySource.m */,
+				649754611D8B1B1300A3B3D0 /* UIFont+OTKeySource.h */,
+				649754621D8B1B1300A3B3D0 /* UIFont+OTKeySource.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		6497545C1D8B1AEF00A3B3D0 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				649754691D8B1B1A00A3B3D0 /* OTTheme.h */,
+				6497546A1D8B1B1A00A3B3D0 /* OTTheme.m */,
+				6497546B1D8B1B1A00A3B3D0 /* OTThemeable.h */,
+				643F4E921D8B1F5100EA3595 /* OTColors.h */,
+				643F4E931D8B1F5100EA3595 /* OTColors.m */,
+				643F4E941D8B1F5100EA3595 /* OTComponents.h */,
+				643F4E951D8B1F5100EA3595 /* OTComponents.m */,
+				643F4E961D8B1F5100EA3595 /* OTFonts.h */,
+				643F4E971D8B1F5100EA3595 /* OTFonts.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		649754451D8B19DB00A3B3D0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6497545A1D8B1ADF00A3B3D0 /* OriginateTheme.h in Headers */,
+				649754741D8B1B1A00A3B3D0 /* OTThemeable.h in Headers */,
+				649754631D8B1B1300A3B3D0 /* UIColor+OTHex.h in Headers */,
+				643F4E9C1D8B1F5100EA3595 /* OTFonts.h in Headers */,
+				649754671D8B1B1300A3B3D0 /* UIFont+OTKeySource.h in Headers */,
+				643F4E981D8B1F5100EA3595 /* OTColors.h in Headers */,
+				643F4E9A1D8B1F5100EA3595 /* OTComponents.h in Headers */,
+				649754651D8B1B1300A3B3D0 /* UIColor+OTKeySource.h in Headers */,
+				649754721D8B1B1A00A3B3D0 /* OTTheme.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		649754471D8B19DB00A3B3D0 /* OriginateTheme */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 649754501D8B19DB00A3B3D0 /* Build configuration list for PBXNativeTarget "OriginateTheme" */;
+			buildPhases = (
+				649754431D8B19DB00A3B3D0 /* Sources */,
+				649754441D8B19DB00A3B3D0 /* Frameworks */,
+				649754451D8B19DB00A3B3D0 /* Headers */,
+				649754461D8B19DB00A3B3D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OriginateTheme;
+			productName = OriginateTheme;
+			productReference = 649754481D8B19DB00A3B3D0 /* OriginateTheme.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6497543F1D8B19DB00A3B3D0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Originate Inc.";
+				TargetAttributes = {
+					649754471D8B19DB00A3B3D0 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 649754421D8B19DB00A3B3D0 /* Build configuration list for PBXProject "OriginateTheme" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6497543E1D8B19DB00A3B3D0;
+			productRefGroup = 649754491D8B19DB00A3B3D0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				649754471D8B19DB00A3B3D0 /* OriginateTheme */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		649754461D8B19DB00A3B3D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		649754431D8B19DB00A3B3D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				643F4E991D8B1F5100EA3595 /* OTColors.m in Sources */,
+				643F4E9B1D8B1F5100EA3595 /* OTComponents.m in Sources */,
+				643F4E9D1D8B1F5100EA3595 /* OTFonts.m in Sources */,
+				649754731D8B1B1A00A3B3D0 /* OTTheme.m in Sources */,
+				649754641D8B1B1300A3B3D0 /* UIColor+OTHex.m in Sources */,
+				649754661D8B1B1300A3B3D0 /* UIColor+OTKeySource.m in Sources */,
+				649754681D8B1B1300A3B3D0 /* UIFont+OTKeySource.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6497544E1D8B19DB00A3B3D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6497544F1D8B19DB00A3B3D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		649754511D8B19DB00A3B3D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "OriginateTheme/Supporting Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.originate.OriginateTheme;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		649754521D8B19DB00A3B3D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "OriginateTheme/Supporting Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.originate.OriginateTheme;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		649754421D8B19DB00A3B3D0 /* Build configuration list for PBXProject "OriginateTheme" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6497544E1D8B19DB00A3B3D0 /* Debug */,
+				6497544F1D8B19DB00A3B3D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		649754501D8B19DB00A3B3D0 /* Build configuration list for PBXNativeTarget "OriginateTheme" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				649754511D8B19DB00A3B3D0 /* Debug */,
+				649754521D8B19DB00A3B3D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6497543F1D8B19DB00A3B3D0 /* Project object */;
+}
