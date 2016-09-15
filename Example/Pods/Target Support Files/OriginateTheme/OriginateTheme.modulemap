@@ -1,6 +1,0 @@
-framework module OriginateTheme {
-  umbrella header "OriginateTheme-umbrella.h"
-
-  export *
-  module * { export * }
-}

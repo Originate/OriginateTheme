@@ -200,7 +200,7 @@ def parseArguments(argv):
     """
     inputFile = ''
     outputDirectory = ''
-    helpString = './otheme.py -i <inputFile> -o <outputDirectory>'
+    helpString = './ot_generator.py -i <inputFile> -o <outputDirectory>'
 
     # Extract the inputFile and outputDirectory arguments.
     try:

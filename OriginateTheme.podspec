@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
   s.source              = { :git => 'https://github.com/Originate/OriginateTheme.git', :tag => s.version.to_s }
   s.platform            = :ios, '8.0'
   s.requires_arc        = true
-  s.source_files        = 'OriginateTheme/Sources/**/*'
+  s.source_files        = 'OriginateTheme/Sources/**/*.{h,m}'
   s.public_header_files = 'OriginateTheme/Sources/**/*.h'
+  s.prepare_command     = "ruby OriginateTheme/Scripts/install_run_script.rb '#{path}'"
 end

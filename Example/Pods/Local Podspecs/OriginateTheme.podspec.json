@@ -16,6 +16,7 @@
     "ios": "8.0"
   },
   "requires_arc": true,
-  "source_files": "OriginateTheme/Sources/**/*",
-  "public_header_files": "OriginateTheme/Sources/**/*.h"
+  "source_files": "OriginateTheme/Sources/**/*.{h,m}",
+  "public_header_files": "OriginateTheme/Sources/**/*.h",
+  "prepare_command": "ruby OriginateTheme/Scripts/install_run_script.rb '/Users/robertweindl/Work/Originate/OriginateTheme/OriginateTheme.podspec'"
 }
