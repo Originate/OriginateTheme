@@ -221,9 +221,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				643F4E831D8B1EDE00EA3595 /* OTEViewController.m in Sources */,
-				643F4E801D8B1EDE00EA3595 /* OTEAppDelegate.m in Sources */,
 				643F4E7D1D8B1EDE00EA3595 /* main.m in Sources */,
+				643F4E801D8B1EDE00EA3595 /* OTEAppDelegate.m in Sources */,
+				643F4E831D8B1EDE00EA3595 /* OTEViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
