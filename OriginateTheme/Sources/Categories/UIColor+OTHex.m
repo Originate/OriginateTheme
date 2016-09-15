@@ -10,6 +10,8 @@
 
 @implementation UIColor (OTHex)
 
+#pragma mark - UIColor (OTHex)
+
 + (instancetype)ot_colorWithHexString:(NSString *)hexString
 {
     if ([hexString length] != 6) {
@@ -54,6 +56,19 @@
     return [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
 }
 
++ (UIColor *)ot_hex:(NSInteger)hexColor
+{
+    return [[self class] ot_hex:hexColor alpha:1.0];
+}
+
++ (UIColor *)ot_hex:(NSInteger)hexColor alpha:(CGFloat)alpha
+{
+    return [UIColor colorWithRed:((CGFloat)((hexColor & 0xFF0000) >> 16)) / 255.0
+                           green:((CGFloat)((hexColor & 0xFF00) >> 8)) / 255.0
+                            blue:((CGFloat)(hexColor & 0xFF)) / 255.0
+                           alpha:alpha];
+}
+
 + (NSString *)ot_hexStringWithColor:(UIColor *)color
 {
     if (!color) {
@@ -76,22 +91,9 @@
     CGFloat blue255 = blue * 255.0;
     
     NSString *returnString =
-        [NSString stringWithFormat:@"%02x%02x%02x", (unsigned int)red255, (unsigned int)green255, (unsigned int)blue255];
+    [NSString stringWithFormat:@"%02x%02x%02x", (unsigned int)red255, (unsigned int)green255, (unsigned int)blue255];
     
     return [returnString uppercaseString];
-}
-
-+ (UIColor *)ot_hex:(NSInteger)hexColor
-{
-    return [[self class] ot_hex:hexColor alpha:1.0];
-}
-
-+ (UIColor *)ot_hex:(NSInteger)hexColor alpha:(CGFloat)alpha
-{
-    return [UIColor colorWithRed:((CGFloat)((hexColor & 0xFF0000) >> 16)) / 255.0
-                           green:((CGFloat)((hexColor & 0xFF00) >> 8)) / 255.0
-                            blue:((CGFloat)(hexColor & 0xFF)) / 255.0
-                           alpha:alpha];
 }
 
 @end

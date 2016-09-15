@@ -13,7 +13,7 @@ NSString * const OTFontSizeKey = @"size";
 
 @implementation UIFont (OTKeySource)
 
-#pragma mark - UIFont (OriginateThemeKeySource)
+#pragma mark - UIFont (OTKeySource)
 
 + (UIFont *)fontForKeyPath:(NSString *)keyPath source:(NSDictionary *)definition fallback:(UIFont *)fallback
 {

@@ -11,7 +11,7 @@
 
 @implementation UIColor (OTKeySource)
 
-#pragma mark - UIColor (OriginateThemeKeySource)
+#pragma mark - UIColor (OTKeySource)
 
 + (UIColor *)colorForKeyPath:(NSString *)keyPath source:(NSDictionary *)definition fallback:(UIColor *)fallback
 {
