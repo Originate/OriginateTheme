@@ -16,6 +16,9 @@ import sys
 #####################
 
 def headerTemplate():
+    """
+        Template for an OriginateTheme header file.
+    """
     return """//
 //  $OriginateThemeClassName.h
 //  OriginateTheme
@@ -30,7 +33,6 @@ def headerTemplate():
 
 #pragma mark - Properties
 $OriginateThemePublicProperties
-
 #pragma mark - Methods
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
@@ -38,6 +40,9 @@ $OriginateThemePublicProperties
 """
 
 def mainTemplate():
+    """
+        Template for an OriginateTheme main file.
+    """
     return """//
 //  $OriginateThemeClassName.m
 //  OriginateTheme
@@ -52,14 +57,12 @@ def mainTemplate():
 #import "UIFont+OriginateThemeKeySource.h"
 
 $OriginateThemePropertiesKeyPathKeys
-
 @interface $OriginateThemeClassName ()
 
 #pragma mark - Properties
 @property (nonatomic, strong, readwrite) NSDictionary *definition;
 
 $OriginateThemePrivateProperties
-
 @end
 
 @implementation $OriginateThemeClassName
@@ -87,55 +90,83 @@ $OriginateThemePropertiesGetters
 ##### Properties #####
 ######################
 
-def createFontGetter(font, getterName, keyPath):
+def createFontGetter(font, name, keyPath):
+    """
+        Creates a new getter to access a OriginateTheme UIFont property.
+
+        Parameters
+        -----------
+        font: Object
+            Object of type 'font'.
+        name: String
+            The name of the property to create a getter for.
+        keyPath: String
+            The name of the key path to associated to the property.
+    """
     getter = """
-- (UIFont *)$fontKey
+- (UIFont *)$name
 {
-    if (!_$fontKey) {
-        _$fontKey = [UIFont fontForKeyPath:$fontKeyPathKey
-                                    source:self.definition
-                                  fallback:[UIFont fontWithName:@"$fontName" size:$fontSize]];
+    if (!_$name) {
+        _$name = [UIFont fontForKeyPath:$fontKeyPathKey
+                                 source:self.definition
+                               fallback:[UIFont fontWithName:@"$fontName" size:$fontSize]];
     }
 
-    return _$fontKey;
+    return _$name;
 }"""
+    return string.Template(getter).substitute({ 'name' : name, 'fontKeyPathKey' : keyPath, 'fontName' : font.name , 'fontSize' : font.size })
 
-    return string.Template(getter).substitute({ 'fontKey' : getterName, 'fontKeyPathKey' : keyPath, 'fontName' : font.name , 'fontSize' : font.size })
+def createColorGetter(color, name, keyPath):
+    """
+        Creates a new getter to access a OriginateTheme UIColor property.
 
-def createColorGetter(color, getterName, keyPath):
+        Parameters
+        -----------
+        color: Object
+            Object of type 'Color'.
+        name: String
+            The name of the property to create a getter for.
+        keyPath: String
+            The name of the key path to associated to the property.
+    """
     getter = """
-- (UIColor *)$colorKey
+- (UIColor *)$name
 {
-    if (!_$colorKey) {
-        _$colorKey = [UIColor colorForKeyPath:$colorKeyPathKey
-                                       source:self.definition
-                                     fallback:[UIColor oth_hex:0x$colorCode]];
+    if (!_$name) {
+        _$name = [UIColor colorForKeyPath:$colorKeyPathKey
+                                   source:self.definition
+                                 fallback:[UIColor oth_hex:0x$colorCode]];
     }
 
-    return _$colorKey;
+    return _$name;
 }"""
-
-    return string.Template(getter).substitute({ 'colorKey' : getterName, 'colorKeyPathKey' : keyPath, 'colorCode' : color.code})
+    return string.Template(getter).substitute({ 'name' : name, 'colorKeyPathKey' : keyPath, 'colorCode' : color.code})
 
 ###################
 ##### Classes #####
 ###################
 
 class Font():
+    """
+        Class representing all font type information.
+    """
     def __init__(self, key, name, size):
         self.key = key
         self.name = name
         self.size = size
 
-    def __lt__(self, other):
-        return self.key < other.key
-
 class Color():
+    """
+        Class representing all color type information.
+    """
     def __init__(self, key, code):
         self.key = key
         self.code = code
 
 class Component():
+    """
+        Class representing all component type information.
+    """
     def __init__(self, key, fonts, colors):
         self.key = key
         self.fonts = fonts
@@ -156,7 +187,6 @@ def parseArguments(argv):
         outputDirectory: String
             Path to the directory where the new files should be generated.
     """
-
     inputFile = ''
     outputDirectory = ''
     helpString = './otheme.py -i <inputFile> -o <outputDirectory>'
@@ -203,7 +233,6 @@ def parseFonts(fonts):
             Object containing font objecs  and their corresponding keys. For being
             a valid font object a name and size property has to be provided
     """
-
     results = []
     for key, value in fonts.iteritems():
         if 'name' not in value or 'size' not in value:
@@ -222,7 +251,6 @@ def parseColors(colors):
             Object containing six digit hex color codes and their corresponding keys.
             A '#' as prefix for the hex color codes is not allowed.
     """
-
     results = []
     hexPattern = re.compile("^(?:[0-9a-fA-F]{6}){1}$")
     for key, value in colors.iteritems():
@@ -244,7 +272,6 @@ def parseComponents(components):
             is colors and the key declared fonts is fonts. The requirements for these
             embeeded objects are the same as for the methods parseFonts: or parseColors:.
     """
-
     results = []
     for key, value in components.iteritems():
         colors = parseColors(value['colors']) if 'colors' in value else []
@@ -257,19 +284,76 @@ def parseComponents(components):
 ######################
 
 def upcaseFirstLetter(s):
+    """
+        Method which upercases the first letter of a string.
+
+        Parameters
+        -----------
+        s: String
+            String whose first letter should be upercase.
+    """
     return s[0].upper() + s[1:] if s else s
 
 def createProperty(referenceType, accessMode, propertyType, propertyName):
+    """
+        Convenient method to create a new property definition.
+
+        Parameters
+        -----------
+        referenceType: String
+            The String 'weak', 'strong' or 'copy'.
+        accessMode: String
+            The String 'readonly' or 'readwrite'.
+        propertyType: String
+            String representing the type of the property e.g. 'UIColor'.
+        propertyName: String
+            String for the property name.
+    """
     return string.Template('@property (nonatomic, ${referenceType}, ${accessMode}) ${propertyType} *${propertyName};').substitute(locals())
 
 def createPropertyKeyPathKey(prefix, key):
+    """
+        Convenient method to create a new property key path key name.
+
+        Parameters
+        -----------
+        prefix: String
+            String of specifying possible prefix e.g. 'Colors'.
+        key: String
+            String representing the property key path key.
+    """
     return 'OTH' + prefix + upcaseFirstLetter(key) + 'KeyPathKey'
 
 def createPropertyKeyPathKeyDefinition(propertyKeyPathKey, propertyKeyPathValue):
+    """
+        Convenient method to create a new property key path key definition.
+
+        Parameters
+        -----------
+        propertyKeyPathKey: String
+            String specifying the key path key e.g. the result of the method createPropertyKeyPathKey:.
+        propertyKeyPathValue: String
+            String specifying the value of the key path key e.g. 'colors.primary'.
+    """
     return 'NSString * const ' + propertyKeyPathKey + ' = @"' + propertyKeyPathValue + '";'
 
 def generateUITypeClass(outputDirectory, className, dictionary, uiType, getter):
+    """
+        Create a new pair of header and main file for a OriginateTheme class specifying font or color definitions.
 
+        Parameters
+        -----------
+        outputDirectory: String
+            String specifying the directory where the result should be saved.
+        className: String
+            The name of the new class.
+        dictionary: Object
+            Object containing all key/value pairs for the font or color definitions.
+        uiType: String
+            The String 'color' or 'font'.
+        getter: Function
+            A Function generating the property getter files for the specified type.
+    """
     dictionary = [] if not dictionary else dictionary
 
     #############################
@@ -277,10 +361,10 @@ def generateUITypeClass(outputDirectory, className, dictionary, uiType, getter):
     #############################
 
     # Create the public properties.
-    OriginateThemeFontsPublicProperties = [createProperty('strong', 'readonly', 'UI' + upcaseFirstLetter(uiType), d.key + upcaseFirstLetter(uiType)) for d in dictionary]
+    OriginateThemeTypePublicProperties = [createProperty('strong', 'readonly', 'UI' + upcaseFirstLetter(uiType), d.key + upcaseFirstLetter(uiType)) for d in dictionary] + ['']
 
     # Substitute the properties.
-    result = string.Template(headerTemplate()).substitute({'OriginateThemePublicProperties' : '\n'.join(OriginateThemeFontsPublicProperties), 'OriginateThemeClassName' : className})
+    result = string.Template(headerTemplate()).substitute({'OriginateThemePublicProperties' : '\n'.join(OriginateThemeTypePublicProperties), 'OriginateThemeClassName' : className})
 
     # Store the generated file in the output directory.
     with open(outputDirectory + className + '.h', 'wb') as outputFile:
@@ -291,23 +375,34 @@ def generateUITypeClass(outputDirectory, className, dictionary, uiType, getter):
     ###########################
 
     # Create the properties' keys.
-    OriginateThemeFontsPropertiesKeyPathKeys = [createPropertyKeyPathKeyDefinition(createPropertyKeyPathKey(upcaseFirstLetter(uiType) + 's', d.key), uiType + 's.' + d.key) for d in dictionary]
+    OriginateThemeTypePropertiesKeyPathKeys = [createPropertyKeyPathKeyDefinition(createPropertyKeyPathKey(upcaseFirstLetter(uiType) + 's', d.key), uiType + 's.' + d.key) for d in dictionary] + ['']
 
     # Create the private properties.
-    OriginateThemeFontsPrivateProperties = [createProperty('strong', 'readwrite', 'UI' + upcaseFirstLetter(uiType), d.key + upcaseFirstLetter(uiType)) for d in dictionary]
+    OriginateThemeTypePrivateProperties = [createProperty('strong', 'readwrite', 'UI' + upcaseFirstLetter(uiType), d.key + upcaseFirstLetter(uiType)) for d in dictionary] + ['']
 
     # Create the properties' getters.
-    OriginateThemeFontsPropertiesGetters = [getter(d, d.key + upcaseFirstLetter(uiType), createPropertyKeyPathKey(upcaseFirstLetter(uiType) + 's', d.key)) for d in dictionary]
+    OriginateThemeTypePropertiesGetters = [getter(d, d.key + upcaseFirstLetter(uiType), createPropertyKeyPathKey(upcaseFirstLetter(uiType) + 's', d.key)) for d in dictionary]
 
     # Substitute the properties.
-    result = string.Template(mainTemplate()).substitute({'OriginateThemePropertiesKeyPathKeys' : '\n'.join(OriginateThemeFontsPropertiesKeyPathKeys), 'OriginateThemePrivateProperties' : '\n'.join(OriginateThemeFontsPrivateProperties), 'OriginateThemePropertiesGetters' : '\n'.join(OriginateThemeFontsPropertiesGetters), 'OriginateThemeClassName' : className})
+    result = string.Template(mainTemplate()).substitute({'OriginateThemePropertiesKeyPathKeys' : '\n'.join(OriginateThemeTypePropertiesKeyPathKeys), 'OriginateThemePrivateProperties' : '\n'.join(OriginateThemeTypePrivateProperties), 'OriginateThemePropertiesGetters' : '\n'.join(OriginateThemeTypePropertiesGetters), 'OriginateThemeClassName' : className})
 
     # Store the generated file in the output directory.
     with open(outputDirectory + className + '.m', 'wb') as outputFile:
         outputFile.write(result)
 
 def generateComponentsClass(outputDirectory, className, components):
+    """
+        Create a new pair of header and main file for a OriginateTheme class specifying component definitions.
 
+        Parameters
+        -----------
+        outputDirectory: String
+            String specifying the directory where the result should be saved.
+        className: String
+            The name of the new class.
+        components: Object
+            Object containing all key/value pairs for the component definitions.
+    """
     components = [] if not components else components
 
     # Component specific lambda functions.
@@ -367,7 +462,6 @@ def main(argv):
         argv: Array
             Array containing all programs' arguments
     """
-
     # Initialize variables for extracted fonts, colors and components.
     (fonts, colors, components) = ([], [], [])
 

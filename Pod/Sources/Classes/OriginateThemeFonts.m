@@ -49,8 +49,8 @@ NSString * const OTHFontsDefaultLightKeyPathKey = @"fonts.defaultLight";
 {
     if (!_defaultFont) {
         _defaultFont = [UIFont fontForKeyPath:OTHFontsDefaultKeyPathKey
-                                    source:self.definition
-                                  fallback:[UIFont fontWithName:@"HelveticaNeue" size:14.0]];
+                                 source:self.definition
+                               fallback:[UIFont fontWithName:@"HelveticaNeue" size:14.0]];
     }
 
     return _defaultFont;
@@ -60,8 +60,8 @@ NSString * const OTHFontsDefaultLightKeyPathKey = @"fonts.defaultLight";
 {
     if (!_defaultBoldFont) {
         _defaultBoldFont = [UIFont fontForKeyPath:OTHFontsDefaultBoldKeyPathKey
-                                    source:self.definition
-                                  fallback:[UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0]];
+                                 source:self.definition
+                               fallback:[UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0]];
     }
 
     return _defaultBoldFont;
@@ -71,8 +71,8 @@ NSString * const OTHFontsDefaultLightKeyPathKey = @"fonts.defaultLight";
 {
     if (!_defaultItalicFont) {
         _defaultItalicFont = [UIFont fontForKeyPath:OTHFontsDefaultItalicKeyPathKey
-                                    source:self.definition
-                                  fallback:[UIFont fontWithName:@"HelveticaNeue-Thin" size:14.0]];
+                                 source:self.definition
+                               fallback:[UIFont fontWithName:@"HelveticaNeue-Thin" size:14.0]];
     }
 
     return _defaultItalicFont;
@@ -82,8 +82,8 @@ NSString * const OTHFontsDefaultLightKeyPathKey = @"fonts.defaultLight";
 {
     if (!_defaultLightFont) {
         _defaultLightFont = [UIFont fontForKeyPath:OTHFontsDefaultLightKeyPathKey
-                                    source:self.definition
-                                  fallback:[UIFont fontWithName:@"HelveticaNeue-Light" size:14.0]];
+                                 source:self.definition
+                               fallback:[UIFont fontWithName:@"HelveticaNeue-Light" size:14.0]];
     }
 
     return _defaultLightFont;

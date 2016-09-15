@@ -51,8 +51,8 @@ NSString * const OTHColorsWarningKeyPathKey = @"colors.warning";
 {
     if (!_errorColor) {
         _errorColor = [UIColor colorForKeyPath:OTHColorsErrorKeyPathKey
-                                       source:self.definition
-                                     fallback:[UIColor oth_hex:0xbd2c00]];
+                                   source:self.definition
+                                 fallback:[UIColor oth_hex:0xbd2c00]];
     }
 
     return _errorColor;
@@ -62,8 +62,8 @@ NSString * const OTHColorsWarningKeyPathKey = @"colors.warning";
 {
     if (!_primaryColor) {
         _primaryColor = [UIColor colorForKeyPath:OTHColorsPrimaryKeyPathKey
-                                       source:self.definition
-                                     fallback:[UIColor oth_hex:0x00A0D8]];
+                                   source:self.definition
+                                 fallback:[UIColor oth_hex:0x00A0D8]];
     }
 
     return _primaryColor;
@@ -73,8 +73,8 @@ NSString * const OTHColorsWarningKeyPathKey = @"colors.warning";
 {
     if (!_secondaryColor) {
         _secondaryColor = [UIColor colorForKeyPath:OTHColorsSecondaryKeyPathKey
-                                       source:self.definition
-                                     fallback:[UIColor oth_hex:0xFCD92B]];
+                                   source:self.definition
+                                 fallback:[UIColor oth_hex:0xFCD92B]];
     }
 
     return _secondaryColor;
@@ -84,8 +84,8 @@ NSString * const OTHColorsWarningKeyPathKey = @"colors.warning";
 {
     if (!_successColor) {
         _successColor = [UIColor colorForKeyPath:OTHColorsSuccessKeyPathKey
-                                       source:self.definition
-                                     fallback:[UIColor oth_hex:0x95BE22]];
+                                   source:self.definition
+                                 fallback:[UIColor oth_hex:0x95BE22]];
     }
 
     return _successColor;
@@ -95,8 +95,8 @@ NSString * const OTHColorsWarningKeyPathKey = @"colors.warning";
 {
     if (!_warningColor) {
         _warningColor = [UIColor colorForKeyPath:OTHColorsWarningKeyPathKey
-                                       source:self.definition
-                                     fallback:[UIColor oth_hex:0xFFA500]];
+                                   source:self.definition
+                                 fallback:[UIColor oth_hex:0xFFA500]];
     }
 
     return _warningColor;

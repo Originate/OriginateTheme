@@ -22,7 +22,6 @@
 @property (nonatomic, strong, readonly) UIColor *tabBarTextColor;
 @property (nonatomic, strong, readonly) UIFont *tabBarTitleFont;
 
-
 #pragma mark - Methods
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
