@@ -113,6 +113,7 @@
 				643F4E761D8B1EDE00EA3595 /* Resources */,
 				0FE5C8D5F5A258A7930B28AE /* [CP] Embed Pods Frameworks */,
 				7FFF09943C7D53A9204D7ACC /* [CP] Copy Pods Resources */,
+				69C31FDF52FAA5857B0EB6D0 /* [OT] Generate Theme Files. */,
 			);
 			buildRules = (
 			);
@@ -183,6 +184,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OriginateTheme-Example/Pods-OriginateTheme-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		69C31FDF52FAA5857B0EB6D0 /* [OT] Generate Theme Files. */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[OT] Generate Theme Files.";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/OriginateTheme/run_script.sh\"";
 		};
 		69F241B132020E02416BF6C9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

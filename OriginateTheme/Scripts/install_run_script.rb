@@ -4,7 +4,7 @@ require 'pathname'
 require 'xcodeproj'
 
 path_to_xcode_build_script = '"${SRCROOT}/Pods/OriginateTheme/run_script.sh"'
-xcode_build_script_name = 'Unique Run Script Name'
+xcode_build_script_name = '[OT] Generate Theme Files.'
 
 puts Dir.pwd
 puts ARGV[0]
@@ -31,8 +31,6 @@ else
   # Dir.pwd: /Users/ben/LOCAL_POD_PATH/POD_NAME
   # ADAPT TO ../../**/*.xcodeproj
   path_to_project = Dir.glob(Pathname.new(path_to_spec) + '../**/*.xcodeproj')[0]
-  puts path_to_project
-  echo asdf
 end
 
 puts path_to_project
@@ -41,9 +39,9 @@ project = Xcodeproj::Project.open(path_to_project)
 main_target = project.targets.first
 script_installed = false
 
-main_target.shell_script_build_phases.each { |run_script|
-  script_installed = true if run_script.name == xcode_build_script_name
-}
+# main_target.shell_script_build_phases.each { |run_script|
+#   script_installed = true if run_script.name == xcode_build_script_name
+# }
 
 if (!script_installed)
   puts "Installing run script in Xcode project #{path_to_project}"
