@@ -56,7 +56,6 @@ NSString * const OTHFontsDefaultLightKeyPathKey = @"fonts.defaultLight";
     return _defaultFont;
 }
 
-
 - (UIFont *)defaultBoldFont
 {
     if (!_defaultBoldFont) {
@@ -67,7 +66,6 @@ NSString * const OTHFontsDefaultLightKeyPathKey = @"fonts.defaultLight";
 
     return _defaultBoldFont;
 }
-
 
 - (UIFont *)defaultItalicFont
 {
@@ -80,7 +78,6 @@ NSString * const OTHFontsDefaultLightKeyPathKey = @"fonts.defaultLight";
     return _defaultItalicFont;
 }
 
-
 - (UIFont *)defaultLightFont
 {
     if (!_defaultLightFont) {
@@ -91,6 +88,5 @@ NSString * const OTHFontsDefaultLightKeyPathKey = @"fonts.defaultLight";
 
     return _defaultLightFont;
 }
-
 
 @end
