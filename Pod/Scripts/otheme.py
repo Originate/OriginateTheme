@@ -193,9 +193,9 @@ def createColorGetter(color, getterName, keyPath):
     return string.Template(getter).substitute({ 'colorKey' : getterName, 'colorKeyPathKey' : keyPath, 'colorCode' : color.code})
 
 
-def generateFontsOutput(outputDirectory, className, fonts):
+def generateUITypeClass(outputDirectory, className, dictionary, uiType, getter):
 
-    fonts = [] if not fonts else fonts
+    dictionary = [] if not dictionary else dictionary
 
     # Generate the OriginateThemeFonts.h file.
     with open('./Template/OriginateThemeTemplate.h', 'r') as headerFile:
@@ -203,7 +203,7 @@ def generateFontsOutput(outputDirectory, className, fonts):
         template = string.Template(headerFile.read())
 
         # Create the public properties.
-        OriginateThemeFontsPublicProperties = [createProperty('strong', 'readonly', 'UIFont', f.key + 'Font') for f in fonts]
+        OriginateThemeFontsPublicProperties = [createProperty('strong', 'readonly', 'UI' + upcaseFirstLetter(uiType), d.key + upcaseFirstLetter(uiType)) for d in dictionary]
 
         # Substitute the properties.
         result = template.substitute({'OriginateThemePublicProperties' : '\n'.join(OriginateThemeFontsPublicProperties), 'OriginateThemeClassName' : className})
@@ -218,13 +218,13 @@ def generateFontsOutput(outputDirectory, className, fonts):
         template = string.Template(mainFile.read())
 
         # Create the properties' keys.
-        OriginateThemeFontsPropertiesKeyPathKeys = [createPropertyKeyPathKeyDefinition(createPropertyKeyPathKey('Fonts', f.key), 'fonts.' + f.key) for f in fonts]
+        OriginateThemeFontsPropertiesKeyPathKeys = [createPropertyKeyPathKeyDefinition(createPropertyKeyPathKey(upcaseFirstLetter(uiType) + 's', d.key), uiType + 's.' + d.key) for d in dictionary]
 
         # Create the private properties.
-        OriginateThemeFontsPrivateProperties = [createProperty('strong', 'readwrite', 'UIFont', f.key + 'Font') for f in fonts]
+        OriginateThemeFontsPrivateProperties = [createProperty('strong', 'readwrite', 'UI' + upcaseFirstLetter(uiType), d.key + upcaseFirstLetter(uiType)) for d in dictionary]
 
         # Create the properties' getters.
-        OriginateThemeFontsPropertiesGetters = [createFontGetter(f, f.key + 'Font', createPropertyKeyPathKey('Fonts', f.key)) for f in fonts]
+        OriginateThemeFontsPropertiesGetters = [getter(d, d.key + upcaseFirstLetter(uiType), createPropertyKeyPathKey(upcaseFirstLetter(uiType) + 's', d.key)) for d in dictionary]
 
         # Substitute the properties.
         result = template.substitute({'OriginateThemePropertiesKeyPathKeys' : '\n'.join(OriginateThemeFontsPropertiesKeyPathKeys), 'OriginateThemePrivateProperties' : '\n'.join(OriginateThemeFontsPrivateProperties), 'OriginateThemePropertiesGetters' : '\n'.join(OriginateThemeFontsPropertiesGetters), 'OriginateThemeClassName' : className})
@@ -235,49 +235,7 @@ def generateFontsOutput(outputDirectory, className, fonts):
 
     return
 
-def generateColorsOutput(outputDirectory, className, colors):
-
-    colors = [] if not colors else colors
-
-    # Generate the OriginateThemeColors.h file.
-    with open('./Template/OriginateThemeTemplate.h', 'r') as headerFile:
-        # Template Source.
-        template = string.Template(headerFile.read())
-
-        # Create the public properties.
-        OriginateThemeColorsPublicProperties = [createProperty('strong', 'readonly', 'UIColor', c.key + 'Color') for c in colors]
-
-        # Substitute the properties.
-        result = template.substitute({'OriginateThemePublicProperties' : '\n'.join(OriginateThemeColorsPublicProperties), 'OriginateThemeClassName' : className})
-
-        # Store the generated file in the output directory.
-        with open(outputDirectory + className + '.h', 'wb') as outputFile:
-            outputFile.write(result)
-
-    # Generate the OriginateThemeColors.m file.
-    with open('./Template/OriginateThemeTemplate.m', 'r') as mainFile:
-        # Template Source.
-        template = string.Template(mainFile.read())
-
-        # Create the properties' keys.
-        OriginateThemeColorsPropertiesKeyPathKeys = [createPropertyKeyPathKeyDefinition(createPropertyKeyPathKey('Colors', c.key), 'colors.' + c.key) for c in colors]
-
-        # Create the private properties.
-        OriginateThemeColorsPrivateProperties = [createProperty('strong', 'readwrite', 'UIColor', c.key + 'Color') for c in colors]
-
-        # Create the properties' getters.
-        OriginateThemeColorsPropertiesGetters = [createColorGetter(c,  c.key + 'Color', createPropertyKeyPathKey('Colors', c.key)) for c in colors]
-
-        # Substitute the properties.
-        result = template.substitute({'OriginateThemePropertiesKeyPathKeys' : '\n'.join(OriginateThemeColorsPropertiesKeyPathKeys), 'OriginateThemePrivateProperties' : '\n'.join(OriginateThemeColorsPrivateProperties), 'OriginateThemePropertiesGetters' : '\n'.join(OriginateThemeColorsPropertiesGetters), 'OriginateThemeClassName' : className})
-
-        # Store the generated file in the output directory.
-        with open(outputDirectory + className + '.m', 'wb') as outputFile:
-            outputFile.write(result)
-
-    return
-
-def generateComponentsOutput(outputDirectory, className, components):
+def generateComponentsClass(outputDirectory, className, components):
 
     components = [] if not components else components
 
@@ -359,9 +317,9 @@ def main(argv):
             sys.exit()
 
     # Create the fonts, colors and components output files.
-    generateFontsOutput(outputDirectory, 'OriginateThemeFonts', sorted(fonts, key = lambda x: x.key))
-    generateColorsOutput(outputDirectory, 'OriginateThemeColors', sorted(colors, key = lambda x: x.key))
-    generateComponentsOutput(outputDirectory, 'OriginateThemeComponents', sorted(components, key = lambda x: x.key))
+    generateUITypeClass(outputDirectory, 'OriginateThemeFonts', sorted(fonts, key = lambda x: x.key), 'font', createFontGetter)
+    generateUITypeClass(outputDirectory, 'OriginateThemeColors', sorted(colors, key = lambda x: x.key), 'color', createColorGetter)
+    generateComponentsClass(outputDirectory, 'OriginateThemeComponents', sorted(components, key = lambda x: x.key))
 
 if __name__ == "__main__":
     main(sys.argv[1:])
