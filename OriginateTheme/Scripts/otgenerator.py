@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-    otheme.py
+    otgenerator.py
     Script which creates OriginateTheme class files out of a JSON file.
 
     Arguments
