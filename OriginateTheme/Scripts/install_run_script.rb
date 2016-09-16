@@ -11,7 +11,7 @@ xcode_build_script_name = '[OT] Generate Theme Files'
 path_to_spec = ARGV[0]
 
 # Path to the Xcode project.
-path_to_project = Dir.glob(Pathname.new(path_to_spec) + '../../**/*.xcodeproj')[0]
+path_to_project = Dir.glob(Pathname.new(path_to_spec) + '../../../**/*.xcodeproj')[0]
 
 # Open Xcode project and check if shell script is already installed.
 project = Xcodeproj::Project.open(path_to_project)
