@@ -6,6 +6,7 @@
 //  Copyright © 2016 Originate Inc. All rights reserved.
 //
 
+@import OriginateTheme;
 @import UIKit;
 
 @interface OTEAppDelegate : UIResponder <UIApplicationDelegate>

@@ -9,6 +9,6 @@
 @import OriginateTheme;
 @import UIKit;
 
-@interface OTEViewController : UIViewController
+@interface OTEViewController : UIViewController <OTThemeable>
 
 @end

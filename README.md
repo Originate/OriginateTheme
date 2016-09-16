@@ -23,6 +23,8 @@ In case no valid values for keys in JSON these values will be discarded for the 
 
 `theme.json` has to be in same directory as `Info.plist`.
 
+Build one time than classes available.
+
 # Installation with CocoaPods
 Add the following lines to your Podfile and run `pod install`.
 

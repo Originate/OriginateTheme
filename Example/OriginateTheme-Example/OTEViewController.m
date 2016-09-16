@@ -8,6 +8,13 @@
 
 #import "OTEViewController.h"
 
+@interface OTEViewController ()
+
+#pragma mark - Properties
+@property (nonatomic, strong) OTTheme *theme;
+
+@end
+
 @implementation OTEViewController
 
 #pragma mark - UIViewController
@@ -15,7 +22,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+}
+
+#pragma mark - OTEViewController
+
+- (void)applyThemeToViews
+{
+    self.view.backgroundColor = self.theme.colors.primaryColor;
+}
+
+#pragma mark - OTThemeable
+
+- (void)setTheme:(OTTheme *)theme
+{
+    _theme = theme;
+    
+    [self applyThemeToViews];
 }
 
 @end

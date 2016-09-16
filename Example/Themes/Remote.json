@@ -1,0 +1,59 @@
+{
+    "fonts" : {
+        "default" : {
+            "name" : "HelveticaNeue",
+            "size" : 14.0
+        },
+        "defaultBold" : {
+            "name" : "HelveticaNeue-Bold",
+            "size" : 14.0
+        },
+        "defaultLight" : {
+            "name" : "HelveticaNeue-Light",
+            "size" : 14.0
+        },
+        "defaultItalic" : {
+            "name" : "HelveticaNeue-Thin",
+            "size" : 14.0
+        }
+    },
+    "colors" : {
+        "primary" : "00A0D8",
+        "secondary" : "FCD92B",
+        "success" : "95BE22",
+        "warning" : "FFA500",
+        "error" : "bd2c00"
+    },
+    "components" : {
+        "navigationBar" : {
+            "colors" : {
+                "background" : "84E0FA",
+                "title" : "000000",
+                "description" : "979797"
+            },
+            "fonts" : {
+                "text" : {
+                    "name" : "HelveticaNeue-Light",
+                    "size" : 14.0
+                },
+                "description" : {
+                    "name" : "HelveticaNeue-Light",
+                    "size" : 12.0
+                }
+            }
+        },
+        "tabBar" : {
+            "colors" : {
+                "background" : "FFFFFF",
+                "text" : "424242",
+                "selectedText" : "4C66A4"
+            },
+            "fonts" : {
+                "title" : {
+                    "name" : "HelveticaNeue-Light",
+                    "size" : 14.0
+                }
+            }
+        }
+    }
+}
