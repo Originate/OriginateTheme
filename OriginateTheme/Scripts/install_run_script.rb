@@ -4,7 +4,7 @@ require 'pathname'
 require 'xcodeproj'
 
 # Constants.
-path_to_xcode_build_script = '"${SRCROOT}/Pods/OriginateTheme/run_script.sh"'
+path_to_xcode_build_script = '"${PODS_ROOT}/OriginateTheme/OriginateTheme/Scripts/ot_generator.py" -i "${OTTHEME}" -o "${PODS_ROOT}/OriginateTheme/OriginateTheme/Sources/Classes/"'
 xcode_build_script_name = '[OT] Generate Theme Files'
 
 # Path Varialbe is passed by OriginateTheme.podspec.
@@ -13,7 +13,7 @@ path_to_spec = ARGV[0]
 # Path to the Xcode project.
 path_to_project = Dir.glob(Pathname.new(path_to_spec) + '../../**/*.xcodeproj')[0]
 
-# Open Xcode project and check if shell script is already installed
+# Open Xcode project and check if shell script is already installed.
 project = Xcodeproj::Project.open(path_to_project)
 main_target = project.targets.first
 
@@ -27,11 +27,6 @@ if (!script_installed)
   puts "Installing run script in Xcode project #{path_to_project}"
   phase = main_target.new_shell_script_build_phase(xcode_build_script_name)
   phase.shell_script = path_to_xcode_build_script
-  # TODO: Solve problem that shell_script_build_phase is append to the end of the list.
-  # main_target.instance_variable_set(:@build_phases, main_target.build_phases().rotate(-1))
-  # main_target.instance_variable_set(:@shell_script_build_phases, main_target.shell_script_build_phases().rotate(-1))
-  # puts main_target.shell_script_build_phases()
-  # puts project
   project.save()
 else
   puts "Run script already installed"
