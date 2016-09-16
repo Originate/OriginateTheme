@@ -7,27 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00DB623858C36F3A499015EB35A0B4BD /* OTComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9D3103859B775A686BE574FAB07125 /* OTComponents.m */; };
 		06A7C5781C2589AAAE80C20E2DD3DC6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		082536C7C60DF45B10A1711D010C7924 /* OTColors.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BA7805ABC449598E7D32EEF9033D7E3 /* OTColors.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1150D5EF85E37D50DA50027D3357A6F8 /* OriginateTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 46B41F91F51C0546FBD16FE8F8ACCCBE /* OriginateTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1154BA1DC9446EC7CE2B1B50D8E7131B /* OTTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4D0DF6A398AFDEA9D30AE1F2BDA46C /* OTTheme.m */; };
-		37F56796385145F3AB7033A12BC101EF /* UIFont+OTKeySource.h in Headers */ = {isa = PBXBuildFile; fileRef = 78E21B366C67E03A1917A852541D3417 /* UIFont+OTKeySource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		06DE053947F0B7C90C5AFB0CBCA20F33 /* UIFont+OTKeySource.h in Headers */ = {isa = PBXBuildFile; fileRef = D5280A493D5736DAA90B89C5B6DC7E94 /* UIFont+OTKeySource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0BE8B9836EAD614DA3C0C3FD2932C5B8 /* OTComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = CA01247E04CB2AFCF471C173E44E2FF0 /* OTComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F89D8852BCE11C977F6633117EC753 /* UIColor+OTKeySource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEE10A3350482A4515B9088D6FE5679 /* UIColor+OTKeySource.m */; };
+		276AD7C708F012341383277D96961B1A /* OTTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 6498DD4933477E8BCF4DA21CC316D18F /* OTTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		296801D9403C2290F9E8D814FC710B74 /* OTColors.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C6898EA725964B70C343F6F6E95CD4B /* OTColors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3225E669662DF5588D47F635646C9D55 /* OTThemeable.h in Headers */ = {isa = PBXBuildFile; fileRef = D948AE58918E3B467FCB155EEFED39C1 /* OTThemeable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		468B929F42BC5E3221198F2028C66AA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		49BC6A6C279F267C128D42178825DD9C /* UIColor+OTKeySource.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF2458A66971EC84C1CBB13C3A610FC /* UIColor+OTKeySource.m */; };
-		534210974B76AD351C8E93DA24570D0B /* OTFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 6452FDACE1A3F274D05E37224AE89925 /* OTFonts.m */; };
-		5471B7C3715C90395DDE7D629AB17AC6 /* UIColor+OTHex.m in Sources */ = {isa = PBXBuildFile; fileRef = 544C6643528E6A4E6D687DE3C220E8A4 /* UIColor+OTHex.m */; };
-		9EB8B4C3545F4874B7214C8A3D5167A7 /* OTColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 481A5CF80E06F6F2AEAAF72E5ECAB802 /* OTColors.m */; };
-		A17DF1412483CD21B5D3A4DF97ECF5A2 /* OTTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 93096392DB3FB69F68BAC0481DC05966 /* OTTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A3F04E4A11400DC1C5C8FCC40DEF5168 /* UIFont+OTKeySource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A43A7DB1E6DB939761D263628734A64 /* UIFont+OTKeySource.m */; };
-		A740CB1903F442A0D36011FCEF9A81A8 /* OTFonts.h in Headers */ = {isa = PBXBuildFile; fileRef = 79A1DDB205E0E7AA933D7CEECCFB83ED /* OTFonts.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A755C50FDE8977079A0C57803AE2A574 /* UIColor+OTHex.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CD4BAC86139B9044F9B5A8CAD7EA6DF /* UIColor+OTHex.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BE6B7F60250C7366C1D5EF31AD523661 /* UIColor+OTKeySource.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F8038A914B57E26CCE0C81D5E803BB4 /* UIColor+OTKeySource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67FC9C22E425AB069ABFF3E36F77D16B /* UIColor+OTHex.h in Headers */ = {isa = PBXBuildFile; fileRef = C194104FD3F9E660DA4C8FF0982C7F29 /* UIColor+OTHex.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7385BDCBAC8CD44D7C6622ECF914494C /* OTComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = D724D2A17BAFF4F0459C261295A32CB4 /* OTComponents.m */; };
+		7B04C170B7A273524D1C15780E7575BA /* OriginateTheme-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 10ADE125C242F692A5F5D74B91020B80 /* OriginateTheme-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		81EAD8178FF6D602D473E915164793D9 /* OriginateTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = E15CBA8576027D1B2C22F9E8F8A1C4D3 /* OriginateTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		81FA74DFB375EC4280836CCB42BAEC17 /* OTTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = B77984C5DE4F4C27E6CA80FABE01C9A6 /* OTTheme.m */; };
+		87D877512982B7ECD8FE13458FFF6A19 /* OTColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF91D6B232DBA515A986B0A51FE3131 /* OTColors.m */; };
+		AD292F83AAA0AFF4A52B4AA5569B264F /* OriginateTheme-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D0C5C21F7A429145A7E1F1C959F7A6 /* OriginateTheme-dummy.m */; };
+		BBA1CA3E843E90FC8C132DCAA15B1D9B /* OTFonts.h in Headers */ = {isa = PBXBuildFile; fileRef = 68F68E172A57F612F3A7919173BB871C /* OTFonts.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C09B8D0992FBF9A2770D8E0F8DEED440 /* Pods-OriginateTheme-Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1637E3B335B53E71A7B4D269A17AB8E2 /* Pods-OriginateTheme-Example-dummy.m */; };
-		D23E4CC6AEF5A62C87D9BB617D588730 /* OriginateTheme-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A7813FAA00F3ACD601962565FEE35C9C /* OriginateTheme-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DDB6C1C596DEE224FA491DF1E1F52184 /* OTComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = C835404169587C281E5E578E6EB8D6D9 /* OTComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E600D587DB06CCB59F1D2394DDF7E45A /* OriginateTheme-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B47B49F4DD5F638B6471F6390D26B9E /* OriginateTheme-dummy.m */; };
-		E73FEDD3E430CE9C93F9460F638736FF /* OTThemeable.h in Headers */ = {isa = PBXBuildFile; fileRef = F8455AD3D87CF2814537D62D35BF73E2 /* OTThemeable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CDDE3EE2C982C30CFDFE45A616A2FB82 /* UIColor+OTKeySource.h in Headers */ = {isa = PBXBuildFile; fileRef = 545C4E0C27BC907B699A5F0899DD6F4F /* UIColor+OTKeySource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E50170CA89783284DFEF334EFC731995 /* UIFont+OTKeySource.m in Sources */ = {isa = PBXBuildFile; fileRef = E50C1062726AFB3CF60486886C87116C /* UIFont+OTKeySource.m */; };
+		E54484148E013A669C575981C86EF269 /* OTFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF63C6655652BD76FF72D32F31766BF /* OTFonts.m */; };
+		F07A112205B7EA7FCF76EDF2C13255AF /* UIColor+OTHex.m in Sources */ = {isa = PBXBuildFile; fileRef = 54142B0BD372DE607449E5B460CC255E /* UIColor+OTHex.m */; };
 		FACC352E88A513C02D1EC9585A72A84D /* Pods-OriginateTheme-Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 349B1DFFE20D321063253031ED0070C5 /* Pods-OriginateTheme-Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -43,41 +43,41 @@
 
 /* Begin PBXFileReference section */
 		09DE608946EAE6579C39124B17BF9415 /* Pods-OriginateTheme-Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-OriginateTheme-Example-frameworks.sh"; sourceTree = "<group>"; };
-		0CD4BAC86139B9044F9B5A8CAD7EA6DF /* UIColor+OTHex.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIColor+OTHex.h"; sourceTree = "<group>"; };
+		0C6898EA725964B70C343F6F6E95CD4B /* OTColors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OTColors.h; path = OriginateTheme/Sources/Classes/OTColors.h; sourceTree = "<group>"; };
+		10ADE125C242F692A5F5D74B91020B80 /* OriginateTheme-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OriginateTheme-umbrella.h"; sourceTree = "<group>"; };
 		1167270ABD50566753910347DDD2C3BC /* Pods-OriginateTheme-Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-OriginateTheme-Example.modulemap"; sourceTree = "<group>"; };
 		1637E3B335B53E71A7B4D269A17AB8E2 /* Pods-OriginateTheme-Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-OriginateTheme-Example-dummy.m"; sourceTree = "<group>"; };
 		20CC1F48A9D7572A8251F1A39D68DB37 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		349B1DFFE20D321063253031ED0070C5 /* Pods-OriginateTheme-Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-OriginateTheme-Example-umbrella.h"; sourceTree = "<group>"; };
 		3FF6FA487489091323B4051EF430015C /* Pods-OriginateTheme-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OriginateTheme-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		42F90B3AD76E5E66013357B73DD2D016 /* OriginateTheme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OriginateTheme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		46B41F91F51C0546FBD16FE8F8ACCCBE /* OriginateTheme.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = OriginateTheme.h; sourceTree = "<group>"; };
-		481A5CF80E06F6F2AEAAF72E5ECAB802 /* OTColors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = OTColors.m; sourceTree = "<group>"; };
+		4BF63C6655652BD76FF72D32F31766BF /* OTFonts.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OTFonts.m; path = OriginateTheme/Sources/Classes/OTFonts.m; sourceTree = "<group>"; };
 		4F0686329A6D8D098E06A503777E7491 /* Pods-OriginateTheme-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OriginateTheme-Example.release.xcconfig"; sourceTree = "<group>"; };
-		4F8038A914B57E26CCE0C81D5E803BB4 /* UIColor+OTKeySource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIColor+OTKeySource.h"; sourceTree = "<group>"; };
-		544C6643528E6A4E6D687DE3C220E8A4 /* UIColor+OTHex.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIColor+OTHex.m"; sourceTree = "<group>"; };
-		5A43A7DB1E6DB939761D263628734A64 /* UIFont+OTKeySource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIFont+OTKeySource.m"; sourceTree = "<group>"; };
-		6452FDACE1A3F274D05E37224AE89925 /* OTFonts.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = OTFonts.m; sourceTree = "<group>"; };
+		54142B0BD372DE607449E5B460CC255E /* UIColor+OTHex.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+OTHex.m"; path = "OriginateTheme/Sources/Categories/UIColor+OTHex.m"; sourceTree = "<group>"; };
+		545C4E0C27BC907B699A5F0899DD6F4F /* UIColor+OTKeySource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+OTKeySource.h"; path = "OriginateTheme/Sources/Categories/UIColor+OTKeySource.h"; sourceTree = "<group>"; };
+		5C54C9538D1B6C4239A3993CAB8CD096 /* OriginateTheme.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = OriginateTheme.modulemap; sourceTree = "<group>"; };
+		60D0C5C21F7A429145A7E1F1C959F7A6 /* OriginateTheme-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OriginateTheme-dummy.m"; sourceTree = "<group>"; };
+		6498DD4933477E8BCF4DA21CC316D18F /* OTTheme.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OTTheme.h; path = OriginateTheme/Sources/Classes/OTTheme.h; sourceTree = "<group>"; };
+		68F68E172A57F612F3A7919173BB871C /* OTFonts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OTFonts.h; path = OriginateTheme/Sources/Classes/OTFonts.h; sourceTree = "<group>"; };
 		736532B50EA053C915B1BD7F7E3B466E /* Pods-OriginateTheme-Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-OriginateTheme-Example-resources.sh"; sourceTree = "<group>"; };
-		78E21B366C67E03A1917A852541D3417 /* UIFont+OTKeySource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIFont+OTKeySource.h"; sourceTree = "<group>"; };
-		79A1DDB205E0E7AA933D7CEECCFB83ED /* OTFonts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = OTFonts.h; sourceTree = "<group>"; };
-		8B47B49F4DD5F638B6471F6390D26B9E /* OriginateTheme-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OriginateTheme-dummy.m"; sourceTree = "<group>"; };
-		93096392DB3FB69F68BAC0481DC05966 /* OTTheme.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = OTTheme.h; sourceTree = "<group>"; };
+		8939E6D36A080A8430518659D0E31D82 /* OriginateTheme.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OriginateTheme.xcconfig; sourceTree = "<group>"; };
+		8AF91D6B232DBA515A986B0A51FE3131 /* OTColors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OTColors.m; path = OriginateTheme/Sources/Classes/OTColors.m; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		94A44718FCF2C6B43AAFA86C9FE325B9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9BA7805ABC449598E7D32EEF9033D7E3 /* OTColors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = OTColors.h; sourceTree = "<group>"; };
+		9FEE10A3350482A4515B9088D6FE5679 /* UIColor+OTKeySource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+OTKeySource.m"; path = "OriginateTheme/Sources/Categories/UIColor+OTKeySource.m"; sourceTree = "<group>"; };
 		A6F45063B4E426C3E2BDD64DC88C1A8D /* Pods-OriginateTheme-Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-OriginateTheme-Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		A7813FAA00F3ACD601962565FEE35C9C /* OriginateTheme-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OriginateTheme-umbrella.h"; sourceTree = "<group>"; };
 		AF30B84C846504A78994DED8A71EA0B9 /* Pods_OriginateTheme_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OriginateTheme_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3E1A85FB24C8EA40C28EEFAB32CD148 /* OriginateTheme.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OriginateTheme.xcconfig; sourceTree = "<group>"; };
-		B54214B70BCBF7DF155983BA215D541C /* OriginateTheme.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = OriginateTheme.modulemap; sourceTree = "<group>"; };
-		BF4D0DF6A398AFDEA9D30AE1F2BDA46C /* OTTheme.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = OTTheme.m; sourceTree = "<group>"; };
-		C835404169587C281E5E578E6EB8D6D9 /* OTComponents.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = OTComponents.h; sourceTree = "<group>"; };
+		B77984C5DE4F4C27E6CA80FABE01C9A6 /* OTTheme.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OTTheme.m; path = OriginateTheme/Sources/Classes/OTTheme.m; sourceTree = "<group>"; };
+		BCAF566B81EDCC5ABD0D45580D83A272 /* OriginateTheme-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OriginateTheme-prefix.pch"; sourceTree = "<group>"; };
+		C194104FD3F9E660DA4C8FF0982C7F29 /* UIColor+OTHex.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+OTHex.h"; path = "OriginateTheme/Sources/Categories/UIColor+OTHex.h"; sourceTree = "<group>"; };
+		CA01247E04CB2AFCF471C173E44E2FF0 /* OTComponents.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OTComponents.h; path = OriginateTheme/Sources/Classes/OTComponents.h; sourceTree = "<group>"; };
 		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D0DD9E34070E9C541353BB02D9963996 /* OriginateTheme-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OriginateTheme-prefix.pch"; sourceTree = "<group>"; };
-		DFF2458A66971EC84C1CBB13C3A610FC /* UIColor+OTKeySource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIColor+OTKeySource.m"; sourceTree = "<group>"; };
+		D5280A493D5736DAA90B89C5B6DC7E94 /* UIFont+OTKeySource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIFont+OTKeySource.h"; path = "OriginateTheme/Sources/Categories/UIFont+OTKeySource.h"; sourceTree = "<group>"; };
+		D724D2A17BAFF4F0459C261295A32CB4 /* OTComponents.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OTComponents.m; path = OriginateTheme/Sources/Classes/OTComponents.m; sourceTree = "<group>"; };
+		D948AE58918E3B467FCB155EEFED39C1 /* OTThemeable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OTThemeable.h; path = OriginateTheme/Sources/Classes/OTThemeable.h; sourceTree = "<group>"; };
+		E15CBA8576027D1B2C22F9E8F8A1C4D3 /* OriginateTheme.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OriginateTheme.h; path = OriginateTheme/Sources/OriginateTheme.h; sourceTree = "<group>"; };
+		E50C1062726AFB3CF60486886C87116C /* UIFont+OTKeySource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIFont+OTKeySource.m"; path = "OriginateTheme/Sources/Categories/UIFont+OTKeySource.m"; sourceTree = "<group>"; };
+		E65DC2208519528F285FE0F6D3576F84 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB5A86E38D607EEDFD696B28007751AA /* Pods-OriginateTheme-Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-OriginateTheme-Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F8455AD3D87CF2814537D62D35BF73E2 /* OTThemeable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = OTThemeable.h; sourceTree = "<group>"; };
-		FF9D3103859B775A686BE574FAB07125 /* OTComponents.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = OTComponents.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,24 +100,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		24343C68CA569B9794300A050F7D88F7 /* OriginateTheme */ = {
-			isa = PBXGroup;
-			children = (
-				298B6F8FAB962C8F21D0C590DD3E782F /* OriginateTheme */,
-				3026C2FB11A14FBEF66CD7E2DE2E7B1D /* Support Files */,
-			);
-			name = OriginateTheme;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		298B6F8FAB962C8F21D0C590DD3E782F /* OriginateTheme */ = {
-			isa = PBXGroup;
-			children = (
-				BCBCB88EBE2D105553B1C70DE1CB011C /* Sources */,
-			);
-			path = OriginateTheme;
-			sourceTree = "<group>";
-		};
 		2A5877E982021600457E7DF253A587C7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,39 +109,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3026C2FB11A14FBEF66CD7E2DE2E7B1D /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				94A44718FCF2C6B43AAFA86C9FE325B9 /* Info.plist */,
-				B54214B70BCBF7DF155983BA215D541C /* OriginateTheme.modulemap */,
-				B3E1A85FB24C8EA40C28EEFAB32CD148 /* OriginateTheme.xcconfig */,
-				8B47B49F4DD5F638B6471F6390D26B9E /* OriginateTheme-dummy.m */,
-				D0DD9E34070E9C541353BB02D9963996 /* OriginateTheme-prefix.pch */,
-				A7813FAA00F3ACD601962565FEE35C9C /* OriginateTheme-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/OriginateTheme";
-			sourceTree = "<group>";
-		};
 		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
 				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		5BF325DBEC366C8F6C130EA3756CE1EF /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				0CD4BAC86139B9044F9B5A8CAD7EA6DF /* UIColor+OTHex.h */,
-				544C6643528E6A4E6D687DE3C220E8A4 /* UIColor+OTHex.m */,
-				4F8038A914B57E26CCE0C81D5E803BB4 /* UIColor+OTKeySource.h */,
-				DFF2458A66971EC84C1CBB13C3A610FC /* UIColor+OTKeySource.m */,
-				78E21B366C67E03A1917A852541D3417 /* UIFont+OTKeySource.h */,
-				5A43A7DB1E6DB939761D263628734A64 /* UIFont+OTKeySource.m */,
-			);
-			path = Categories;
 			sourceTree = "<group>";
 		};
 		682ADF02FB9F8A4C4B5EFBFB460279E8 /* Pods-OriginateTheme-Example */ = {
@@ -180,15 +135,61 @@
 			path = "Target Support Files/Pods-OriginateTheme-Example";
 			sourceTree = "<group>";
 		};
+		6B38584E65369F4564E47188236EBA0E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E65DC2208519528F285FE0F6D3576F84 /* Info.plist */,
+				5C54C9538D1B6C4239A3993CAB8CD096 /* OriginateTheme.modulemap */,
+				8939E6D36A080A8430518659D0E31D82 /* OriginateTheme.xcconfig */,
+				60D0C5C21F7A429145A7E1F1C959F7A6 /* OriginateTheme-dummy.m */,
+				BCAF566B81EDCC5ABD0D45580D83A272 /* OriginateTheme-prefix.pch */,
+				10ADE125C242F692A5F5D74B91020B80 /* OriginateTheme-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/OriginateTheme";
+			sourceTree = "<group>";
+		};
+		79BBBBF7D72B99844D0CA5EFB46872BA /* OriginateTheme */ = {
+			isa = PBXGroup;
+			children = (
+				E15CBA8576027D1B2C22F9E8F8A1C4D3 /* OriginateTheme.h */,
+				0C6898EA725964B70C343F6F6E95CD4B /* OTColors.h */,
+				8AF91D6B232DBA515A986B0A51FE3131 /* OTColors.m */,
+				CA01247E04CB2AFCF471C173E44E2FF0 /* OTComponents.h */,
+				D724D2A17BAFF4F0459C261295A32CB4 /* OTComponents.m */,
+				68F68E172A57F612F3A7919173BB871C /* OTFonts.h */,
+				4BF63C6655652BD76FF72D32F31766BF /* OTFonts.m */,
+				6498DD4933477E8BCF4DA21CC316D18F /* OTTheme.h */,
+				B77984C5DE4F4C27E6CA80FABE01C9A6 /* OTTheme.m */,
+				D948AE58918E3B467FCB155EEFED39C1 /* OTThemeable.h */,
+				C194104FD3F9E660DA4C8FF0982C7F29 /* UIColor+OTHex.h */,
+				54142B0BD372DE607449E5B460CC255E /* UIColor+OTHex.m */,
+				545C4E0C27BC907B699A5F0899DD6F4F /* UIColor+OTKeySource.h */,
+				9FEE10A3350482A4515B9088D6FE5679 /* UIColor+OTKeySource.m */,
+				D5280A493D5736DAA90B89C5B6DC7E94 /* UIFont+OTKeySource.h */,
+				E50C1062726AFB3CF60486886C87116C /* UIFont+OTKeySource.m */,
+				6B38584E65369F4564E47188236EBA0E /* Support Files */,
+			);
+			path = OriginateTheme;
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				E7182DCEB1F4FF9CFD77A5CECA49A556 /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				984E7A58A154801B335CDB39FDC56EBC /* Pods */,
 				2A5877E982021600457E7DF253A587C7 /* Products */,
 				A35F2402CE4CDFDE0EF9145C4FC0E529 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		984E7A58A154801B335CDB39FDC56EBC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				79BBBBF7D72B99844D0CA5EFB46872BA /* OriginateTheme */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		A35F2402CE4CDFDE0EF9145C4FC0E529 /* Targets Support Files */ = {
@@ -207,65 +208,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BCBCB88EBE2D105553B1C70DE1CB011C /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				46B41F91F51C0546FBD16FE8F8ACCCBE /* OriginateTheme.h */,
-				5BF325DBEC366C8F6C130EA3756CE1EF /* Categories */,
-				F84D8E41C399575F26DD68CB74611C57 /* Classes */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		E7182DCEB1F4FF9CFD77A5CECA49A556 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				24343C68CA569B9794300A050F7D88F7 /* OriginateTheme */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		F84D8E41C399575F26DD68CB74611C57 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				9BA7805ABC449598E7D32EEF9033D7E3 /* OTColors.h */,
-				481A5CF80E06F6F2AEAAF72E5ECAB802 /* OTColors.m */,
-				C835404169587C281E5E578E6EB8D6D9 /* OTComponents.h */,
-				FF9D3103859B775A686BE574FAB07125 /* OTComponents.m */,
-				79A1DDB205E0E7AA933D7CEECCFB83ED /* OTFonts.h */,
-				6452FDACE1A3F274D05E37224AE89925 /* OTFonts.m */,
-				93096392DB3FB69F68BAC0481DC05966 /* OTTheme.h */,
-				BF4D0DF6A398AFDEA9D30AE1F2BDA46C /* OTTheme.m */,
-				F8455AD3D87CF2814537D62D35BF73E2 /* OTThemeable.h */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		2465EA01043759D72CA9D6A15CEEC88A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B04C170B7A273524D1C15780E7575BA /* OriginateTheme-umbrella.h in Headers */,
+				81EAD8178FF6D602D473E915164793D9 /* OriginateTheme.h in Headers */,
+				296801D9403C2290F9E8D814FC710B74 /* OTColors.h in Headers */,
+				0BE8B9836EAD614DA3C0C3FD2932C5B8 /* OTComponents.h in Headers */,
+				BBA1CA3E843E90FC8C132DCAA15B1D9B /* OTFonts.h in Headers */,
+				276AD7C708F012341383277D96961B1A /* OTTheme.h in Headers */,
+				3225E669662DF5588D47F635646C9D55 /* OTThemeable.h in Headers */,
+				67FC9C22E425AB069ABFF3E36F77D16B /* UIColor+OTHex.h in Headers */,
+				CDDE3EE2C982C30CFDFE45A616A2FB82 /* UIColor+OTKeySource.h in Headers */,
+				06DE053947F0B7C90C5AFB0CBCA20F33 /* UIFont+OTKeySource.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AB22BB28FA6B4143A96D4FD896365E77 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FACC352E88A513C02D1EC9585A72A84D /* Pods-OriginateTheme-Example-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FE33A1311FF183DDFAC42B37A489554E /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D23E4CC6AEF5A62C87D9BB617D588730 /* OriginateTheme-umbrella.h in Headers */,
-				1150D5EF85E37D50DA50027D3357A6F8 /* OriginateTheme.h in Headers */,
-				082536C7C60DF45B10A1711D010C7924 /* OTColors.h in Headers */,
-				DDB6C1C596DEE224FA491DF1E1F52184 /* OTComponents.h in Headers */,
-				A740CB1903F442A0D36011FCEF9A81A8 /* OTFonts.h in Headers */,
-				A17DF1412483CD21B5D3A4DF97ECF5A2 /* OTTheme.h in Headers */,
-				E73FEDD3E430CE9C93F9460F638736FF /* OTThemeable.h in Headers */,
-				A755C50FDE8977079A0C57803AE2A574 /* UIColor+OTHex.h in Headers */,
-				BE6B7F60250C7366C1D5EF31AD523661 /* UIColor+OTKeySource.h in Headers */,
-				37F56796385145F3AB7033A12BC101EF /* UIFont+OTKeySource.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,9 +261,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA59262DC20CA79C3569997FB155F8D9 /* Build configuration list for PBXNativeTarget "OriginateTheme" */;
 			buildPhases = (
-				204FD02B601ADD614B9A582849F6CAA7 /* Sources */,
+				93952DB2AD449E122B33A0CA5A779CF8 /* Sources */,
 				1D1A11DD1CD9AC0374438304C7EF1998 /* Frameworks */,
-				FE33A1311FF183DDFAC42B37A489554E /* Headers */,
+				2465EA01043759D72CA9D6A15CEEC88A /* Headers */,
 			);
 			buildRules = (
 			);
@@ -335,18 +302,18 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		204FD02B601ADD614B9A582849F6CAA7 /* Sources */ = {
+		93952DB2AD449E122B33A0CA5A779CF8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E600D587DB06CCB59F1D2394DDF7E45A /* OriginateTheme-dummy.m in Sources */,
-				9EB8B4C3545F4874B7214C8A3D5167A7 /* OTColors.m in Sources */,
-				00DB623858C36F3A499015EB35A0B4BD /* OTComponents.m in Sources */,
-				534210974B76AD351C8E93DA24570D0B /* OTFonts.m in Sources */,
-				1154BA1DC9446EC7CE2B1B50D8E7131B /* OTTheme.m in Sources */,
-				5471B7C3715C90395DDE7D629AB17AC6 /* UIColor+OTHex.m in Sources */,
-				49BC6A6C279F267C128D42178825DD9C /* UIColor+OTKeySource.m in Sources */,
-				A3F04E4A11400DC1C5C8FCC40DEF5168 /* UIFont+OTKeySource.m in Sources */,
+				AD292F83AAA0AFF4A52B4AA5569B264F /* OriginateTheme-dummy.m in Sources */,
+				87D877512982B7ECD8FE13458FFF6A19 /* OTColors.m in Sources */,
+				7385BDCBAC8CD44D7C6622ECF914494C /* OTComponents.m in Sources */,
+				E54484148E013A669C575981C86EF269 /* OTFonts.m in Sources */,
+				81FA74DFB375EC4280836CCB42BAEC17 /* OTTheme.m in Sources */,
+				F07A112205B7EA7FCF76EDF2C13255AF /* UIColor+OTHex.m in Sources */,
+				24F89D8852BCE11C977F6633117EC753 /* UIColor+OTKeySource.m in Sources */,
+				E50170CA89783284DFEF334EFC731995 /* UIFont+OTKeySource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,7 +485,7 @@
 		};
 		F3C96AC13D967E39CB1990E35A341ECD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B3E1A85FB24C8EA40C28EEFAB32CD148 /* OriginateTheme.xcconfig */;
+			baseConfigurationReference = 8939E6D36A080A8430518659D0E31D82 /* OriginateTheme.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -547,7 +514,7 @@
 		};
 		FA9D83FD9ADD62D987BA4A35071DC45D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B3E1A85FB24C8EA40C28EEFAB32CD148 /* OriginateTheme.xcconfig */;
+			baseConfigurationReference = 8939E6D36A080A8430518659D0E31D82 /* OriginateTheme.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;

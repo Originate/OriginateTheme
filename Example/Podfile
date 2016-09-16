@@ -2,5 +2,5 @@ source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 target 'OriginateTheme-Example' do
-  pod 'OriginateTheme', :git => 'https://github.com/Originate/OriginateTheme.git', :branch => ‘rw-theme-parser-generator’
+  pod 'OriginateTheme', :git => 'https://github.com/Originate/OriginateTheme.git', :branch => 'rw-theme-parser-generator'
 end

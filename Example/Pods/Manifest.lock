@@ -2,15 +2,21 @@ PODS:
   - OriginateTheme (1.0.0)
 
 DEPENDENCIES:
-  - OriginateTheme (from `../`)
+  - OriginateTheme (from `https://github.com/Originate/OriginateTheme.git`, branch `rw-theme-parser-generator`)
 
 EXTERNAL SOURCES:
   OriginateTheme:
-    :path: "../"
+    :branch: rw-theme-parser-generator
+    :git: https://github.com/Originate/OriginateTheme.git
+
+CHECKOUT OPTIONS:
+  OriginateTheme:
+    :commit: 1d5c58edde4f3cbd27505d5d121b2cbbadd62822
+    :git: https://github.com/Originate/OriginateTheme.git
 
 SPEC CHECKSUMS:
   OriginateTheme: 6e5ebd0ee3ba88153c3185ec8d323e8aac4cf24f
 
-PODFILE CHECKSUM: 73809eb09fd88839dae6afb3fedf54279333dad8
+PODFILE CHECKSUM: 7c03c981977cb763d39bab290df12bc582636ac6
 
 COCOAPODS: 1.0.1
