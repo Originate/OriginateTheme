@@ -32,7 +32,7 @@
 		644C27681D8C3EAE006D382B /* OTERemoteThemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTERemoteThemeViewController.h; sourceTree = "<group>"; };
 		644C27691D8C3EAE006D382B /* OTERemoteThemeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTERemoteThemeViewController.m; sourceTree = "<group>"; };
 		644C276B1D8C42B3006D382B /* OTELocalThemeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OTELocalThemeViewController.xib; sourceTree = "<group>"; };
-		644C276D1D8C42C4006D382B /* OTERemoteThemeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OTERemoteThemeViewController.xib; path = ../OTERemoteThemeViewController.xib; sourceTree = "<group>"; };
+		644C276D1D8C42C4006D382B /* OTERemoteThemeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OTERemoteThemeViewController.xib; sourceTree = "<group>"; };
 		8B180DBDCEC266EAE83FADB3 /* Pods_OriginateTheme_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OriginateTheme_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA32D699C256410A294DB0D2 /* Pods-OriginateTheme-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OriginateTheme-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-OriginateTheme-Example/Pods-OriginateTheme-Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
