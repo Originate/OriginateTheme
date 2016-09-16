@@ -41,8 +41,11 @@ static NSString * const kRemoteThemeURLString = @"https://raw.githubusercontent.
 - (void)downloadRemoteThemeFromURL:(NSURL *)remoteThemeURL
 {
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:remoteThemeURL];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    configuration.requestCachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+
     __weak typeof(self) weakSelf = self;
     [[session dataTaskWithRequest:request
                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
