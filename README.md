@@ -126,10 +126,18 @@ pod 'OriginateTheme'
 * As `key` use `OTTHEME` and as `value` the path to the JSON file specifying the theme<br>
 e.g. `$(SRCROOT)/Themes/Local.json`
 
-## Move Run Script Phase
-* While running `pod install` a new run script phase was added to your project.
+## Add or Move Run Script Phase
+* While running `pod install` a new run script phase should have been added to your project.
 * Navigate to your projects' `Build Phases`
-* Move the created run script phase with the name `[OT] Generate Theme Files` above `Compile Sources` using drag and drop
+* Move to the created run script phase with the name `[OT] Generate Theme Files` above `Compile Sources` using drag and drop
+* In case the run script phase was not created automatically press the `+` button on the top
+* Press `New Run Script Phase`
+* Move the created run script phase above `Compile Source` by drag and drop
+* As content insert the following:
+
+```
+"${PODS_ROOT}/OriginateTheme/OriginateTheme/Scripts/ot_generator.py" -i "${OTTHEME}" -o "${PODS_ROOT}/OriginateTheme/OriginateTheme/Sources/Classes/"
+```
 
 ## Import the Framework
 
