@@ -3,6 +3,17 @@
 
 > A lightweight user interface theming framework.
 
+Add `User-Defined Build Setting`
+```
+Key: 	OTTHEME
+Value: 	$(SRCROOT)/OriginateTheme-Example/Theme.json (Path to the JSON file containing the specified theme.)
+```
+
+Add `New Run Script Phase` before `[Compile Sources]`
+```
+"${PODS_ROOT}/OriginateTheme/OriginateTheme/Scripts/ot_generator.py" -i "${OTTHEME}" -o "${PODS_ROOT}/OriginateTheme/OriginateTheme/Sources/Classes"
+```
+
 Execute inside the Example directory.
 ```
 ./ot_generator.py -i ../../Example/OriginateTheme/StyleDefinition.json -o ../../Pod/Sources/Classes/

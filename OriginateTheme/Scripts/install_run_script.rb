@@ -27,10 +27,11 @@ if (!script_installed)
   puts "Installing run script in Xcode project #{path_to_project}"
   phase = main_target.new_shell_script_build_phase(xcode_build_script_name)
   phase.shell_script = path_to_xcode_build_script
-  main_target.instance_variable_set(:@build_phases, main_target.build_phases().rotate(-1))
-  #main_target.instance_variable_set(:@shell_script_build_phases, main_target.shell_script_build_phases().rotate(-1))
-  puts main_target.shell_script_build_phases()
-  puts project
+  # TODO: Solve problem that shell_script_build_phase is append to the end of the list.
+  # main_target.instance_variable_set(:@build_phases, main_target.build_phases().rotate(-1))
+  # main_target.instance_variable_set(:@shell_script_build_phases, main_target.shell_script_build_phases().rotate(-1))
+  # puts main_target.shell_script_build_phases()
+  # puts project
   project.save()
 else
   puts "Run script already installed"
