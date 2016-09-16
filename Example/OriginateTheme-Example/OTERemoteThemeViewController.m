@@ -46,8 +46,7 @@ static NSString * const kRemoteThemeURLString = @"https://raw.githubusercontent.
     self.captionLabel.font = self.theme.fonts.defaultLightFont;
     self.captionLabel.textColor = self.theme.colors.captionColor;
     
-    [[UITabBar appearance] setBackgroundColor:self.theme.components.tabBarBackgroundColor];
-    [[UITabBar appearance] setTintColor:self.theme.components.tabBarTintColor];
+    [self.tabBarController.tabBar setTintColor:self.theme.components.tabBarTintColor];
 }
 
 - (void)downloadRemoteThemeFromURL:(NSURL *)remoteThemeURL

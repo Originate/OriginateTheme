@@ -20,7 +20,7 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OTERemoteThemeViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nK-eH-iUy">
                     <constraints>
-                        <constraint firstAttribute="height" constant="22" id="uPs-1L-U01"/>
+                        <constraint firstAttribute="height" constant="32" id="uPs-1L-U01"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
@@ -39,7 +39,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="QQI-8G-gDR" firstAttribute="top" secondItem="3nK-eH-iUy" secondAttribute="bottom" constant="22" id="5k8-s6-9CC"/>
-                <constraint firstItem="3nK-eH-iUy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="120" id="6iW-aI-v0m"/>
+                <constraint firstItem="3nK-eH-iUy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="110" id="6iW-aI-v0m"/>
                 <constraint firstItem="3nK-eH-iUy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8Jt-ak-JrI"/>
                 <constraint firstAttribute="trailing" secondItem="QQI-8G-gDR" secondAttribute="trailing" id="ciI-e6-oVV"/>
                 <constraint firstAttribute="trailing" secondItem="3nK-eH-iUy" secondAttribute="trailing" id="eHi-BU-Hpa"/>
