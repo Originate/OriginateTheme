@@ -2,7 +2,7 @@
 	"fonts" : {
         "default" : {
             "name" : "Zapfino",
-            "size" : 22.0
+            "size" : 16.0
         },
         "defaultBold" : {
             "name" : "HelveticaNeue-Bold",
@@ -10,7 +10,7 @@
         },
         "defaultLight" : {
             "name" : "HelveticaNeue-Light",
-            "size" : 18.0
+            "size" : 16.0
         },
         "defaultItalic" : {
             "name" : "HelveticaNeue-Thin",
