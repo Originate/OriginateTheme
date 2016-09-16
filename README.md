@@ -129,7 +129,7 @@ e.g. `$(SRCROOT)/Themes/Local.json`
 ## Move Run Script Phase
 * While running `pod install` a new run script phase was added to your project.
 * Navigate to your projects' `Build Phases`
-* Move the created run script phase with the name `[OT] Generate Theme Files` above `Compile Source` using drag and drop
+* Move the created run script phase with the name `[OT] Generate Theme Files` above `Compile Sources` using drag and drop
 
 ## Import the Framework
 

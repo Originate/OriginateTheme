@@ -13,6 +13,10 @@ path_to_spec = ARGV[0]
 # Path to the Xcode project.
 path_to_project = Dir.glob(Pathname.new(path_to_spec) + '../../../**/*.xcodeproj')[0]
 
+puts path_to_project
+puts path_to_spec
+puts
+
 # Open Xcode project and check if shell script is already installed.
 project = Xcodeproj::Project.open(path_to_project)
 main_target = project.targets.first
@@ -27,7 +31,7 @@ if (!script_installed)
   puts "Installing run script in Xcode project #{path_to_project}"
   phase = main_target.new_shell_script_build_phase(xcode_build_script_name)
   phase.shell_script = path_to_xcode_build_script
-  puts phase.shell_script_build_phases
+  puts phase.build_phases
   echo a
   project.save()
 else
