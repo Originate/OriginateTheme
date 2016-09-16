@@ -197,7 +197,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "sudo python \"${PODS_ROOT}/OriginateTheme/OriginateTheme/Scripts/ot_generator.py\" -i \"${OTTHEME}\" -o \"${PODS_ROOT}/OriginateTheme/OriginateTheme/Sources/Classes/\"";
+			shellScript = "\"${PODS_ROOT}/OriginateTheme/OriginateTheme/Scripts/ot_generator.py\" -i \"${OTTHEME}\" -o \"${PODS_ROOT}/OriginateTheme/OriginateTheme/Sources/Classes/\"";
 		};
 		69F241B132020E02416BF6C9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

@@ -11,7 +11,7 @@ Value: 	$(SRCROOT)/OriginateTheme-Example/Theme.json (Path to the JSON file cont
 
 Add `New Run Script Phase` before `[Compile Sources]`
 ```
-"${PODS_ROOT}/OriginateTheme/OriginateTheme/Scripts/ot_generator.py" -i "${OTTHEME}" -o "${PODS_ROOT}/OriginateTheme/OriginateTheme/Sources/Classes"
+"${PODS_ROOT}/OriginateTheme/OriginateTheme/Scripts/ot_generator.py" -i "${OTTHEME}" -o "${PODS_ROOT}/OriginateTheme/OriginateTheme/Sources/Classes/"
 ```
 
 Execute inside the Example directory.

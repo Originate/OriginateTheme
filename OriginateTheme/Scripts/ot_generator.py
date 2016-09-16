@@ -378,6 +378,9 @@ def generateUITypeClass(outputDirectory, className, dictionary, uiType, getter):
     result = string.Template(headerTemplate()).substitute({'OriginateThemePublicProperties' : '\n'.join(OriginateThemeTypePublicProperties), 'OriginateThemeClassName' : className})
 
     # Store the generated file in the output directory.
+    filePath = outputDirectory + className + '.h'
+    if os.path.isfile(filePath):
+        os.chmod(filePath, 0755)
     with open(outputDirectory + className + '.h', 'wb') as outputFile:
         outputFile.write(result)
 
@@ -398,6 +401,9 @@ def generateUITypeClass(outputDirectory, className, dictionary, uiType, getter):
     result = string.Template(mainTemplate()).substitute({'OriginateThemePropertiesKeyPathKeys' : '\n'.join(OriginateThemeTypePropertiesKeyPathKeys), 'OriginateThemePrivateProperties' : '\n'.join(OriginateThemeTypePrivateProperties), 'OriginateThemePropertiesGetters' : '\n'.join(OriginateThemeTypePropertiesGetters), 'OriginateThemeClassName' : className})
 
     # Store the generated file in the output directory.
+    filePath = outputDirectory + className + '.m'
+    if os.path.isfile(filePath):
+        os.chmod(filePath, 0755)
     with open(outputDirectory + className + '.m', 'wb') as outputFile:
         outputFile.write(result)
 
@@ -432,6 +438,9 @@ def generateComponentsClass(outputDirectory, className, components):
     result = string.Template(headerTemplate()).substitute({'OriginateThemePublicProperties' : '\n'.join(OriginateThemePublicProperties), 'OriginateThemeClassName' : className})
 
     # Store the generated file in the output directory.
+    filePath = outputDirectory + className + '.h'
+    if os.path.isfile(filePath):
+        os.chmod(filePath, 0755)
     with open(outputDirectory + className + '.h', 'wb') as outputFile:
         outputFile.write(result)
 
@@ -457,6 +466,9 @@ def generateComponentsClass(outputDirectory, className, components):
     result = string.Template(mainTemplate()).substitute({'OriginateThemePropertiesKeyPathKeys' : '\n'.join(OriginateThemePropertiesKeyPathKeys), 'OriginateThemePrivateProperties' : '\n'.join(OriginateThemePrivateProperties), 'OriginateThemePropertiesGetters' : '\n'.join(OriginateThemePropertiesGetters), 'OriginateThemeClassName' : className})
 
     # Store the generated file in the output directory.
+    filePath = outputDirectory + className + '.m'
+    if os.path.isfile(filePath):
+        os.chmod(filePath, 0755)
     with open(outputDirectory + className + '.m', 'wb') as outputFile:
         outputFile.write(result)
 
