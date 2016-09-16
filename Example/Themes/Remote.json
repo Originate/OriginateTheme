@@ -1,8 +1,8 @@
 {
-    "fonts" : {
+	"fonts" : {
         "default" : {
-            "name" : "HelveticaNeue",
-            "size" : 14.0
+            "name" : "Zapfino",
+            "size" : 22.0
         },
         "defaultBold" : {
             "name" : "HelveticaNeue-Bold",
@@ -10,7 +10,7 @@
         },
         "defaultLight" : {
             "name" : "HelveticaNeue-Light",
-            "size" : 14.0
+            "size" : 18.0
         },
         "defaultItalic" : {
             "name" : "HelveticaNeue-Thin",
@@ -20,9 +20,11 @@
     "colors" : {
         "primary" : "71FFB7",
         "secondary" : "FCD92B",
+        "title" : "545454",
+        "caption" : "AFAFAF",
         "success" : "95BE22",
         "warning" : "FFA500",
-        "error" : "bd2c00"
+        "error" : "BD2C00"
     },
     "components" : {
         "navigationBar" : {
@@ -45,8 +47,7 @@
         "tabBar" : {
             "colors" : {
                 "background" : "FFFFFF",
-                "text" : "424242",
-                "selectedText" : "4C66A4"
+                "tint" : "70CFFF"                
             },
             "fonts" : {
                 "title" : {

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OTERemoteThemeViewController">
+            <connections>
+                <outlet property="captionLabel" destination="QQI-8G-gDR" id="TjL-ib-7Ik"/>
+                <outlet property="titleLabel" destination="3nK-eH-iUy" id="Ke6-FQ-M3U"/>
+                <outlet property="view" destination="iN0-l3-epB" id="kjV-LV-AtT"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OTERemoteThemeViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nK-eH-iUy">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="uPs-1L-U01"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use a Remote Theme with Local Fallback" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQI-8G-gDR">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="5Np-KY-F5H"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="erG-Gt-pbQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="QQI-8G-gDR" firstAttribute="top" secondItem="3nK-eH-iUy" secondAttribute="bottom" constant="22" id="5k8-s6-9CC"/>
+                <constraint firstItem="3nK-eH-iUy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="120" id="6iW-aI-v0m"/>
+                <constraint firstItem="3nK-eH-iUy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8Jt-ak-JrI"/>
+                <constraint firstAttribute="trailing" secondItem="QQI-8G-gDR" secondAttribute="trailing" id="ciI-e6-oVV"/>
+                <constraint firstAttribute="trailing" secondItem="3nK-eH-iUy" secondAttribute="trailing" id="eHi-BU-Hpa"/>
+                <constraint firstItem="QQI-8G-gDR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zWU-d1-bBF"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

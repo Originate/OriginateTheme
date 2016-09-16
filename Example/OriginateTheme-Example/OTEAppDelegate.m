@@ -7,14 +7,14 @@
 //
 
 #import "OTEAppDelegate.h"
-#import "OTEViewController.h"
-
-static NSString * const kRemoteThemeURLString = @"https://raw.githubusercontent.com/Originate/OriginateTheme/rw-theme-parser-generator/Example/Themes/Remote.json";
+#import "OTELocalThemeViewController.h"
+#import "OTERemoteThemeViewController.h"
 
 @interface OTEAppDelegate ()
 
 #pragma mark - Properties
-@property (nonatomic, strong) OTEViewController *viewController;
+@property (nonatomic, strong) OTELocalThemeViewController *localThemeViewController;
+@property (nonatomic, strong) OTERemoteThemeViewController *remoteThemeViewController;
 @property (nonatomic, strong) OTTheme *theme;
 
 @end
@@ -25,68 +25,36 @@ static NSString * const kRemoteThemeURLString = @"https://raw.githubusercontent.
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Initialize the view controller with default theme class. This class provides access to the defined styles inside the provided Theme.json.
-    [self.viewController setTheme:self.theme];
-    
-    // Download a new remove theme and replace the compiled theme class in runtime. Simulate that files is stored on disk.
-    [self downloadRemoteThemeFromURL:[NSURL URLWithString:kRemoteThemeURLString]];
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    tabBarController.viewControllers = @[self.localThemeViewController, self.remoteThemeViewController];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = self.viewController;
+    self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];
     
     return YES;
 }
 
-- (void)downloadRemoteThemeFromURL:(NSURL *)remoteThemeURL
-{
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:remoteThemeURL];
-    
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    configuration.requestCachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
-
-    __weak typeof(self) weakSelf = self;
-    [[session dataTaskWithRequest:request
-                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
-    {
-        __strong typeof(weakSelf) strongSelf = weakSelf;
-        
-        if (error) {
-            NSLog(@"Received error: %@", error);
-            return;
-        }
-        
-        if (!data) {
-            NSLog(@"Received no data!");
-            return;
-        }
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-            
-            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-            NSString *documentsDirectory = [paths objectAtIndex:0];
-            NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:@"Remote.json"];
-    
-            [data writeToFile:dataPath atomically:YES];
-            
-            strongSelf.theme = [[OTTheme alloc] initWithStyleDefinitionFileAtURL:[NSURL URLWithString:dataPath]];
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [strongSelf.viewController setTheme:strongSelf.theme];
-            });
-        });
-    }] resume];
-}
-
 #pragma mark - OTEAppDelegate (Properties)
 
-- (OTEViewController *)viewController
+- (OTELocalThemeViewController *)localThemeViewController
 {
-    if (!_viewController) {
-        _viewController = [[OTEViewController alloc] init];
+    if (!_localThemeViewController) {
+        _localThemeViewController = [[OTELocalThemeViewController alloc] init];
+        _localThemeViewController.title = NSLocalizedString(@"Local", @"");
+        [_localThemeViewController setTheme:self.theme];
     }
-    return _viewController;
+    return _localThemeViewController;
+}
+
+- (OTERemoteThemeViewController *)remoteThemeViewController
+{
+    if (!_remoteThemeViewController) {
+        _remoteThemeViewController = [[OTERemoteThemeViewController alloc] init];
+        _remoteThemeViewController.title = NSLocalizedString(@"Remote", @"");
+        [_remoteThemeViewController setTheme:self.theme];
+    }
+    return _remoteThemeViewController;
 }
 
 - (OTTheme *)theme

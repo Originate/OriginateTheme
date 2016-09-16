@@ -1,5 +1,5 @@
 //
-//  OTEViewController.h
+//  OTERemoteThemeViewController.h
 //  OriginateTheme-Example
 //
 //  Created by Robert Weindl on 2016-09-15.
@@ -9,6 +9,6 @@
 @import OriginateTheme;
 @import UIKit;
 
-@interface OTEViewController : UIViewController <OTThemeable>
+@interface OTERemoteThemeViewController : UIViewController <OTThemeable>
 
 @end
