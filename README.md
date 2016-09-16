@@ -79,7 +79,7 @@ The following example displays the basic structure of a `JSON` file which can be
 ## Concept of the OTTheme Class
 Adding the framework to the project will allow a user to create a new instance of an `OTTheme` class. This class exposes the properties `fonts`, `colors` and `components`. Each of these properties are references to automatically created classes which provide access to the defined styles in the `JSON` file.
 
-```
+```objective-c
 @property (nonatomic, strong, readonly) OTColors *colors;
 @property (nonatomic, strong, readonly) OTComponents *components;
 @property (nonatomic, strong, readonly) OTFonts *fonts;
@@ -89,7 +89,7 @@ As an example the `colors` property of the `OTTheme` instance is of type `OTColo
 
 Inside the `OTColors` instance these styles can be accessed by generated property accessors which look as the following:
 
-```
+```objective-c
 @property (nonatomic, strong, readwrite) UIColor *errorColor;
 @property (nonatomic, strong, readwrite) UIColor *primaryColor;
 @property (nonatomic, strong, readwrite) UIColor *secondaryColor;
@@ -98,7 +98,7 @@ Inside the `OTColors` instance these styles can be accessed by generated propert
 ```
 
 Next to simply exposing the aforementioned properties, the class `OTTheme` also provides a custom initializer with the declaration:
-```
+```objective-c
 - (instancetype)initWithStyleDefinitionFileAtURL:(NSURL *)URL;
 ```
 
@@ -140,7 +140,7 @@ e.g. `$(SRCROOT)/OriginateTheme-Example/Theme.json`
 
 Add `New Run Script Phase` before `[Compile Sources]`
 
-```
+```sh
 "${PODS_ROOT}/OriginateTheme/OriginateTheme/Scripts/ot_generator.py" -i "${OTTHEME}" -o "${PODS_ROOT}/OriginateTheme/OriginateTheme/Sources/Classes/"
 ```
 
@@ -150,10 +150,6 @@ Add the following line wherever you want to access the framework:
 ```objective-c
 @import OriginateTheme;
 ```
-
-
-
-
 
 # License
 **OriginateTheme** is available under the MIT license. See the LICENSE file for more information.
