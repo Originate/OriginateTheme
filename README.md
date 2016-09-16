@@ -104,7 +104,7 @@ Next to simply exposing the aforementioned properties, the class `OTTheme` also 
 
 The parameter `URL` is a path to a `JSON` file stored on disk. This `JSON` file can exist already during source code compilation or created dynamically while application runtime. In case the `JSON` file contains the same basic structure consisting of `colors`, `components` and `fonts` it is possible to override theme styles dynamically on runtime. If only a subset of keys are overwritten the at compile time defined styles will be used as fallback. 
 
-This will allow customization of the `OriginateTheme` framework also after submitting or distributing the application.
+This will allow (remote) customization of the `OriginateTheme` framework also after submitting or distributing the application.
 
 
 # Requirements
