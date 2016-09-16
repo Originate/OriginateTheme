@@ -29,6 +29,7 @@ static NSString * const kRemoteThemeURLString = @"https://raw.githubusercontent.
     [super viewWillAppear:animated];
     
     // Simulate fetching and applying of a remote theme declaration with a two second delay.
+    // As long remote theme gets fetched or fetch fails the compiled fallback will be displayed.
     dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * 2.0);
     dispatch_after(delay, dispatch_get_main_queue(), ^(void){
         [self downloadRemoteThemeFromURL:[NSURL URLWithString:kRemoteThemeURLString]];
