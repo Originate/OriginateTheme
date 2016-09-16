@@ -27,6 +27,8 @@ if (!script_installed)
   puts "Installing run script in Xcode project #{path_to_project}"
   phase = main_target.new_shell_script_build_phase(xcode_build_script_name)
   phase.shell_script = path_to_xcode_build_script
+  puts phase.shell_script_build_phases
+  echo a
   project.save()
 else
   puts "Run script already installed"
