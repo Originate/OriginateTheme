@@ -9,7 +9,7 @@
 #import "OTEAppDelegate.h"
 #import "OTEViewController.h"
 
-static NSString const *kRemoteThemeURLString = @"kRemoteThemeURLString";
+static NSString * const kRemoteThemeURLString = @"https://raw.githubusercontent.com/Originate/OriginateTheme/rw-theme-parser-generator/Example/Themes/Remote.json";
 
 @interface OTEAppDelegate ()
 
@@ -28,8 +28,8 @@ static NSString const *kRemoteThemeURLString = @"kRemoteThemeURLString";
     // Initialize the view controller with default theme class. This class provides access to the defined styles inside the provided Theme.json.
     [self.viewController setTheme:self.theme];
     
-    // Download a new remove theme and replace the compiled theme class in runtime.
-    [self downloadRemoteThemeFromURL:[NSURL URLWithString:@"kRemoteThemeURLString"]];
+    // Download a new remove theme and replace the compiled theme class in runtime. Simulate that files is stored on disk.
+    [self downloadRemoteThemeFromURL:[NSURL URLWithString:kRemoteThemeURLString]];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = self.viewController;
@@ -47,6 +47,8 @@ static NSString const *kRemoteThemeURLString = @"kRemoteThemeURLString";
     [[session dataTaskWithRequest:request
                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
     {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        
         if (error) {
             NSLog(@"Received error: %@", error);
             return;
@@ -57,8 +59,20 @@ static NSString const *kRemoteThemeURLString = @"kRemoteThemeURLString";
             return;
         }
         
-        NSString *urlString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        weakSelf.theme = [[OTTheme alloc] initWithStyleDefinitionFileAtURL:[NSURL URLWithString:urlString]];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+            NSString *documentsDirectory = [paths objectAtIndex:0];
+            NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:@"Remote.json"];
+    
+            [data writeToFile:dataPath atomically:YES];
+            
+            strongSelf.theme = [[OTTheme alloc] initWithStyleDefinitionFileAtURL:[NSURL URLWithString:dataPath]];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [strongSelf.viewController setTheme:strongSelf.theme];
+            });
+        });
     }] resume];
 }
 

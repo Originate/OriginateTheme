@@ -18,7 +18,7 @@
         }
     },
     "colors" : {
-        "primary" : "00A0D8",
+        "primary" : "FF0000",
         "secondary" : "FCD92B",
         "success" : "95BE22",
         "warning" : "FFA500",
