@@ -123,6 +123,7 @@ pod 'OriginateTheme'
 ## Add User-Defined Setting
 * Navigate to your projects' `Build Settings`
 * Press the `+` button on the top
+* Press `Add User-Defined Setting`
 * As `key` use `OTTHEME` and as `value` the path to the JSON file specifying the theme<br>
 e.g. `$(SRCROOT)/Themes/Local.json`
 
