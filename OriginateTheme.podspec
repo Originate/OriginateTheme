@@ -10,6 +10,5 @@ Pod::Spec.new do |s|
   s.requires_arc        = true
   s.source_files        = 'OriginateTheme/**/*'
   s.public_header_files = 'OriginateTheme/Sources/**/*.h'
-  # TODO: After: install_run_script.rb is fixed include the next line.
-  # s.prepare_command     = "ruby OriginateTheme/Scripts/install_run_script.rb '#{path}'"
+  s.prepare_command     = "ruby OriginateTheme/Scripts/install_run_script.rb '#{path}'"
 end

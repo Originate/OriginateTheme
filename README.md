@@ -124,7 +124,7 @@ pod 'OriginateTheme'
 * Navigate to your projects' `Build Settings`
 * Press the `+` button on the top
 * As `key` use `OTTHEME` and as `value` the path to the JSON file specifying the theme<br>
-e.g. `$(SRCROOT)/OriginateTheme-Example/Theme.json`
+e.g. `$(SRCROOT)/Themes/Local.json`
 
 ## Move Run Script Phase
 * While running `pod install` a new run script phase was added to your project.
