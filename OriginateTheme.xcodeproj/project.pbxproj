@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		643F4E981D8B1F5100EA3595 /* OTColors.h in Headers */ = {isa = PBXBuildFile; fileRef = 643F4E921D8B1F5100EA3595 /* OTColors.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		643F4E991D8B1F5100EA3595 /* OTColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 643F4E931D8B1F5100EA3595 /* OTColors.m */; };
-		643F4E9A1D8B1F5100EA3595 /* OTComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 643F4E941D8B1F5100EA3595 /* OTComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		643F4E9B1D8B1F5100EA3595 /* OTComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 643F4E951D8B1F5100EA3595 /* OTComponents.m */; };
-		643F4E9C1D8B1F5100EA3595 /* OTFonts.h in Headers */ = {isa = PBXBuildFile; fileRef = 643F4E961D8B1F5100EA3595 /* OTFonts.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		643F4E9D1D8B1F5100EA3595 /* OTFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 643F4E971D8B1F5100EA3595 /* OTFonts.m */; };
 		6497545A1D8B1ADF00A3B3D0 /* OriginateTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 649754571D8B1ADF00A3B3D0 /* OriginateTheme.h */; };
 		649754631D8B1B1300A3B3D0 /* UIColor+OTHex.h in Headers */ = {isa = PBXBuildFile; fileRef = 6497545D1D8B1B1300A3B3D0 /* UIColor+OTHex.h */; };
 		649754641D8B1B1300A3B3D0 /* UIColor+OTHex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6497545E1D8B1B1300A3B3D0 /* UIColor+OTHex.m */; };
@@ -26,12 +20,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		643F4E921D8B1F5100EA3595 /* OTColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTColors.h; sourceTree = "<group>"; };
-		643F4E931D8B1F5100EA3595 /* OTColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTColors.m; sourceTree = "<group>"; };
-		643F4E941D8B1F5100EA3595 /* OTComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTComponents.h; sourceTree = "<group>"; };
-		643F4E951D8B1F5100EA3595 /* OTComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTComponents.m; sourceTree = "<group>"; };
-		643F4E961D8B1F5100EA3595 /* OTFonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTFonts.h; sourceTree = "<group>"; };
-		643F4E971D8B1F5100EA3595 /* OTFonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTFonts.m; sourceTree = "<group>"; };
 		649754481D8B19DB00A3B3D0 /* OriginateTheme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OriginateTheme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		649754571D8B1ADF00A3B3D0 /* OriginateTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OriginateTheme.h; sourceTree = "<group>"; };
 		6497545D1D8B1B1300A3B3D0 /* UIColor+OTHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+OTHex.h"; sourceTree = "<group>"; };
@@ -119,12 +107,6 @@
 				649754691D8B1B1A00A3B3D0 /* OTTheme.h */,
 				6497546A1D8B1B1A00A3B3D0 /* OTTheme.m */,
 				6497546B1D8B1B1A00A3B3D0 /* OTThemeable.h */,
-				643F4E921D8B1F5100EA3595 /* OTColors.h */,
-				643F4E931D8B1F5100EA3595 /* OTColors.m */,
-				643F4E941D8B1F5100EA3595 /* OTComponents.h */,
-				643F4E951D8B1F5100EA3595 /* OTComponents.m */,
-				643F4E961D8B1F5100EA3595 /* OTFonts.h */,
-				643F4E971D8B1F5100EA3595 /* OTFonts.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -139,10 +121,7 @@
 				6497545A1D8B1ADF00A3B3D0 /* OriginateTheme.h in Headers */,
 				649754741D8B1B1A00A3B3D0 /* OTThemeable.h in Headers */,
 				649754631D8B1B1300A3B3D0 /* UIColor+OTHex.h in Headers */,
-				643F4E9C1D8B1F5100EA3595 /* OTFonts.h in Headers */,
 				649754671D8B1B1300A3B3D0 /* UIFont+OTKeySource.h in Headers */,
-				643F4E981D8B1F5100EA3595 /* OTColors.h in Headers */,
-				643F4E9A1D8B1F5100EA3595 /* OTComponents.h in Headers */,
 				649754651D8B1B1300A3B3D0 /* UIColor+OTKeySource.h in Headers */,
 				649754721D8B1B1A00A3B3D0 /* OTTheme.h in Headers */,
 			);
@@ -216,9 +195,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				643F4E991D8B1F5100EA3595 /* OTColors.m in Sources */,
-				643F4E9B1D8B1F5100EA3595 /* OTComponents.m in Sources */,
-				643F4E9D1D8B1F5100EA3595 /* OTFonts.m in Sources */,
 				649754731D8B1B1A00A3B3D0 /* OTTheme.m in Sources */,
 				649754641D8B1B1300A3B3D0 /* UIColor+OTHex.m in Sources */,
 				649754661D8B1B1300A3B3D0 /* UIColor+OTKeySource.m in Sources */,

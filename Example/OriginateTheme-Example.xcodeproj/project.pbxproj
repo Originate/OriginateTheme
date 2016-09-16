@@ -107,8 +107,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 643F4E8F1D8B1EDE00EA3595 /* Build configuration list for PBXNativeTarget "OriginateTheme-Example" */;
 			buildPhases = (
-				644C27581D8BE30E006D382B /* [OT] Generate Theme Files */,
 				69F241B132020E02416BF6C9 /* [CP] Check Pods Manifest.lock */,
+				644C27581D8BE30E006D382B /* [OT] Generate Theme Files */,
 				643F4E741D8B1EDE00EA3595 /* Sources */,
 				643F4E751D8B1EDE00EA3595 /* Frameworks */,
 				643F4E761D8B1EDE00EA3595 /* Resources */,
@@ -197,7 +197,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/OriginateTheme/OriginateTheme/Scripts/ot_generator.py\" -i \"${OTTHEME}\" -o \"${PODS_ROOT}/OriginateTheme/OriginateTheme/Sources/Classes\"";
+			shellScript = "sudo python \"${PODS_ROOT}/OriginateTheme/OriginateTheme/Scripts/ot_generator.py\" -i \"${OTTHEME}\" -o \"${PODS_ROOT}/OriginateTheme/OriginateTheme/Sources/Classes/\"";
 		};
 		69F241B132020E02416BF6C9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
