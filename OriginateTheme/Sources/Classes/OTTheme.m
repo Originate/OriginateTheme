@@ -14,7 +14,7 @@
 @interface OTTheme()
 
 #pragma mark - Properties
-@property (nonatomic, strong, readwrite) NSDictionary *definition;
+@property (nonatomic, strong, readwrite) NSDictionary *themeDictionary;
 
 @property (nonatomic, strong, readwrite) OTColors *colors;
 @property (nonatomic, strong, readwrite) OTComponents *components;
@@ -24,9 +24,9 @@
 
 @implementation OTTheme
 
-#pragma mark - OriginateUI
+#pragma mark - OTTheme
 
-- (instancetype)initWithStyleDefinitionFileAtURL:(NSURL *)URL
+- (instancetype)initWithThemeFileAtURL:(NSURL *)URL
 {
     self = [super init];
     
@@ -37,25 +37,46 @@
                                                       error:&error];
         
         NSData *data = [json dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *definition = [NSJSONSerialization JSONObjectWithData:data
-                                                                   options:0
-                                                                     error:&error];
-        if (error) {
-            NSLog(@"OriginateTheme > Invalid Style Definition. Falling Back to Default Values.");
-        }
         
-        _definition = definition;
+        if (data.length == 0) {
+            NSLog(@"OriginateTheme > Attempting to load non-existent theme. Falling back to default values.");
+        }
+        else {
+            NSDictionary *themeDictionary = [NSJSONSerialization JSONObjectWithData:data
+                                                                            options:0
+                                                                              error:&error];
+            if (error) {
+                NSLog(@"OriginateTheme > Invalid theme. Falling back to default values.");
+            }
+            
+            _themeDictionary = themeDictionary;
+        }
     }
     
     return self;
 }
 
-#pragma mark - OriginateUI (Properties)
+- (instancetype)initWithTheme:(NSDictionary *)themeDictionary
+{
+    if (!themeDictionary) {
+        return nil;
+    }
+    
+    self = [super init];
+    
+    if (self) {
+        _themeDictionary = themeDictionary;
+    }
+    
+    return self;
+}
+
+#pragma mark - OTTheme (Properties)
 
 - (OTColors *)colors
 {
     if (!_colors) {
-        _colors = [[OTColors alloc] initWithDictionary:self.definition];
+        _colors = [[OTColors alloc] initWithDictionary:self.themeDictionary];
     }
     
     return _colors;
@@ -64,7 +85,7 @@
 - (OTComponents *)components
 {
     if (!_components) {
-        _components = [[OTComponents alloc] initWithDictionary:self.definition];
+        _components = [[OTComponents alloc] initWithDictionary:self.themeDictionary];
     }
     
     return _components;
@@ -73,7 +94,7 @@
 - (OTFonts *)fonts
 {
     if (!_fonts) {
-        _fonts = [[OTFonts alloc] initWithDictionary:self.definition];
+        _fonts = [[OTFonts alloc] initWithDictionary:self.themeDictionary];
     }
     
     return _fonts;
