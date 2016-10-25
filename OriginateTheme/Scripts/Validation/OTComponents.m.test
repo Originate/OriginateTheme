@@ -57,7 +57,7 @@ NSString * const OTComponentsTabBarFontsTextKeyPathKey = @"components.tabBar.fon
     if (!_navigationBarBackgroundColor) {
         _navigationBarBackgroundColor = [UIColor colorForKeyPath:OTComponentsNavigationBarColorsBackgroundKeyPathKey
                                    source:self.definition
-                                 fallback:[UIColor ot_hex:0x84E0FA]];
+                                 fallback:[UIColor ot_hex:0x84E0FAFF]];
     }
 
     return _navigationBarBackgroundColor;
@@ -68,7 +68,7 @@ NSString * const OTComponentsTabBarFontsTextKeyPathKey = @"components.tabBar.fon
     if (!_navigationBarTintColor) {
         _navigationBarTintColor = [UIColor colorForKeyPath:OTComponentsNavigationBarColorsTintKeyPathKey
                                    source:self.definition
-                                 fallback:[UIColor ot_hex:0x979797]];
+                                 fallback:[UIColor ot_hex:0x979797FF]];
     }
 
     return _navigationBarTintColor;
@@ -101,7 +101,7 @@ NSString * const OTComponentsTabBarFontsTextKeyPathKey = @"components.tabBar.fon
     if (!_tabBarBackgroundColor) {
         _tabBarBackgroundColor = [UIColor colorForKeyPath:OTComponentsTabBarColorsBackgroundKeyPathKey
                                    source:self.definition
-                                 fallback:[UIColor ot_hex:0xFFFFFF]];
+                                 fallback:[UIColor ot_hex:0xFFFFFFFF]];
     }
 
     return _tabBarBackgroundColor;
@@ -112,7 +112,7 @@ NSString * const OTComponentsTabBarFontsTextKeyPathKey = @"components.tabBar.fon
     if (!_tabBarTintColor) {
         _tabBarTintColor = [UIColor colorForKeyPath:OTComponentsTabBarColorsTintKeyPathKey
                                    source:self.definition
-                                 fallback:[UIColor ot_hex:0xFF9600]];
+                                 fallback:[UIColor ot_hex:0xFF9600FF]];
     }
 
     return _tabBarTintColor;

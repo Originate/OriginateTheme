@@ -34,9 +34,9 @@ class ParseColorsTestCase(unittest.TestCase):
 
         self.assertTrue(len(output))
         self.assertEqual(output[0].key, 'primary')
-        self.assertEqual(output[0].code, 'EFEFEF')
+        self.assertEqual(output[0].code, 'EFEFEFFF')
         self.assertEqual(output[1].key, 'secondary')
-        self.assertEqual(output[1].code, '636363')
+        self.assertEqual(output[1].code, '636363FF')
 
 class ParseComponents(unittest.TestCase):
     def runTest(self):
@@ -48,9 +48,9 @@ class ParseComponents(unittest.TestCase):
         self.assertTrue(output[0].colors)
         self.assertTrue(output[0].fonts)
         self.assertEqual(output[0].colors[0].key, 'background')
-        self.assertEqual(output[0].colors[0].code, '84E0FA')
+        self.assertEqual(output[0].colors[0].code, '84E0FAFF')
         self.assertEqual(output[0].colors[1].key, 'tint')
-        self.assertEqual(output[0].colors[1].code, '000000')
+        self.assertEqual(output[0].colors[1].code, '000000FF')
         self.assertEqual(output[0].fonts[0].key, 'description')
         self.assertEqual(output[0].fonts[0].name, 'HelveticaNeue-Light')
         self.assertEqual(output[0].fonts[0].size, 12.0)
