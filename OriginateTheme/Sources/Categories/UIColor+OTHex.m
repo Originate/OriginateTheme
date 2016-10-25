@@ -66,6 +66,14 @@
     return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
++ (UIColor *)ot_hex:(NSInteger)hexColor
+{
+    return [UIColor colorWithRed:((CGFloat)((hexColor & 0xFF000000) >> 24)) / 255.0
+                           green:((CGFloat)((hexColor & 0xFF0000) >> 16)) / 255.0
+                            blue:((CGFloat)(hexColor & 0xFF00) >> 8) / 255.0
+                           alpha:((CGFloat)(hexColor & 0xFF)) / 255.0];
+}
+
 + (NSString *)ot_hexStringWithColor:(UIColor *)color
 {
     if (!color) {

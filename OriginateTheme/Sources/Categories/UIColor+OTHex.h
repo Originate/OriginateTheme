@@ -12,6 +12,7 @@
 
 #pragma mark - Methods
 + (instancetype)ot_colorWithHexString:(NSString *)hexString;
++ (instancetype)ot_hex:(NSInteger)hexColor;
 + (NSString *)ot_hexStringWithColor:(UIColor *)color;
 
 @end
