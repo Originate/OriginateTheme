@@ -266,6 +266,8 @@ def parseColors(colors):
         if hexPattern.match(value) is None:
             print 'Color with key "' + key + '" is not properly formatted and has an invalid hex color code.'
             continue
+        if len(value) is 6:
+            value = value + 'FF'
         results.append(Color(key, value))
     return results
 
