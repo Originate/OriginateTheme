@@ -8,6 +8,7 @@
 
 import os
 import unittest
+
 from ot_generator import *
 
 class ParseFontsTestCase(unittest.TestCase):
