@@ -81,7 +81,7 @@ static NSString * const kRemoteThemeURLString = @"https://raw.githubusercontent.
               
               [data writeToFile:dataPath atomically:YES];
               
-              strongSelf.theme = [[OTTheme alloc] initWithStyleDefinitionFileAtURL:[NSURL URLWithString:dataPath]];
+              strongSelf.theme = [[OTTheme alloc] initWithThemeFileAtURL:[NSURL URLWithString:dataPath]];
               [strongSelf setTheme:strongSelf.theme];
           });
       }] resume];

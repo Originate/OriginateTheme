@@ -9,7 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OTERemoteThemeViewController">
             <connections>
                 <outlet property="captionLabel" destination="QQI-8G-gDR" id="TjL-ib-7Ik"/>
-                <outlet property="titleLabel" destination="3nK-eH-iUy" id="Ke6-FQ-M3U"/>
+                <outlet property="titleLabel" destination="3nK-eH-iUy" id="JfP-tt-PKb"/>
                 <outlet property="view" destination="iN0-l3-epB" id="kjV-LV-AtT"/>
             </connections>
         </placeholder>
