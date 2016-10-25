@@ -75,7 +75,6 @@ static NSString * const kRemoteThemeURLString = @"https://raw.githubusercontent.
           }
           
           dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-              
               NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
               NSString *documentsDirectory = [paths firstObject];
               NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:@"Remote.json"];
