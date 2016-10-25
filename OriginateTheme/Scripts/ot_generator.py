@@ -348,9 +348,57 @@ def createPropertyKeyPathKeyDefinition(propertyKeyPathKey, propertyKeyPathValue)
     """
     return 'NSString * const ' + propertyKeyPathKey + ' = @"' + propertyKeyPathValue + '";'
 
+def generateUITypeClassHeaderFileContent(className, dictionary, uiType, getter):
+    """
+        Create the content of the header file for an OriginateTheme class specifying font or color definitions.
+
+        Parameters
+        -----------
+        className: String
+            The name of the new class.
+        dictionary: Object
+            Object containing all key/value pairs for the font or color definitions.
+        uiType: String
+            The String 'color' or 'font'.
+        getter: Function
+            A Function generating the property getter files for the specified type.
+    """
+    # Create the public properties.
+    OriginateThemeTypePublicProperties = [createProperty('strong', 'readonly', 'UI' + upcaseFirstLetter(uiType), d.key + upcaseFirstLetter(uiType)) for d in dictionary] + ['']
+
+    # Substitute the properties.
+    return string.Template(headerTemplate()).substitute({'OriginateThemePublicProperties' : '\n'.join(OriginateThemeTypePublicProperties), 'OriginateThemeClassName' : className})
+
+def generateUITypeClassMainFileContent(className, dictionary, uiType, getter):
+    """
+        Create the content of the main file for an OriginateTheme class specifying font or color definitions.
+
+        Parameters
+        -----------
+        className: String
+            The name of the new class.
+        dictionary: Object
+            Object containing all key/value pairs for the font or color definitions.
+        uiType: String
+            The String 'color' or 'font'.
+        getter: Function
+            A Function generating the property getter files for the specified type.
+    """
+    # Create the properties' keys.
+    OriginateThemeTypePropertiesKeyPathKeys = [createPropertyKeyPathKeyDefinition(createPropertyKeyPathKey(upcaseFirstLetter(uiType) + 's', d.key), uiType + 's.' + d.key) for d in dictionary] + ['']
+
+    # Create the private properties.
+    OriginateThemeTypePrivateProperties = [createProperty('strong', 'readwrite', 'UI' + upcaseFirstLetter(uiType), d.key + upcaseFirstLetter(uiType)) for d in dictionary] + ['']
+
+    # Create the properties' getters.
+    OriginateThemeTypePropertiesGetters = [getter(d, d.key + upcaseFirstLetter(uiType), createPropertyKeyPathKey(upcaseFirstLetter(uiType) + 's', d.key)) for d in dictionary]
+
+    # Substitute the properties.
+    return string.Template(mainTemplate()).substitute({'OriginateThemePropertiesKeyPathKeys' : '\n'.join(OriginateThemeTypePropertiesKeyPathKeys), 'OriginateThemePrivateProperties' : '\n'.join(OriginateThemeTypePrivateProperties), 'OriginateThemePropertiesGetters' : '\n'.join(OriginateThemeTypePropertiesGetters), 'OriginateThemeClassName' : className})
+
 def generateUITypeClass(outputDirectory, className, dictionary, uiType, getter):
     """
-        Create a new pair of header and main file for a OriginateTheme class specifying font or color definitions.
+        Create a new pair of header and main file for an OriginateTheme class specifying font or color definitions.
 
         Parameters
         -----------
@@ -371,82 +419,61 @@ def generateUITypeClass(outputDirectory, className, dictionary, uiType, getter):
     # Generate the header file. #
     #############################
 
-    # Create the public properties.
-    OriginateThemeTypePublicProperties = [createProperty('strong', 'readonly', 'UI' + upcaseFirstLetter(uiType), d.key + upcaseFirstLetter(uiType)) for d in dictionary] + ['']
-
-    # Substitute the properties.
-    result = string.Template(headerTemplate()).substitute({'OriginateThemePublicProperties' : '\n'.join(OriginateThemeTypePublicProperties), 'OriginateThemeClassName' : className})
-
     # Store the generated file in the output directory.
     filePath = outputDirectory + className + '.h'
     if os.path.isfile(filePath):
         os.chmod(filePath, 0755)
     with open(outputDirectory + className + '.h', 'wb') as outputFile:
-        outputFile.write(result)
+        outputFile.write(generateUITypeClassHeaderFileContent(className, dictionary, uiType, getter))
 
     ###########################
     # Generate the main file. #
     ###########################
-
-    # Create the properties' keys.
-    OriginateThemeTypePropertiesKeyPathKeys = [createPropertyKeyPathKeyDefinition(createPropertyKeyPathKey(upcaseFirstLetter(uiType) + 's', d.key), uiType + 's.' + d.key) for d in dictionary] + ['']
-
-    # Create the private properties.
-    OriginateThemeTypePrivateProperties = [createProperty('strong', 'readwrite', 'UI' + upcaseFirstLetter(uiType), d.key + upcaseFirstLetter(uiType)) for d in dictionary] + ['']
-
-    # Create the properties' getters.
-    OriginateThemeTypePropertiesGetters = [getter(d, d.key + upcaseFirstLetter(uiType), createPropertyKeyPathKey(upcaseFirstLetter(uiType) + 's', d.key)) for d in dictionary]
-
-    # Substitute the properties.
-    result = string.Template(mainTemplate()).substitute({'OriginateThemePropertiesKeyPathKeys' : '\n'.join(OriginateThemeTypePropertiesKeyPathKeys), 'OriginateThemePrivateProperties' : '\n'.join(OriginateThemeTypePrivateProperties), 'OriginateThemePropertiesGetters' : '\n'.join(OriginateThemeTypePropertiesGetters), 'OriginateThemeClassName' : className})
 
     # Store the generated file in the output directory.
     filePath = outputDirectory + className + '.m'
     if os.path.isfile(filePath):
         os.chmod(filePath, 0755)
     with open(outputDirectory + className + '.m', 'wb') as outputFile:
-        outputFile.write(result)
+        outputFile.write(generateUITypeClassMainFileContent(className, dictionary, uiType, getter))
 
-def generateComponentsClass(outputDirectory, className, components):
+def generateComponentsClassHeaderFileContent(className, components):
     """
-        Create a new pair of header and main file for a OriginateTheme class specifying component definitions.
+        Create the content of the header file for an OriginateTheme class specifying component definitions.
 
         Parameters
         -----------
-        outputDirectory: String
-            String specifying the directory where the result should be saved.
         className: String
             The name of the new class.
         components: Object
             Object containing all key/value pairs for the component definitions.
     """
-    components = [] if not components else components
-
     # Component specific lambda functions.
     createComponentPropertyName = lambda componentKey, key, uiType: componentKey + upcaseFirstLetter(key) + upcaseFirstLetter(uiType)
     createPropertyDefinition = lambda componentKey, key, uiType, accessType: createProperty('strong', accessType, 'UI' + upcaseFirstLetter(uiType), createComponentPropertyName(componentKey, key, uiType))
-
-    #############################
-    # Generate the header file. #
-    #############################
 
     # Create the public properties.
     OriginateThemePublicProperties = [[[createPropertyDefinition(component.key, c.key, 'color', 'readonly') for c in component.colors], [createPropertyDefinition(component.key, f.key, 'font', 'readonly') for f in component.fonts], ['']] for component in components]
     OriginateThemePublicProperties = list(itertools.chain.from_iterable(itertools.chain.from_iterable((OriginateThemePublicProperties))))
 
     # Substitute the properties.
-    result = string.Template(headerTemplate()).substitute({'OriginateThemePublicProperties' : '\n'.join(OriginateThemePublicProperties), 'OriginateThemeClassName' : className})
+    return string.Template(headerTemplate()).substitute({'OriginateThemePublicProperties' : '\n'.join(OriginateThemePublicProperties), 'OriginateThemeClassName' : className})
 
-    # Store the generated file in the output directory.
-    filePath = outputDirectory + className + '.h'
-    if os.path.isfile(filePath):
-        os.chmod(filePath, 0755)
-    with open(outputDirectory + className + '.h', 'wb') as outputFile:
-        outputFile.write(result)
 
-    ###########################
-    # Generate the main file. #
-    ###########################
+def generateComponentsClassMainFileContent(className, components):
+    """
+        Create the content of the main file for an OriginateTheme class specifying component definitions.
+
+        Parameters
+        -----------
+        className: String
+            The name of the new class.
+        components: Object
+            Object containing all key/value pairs for the component definitions.
+    """
+    # Component specific lambda functions.
+    createComponentPropertyName = lambda componentKey, key, uiType: componentKey + upcaseFirstLetter(key) + upcaseFirstLetter(uiType)
+    createPropertyDefinition = lambda componentKey, key, uiType, accessType: createProperty('strong', accessType, 'UI' + upcaseFirstLetter(uiType), createComponentPropertyName(componentKey, key, uiType))
 
     # Create the properties' keys.
     createComponentPropertyKeyPathKey = lambda componentKey, typeKey, typeKeyPath: createPropertyKeyPathKey('Components' + upcaseFirstLetter(componentKey) + upcaseFirstLetter(typeKeyPath), typeKey)
@@ -463,14 +490,44 @@ def generateComponentsClass(outputDirectory, className, components):
     OriginateThemePropertiesGetters = list(itertools.chain.from_iterable(itertools.chain.from_iterable((OriginateThemePropertiesGetters))))
 
     # Substitute the properties.
-    result = string.Template(mainTemplate()).substitute({'OriginateThemePropertiesKeyPathKeys' : '\n'.join(OriginateThemePropertiesKeyPathKeys), 'OriginateThemePrivateProperties' : '\n'.join(OriginateThemePrivateProperties), 'OriginateThemePropertiesGetters' : '\n'.join(OriginateThemePropertiesGetters), 'OriginateThemeClassName' : className})
+    return string.Template(mainTemplate()).substitute({'OriginateThemePropertiesKeyPathKeys' : '\n'.join(OriginateThemePropertiesKeyPathKeys), 'OriginateThemePrivateProperties' : '\n'.join(OriginateThemePrivateProperties), 'OriginateThemePropertiesGetters' : '\n'.join(OriginateThemePropertiesGetters), 'OriginateThemeClassName' : className})
+
+def generateComponentsClass(outputDirectory, className, components):
+    """
+        Create a new pair of header and main file for an OriginateTheme class specifying component definitions.
+
+        Parameters
+        -----------
+        outputDirectory: String
+            String specifying the directory where the result should be saved.
+        className: String
+            The name of the new class.
+        components: Object
+            Object containing all key/value pairs for the component definitions.
+    """
+    components = [] if not components else components
+
+    #############################
+    # Generate the header file. #
+    #############################
+
+    # Store the generated file in the output directory.
+    filePath = outputDirectory + className + '.h'
+    if os.path.isfile(filePath):
+        os.chmod(filePath, 0755)
+    with open(outputDirectory + className + '.h', 'wb') as outputFile:
+        outputFile.write(generateComponentsClassHeaderFileContent(className, components))
+
+    ###########################
+    # Generate the main file. #
+    ###########################
 
     # Store the generated file in the output directory.
     filePath = outputDirectory + className + '.m'
     if os.path.isfile(filePath):
         os.chmod(filePath, 0755)
     with open(outputDirectory + className + '.m', 'wb') as outputFile:
-        outputFile.write(result)
+        outputFile.write(generateComponentsClassMainFileContent(className, components))
 
 ################
 ##### Main #####
