@@ -261,7 +261,7 @@ def parseColors(colors):
             A '#' as prefix for the hex color codes is not allowed.
     """
     results = []
-    hexPattern = re.compile("^(?:[0-9a-fA-F]{6}){1}$")
+    hexPattern = re.compile("^(?=[0-9a-fA-F]*$)(?:.{6}|.{8})$")
     for key, value in colors.iteritems():
         if hexPattern.match(value) is None:
             print 'Color with key "' + key + '" is not properly formatted and has an invalid hex color code.'
