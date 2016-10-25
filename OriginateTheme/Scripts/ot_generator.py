@@ -34,7 +34,6 @@ def headerTemplate():
 //  $OriginateThemeClassName.h
 //  OriginateTheme
 //
-//  Created by Robert Weindl on 2016-09-13.
 //  Copyright (c) 2016 Originate. All rights reserved.
 //
 
@@ -58,7 +57,6 @@ def mainTemplate():
 //  $OriginateThemeClassName.m
 //  OriginateTheme
 //
-//  Created by Robert Weindl on 2016-09-13.
 //  Copyright (c) 2016 Originate. All rights reserved.
 //
 
