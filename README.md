@@ -31,10 +31,10 @@ The following example displays the basic structure of a `JSON` file which can be
         ...
     },
     "colors" : {
-        "primary" : "70CFFF",
+        "primary" : "70CFFFFF",
         "secondary" : "FCD92B",
         "success" : "95BE22",
-        "warning" : "FFA500",
+        "warning" : "FFA500EE",
         "error" : "BD2C00",
         ...
     },

@@ -18,12 +18,12 @@
         }
     },
     "colors" : {
-        "primary" : "71FFB7",
+        "primary" : "71FFB7FF",
         "secondary" : "FCD92B",
         "title" : "545454",
         "caption" : "AFAFAF",
         "success" : "95BE22",
-        "warning" : "FFA500",
+        "warning" : "FFA500EE",
         "error" : "BD2C00"
     },
     "components" : {
@@ -46,7 +46,7 @@
         "tabBar" : {
             "colors" : {
                 "background" : "FFFFFF",
-                "tint" : "70CFFF"                
+                "tint" : "70CFFF"
             },
             "fonts" : {
                 "text" : {

@@ -18,18 +18,18 @@
         }
     },
     "colors" : {
-        "primary" : "70CFFF",
+        "primary" : "70CFFFFF",
         "secondary" : "FCD92B",
         "title" : "000000",
         "caption" : "545454",
         "success" : "95BE22",
-        "warning" : "FFA500",
+        "warning" : "FFA500EE",
         "error" : "BD2C00"
     },
     "components" : {
         "navigationBar" : {
             "colors" : {
-                "background" : "84E0FA",                
+                "background" : "84E0FA",
                 "tint" : "979797"
             },
             "fonts" : {
@@ -46,7 +46,7 @@
         "tabBar" : {
             "colors" : {
                 "background" : "FFFFFF",
-				"tint" : "FF9600"                
+				"tint" : "FF9600"
             },
             "fonts" : {
                 "text" : {
