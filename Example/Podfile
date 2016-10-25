@@ -1,6 +1,6 @@
-source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/Originate/OriginateTheme.git'
 use_frameworks!
 
-target 'OriginateTheme-Example', :exclusive => true do
-  pod "OriginateTheme", :path => "../"
+target 'OriginateTheme-Example' do
+  pod 'OriginateTheme', :git => 'https://github.com/Originate/OriginateTheme.git', :branch => ‘master’
 end

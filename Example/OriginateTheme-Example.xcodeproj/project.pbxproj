@@ -1,0 +1,396 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		390E6E2BB8E2753A329CC214 /* Pods_OriginateTheme_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B180DBDCEC266EAE83FADB3 /* Pods_OriginateTheme_Example.framework */; };
+		643F4E7D1D8B1EDE00EA3595 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 643F4E7C1D8B1EDE00EA3595 /* main.m */; };
+		643F4E801D8B1EDE00EA3595 /* OTEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 643F4E7F1D8B1EDE00EA3595 /* OTEAppDelegate.m */; };
+		643F4E831D8B1EDE00EA3595 /* OTELocalThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643F4E821D8B1EDE00EA3595 /* OTELocalThemeViewController.m */; };
+		643F4E881D8B1EDE00EA3595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 643F4E871D8B1EDE00EA3595 /* Assets.xcassets */; };
+		643F4E8B1D8B1EDE00EA3595 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 643F4E891D8B1EDE00EA3595 /* LaunchScreen.storyboard */; };
+		644C276A1D8C3EAE006D382B /* OTERemoteThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 644C27691D8C3EAE006D382B /* OTERemoteThemeViewController.m */; };
+		644C276C1D8C42B3006D382B /* OTELocalThemeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644C276B1D8C42B3006D382B /* OTELocalThemeViewController.xib */; };
+		644C276E1D8C42C4006D382B /* OTERemoteThemeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644C276D1D8C42C4006D382B /* OTERemoteThemeViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		24E822C76D254E532CEAF33D /* Pods-OriginateTheme-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OriginateTheme-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OriginateTheme-Example/Pods-OriginateTheme-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		643F4E781D8B1EDE00EA3595 /* OriginateTheme-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OriginateTheme-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		643F4E7C1D8B1EDE00EA3595 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		643F4E7E1D8B1EDE00EA3595 /* OTEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OTEAppDelegate.h; sourceTree = "<group>"; };
+		643F4E7F1D8B1EDE00EA3595 /* OTEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OTEAppDelegate.m; sourceTree = "<group>"; };
+		643F4E811D8B1EDE00EA3595 /* OTELocalThemeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OTELocalThemeViewController.h; sourceTree = "<group>"; };
+		643F4E821D8B1EDE00EA3595 /* OTELocalThemeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OTELocalThemeViewController.m; sourceTree = "<group>"; };
+		643F4E871D8B1EDE00EA3595 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		643F4E8A1D8B1EDE00EA3595 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		643F4E8C1D8B1EDE00EA3595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		644C27681D8C3EAE006D382B /* OTERemoteThemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTERemoteThemeViewController.h; sourceTree = "<group>"; };
+		644C27691D8C3EAE006D382B /* OTERemoteThemeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTERemoteThemeViewController.m; sourceTree = "<group>"; };
+		644C276B1D8C42B3006D382B /* OTELocalThemeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OTELocalThemeViewController.xib; sourceTree = "<group>"; };
+		644C276D1D8C42C4006D382B /* OTERemoteThemeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OTERemoteThemeViewController.xib; sourceTree = "<group>"; };
+		8B180DBDCEC266EAE83FADB3 /* Pods_OriginateTheme_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OriginateTheme_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA32D699C256410A294DB0D2 /* Pods-OriginateTheme-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OriginateTheme-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-OriginateTheme-Example/Pods-OriginateTheme-Example.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		643F4E751D8B1EDE00EA3595 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				390E6E2BB8E2753A329CC214 /* Pods_OriginateTheme_Example.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B180FBC68CC192346C8CC5F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				24E822C76D254E532CEAF33D /* Pods-OriginateTheme-Example.debug.xcconfig */,
+				BA32D699C256410A294DB0D2 /* Pods-OriginateTheme-Example.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		643F4E6F1D8B1EDE00EA3595 = {
+			isa = PBXGroup;
+			children = (
+				643F4E7A1D8B1EDE00EA3595 /* OriginateTheme-Example */,
+				643F4E791D8B1EDE00EA3595 /* Products */,
+				0B180FBC68CC192346C8CC5F /* Pods */,
+				AAC001711D61E563039DB2EA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		643F4E791D8B1EDE00EA3595 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				643F4E781D8B1EDE00EA3595 /* OriginateTheme-Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		643F4E7A1D8B1EDE00EA3595 /* OriginateTheme-Example */ = {
+			isa = PBXGroup;
+			children = (
+				643F4E7E1D8B1EDE00EA3595 /* OTEAppDelegate.h */,
+				643F4E7F1D8B1EDE00EA3595 /* OTEAppDelegate.m */,
+				643F4E811D8B1EDE00EA3595 /* OTELocalThemeViewController.h */,
+				643F4E821D8B1EDE00EA3595 /* OTELocalThemeViewController.m */,
+				644C276B1D8C42B3006D382B /* OTELocalThemeViewController.xib */,
+				644C27681D8C3EAE006D382B /* OTERemoteThemeViewController.h */,
+				644C27691D8C3EAE006D382B /* OTERemoteThemeViewController.m */,
+				644C276D1D8C42C4006D382B /* OTERemoteThemeViewController.xib */,
+				643F4E7B1D8B1EDE00EA3595 /* Supporting Files */,
+			);
+			path = "OriginateTheme-Example";
+			sourceTree = "<group>";
+		};
+		643F4E7B1D8B1EDE00EA3595 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				643F4E871D8B1EDE00EA3595 /* Assets.xcassets */,
+				643F4E8C1D8B1EDE00EA3595 /* Info.plist */,
+				643F4E891D8B1EDE00EA3595 /* LaunchScreen.storyboard */,
+				643F4E7C1D8B1EDE00EA3595 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AAC001711D61E563039DB2EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8B180DBDCEC266EAE83FADB3 /* Pods_OriginateTheme_Example.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		643F4E771D8B1EDE00EA3595 /* OriginateTheme-Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 643F4E8F1D8B1EDE00EA3595 /* Build configuration list for PBXNativeTarget "OriginateTheme-Example" */;
+			buildPhases = (
+				69F241B132020E02416BF6C9 /* [CP] Check Pods Manifest.lock */,
+				643F4E741D8B1EDE00EA3595 /* Sources */,
+				643F4E751D8B1EDE00EA3595 /* Frameworks */,
+				643F4E761D8B1EDE00EA3595 /* Resources */,
+				0FE5C8D5F5A258A7930B28AE /* [CP] Embed Pods Frameworks */,
+				7FFF09943C7D53A9204D7ACC /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "OriginateTheme-Example";
+			productName = "OriginateTheme-Example";
+			productReference = 643F4E781D8B1EDE00EA3595 /* OriginateTheme-Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		643F4E701D8B1EDE00EA3595 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Originate Inc.";
+				TargetAttributes = {
+					643F4E771D8B1EDE00EA3595 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 643F4E731D8B1EDE00EA3595 /* Build configuration list for PBXProject "OriginateTheme-Example" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 643F4E6F1D8B1EDE00EA3595;
+			productRefGroup = 643F4E791D8B1EDE00EA3595 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				643F4E771D8B1EDE00EA3595 /* OriginateTheme-Example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		643F4E761D8B1EDE00EA3595 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				643F4E8B1D8B1EDE00EA3595 /* LaunchScreen.storyboard in Resources */,
+				644C276C1D8C42B3006D382B /* OTELocalThemeViewController.xib in Resources */,
+				644C276E1D8C42C4006D382B /* OTERemoteThemeViewController.xib in Resources */,
+				643F4E881D8B1EDE00EA3595 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0FE5C8D5F5A258A7930B28AE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OriginateTheme-Example/Pods-OriginateTheme-Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69F241B132020E02416BF6C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7FFF09943C7D53A9204D7ACC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OriginateTheme-Example/Pods-OriginateTheme-Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		643F4E741D8B1EDE00EA3595 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				643F4E7D1D8B1EDE00EA3595 /* main.m in Sources */,
+				643F4E801D8B1EDE00EA3595 /* OTEAppDelegate.m in Sources */,
+				643F4E831D8B1EDE00EA3595 /* OTELocalThemeViewController.m in Sources */,
+				644C276A1D8C3EAE006D382B /* OTERemoteThemeViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		643F4E891D8B1EDE00EA3595 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				643F4E8A1D8B1EDE00EA3595 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		643F4E8D1D8B1EDE00EA3595 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		643F4E8E1D8B1EDE00EA3595 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		643F4E901D8B1EDE00EA3595 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24E822C76D254E532CEAF33D /* Pods-OriginateTheme-Example.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "OriginateTheme-Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.originate.OriginateTheme-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		643F4E911D8B1EDE00EA3595 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA32D699C256410A294DB0D2 /* Pods-OriginateTheme-Example.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "OriginateTheme-Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.originate.OriginateTheme-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		643F4E731D8B1EDE00EA3595 /* Build configuration list for PBXProject "OriginateTheme-Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				643F4E8D1D8B1EDE00EA3595 /* Debug */,
+				643F4E8E1D8B1EDE00EA3595 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		643F4E8F1D8B1EDE00EA3595 /* Build configuration list for PBXNativeTarget "OriginateTheme-Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				643F4E901D8B1EDE00EA3595 /* Debug */,
+				643F4E911D8B1EDE00EA3595 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 643F4E701D8B1EDE00EA3595 /* Project object */;
+}
