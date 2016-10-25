@@ -89,13 +89,13 @@ class GenerateUITypeClassColorContentTestCase(unittest.TestCase):
 
         # Test the color header content generation.
         output = generateUITypeClassHeaderFileContent('OTColors', sorted(colors, key = lambda x: x.key), 'color', createColorGetter)
-        filePath = os.path.join(testDirectory, 'Validation/OTColors.h')
+        filePath = os.path.join(testDirectory, 'Validation/OTColors.h.test')
         with open(filePath) as file:
             self.assertEqual(output, file.read())
 
         # Test the color main content generation.
         output = generateUITypeClassMainFileContent('OTColors', sorted(colors, key = lambda x: x.key), 'color', createColorGetter)
-        filePath = os.path.join(testDirectory, 'Validation/OTColors.m')
+        filePath = os.path.join(testDirectory, 'Validation/OTColors.m.test')
         with open(filePath) as file:
             self.assertEqual(output, file.read())
 
@@ -110,13 +110,13 @@ class GenerateUITypeClassFontContentTestCase(unittest.TestCase):
 
         # Test the font header content generation.
         output = generateUITypeClassHeaderFileContent('OTFonts', sorted(fonts, key = lambda x: x.key), 'font', createFontGetter)
-        filePath = os.path.join(testDirectory, 'Validation/OTFonts.h')
+        filePath = os.path.join(testDirectory, 'Validation/OTFonts.h.test')
         with open(filePath) as file:
             self.assertEqual(output, file.read())
 
         # Test the font main content generation.
         output = generateUITypeClassMainFileContent('OTFonts', sorted(fonts, key = lambda x: x.key), 'font', createFontGetter)
-        filePath = os.path.join(testDirectory, 'Validation/OTFonts.m')
+        filePath = os.path.join(testDirectory, 'Validation/OTFonts.m.test')
         with open(filePath) as file:
             self.assertEqual(output, file.read())
 
@@ -131,12 +131,12 @@ class GenerateComponentsContentTestCase(unittest.TestCase):
 
         # Test the component header content generation.
         output = generateComponentsClassHeaderFileContent('OTComponents', sorted(components, key = lambda x: x.key))
-        filePath = os.path.join(testDirectory, 'Validation/OTComponents.h')
+        filePath = os.path.join(testDirectory, 'Validation/OTComponents.h.test')
         with open(filePath) as file:
             self.assertEqual(output, file.read())
 
         # Test the font main content generation.
         output = generateComponentsClassMainFileContent('OTComponents', sorted(components, key = lambda x: x.key))
-        filePath = os.path.join(testDirectory, 'Validation/OTComponents.m')
+        filePath = os.path.join(testDirectory, 'Validation/OTComponents.m.test')
         with open(filePath) as file:
             self.assertEqual(output, file.read())

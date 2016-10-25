@@ -119,6 +119,7 @@
 			buildConfigurationList = 643F4E8F1D8B1EDE00EA3595 /* Build configuration list for PBXNativeTarget "OriginateTheme-Example" */;
 			buildPhases = (
 				69F241B132020E02416BF6C9 /* [CP] Check Pods Manifest.lock */,
+				640808D91DBFB6BE004819B8 /* [OT] Generate Theme File */,
 				643F4E741D8B1EDE00EA3595 /* Sources */,
 				643F4E751D8B1EDE00EA3595 /* Frameworks */,
 				643F4E761D8B1EDE00EA3595 /* Resources */,
@@ -196,6 +197,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OriginateTheme-Example/Pods-OriginateTheme-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		640808D91DBFB6BE004819B8 /* [OT] Generate Theme File */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[OT] Generate Theme File";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/OriginateTheme/OriginateTheme/Scripts/ot_generator.py\" -i \"${OTTHEME}\" -o \"${PODS_ROOT}/OriginateTheme/OriginateTheme/Sources/Classes/\"";
 		};
 		69F241B132020E02416BF6C9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -352,6 +367,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "OriginateTheme-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTTheme = "$(SRCROOT)/Themes/Local.json";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.originate.OriginateTheme-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -364,6 +380,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "OriginateTheme-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTTheme = "$(SRCROOT)/Themes/Local.json";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.originate.OriginateTheme-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
