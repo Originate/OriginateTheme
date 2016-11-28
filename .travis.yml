@@ -3,6 +3,9 @@ language:        objective-c
 xcode_scheme:    OriginateTheme
 xcode_sdk:       iphonesimulator10.1
 
+cache:
+  - bundler
+
 rvm:
   - 2.2
 
