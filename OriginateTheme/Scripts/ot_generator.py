@@ -167,10 +167,9 @@ def createBoolGetter(bool, name, keyPath):
     getter = """
 - (BOOL)$name
 {
-    _$name = [[NSValue valueForKeyPath:$boolKeyPathKey
+    return [[NSValue valueForKeyPath:$boolKeyPathKey
                               source:self.definition
                             fallback:@($boolValue)] boolValue];
-    return _$name;
 }"""
     return string.Template(getter).substitute({ 'name' : name, 'boolKeyPathKey' : keyPath, 'boolValue' : "YES" if bool.boolValue else "NO"})
 
@@ -563,7 +562,6 @@ def generateComponentsClassMainFileContent(className, components):
     OriginateThemePrivateProperties = [[
                                         [createPropertyDefinition(component.key, c.key, 'color', 'readwrite') for c in component.colors],
                                         [createPropertyDefinition(component.key, f.key, 'font', 'readwrite') for f in component.fonts],
-                                        [createValuePropertyDefinition(component.key, b.key, 'BOOL', 'readwrite') for b in component.bools],
                                         ['']
                                         ] for component in components]
     OriginateThemePrivateProperties = list(itertools.chain.from_iterable(itertools.chain.from_iterable((OriginateThemePrivateProperties))))
