@@ -6,6 +6,9 @@ xcode_sdk:       iphonesimulator10.1
 cache:
   - bundler
 
+python:
+  - "2.7"
+
 rvm:
   - 2.2
 
