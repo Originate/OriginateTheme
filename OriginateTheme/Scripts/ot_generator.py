@@ -153,7 +153,7 @@ def createColorGetter(color, name, keyPath):
 
 def createBoolGetter(bool, name, keyPath):
     """
-        Creates a new getter to access a OriginateTheme UIColor property.
+        Creates a new getter to access a OriginateTheme BOOL property.
 
         Parameters
         -----------
