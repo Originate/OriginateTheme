@@ -14,20 +14,27 @@
 
 + (instancetype)ot_colorWithHexString:(NSString *)hexString
 {
-    if ([hexString length] == 6) {
-        hexString = [NSString stringWithFormat:@"%@FF", [hexString uppercaseString]];
+    // remove leading "#"
+    if (hexString.length > 0 && [[hexString substringToIndex:1] isEqualToString:@"#"]) {
+        hexString = [hexString substringFromIndex:1];
     }
     
-    if ([hexString length] != 8) {
+    // pad with alpha if needed
+    if (hexString.length == 6) {
+        hexString = [NSString stringWithFormat:@"%@FF", hexString.uppercaseString];
+    }
+    
+    if (hexString.length != 8) {
         return nil;
     }
     
-    NSRegularExpression *redEx = [NSRegularExpression regularExpressionWithPattern:@"[^0-9|a-fA-F]"
+    // find invalid characters
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[^0-9|a-fA-F]"
                                                                            options:0
                                                                              error:NULL];
-    NSUInteger match = [redEx numberOfMatchesInString:hexString
+    NSUInteger match = [regex numberOfMatchesInString:hexString
                                               options:NSMatchingReportCompletion
-                                                range:NSMakeRange(0, [hexString length])];
+                                                range:NSMakeRange(0, hexString.length)];
     
     if (match != 0) {
         return nil;
