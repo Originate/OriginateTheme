@@ -107,14 +107,14 @@
 		6497545B1D8B1AEA00A3B3D0 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				CE1AFCCF1DECDF570036657B /* NSValue+OTKeySource.h */,
+				CE1AFCD01DECDF570036657B /* NSValue+OTKeySource.m */,
 				6497545D1D8B1B1300A3B3D0 /* UIColor+OTHex.h */,
 				6497545E1D8B1B1300A3B3D0 /* UIColor+OTHex.m */,
 				6497545F1D8B1B1300A3B3D0 /* UIColor+OTKeySource.h */,
 				649754601D8B1B1300A3B3D0 /* UIColor+OTKeySource.m */,
 				649754611D8B1B1300A3B3D0 /* UIFont+OTKeySource.h */,
 				649754621D8B1B1300A3B3D0 /* UIFont+OTKeySource.m */,
-				CE1AFCCF1DECDF570036657B /* NSValue+OTKeySource.h */,
-				CE1AFCD01DECDF570036657B /* NSValue+OTKeySource.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
