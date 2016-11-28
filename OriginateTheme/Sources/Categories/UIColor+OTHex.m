@@ -15,7 +15,7 @@
 + (instancetype)ot_colorWithHexString:(NSString *)hexString
 {
     // remove leading "#"
-    if (hexString.length > 0 && [[hexString substringToIndex:1] isEqualToString:@"#"]) {
+    if ([hexString hasPrefix:@"#"]) {
         hexString = [hexString substringFromIndex:1];
     }
     
