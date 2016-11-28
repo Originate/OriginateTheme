@@ -51,7 +51,7 @@ class ParseBoolsTestCase(unittest.TestCase):
 
 class ParseComponents(unittest.TestCase):
     def runTest(self):
-        data = json.loads('{ "navigationBar" : { "colors" : { "background" : "84E0FA", "tint" : "000000" }, "fonts" : { "text" : { "name" : "HelveticaNeue-Light", "size" : 14.0 }, "description" : { "name" : "HelveticaNeue-Light", "size" : 12.0 } }, "isTranslucent" : true, "hasShadow": false } }')
+        data = json.loads('{ "navigationBar" : { "colors" : { "background" : "84E0FA", "tint" : "000000" }, "fonts" : { "text" : { "name" : "HelveticaNeue-Light", "size" : 14.0 }, "description" : { "name" : "HelveticaNeue-Light", "size" : 12.0 } }, "isTranslucent" : true} }')
         output = parseComponents(data)
 
         self.assertTrue(len(output))
@@ -69,10 +69,8 @@ class ParseComponents(unittest.TestCase):
         self.assertEqual(output[0].fonts[1].key, 'text')
         self.assertEqual(output[0].fonts[1].name, 'HelveticaNeue-Light')
         self.assertEqual(output[0].fonts[1].size, 14.0)
-        self.assertEqual(output[0].bools[0].key, 'hasShadow')
-        self.assertEqual(output[0].bools[0].boolValue, False)
-        self.assertEqual(output[0].bools[1].key, 'isTranslucent')
-        self.assertEqual(output[0].bools[1].boolValue, True)
+        self.assertEqual(output[0].bools[0].key, 'isTranslucent')
+        self.assertEqual(output[0].bools[0].boolValue, True)
 
 class UpcaseFirstLetterTestCase(unittest.TestCase):
     def runTest(self):
