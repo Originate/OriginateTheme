@@ -23,6 +23,8 @@
 		649754721D8B1B1A00A3B3D0 /* OTTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 649754691D8B1B1A00A3B3D0 /* OTTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		649754731D8B1B1A00A3B3D0 /* OTTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 6497546A1D8B1B1A00A3B3D0 /* OTTheme.m */; };
 		649754741D8B1B1A00A3B3D0 /* OTThemeable.h in Headers */ = {isa = PBXBuildFile; fileRef = 6497546B1D8B1B1A00A3B3D0 /* OTThemeable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CE1AFCD11DECDF570036657B /* NSValue+OTKeySource.h in Headers */ = {isa = PBXBuildFile; fileRef = CE1AFCCF1DECDF570036657B /* NSValue+OTKeySource.h */; };
+		CE1AFCD21DECDF570036657B /* NSValue+OTKeySource.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1AFCD01DECDF570036657B /* NSValue+OTKeySource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		6497546A1D8B1B1A00A3B3D0 /* OTTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTheme.m; sourceTree = "<group>"; };
 		6497546B1D8B1B1A00A3B3D0 /* OTThemeable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTThemeable.h; sourceTree = "<group>"; };
 		6497547B1D8B1B3E00A3B3D0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE1AFCCF1DECDF570036657B /* NSValue+OTKeySource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+OTKeySource.h"; sourceTree = "<group>"; };
+		CE1AFCD01DECDF570036657B /* NSValue+OTKeySource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+OTKeySource.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 				649754601D8B1B1300A3B3D0 /* UIColor+OTKeySource.m */,
 				649754611D8B1B1300A3B3D0 /* UIFont+OTKeySource.h */,
 				649754621D8B1B1300A3B3D0 /* UIFont+OTKeySource.m */,
+				CE1AFCCF1DECDF570036657B /* NSValue+OTKeySource.h */,
+				CE1AFCD01DECDF570036657B /* NSValue+OTKeySource.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -137,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6497545A1D8B1ADF00A3B3D0 /* OriginateTheme.h in Headers */,
+				CE1AFCD11DECDF570036657B /* NSValue+OTKeySource.h in Headers */,
 				649754741D8B1B1A00A3B3D0 /* OTThemeable.h in Headers */,
 				649754631D8B1B1300A3B3D0 /* UIColor+OTHex.h in Headers */,
 				644C27631D8C1E41006D382B /* OTFonts.h in Headers */,
@@ -222,6 +229,7 @@
 				649754661D8B1B1300A3B3D0 /* UIColor+OTKeySource.m in Sources */,
 				649754681D8B1B1300A3B3D0 /* UIFont+OTKeySource.m in Sources */,
 				644C27601D8C1E41006D382B /* OTColors.m in Sources */,
+				CE1AFCD21DECDF570036657B /* NSValue+OTKeySource.m in Sources */,
 				644C27641D8C1E41006D382B /* OTFonts.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
