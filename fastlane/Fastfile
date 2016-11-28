@@ -1,9 +1,0 @@
-fastlane_version "1.110.0"
-
-default_platform :ios
-
-platform :ios do
-  lane :test do
-    sh "python -m unittest discover -s ../OriginateTheme/Scripts -p \"*_test.py\""
-  end
-end
