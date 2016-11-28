@@ -151,31 +151,28 @@ def createColorGetter(color, name, keyPath):
 }"""
     return string.Template(getter).substitute({ 'name' : name, 'colorKeyPathKey' : keyPath, 'colorCode' : color.code})
 
-def createBoolGetter(color, name, keyPath):
+def createBoolGetter(bool, name, keyPath):
     """
         Creates a new getter to access a OriginateTheme UIColor property.
-        
+
         Parameters
         -----------
-        color: Object
-        Object of type 'Color'.
+        bool: Object
+        Object of type 'Bool'.
         name: String
         The name of the property to create a getter for.
         keyPath: String
         The name of the key path to associated to the property.
         """
     getter = """
-        - (UIColor *)$name
-        {
-        if (!_$name) {
-        _$name = [UIColor colorForKeyPath:$colorKeyPathKey
-        source:self.definition
-        fallback:[UIColor ot_hex:0x$colorCode]];
-        }
-        
-        return _$name;
-        }"""
-    return string.Template(getter).substitute({ 'name' : name, 'colorKeyPathKey' : keyPath, 'colorCode' : color.code})
+- (BOOL)$name
+{
+    _$name = [[NSValue valueForKeyPath:$boolKeyPathKey
+                              source:self.definition
+                            fallback:@($boolValue)] boolValue];
+    return _$name;
+}"""
+    return string.Template(getter).substitute({ 'name' : name, 'boolKeyPathKey' : keyPath, 'boolValue' : "YES" if bool.boolValue else "NO"})
 
 
 ###################
@@ -523,7 +520,12 @@ def generateComponentsClassHeaderFileContent(className, components):
     createValuePropertyDefinition = lambda componentKey, key, objcType, accessType: createValueProperty(accessType, objcType, createComponentPropertyName(componentKey, key, ""))
 
     # Create the public properties.
-    OriginateThemePublicProperties = [[[createPropertyDefinition(component.key, c.key, 'color', 'readonly') for c in component.colors], [createPropertyDefinition(component.key, f.key, 'font', 'readonly') for f in component.fonts], [createValuePropertyDefinition(component.key, b.key, 'BOOL', 'readonly') for b in component.bools], ['']] for component in components]
+    OriginateThemePublicProperties = [[
+                                        [createPropertyDefinition(component.key, c.key, 'color', 'readonly') for c in component.colors],
+                                        [createPropertyDefinition(component.key, f.key, 'font', 'readonly') for f in component.fonts],
+                                        [createValuePropertyDefinition(component.key, b.key, 'BOOL', 'readonly') for b in component.bools],
+                                        ['']
+                                        ] for component in components]
     OriginateThemePublicProperties = list(itertools.chain.from_iterable(itertools.chain.from_iterable((OriginateThemePublicProperties))))
 
     # Substitute the properties.
@@ -549,15 +551,29 @@ def generateComponentsClassMainFileContent(className, components):
     # Create the properties' keys.
     createComponentPropertyKeyPathKey = lambda componentKey, typeKey, typeKeyPath: createPropertyKeyPathKey('Components' + upcaseFirstLetter(componentKey) + upcaseFirstLetter(typeKeyPath), typeKey)
     createComponentKeyPathKeyDefinitions = lambda componentKey, typeKey, typeKeyPath: createPropertyKeyPathKeyDefinition(createComponentPropertyKeyPathKey(componentKey, typeKey, typeKeyPath), 'components.' + componentKey + '.' + typeKeyPath + '.' + typeKey)
-    OriginateThemePropertiesKeyPathKeys = [[[createComponentKeyPathKeyDefinitions(component.key, c.key, 'colors') for c in component.colors], [createComponentKeyPathKeyDefinitions(component.key, f.key, 'fonts') for f in component.fonts], [createComponentKeyPathKeyDefinitions(component.key, b.key, 'bools') for b in component.bools], ['']] for component in components]
+    OriginateThemePropertiesKeyPathKeys = [[
+                                            [createComponentKeyPathKeyDefinitions(component.key, c.key, 'colors') for c in component.colors],
+                                            [createComponentKeyPathKeyDefinitions(component.key, f.key, 'fonts') for f in component.fonts],
+                                            [createComponentKeyPathKeyDefinitions(component.key, b.key, 'bools') for b in component.bools],
+                                            ['']
+                                            ] for component in components]
     OriginateThemePropertiesKeyPathKeys = list(itertools.chain.from_iterable(itertools.chain.from_iterable((OriginateThemePropertiesKeyPathKeys))))
 
     # Create the private properties.
-    OriginateThemePrivateProperties = [[[createPropertyDefinition(component.key, c.key, 'color', 'readwrite') for c in component.colors], [createPropertyDefinition(component.key, f.key, 'font', 'readwrite') for f in component.fonts], [createValuePropertyDefinition(component.key, f.key, 'BOOL', 'readwrite') for b in component.bools], ['']] for component in components]
+    OriginateThemePrivateProperties = [[
+                                        [createPropertyDefinition(component.key, c.key, 'color', 'readwrite') for c in component.colors],
+                                        [createPropertyDefinition(component.key, f.key, 'font', 'readwrite') for f in component.fonts],
+                                        [createValuePropertyDefinition(component.key, b.key, 'BOOL', 'readwrite') for b in component.bools],
+                                        ['']
+                                        ] for component in components]
     OriginateThemePrivateProperties = list(itertools.chain.from_iterable(itertools.chain.from_iterable((OriginateThemePrivateProperties))))
 
     # Create the properties' getters.
-    OriginateThemePropertiesGetters = [[[createColorGetter(c, createComponentPropertyName(component.key, c.key, 'color'), createComponentPropertyKeyPathKey(component.key, c.key, 'colors')) for c in component.colors], [createFontGetter(f, createComponentPropertyName(component.key, f.key, 'font'), createComponentPropertyKeyPathKey(component.key, f.key, 'fonts')) for f in component.fonts]] for component in components]
+    OriginateThemePropertiesGetters = [[
+                                        [createColorGetter(c, createComponentPropertyName(component.key, c.key, 'color'), createComponentPropertyKeyPathKey(component.key, c.key, 'colors')) for c in component.colors],
+                                        [createFontGetter(f, createComponentPropertyName(component.key, f.key, 'font'), createComponentPropertyKeyPathKey(component.key, f.key, 'fonts')) for f in component.fonts],
+                                        [createBoolGetter(b, createComponentPropertyName(component.key, b.key, 'bool'), createComponentPropertyKeyPathKey(component.key, b.key, 'bools')) for b in component.bools]
+                                        ] for component in components]
     OriginateThemePropertiesGetters = list(itertools.chain.from_iterable(itertools.chain.from_iterable((OriginateThemePropertiesGetters))))
 
     # Substitute the properties.
