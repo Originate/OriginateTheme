@@ -2,5 +2,32 @@ source 'https://github.com/Originate/OriginateTheme.git'
 use_frameworks!
 
 target 'OriginateTheme-Example' do
-  pod 'OriginateTheme', :git => 'https://github.com/Originate/OriginateTheme.git', :branch => 'aw-14-compilation-fail'
+  pod 'OriginateTheme', :git => 'https://github.com/Originate/OriginateTheme.git', :branch => 'dc-bools'
+end
+
+post_install do |installer|
+  puts "<POST INSTALL>\n"
+
+  path_to_xcode_build_script = '"${PODS_ROOT}/OriginateTheme/OriginateTheme/Scripts/ot_generator.py" -i "${OTTHEME}" -o "${PODS_ROOT}/OriginateTheme/OriginateTheme/Sources/Classes/"'
+
+  ot_build_script_name = '[OriginateTheme] Generate Theme Files'
+  ot_project_path = Dir.glob('*.xcodeproj')[0]
+  ot_project = Xcodeproj::Project.open(ot_project_path)
+  ot_target = ot_project.targets.find { |t| t.name == "OriginateTheme-Example" }
+
+  script_installed = false
+  ot_target.shell_script_build_phases.each do |run_script|
+    script_installed = true if run_script.name == ot_build_script_name
+  end
+
+if !script_installed
+  puts "Installing run script in Xcode project..."
+  phase = ot_target.new_shell_script_build_phase(ot_build_script_name)
+  phase.shell_script = path_to_xcode_build_script
+  ot_project.save()
+else
+  puts "Run script already installed"
+end
+
+  puts "\n</POST INSTALL>"
 end
