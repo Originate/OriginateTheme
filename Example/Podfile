@@ -2,5 +2,5 @@ source 'https://github.com/Originate/OriginateTheme.git'
 use_frameworks!
 
 target 'OriginateTheme-Example' do
-  pod 'OriginateTheme', :git => 'https://github.com/Originate/OriginateTheme.git', :branch => 'master'
+  pod 'OriginateTheme', :git => 'https://github.com/Originate/OriginateTheme.git', :branch => 'aw-14-compilation-fail'
 end
