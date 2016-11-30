@@ -2,32 +2,48 @@ source 'https://github.com/Originate/OriginateTheme.git'
 use_frameworks!
 
 target 'OriginateTheme-Example' do
-  pod 'OriginateTheme', :git => 'https://github.com/Originate/OriginateTheme.git', :branch => 'dc-bools'
+  pod 'OriginateTheme', :git => 'https://github.com/Originate/OriginateTheme.git'
 end
+
 
 post_install do |installer|
-  puts "<POST INSTALL>\n"
+  install_originatetheme_generator_script 'OriginateTheme-Example'
+end
 
-  path_to_xcode_build_script = '"${PODS_ROOT}/OriginateTheme/OriginateTheme/Scripts/ot_generator.py" -i "${OTTHEME}" -o "${PODS_ROOT}/OriginateTheme/OriginateTheme/Sources/Classes/"'
 
+def install_originatetheme_generator_script app_target_name
+  ot_script_log_prefix = '* [OriginateTheme]'
   ot_build_script_name = '[OriginateTheme] Generate Theme Files'
-  ot_project_path = Dir.glob('*.xcodeproj')[0]
-  ot_project = Xcodeproj::Project.open(ot_project_path)
-  ot_target = ot_project.targets.find { |t| t.name == "OriginateTheme-Example" }
+  ot_build_script = '"${PODS_ROOT}/OriginateTheme/OriginateTheme/Scripts/ot_generator.py" -i "${OTTHEME}" -o "${PODS_ROOT}/OriginateTheme/OriginateTheme/Sources/Classes/"'
 
-  script_installed = false
-  ot_target.shell_script_build_phases.each do |run_script|
-    script_installed = true if run_script.name == ot_build_script_name
+  project_path = Dir.glob('*.xcodeproj').first
+  project = Xcodeproj::Project.open(project_path)
+  target = project.targets.find { |t| t.name == app_target_name } || project.targets.first
+  script_installed = target.shell_script_build_phases.any? { |s| s.name == ot_build_script_name }
+
+  puts "#{ot_script_log_prefix} Beginning generator script installation..."
+
+  if !script_installed
+    # create build phase
+    build_phase = begin
+      phase = project.new(Project::Object::PBXShellScriptBuildPhase)
+      phase.name = ot_build_script_name
+      phase.shell_script = ot_build_script
+      phase
+    end
+
+    # insert build phase before "Compile Sources" (otherwise, we could simply use `new_shell_script_build_phase`)
+    compile_phase_index = target.build_phases.index { |p| p.class == Project::Object::PBXSourcesBuildPhase } || 0
+    target.build_phases.insert(compile_phase_index, phase)
+
+    # save changes
+    project.save()
+
+    puts "#{ot_script_log_prefix} Added generator script as Build Phase of '#{target.name}' target."
+  else
+    puts "#{ot_script_log_prefix} Nothing to do. Generator script is already installed as Build Phase of '#{target.name}' target."
   end
-
-if !script_installed
-  puts "Installing run script in Xcode project..."
-  phase = ot_target.new_shell_script_build_phase(ot_build_script_name)
-  phase.shell_script = path_to_xcode_build_script
-  ot_project.save()
-else
-  puts "Run script already installed"
 end
 
-  puts "\n</POST INSTALL>"
-end
+
+# 1. make method check if OTTHEME is properly set up, if not then warn and point to intstructions to add user-defined setting
