@@ -7,13 +7,14 @@ end
 
 
 post_install do |installer|
-  install_originatetheme_generator_script(installer: installer, json_path: Pathname.new(path + '../Themes/Local.json'))
+  install_originatetheme_generator_script(installer: installer,
+                                          json_path: path + '../Themes/Local.json')
 end
 
 
 def install_originatetheme_generator_script(installer:, json_path:)
-  ot_script_log_prefix = '* [OriginateTheme]'
-  ot_build_script_name = '[OriginateTheme] Generate Theme Files'
+  ot_script_log_prefix = '[OriginateTheme]'
+  ot_build_script_name = "#{ot_script_log_prefix} Generate Theme Files"
   ot_build_script = '"${PODS_ROOT}/OriginateTheme/OriginateTheme/Scripts/ot_generator.py" -i "${OTTHEME}" -o "${PODS_ROOT}/OriginateTheme/OriginateTheme/Sources/Classes/"'
 
   project = installer.pods_project
@@ -23,9 +24,10 @@ def install_originatetheme_generator_script(installer:, json_path:)
   puts "#{ot_script_log_prefix} Beginning generator script installation..."
 
   # create OTTHEME User-Defined Setting
+  puts "#{ot_script_log_prefix} Creating $OTTHEME User-Defined Setting..."
   project.targets.each do |target|
     target.build_configurations.each do |config|
-        config.build_settings['OTTHEME'] = json_path
+        config.build_settings['OTTHEME'] = Pathname.new(json_path)
     end
   end
 
@@ -50,6 +52,3 @@ def install_originatetheme_generator_script(installer:, json_path:)
     puts "#{ot_script_log_prefix} Nothing to do. Generator script is already installed as Build Phase of '#{target.name}' target."
   end
 end
-
-
-# 1. make method check if OTTHEME is properly set up, if not then warn and point to intstructions to add user-defined setting
