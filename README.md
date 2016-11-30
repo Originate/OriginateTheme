@@ -103,9 +103,9 @@ Next to simply exposing the aforementioned properties, the class `OTTheme` also 
 - (instancetype)initWithStyleDefinitionFileAtURL:(NSURL *)URL;
 ```
 
-The parameter `URL` is a path to a `JSON` file stored on disk. This `JSON` file can exist already during source code compilation or created dynamically while application runtime. In case the `JSON` file contains the same basic structure consisting of `colors`, `components` and `fonts` it is possible to override theme styles dynamically on runtime. If only a subset of keys are overwritten the compile time defined styles will be used as fallback.
+The parameter `URL` is a path to a `JSON` file stored on disk. This `JSON` file can exist already during source code compilation or created dynamically at application runtime. In case the `JSON` file contains the same basic structure consisting of `colors`, `components` and `fonts`, it is possible to override theme styles dynamically at runtime. If only a subset of keys are overwritten, the compile-time defined styles will be used as fallback.
 
-This will allow (remote) customization of the `OriginateTheme` framework also after submitting or distributing the application.
+This allows (remote) customization of the themes after submitting or distributing the application to the App Store.
 
 
 # Requirements
