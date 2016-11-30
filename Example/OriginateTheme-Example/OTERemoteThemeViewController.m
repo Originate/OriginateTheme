@@ -87,7 +87,7 @@ static NSString * const kRemoteThemeURLString = @"https://raw.githubusercontent.
       }] resume];
 }
 
-#pragma mark - OTThemeable
+#pragma mark - <OTThemeable>
 
 - (void)setTheme:(OTTheme *)theme
 {
