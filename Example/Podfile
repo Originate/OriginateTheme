@@ -26,14 +26,14 @@ def install_originatetheme_generator_script app_target_name
   if !script_installed
     # create build phase
     build_phase = begin
-      phase = project.new(Project::Object::PBXShellScriptBuildPhase)
+      phase = project.new(Xcodeproj::Project::Object::PBXShellScriptBuildPhase)
       phase.name = ot_build_script_name
       phase.shell_script = ot_build_script
       phase
     end
 
     # insert build phase before "Compile Sources" (otherwise, we could simply use `new_shell_script_build_phase`)
-    compile_phase_index = target.build_phases.index { |p| p.class == Project::Object::PBXSourcesBuildPhase } || 0
+    compile_phase_index = target.build_phases.index { |p| p.class == Xcodeproj::Project::Object::PBXSourcesBuildPhase } || 0
     target.build_phases.insert(compile_phase_index, phase)
 
     # save changes
