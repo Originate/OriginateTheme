@@ -7,18 +7,17 @@ end
 
 
 post_install do |installer|
-  install_originatetheme_generator_script 'OriginateTheme-Example'
+  install_originatetheme_generator_script installer
 end
 
 
-def install_originatetheme_generator_script app_target_name
+def install_originatetheme_generator_script installer
   ot_script_log_prefix = '* [OriginateTheme]'
   ot_build_script_name = '[OriginateTheme] Generate Theme Files'
   ot_build_script = '"${PODS_ROOT}/OriginateTheme/OriginateTheme/Scripts/ot_generator.py" -i "${OTTHEME}" -o "${PODS_ROOT}/OriginateTheme/OriginateTheme/Sources/Classes/"'
 
-  project_path = Dir.glob('*.xcodeproj').first
-  project = Xcodeproj::Project.open(project_path)
-  target = project.targets.find { |t| t.name == app_target_name } || project.targets.first
+  project = installer.pods_project
+  target = project.targets.find { |t| t.name == 'OriginateTheme' }
   script_installed = target.shell_script_build_phases.any? { |s| s.name == ot_build_script_name }
 
   puts "#{ot_script_log_prefix} Beginning generator script installation..."
