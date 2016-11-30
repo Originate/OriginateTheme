@@ -25,7 +25,19 @@
 		649754741D8B1B1A00A3B3D0 /* OTThemeable.h in Headers */ = {isa = PBXBuildFile; fileRef = 6497546B1D8B1B1A00A3B3D0 /* OTThemeable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE1AFCD11DECDF570036657B /* NSValue+OTKeySource.h in Headers */ = {isa = PBXBuildFile; fileRef = CE1AFCCF1DECDF570036657B /* NSValue+OTKeySource.h */; };
 		CE1AFCD21DECDF570036657B /* NSValue+OTKeySource.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1AFCD01DECDF570036657B /* NSValue+OTKeySource.m */; };
+		9F13C2ED1DECE769003BA24D /* OriginateThemeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F13C2EC1DECE769003BA24D /* OriginateThemeTests.m */; };
+		9F13C2EF1DECE769003BA24D /* OriginateTheme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 649754481D8B19DB00A3B3D0 /* OriginateTheme.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9F13C2F01DECE769003BA24D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6497543F1D8B19DB00A3B3D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 649754471D8B19DB00A3B3D0;
+			remoteInfo = OriginateTheme;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		644C27591D8C1E41006D382B /* OTColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTColors.h; sourceTree = "<group>"; };
@@ -48,6 +60,9 @@
 		6497547B1D8B1B3E00A3B3D0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE1AFCCF1DECDF570036657B /* NSValue+OTKeySource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+OTKeySource.h"; sourceTree = "<group>"; };
 		CE1AFCD01DECDF570036657B /* NSValue+OTKeySource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+OTKeySource.m"; sourceTree = "<group>"; };
+		9F13C2EA1DECE769003BA24D /* OriginateThemeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OriginateThemeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F13C2EC1DECE769003BA24D /* OriginateThemeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OriginateThemeTests.m; sourceTree = "<group>"; };
+		9F13C2EE1DECE769003BA24D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +73,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9F13C2E71DECE769003BA24D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F13C2EF1DECE769003BA24D /* OriginateTheme.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -65,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				6497544A1D8B19DB00A3B3D0 /* OriginateTheme */,
+				9F13C2EB1DECE769003BA24D /* OriginateThemeTests */,
 				649754491D8B19DB00A3B3D0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				649754481D8B19DB00A3B3D0 /* OriginateTheme.framework */,
+				9F13C2EA1DECE769003BA24D /* OriginateThemeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,6 +160,15 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		9F13C2EB1DECE769003BA24D /* OriginateThemeTests */ = {
+			isa = PBXGroup;
+			children = (
+				9F13C2EC1DECE769003BA24D /* OriginateThemeTests.m */,
+				9F13C2EE1DECE769003BA24D /* Info.plist */,
+			);
+			path = OriginateThemeTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -176,6 +210,24 @@
 			productReference = 649754481D8B19DB00A3B3D0 /* OriginateTheme.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		9F13C2E91DECE769003BA24D /* OriginateThemeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F13C2F41DECE769003BA24D /* Build configuration list for PBXNativeTarget "OriginateThemeTests" */;
+			buildPhases = (
+				9F13C2E61DECE769003BA24D /* Sources */,
+				9F13C2E71DECE769003BA24D /* Frameworks */,
+				9F13C2E81DECE769003BA24D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9F13C2F11DECE769003BA24D /* PBXTargetDependency */,
+			);
+			name = OriginateThemeTests;
+			productName = OriginateThemeTests;
+			productReference = 9F13C2EA1DECE769003BA24D /* OriginateThemeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -187,6 +239,10 @@
 				TargetAttributes = {
 					649754471D8B19DB00A3B3D0 = {
 						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					9F13C2E91DECE769003BA24D = {
+						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -204,12 +260,20 @@
 			projectRoot = "";
 			targets = (
 				649754471D8B19DB00A3B3D0 /* OriginateTheme */,
+				9F13C2E91DECE769003BA24D /* OriginateThemeTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		649754461D8B19DB00A3B3D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F13C2E81DECE769003BA24D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -234,7 +298,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9F13C2E61DECE769003BA24D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F13C2ED1DECE769003BA24D /* OriginateThemeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9F13C2F11DECE769003BA24D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 649754471D8B19DB00A3B3D0 /* OriginateTheme */;
+			targetProxy = 9F13C2F01DECE769003BA24D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6497544E1D8B19DB00A3B3D0 /* Debug */ = {
@@ -367,6 +447,28 @@
 			};
 			name = Release;
 		};
+		9F13C2F21DECE769003BA24D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = OriginateThemeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.originate.OriginateThemeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9F13C2F31DECE769003BA24D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = OriginateThemeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.originate.OriginateThemeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -387,6 +489,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		9F13C2F41DECE769003BA24D /* Build configuration list for PBXNativeTarget "OriginateThemeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F13C2F21DECE769003BA24D /* Debug */,
+				9F13C2F31DECE769003BA24D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
