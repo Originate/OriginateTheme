@@ -112,24 +112,27 @@ This will allow (remote) customization of the `OriginateTheme` framework also af
 - iOS 8.0+
 
 # Installation with CocoaPods
-Add the following lines to your `Podfile`.
 
-```ruby
-source 'https://github.com/Originate/CocoaPods.git'
-pod 'OriginateTheme'
-```
+1. Create a .json theme file. Optionally, add it to your app target for convenient editing in Xcode.
+2. Add the following lines to your `Podfile`.
 
-Furthermore, because of the code-generation step, we need to modify a few project settings, namely add a Build Phase and custom Build Setting to the OriginateTheme target.
+  ```ruby
+  source 'https://github.com/Originate/CocoaPods.git'
+  pod 'OriginateTheme'
+  ```
+  
+3. Add the [`originate_theme.rb`](OriginateTheme/Scripts/originate_theme.rb) helper file somewhere convenient within your project.
+4. Add the following `post_install` hook to your `Podfile`. Reference the `.json` file and `originate_theme.rb` appropriately. These additional steps are required because of the code generation.
 
-Add the following `post_install` hook to your Podfile:
+  ```ruby
+  require_relative 'scripts/cocoapods/originate_theme.rb'
 
-```ruby
-post_install do |installer|
-  install_originatetheme(installer: installer, json_path: path + '../Themes/Local.json')
-end
-```
+  post_install do |installer|
+      install_originatetheme(installer: installer, json_path: path + '../Themes/Local.json')
+  end
+  ```
 
-Or, if you need to do this manually, the modifications are as follows:
+If you wish to perform the additional modifications manually, skip steps 3 and 4 and add the following to your Xcode project:
 
 **Run Script Build Phase:**
 
@@ -145,31 +148,6 @@ Or, if you need to do this manually, the modifications are as follows:
 * Target: OriginateTheme
 * Key: `OTTHEME`
 * Value: Path to the .json file, ex: `$(SRCROOT)/../Themes/Local.json`
-
-# Usage
-
-1. Create a .json theme file. Optionally, add it to your app target for convenient editing in Xcode.
-2. 
-
-## Add User-Defined Setting
-* Navigate to your projects' `Build Settings`
-* Press the `+` button on the top
-* Press `Add User-Defined Setting`
-* As `key` use `OTTHEME` and as `value` the path to the JSON file specifying the theme<br>
-e.g. `$(SRCROOT)/Themes/Local.json`
-
-## Add or Move Run Script Phase
-* While running `pod install` a new run script phase should have been added to your project.
-* Navigate to your projects' `Build Phases`
-* Move to the created run script phase with the name `[OT] Generate Theme Files` above `Compile Sources` using drag and drop
-* In case the run script phase was not created automatically press the `+` button on the top
-* Press `New Run Script Phase`
-* Move the created run script phase above `Compile Source` by drag and drop
-* As content insert the following:
-
-```
-"${PODS_ROOT}/OriginateTheme/OriginateTheme/Scripts/ot_generator.py" -i "${OTTHEME}" -o "${PODS_ROOT}/OriginateTheme/OriginateTheme/Sources/Classes/"
-```
 
 ## Import the Framework
 
