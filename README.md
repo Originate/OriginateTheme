@@ -128,7 +128,7 @@ This allows (remote) customization of the themes after submitting or distributin
   require_relative 'scripts/cocoapods/originate_theme.rb'
 
   post_install do |installer|
-      install_originatetheme(installer: installer, json_path: path + '../Themes/Local.json')
+    install_originatetheme(installer: installer, json_path: path + '../Themes/Local.json')
   end
   ```
 
