@@ -114,25 +114,25 @@ This allows (remote) customization of the themes after submitting or distributin
 # Installation with CocoaPods
 
 1. Create a .json theme file. Optionally, add it to your app target for convenient editing in Xcode.
-2. Add the following lines to your `Podfile`.
+2. Add the [`originate_theme.rb`](OriginateTheme/Scripts/originate_theme.rb) helper file somewhere convenient within your project.
+3. Add the following lines to your `Podfile`.
 
   ```ruby
   source 'https://github.com/Originate/CocoaPods.git'
-  pod 'OriginateTheme'
-  ```
-  
-3. Add the [`originate_theme.rb`](OriginateTheme/Scripts/originate_theme.rb) helper file somewhere convenient within your project.
-4. Add the following `post_install` hook to your `Podfile`. Reference the `.json` file and `originate_theme.rb` appropriately. These additional steps are required because of the code generation.
-
-  ```ruby
   require_relative 'scripts/cocoapods/originate_theme.rb'
+  
+  pod 'OriginateTheme'
 
   post_install do |installer|
     install_originatetheme(installer: installer, json_path: path + '../Themes/Local.json')
   end
   ```
+  
+4. Run `pod install`
 
-If you wish to perform the additional modifications manually, skip steps 3 and 4 and add the following to your Xcode project:
+Modify the `.json` and `originate_theme.rb` paths as needed for your project. The `post_install` hook is required to install automatic code generation to your project's compilation.
+
+If you wish to add the additional modifications manually, skip step 2 and remove the `post_install` hook. The following configurations are required:
 
 **Run Script Build Phase:**
 
