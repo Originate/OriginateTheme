@@ -1,6 +1,12 @@
 source 'https://github.com/Originate/OriginateTheme.git'
+require_relative 'scripts/cocoapods/originate_theme.rb'
+
 use_frameworks!
 
 target 'OriginateTheme-Example' do
-  pod 'OriginateTheme', :git => 'https://github.com/Originate/OriginateTheme.git', :branch => ‘master’
+  pod 'OriginateTheme', :git => 'https://github.com/Originate/OriginateTheme.git'
+end
+
+post_install do |installer|
+  install_originatetheme(installer: installer, json_path: path + '../Themes/Local.json')
 end

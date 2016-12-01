@@ -16,6 +16,8 @@
 		644C276A1D8C3EAE006D382B /* OTERemoteThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 644C27691D8C3EAE006D382B /* OTERemoteThemeViewController.m */; };
 		644C276C1D8C42B3006D382B /* OTELocalThemeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644C276B1D8C42B3006D382B /* OTELocalThemeViewController.xib */; };
 		644C276E1D8C42C4006D382B /* OTERemoteThemeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644C276D1D8C42C4006D382B /* OTERemoteThemeViewController.xib */; };
+		9F2E025E1DEEDADF00D2031C /* Local.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F2E025C1DEEDADF00D2031C /* Local.json */; };
+		9F2E025F1DEEDADF00D2031C /* Remote.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F2E025D1DEEDADF00D2031C /* Remote.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		644C276B1D8C42B3006D382B /* OTELocalThemeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OTELocalThemeViewController.xib; sourceTree = "<group>"; };
 		644C276D1D8C42C4006D382B /* OTERemoteThemeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OTERemoteThemeViewController.xib; sourceTree = "<group>"; };
 		8B180DBDCEC266EAE83FADB3 /* Pods_OriginateTheme_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OriginateTheme_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F2E025C1DEEDADF00D2031C /* Local.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Local.json; path = Themes/Local.json; sourceTree = SOURCE_ROOT; };
+		9F2E025D1DEEDADF00D2031C /* Remote.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Remote.json; path = Themes/Remote.json; sourceTree = SOURCE_ROOT; };
 		BA32D699C256410A294DB0D2 /* Pods-OriginateTheme-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OriginateTheme-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-OriginateTheme-Example/Pods-OriginateTheme-Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +91,7 @@
 				644C27681D8C3EAE006D382B /* OTERemoteThemeViewController.h */,
 				644C27691D8C3EAE006D382B /* OTERemoteThemeViewController.m */,
 				644C276D1D8C42C4006D382B /* OTERemoteThemeViewController.xib */,
+				9F2E02601DEEDAE400D2031C /* Themes */,
 				643F4E7B1D8B1EDE00EA3595 /* Supporting Files */,
 			);
 			path = "OriginateTheme-Example";
@@ -101,6 +106,15 @@
 				643F4E7C1D8B1EDE00EA3595 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9F2E02601DEEDAE400D2031C /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				9F2E025C1DEEDADF00D2031C /* Local.json */,
+				9F2E025D1DEEDADF00D2031C /* Remote.json */,
+			);
+			name = Themes;
 			sourceTree = "<group>";
 		};
 		AAC001711D61E563039DB2EA /* Frameworks */ = {
@@ -173,9 +187,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				643F4E8B1D8B1EDE00EA3595 /* LaunchScreen.storyboard in Resources */,
+				9F2E025E1DEEDADF00D2031C /* Local.json in Resources */,
 				644C276C1D8C42B3006D382B /* OTELocalThemeViewController.xib in Resources */,
 				644C276E1D8C42C4006D382B /* OTERemoteThemeViewController.xib in Resources */,
 				643F4E881D8B1EDE00EA3595 /* Assets.xcassets in Resources */,
+				9F2E025F1DEEDADF00D2031C /* Remote.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,7 +225,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7FFF09943C7D53A9204D7ACC /* [CP] Copy Pods Resources */ = {

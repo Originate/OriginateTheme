@@ -7,7 +7,7 @@
 
 # About OriginateTheme
 
-OriginateTheme introduces the concept of a `theme`. A `theme` is specified in a `JSON` file and describes the basic look and feel of your application. After integrating the `OriginateTheme` framework into your project the specified `JSON` file will automatically get parsed and via a code generation phase transformed to accessible `Objective-C` classes. These created or modified classes are added to the `OriginateTheme` framework before each source code compilation.
+OriginateTheme introduces the concept of a `theme`. A `theme` is specified in a `JSON` file and describes the basic look and feel of your application. After integrating the `OriginateTheme` framework into your project, the specified `JSON` file will be automatically parsed and transformed to accessible `Objective-C` classes via a code generation phase. These created or modified classes are added to the `OriginateTheme` framework before each source code compilation.
 
 The following example displays the basic structure of a `JSON` file which can be read by the `OriginateTheme` framework.
 ```javascript
@@ -61,8 +61,8 @@ The following example displays the basic structure of a `JSON` file which can be
         "tabBar" : {
             "colors" : {
                 "background" : "FFFFFF",
-				"tint" : "FF9600",
-				...
+                "tint" : "FF9600",
+                ...
             },
             "fonts" : {
                 "text" : {
@@ -78,7 +78,7 @@ The following example displays the basic structure of a `JSON` file which can be
 ```
 
 ## Concept of the OTTheme Class
-Adding the framework to the project will allow a user to create a new instance of an `OTTheme` class. This class exposes the properties `fonts`, `colors` and `components`. Each of these properties are references to automatically created classes which provide access to the defined styles in the `JSON` file.
+Adding the framework to the project will allow a user to create a new instance of an `OTTheme` class. This class exposes the properties `fonts`, `colors` and `components`. Each of these properties are references to automatically created classes, which provide access to the defined styles in the `JSON` file.
 
 ```objective-c
 @property (nonatomic, strong, readonly) OTColors *colors;
@@ -86,7 +86,7 @@ Adding the framework to the project will allow a user to create a new instance o
 @property (nonatomic, strong, readonly) OTFonts *fonts;
 ```
 
-As an example the `colors` property of the `OTTheme` instance is of type `OTColors` and exposes the defined color styles. 
+As an example, the `colors` property of the `OTTheme` instance is of type `OTColors` and exposes the defined color styles.
 
 Inside the `OTColors` instance these styles can be accessed by generated property accessors which look as the following:
 
@@ -103,43 +103,51 @@ Next to simply exposing the aforementioned properties, the class `OTTheme` also 
 - (instancetype)initWithStyleDefinitionFileAtURL:(NSURL *)URL;
 ```
 
-The parameter `URL` is a path to a `JSON` file stored on disk. This `JSON` file can exist already during source code compilation or created dynamically while application runtime. In case the `JSON` file contains the same basic structure consisting of `colors`, `components` and `fonts` it is possible to override theme styles dynamically on runtime. If only a subset of keys are overwritten the at compile time defined styles will be used as fallback. 
+The parameter `URL` is a path to a `JSON` file stored on disk. This `JSON` file can exist already during source code compilation or created dynamically at application runtime. In case the `JSON` file contains the same basic structure consisting of `colors`, `components` and `fonts`, it is possible to override theme styles dynamically at runtime. If only a subset of keys are overwritten, the compile-time defined styles will be used as fallback.
 
-This will allow (remote) customization of the `OriginateTheme` framework also after submitting or distributing the application.
+This allows (remote) customization of the themes after submitting or distributing the application to the App Store.
 
 
 # Requirements
 - iOS 8.0+
 
 # Installation with CocoaPods
-Add the following lines to your `Podfile` and run `pod install`.
 
-```ruby
-source 'https://github.com/Originate/CocoaPods.git'
-pod 'OriginateTheme'
-```
+1. Create a .json theme file. Optionally, add it to your app target for convenient editing in Xcode.
+2. Add the following lines to your `Podfile`.
 
-# Usage
+  ```ruby
+  source 'https://github.com/Originate/CocoaPods.git'
+  pod 'OriginateTheme'
+  ```
+  
+3. Add the [`originate_theme.rb`](OriginateTheme/Scripts/originate_theme.rb) helper file somewhere convenient within your project.
+4. Add the following `post_install` hook to your `Podfile`. Reference the `.json` file and `originate_theme.rb` appropriately. These additional steps are required because of the code generation.
 
-## Add User-Defined Setting
-* Navigate to your projects' `Build Settings`
-* Press the `+` button on the top
-* Press `Add User-Defined Setting`
-* As `key` use `OTTHEME` and as `value` the path to the JSON file specifying the theme<br>
-e.g. `$(SRCROOT)/Themes/Local.json`
+  ```ruby
+  require_relative 'scripts/cocoapods/originate_theme.rb'
 
-## Add or Move Run Script Phase
-* While running `pod install` a new run script phase should have been added to your project.
-* Navigate to your projects' `Build Phases`
-* Move to the created run script phase with the name `[OT] Generate Theme Files` above `Compile Sources` using drag and drop
-* In case the run script phase was not created automatically press the `+` button on the top
-* Press `New Run Script Phase`
-* Move the created run script phase above `Compile Source` by drag and drop
-* As content insert the following:
+  post_install do |installer|
+    install_originatetheme(installer: installer, json_path: path + '../Themes/Local.json')
+  end
+  ```
 
-```
-"${PODS_ROOT}/OriginateTheme/OriginateTheme/Scripts/ot_generator.py" -i "${OTTHEME}" -o "${PODS_ROOT}/OriginateTheme/OriginateTheme/Sources/Classes/"
-```
+If you wish to perform the additional modifications manually, skip steps 3 and 4 and add the following to your Xcode project:
+
+**Run Script Build Phase:**
+
+* Project: Pods
+* Target: OriginateTheme
+* Script: `
+  "${PODS_ROOT}/OriginateTheme/OriginateTheme/Scripts/ot_generator.py" -i "${OTTHEME}" -o "${PODS_ROOT}/OriginateTheme/OriginateTheme/Sources/Classes/"`
+* Note: Should run before the *Compile Sources* phase
+
+**User-Defined Build Setting:**
+
+* Project: Pods
+* Target: OriginateTheme
+* Key: `OTTHEME`
+* Value: Path to the .json file, ex: `$(SRCROOT)/../Themes/Local.json`
 
 ## Import the Framework
 

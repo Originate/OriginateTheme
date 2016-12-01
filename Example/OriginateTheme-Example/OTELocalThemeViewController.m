@@ -34,7 +34,7 @@
     [self.tabBarController.tabBar setTintColor:self.theme.components.tabBarTintColor];
 }
 
-#pragma mark - OTThemeable
+#pragma mark - <OTThemeable>
 
 - (void)setTheme:(OTTheme *)theme
 {
