@@ -14,6 +14,7 @@
 @property (nonatomic, strong, readonly) UIColor *navigationBarTintColor;
 @property (nonatomic, strong, readonly) UIFont *navigationBarDescriptionFont;
 @property (nonatomic, strong, readonly) UIFont *navigationBarTextFont;
+@property (nonatomic, assign, readonly) BOOL navigationBarIsTranslucent;
 
 @property (nonatomic, strong, readonly) UIColor *tabBarBackgroundColor;
 @property (nonatomic, strong, readonly) UIColor *tabBarTintColor;

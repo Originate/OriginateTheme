@@ -38,15 +38,27 @@ class ParseColorsTestCase(unittest.TestCase):
         self.assertEqual(output[1].key, 'secondary')
         self.assertEqual(output[1].code, '636363FF')
 
+class ParseBoolsTestCase(unittest.TestCase):
+    def runTest(self):
+        data = json.loads('{ "isTranslucent" : true, "hasShadow" : false }')
+        output = parseBools(data)
+
+        self.assertTrue(len(output))
+        self.assertEqual(output[0].key, 'isTranslucent')
+        self.assertEqual(output[0].boolValue, True)
+        self.assertEqual(output[1].key, 'hasShadow')
+        self.assertEqual(output[1].boolValue, False)
+
 class ParseComponents(unittest.TestCase):
     def runTest(self):
-        data = json.loads('{ "navigationBar" : { "colors" : { "background" : "84E0FA", "tint" : "000000" }, "fonts" : { "text" : { "name" : "HelveticaNeue-Light", "size" : 14.0 }, "description" : { "name" : "HelveticaNeue-Light", "size" : 12.0 } } } }')
+        data = json.loads('{ "navigationBar" : { "colors" : { "background" : "84E0FA", "tint" : "000000" }, "fonts" : { "text" : { "name" : "HelveticaNeue-Light", "size" : 14.0 }, "description" : { "name" : "HelveticaNeue-Light", "size" : 12.0 } }, "isTranslucent" : true} }')
         output = parseComponents(data)
 
         self.assertTrue(len(output))
         self.assertEqual(output[0].key, 'navigationBar')
         self.assertTrue(output[0].colors)
         self.assertTrue(output[0].fonts)
+        self.assertTrue(output[0].bools)
         self.assertEqual(output[0].colors[0].key, 'background')
         self.assertEqual(output[0].colors[0].code, '84E0FAFF')
         self.assertEqual(output[0].colors[1].key, 'tint')
@@ -57,6 +69,8 @@ class ParseComponents(unittest.TestCase):
         self.assertEqual(output[0].fonts[1].key, 'text')
         self.assertEqual(output[0].fonts[1].name, 'HelveticaNeue-Light')
         self.assertEqual(output[0].fonts[1].size, 14.0)
+        self.assertEqual(output[0].bools[0].key, 'isTranslucent')
+        self.assertEqual(output[0].bools[0].boolValue, True)
 
 class UpcaseFirstLetterTestCase(unittest.TestCase):
     def runTest(self):
@@ -122,7 +136,7 @@ class GenerateUITypeClassFontContentTestCase(unittest.TestCase):
 
 class GenerateComponentsContentTestCase(unittest.TestCase):
     def runTest(self):
-        data = json.loads('{ "fonts" : { "default" : { "name" : "HelveticaNeue", "size" : 22.0 }, "defaultBold" : { "name" : "HelveticaNeue-Bold", "size" : 14.0 }, "defaultLight" : { "name" : "HelveticaNeue-Light", "size" : 16.0 }, "defaultItalic" : { "name" : "HelveticaNeue-Thin", "size" : 14.0 } }, "colors" : { "primary" : "70CFFF" , "secondary" : "FCD92B", "title" : "000000", "caption" : "545454", "success" : "95BE22", "warning" : "FFA500", "error" : "BD2C00" }, "components" : { "navigationBar" : { "colors" : { "background" : "84E0FA", "tint" : "979797" }, "fonts" : { "text" : { "name" : "HelveticaNeue-Light", "size" : 14.0 }, "description" : {"name" : "HelveticaNeue-Light", "size" : 12.0 } } }, "tabBar" : { "colors" : { "background" : "FFFFFF", "tint" : "FF9600" }, "fonts" : { "text" : { "name" : "HelveticaNeue-Light", "size" : 14.0 } } } } }')
+        data = json.loads('{ "fonts" : { "default" : { "name" : "HelveticaNeue", "size" : 22.0 }, "defaultBold" : { "name" : "HelveticaNeue-Bold", "size" : 14.0 }, "defaultLight" : { "name" : "HelveticaNeue-Light", "size" : 16.0 }, "defaultItalic" : { "name" : "HelveticaNeue-Thin", "size" : 14.0 } }, "colors" : { "primary" : "70CFFF" , "secondary" : "FCD92B", "title" : "000000", "caption" : "545454", "success" : "95BE22", "warning" : "FFA500", "error" : "BD2C00" }, "components" : { "navigationBar" : { "colors" : { "background" : "84E0FA", "tint" : "979797" }, "fonts" : { "text" : { "name" : "HelveticaNeue-Light", "size" : 14.0 }, "description" : {"name" : "HelveticaNeue-Light", "size" : 12.0 } }, "isTranslucent" : true }, "tabBar" : { "colors" : { "background" : "FFFFFF", "tint" : "FF9600" }, "fonts" : { "text" : { "name" : "HelveticaNeue-Light", "size" : 14.0 } } } } }')
 
         # Prepare the component content generation test cases.
         (fonts, colors, components) = ([], [], [])
