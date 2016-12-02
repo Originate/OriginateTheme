@@ -173,6 +173,27 @@ def createBoolGetter(bool, name, keyPath):
 }"""
     return string.Template(getter).substitute({ 'name' : name, 'boolKeyPathKey' : keyPath, 'boolValue' : "YES" if bool.boolValue else "NO"})
 
+def createPointGetter(point, name, keyPath):
+    """
+        Creates a new getter to access a OriginateTheme BOOL property.
+
+        Parameters
+        -----------
+        point: Object
+        Object of type 'Point'.
+        name: String
+        The name of the property to create a getter for.
+        keyPath: String
+        The name of the key path to associated to the property.
+        """
+    getter = """
+- (CGPoint)$name
+{
+    return [[NSValue valueForKeyPath:$pointKeyPathKey
+                              source:self.definition
+                            fallback:@($pointValue)] CGPointValue];
+}"""
+    return string.Template(getter).substitute({ 'name' : name, 'pointKeyPathKey' : keyPath, 'pointValue' : "CGPointFromString(@\"{%d,%d}\")" % (point.x, point.y)})
 
 ###################
 ##### Classes #####
@@ -195,6 +216,15 @@ class Bool():
         self.key = key
         self.boolValue = boolValue
 
+class Point():
+    """
+        Class representing all point type information.
+    """
+    def __init__(self, key, pointDict):
+        self.key = key
+        self.x = pointDict["x"]
+        self.y = pointDict["y"]
+
 class Color():
     """
         Class representing all color type information.
@@ -207,11 +237,13 @@ class Component():
     """
         Class representing all component type information.
     """
-    def __init__(self, key, fonts, colors, bools):
+    def __init__(self, key, fonts, colors, bools, points):
         self.key = key
         self.fonts = fonts
         self.colors = colors
         self.bools = bools
+        self.points = points
+
 ##################
 ##### Parser #####
 ##################
@@ -316,6 +348,17 @@ def parseBools(bools):
         results.append(Bool(key, value))
     return results
 
+def parsePoints(points):
+    """
+        Method for parsing points/offsets from a JSON object.
+
+        Parameters
+        ----------
+        points: Object
+            Object containing point values and their corresponding keys.
+    """
+    return map(lambda (k, v): Point(k, v), points.iteritems())
+
 def parseComponents(components):
     """
         Method for parsing components from a JSON object.
@@ -333,12 +376,22 @@ def parseComponents(components):
         colors = parseColors(value['colors']) if 'colors' in value else []
         fonts = parseFonts(value['fonts']) if 'fonts' in value else []
         bools = parseBools(extractBoolValues(value))
-        results.append(Component(key,  sorted(fonts, key = lambda x: x.key),  sorted(colors, key = lambda x: x.key), sorted(bools, key = lambda x: x.key) ))
+        points = parsePoints(extractCGPointValues(value))
+        results.append(Component(key,
+                                 sorted(fonts, key = lambda x: x.key),
+                                 sorted(colors, key = lambda x: x.key),
+                                 sorted(bools, key = lambda x: x.key),
+                                 sorted(points, key = lambda x: x.key)
+                                 ))
     return results
 
-def extractBoolValues(dict):
-    bools = {k: v for k, v in dict.iteritems() if type(v) == bool}
+def extractBoolValues(dictObj):
+    bools = {k: v for k, v in dictObj.iteritems() if type(v) == bool}
     return bools
+
+def extractCGPointValues(dictObj):
+    points = {k: v for k, v in dictObj.iteritems() if type(v) == dict and set(v.keys()) == set(["x","y"])}
+    return points
 
 ######################
 ##### Generators #####
@@ -523,6 +576,7 @@ def generateComponentsClassHeaderFileContent(className, components):
                                         [createPropertyDefinition(component.key, c.key, 'color', 'readonly') for c in component.colors],
                                         [createPropertyDefinition(component.key, f.key, 'font', 'readonly') for f in component.fonts],
                                         [createValuePropertyDefinition(component.key, b.key, 'BOOL', 'readonly') for b in component.bools],
+                                        [createValuePropertyDefinition(component.key, p.key, 'CGPoint', 'readonly') for p in component.points],
                                         ['']
                                         ] for component in components]
     OriginateThemePublicProperties = list(itertools.chain.from_iterable(itertools.chain.from_iterable((OriginateThemePublicProperties))))
@@ -554,6 +608,7 @@ def generateComponentsClassMainFileContent(className, components):
                                             [createComponentKeyPathKeyDefinitions(component.key, c.key, 'colors') for c in component.colors],
                                             [createComponentKeyPathKeyDefinitions(component.key, f.key, 'fonts') for f in component.fonts],
                                             [createComponentKeyPathKeyDefinitions(component.key, b.key, 'bools') for b in component.bools],
+                                            [createComponentKeyPathKeyDefinitions(component.key, p.key, 'points') for p in component.points],
                                             ['']
                                             ] for component in components]
     OriginateThemePropertiesKeyPathKeys = list(itertools.chain.from_iterable(itertools.chain.from_iterable((OriginateThemePropertiesKeyPathKeys))))
@@ -570,7 +625,8 @@ def generateComponentsClassMainFileContent(className, components):
     OriginateThemePropertiesGetters = [[
                                         [createColorGetter(c, createComponentPropertyName(component.key, c.key, 'color'), createComponentPropertyKeyPathKey(component.key, c.key, 'colors')) for c in component.colors],
                                         [createFontGetter(f, createComponentPropertyName(component.key, f.key, 'font'), createComponentPropertyKeyPathKey(component.key, f.key, 'fonts')) for f in component.fonts],
-                                        [createBoolGetter(b, createComponentPropertyName(component.key, b.key, 'bool'), createComponentPropertyKeyPathKey(component.key, b.key, 'bools')) for b in component.bools]
+                                        [createBoolGetter(b, createComponentPropertyName(component.key, b.key, 'bool'), createComponentPropertyKeyPathKey(component.key, b.key, 'bools')) for b in component.bools],
+                                        [createPointGetter(p, createComponentPropertyName(component.key, p.key, 'point'), createComponentPropertyKeyPathKey(component.key, p.key, 'points')) for p in component.points]
                                         ] for component in components]
     OriginateThemePropertiesGetters = list(itertools.chain.from_iterable(itertools.chain.from_iterable((OriginateThemePropertiesGetters))))
 

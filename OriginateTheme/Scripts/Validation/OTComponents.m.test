@@ -19,6 +19,7 @@ NSString * const OTComponentsNavigationBarBoolsIsTranslucentKeyPathKey = @"compo
 NSString * const OTComponentsTabBarColorsBackgroundKeyPathKey = @"components.tabBar.colors.background";
 NSString * const OTComponentsTabBarColorsTintKeyPathKey = @"components.tabBar.colors.tint";
 NSString * const OTComponentsTabBarFontsTextKeyPathKey = @"components.tabBar.fonts.text";
+NSString * const OTComponentsTabBarPointsIconOffsetKeyPathKey = @"components.tabBar.points.iconOffset";
 
 @interface OTComponents ()
 
@@ -135,6 +136,13 @@ NSString * const OTComponentsTabBarFontsTextKeyPathKey = @"components.tabBar.fon
     }
 
     return _tabBarTextFont;
+}
+
+- (CGPoint)tabBarIconOffsetPoint
+{
+    return [[NSValue valueForKeyPath:OTComponentsTabBarPointsIconOffsetKeyPathKey
+                              source:self.definition
+                            fallback:@(CGPointFromString(@"{15,20}"))] CGPointValue];
 }
 
 @end
