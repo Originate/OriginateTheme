@@ -22,6 +22,7 @@ NSString * const OTComponentsTabBarFontsTextKeyPathKey = @"components.tabBar.fon
 NSString * const OTComponentsTabBarPointsIconOffsetKeyPathKey = @"components.tabBar.points.iconOffset";
 
 NSString * const OTComponentsTextViewInsetsTextInsetsKeyPathKey = @"components.textView.insets.textInsets";
+NSString * const OTComponentsTextViewRectsFrameKeyPathKey = @"components.textView.rects.frame";
 
 @interface OTComponents ()
 
@@ -37,8 +38,10 @@ NSString * const OTComponentsTextViewInsetsTextInsetsKeyPathKey = @"components.t
 @property (nonatomic, strong, readwrite) UIColor *tabBarBackgroundColor;
 @property (nonatomic, strong, readwrite) UIColor *tabBarTintColor;
 @property (nonatomic, strong, readwrite) UIFont *tabBarTextFont;
+@property (nonatomic, assign, readwrite) CGPoint tabBarIconOffset;
 
 @property (nonatomic, assign, readwrite) UIEdgeInsets textViewTextInsets;
+@property (nonatomic, assign, readwrite) CGRect textViewFrame;
 
 @end
 
@@ -146,15 +149,15 @@ NSString * const OTComponentsTextViewInsetsTextInsetsKeyPathKey = @"components.t
 - (CGPoint)tabBarIconOffsetPoint
 {
     return [[NSValue valueForKeyPath:OTComponentsTabBarPointsIconOffsetKeyPathKey
-                              source:self.definition
-                            fallback:@(CGPointFromString(@"{15,20}"))] CGPointValue];
+                               source:self.definition
+                             fallback:[NSValue valueWithCGPoint:CGPointFromString(@"{15,20}")]] CGPointValue];
 }
 
 - (UIEdgeInsets)textViewTextInsetsInset
 {
     return [[NSValue valueForKeyPath:OTComponentsTextViewInsetsTextInsetsKeyPathKey
                               source:self.definition
-                            fallback:@(CGPointFromString(@"{15,20,10,5}"))] UIEdgeInsetsValue];
+                            fallback:[NSValue valueWithUIEdgeInsets:UIEdgeInsetsFromString(@"{15,20,10,5}")] UIEdgeInsetsValue];
 }
 
 @end

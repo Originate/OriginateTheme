@@ -190,8 +190,8 @@ def createPointGetter(point, name, keyPath):
 - (CGPoint)$name
 {
     return [[NSValue valueForKeyPath:$pointKeyPathKey
-                              source:self.definition
-                            fallback:@($pointValue)] CGPointValue];
+                               source:self.definition
+                             fallback:[NSValue valueWithCGPoint:$pointValue]] CGPointValue];
 }"""
     return string.Template(getter).substitute({ 'name' : name, 'pointKeyPathKey' : keyPath, 'pointValue' : "CGPointFromString(@\"{%d,%d}\")" % (point.x, point.y)})
 
@@ -213,9 +213,9 @@ def createInsetGetter(insets, name, keyPath):
 {
     return [[NSValue valueForKeyPath:$insetsKeyPathKey
                               source:self.definition
-                            fallback:@($insetsValue)] UIEdgeInsetsValue];
+                            fallback:[NSValue valueWithUIEdgeInsets:$insetsValue] UIEdgeInsetsValue];
 }"""
-    return string.Template(getter).substitute({ 'name' : name, 'insetsKeyPathKey' : keyPath, 'insetsValue' : "CGPointFromString(@\"{%d,%d,%d,%d}\")" % (insets.top, insets.left, insets.bottom, insets.right)})
+    return string.Template(getter).substitute({ 'name' : name, 'insetsKeyPathKey' : keyPath, 'insetsValue' : "UIEdgeInsetsFromString(@\"{%d,%d,%d,%d}\")" % (insets.top, insets.left, insets.bottom, insets.right)})
 
 ###################
 ##### Classes #####
@@ -251,12 +251,23 @@ class EdgeInset():
     """
         Class representing all edge inset type information.
     """
-    def __init__(self, key, pointDict):
+    def __init__(self, key, insetDict):
         self.key = key
-        self.top = pointDict["top"]
-        self.left = pointDict["left"]
-        self.bottom = pointDict["bottom"]
-        self.right = pointDict["right"]
+        self.top = insetDict["top"]
+        self.left = insetDict["left"]
+        self.bottom = insetDict["bottom"]
+        self.right = insetDict["right"]
+
+class Rect():
+    """
+        Class representing all edge inset type information.
+    """
+    def __init__(self, key, rectDict):
+        self.key = key
+        self.x = rectDict["x"]
+        self.y = rectDict["y"]
+        self.width = rectDict["width"]
+        self.height = rectDict["height"]
 
 class Color():
     """
@@ -270,13 +281,14 @@ class Component():
     """
         Class representing all component type information.
     """
-    def __init__(self, key, fonts, colors, bools, points, insets):
+    def __init__(self, key, fonts, colors, bools, points, insets, rects):
         self.key = key
         self.fonts = fonts
         self.colors = colors
         self.bools = bools
         self.points = points
         self.insets = insets
+        self.rects = rects
 
 ##################
 ##### Parser #####
@@ -399,10 +411,21 @@ def parseEdgeInsets(insets):
 
         Parameters
         ----------
-        points: Object
-            Object containing point values and their corresponding keys.
+        insets: Object
+            Object containing insets values and their corresponding keys.
     """
     return map(lambda (k, v): EdgeInset(k, v), insets.iteritems())
+
+def parseRects(rects):
+    """
+        Method for parsing rects/frames from a JSON object.
+
+        Parameters
+        ----------
+        rects: Object
+            Object containing frame values and their corresponding keys.
+    """
+    return map(lambda (k, v): Rect(k, v), rects.iteritems())
 
 def parseComponents(components):
     """
@@ -423,12 +446,14 @@ def parseComponents(components):
         bools = parseBools(extractBoolValues(value))
         points = parsePoints(extractCGPointValues(value))
         insets = parseEdgeInsets(extractEdgeInsets(value))
+        rects = parseRects(extractRects(value))
         results.append(Component(key,
                                  sorted(fonts, key = lambda x: x.key),
                                  sorted(colors, key = lambda x: x.key),
                                  sorted(bools, key = lambda x: x.key),
                                  sorted(points, key = lambda x: x.key),
-                                 sorted(insets, key = lambda x: x.key)
+                                 sorted(insets, key = lambda x: x.key),
+                                 sorted(rects, key = lambda x: x.key)
                                  ))
     return results
 
@@ -443,6 +468,10 @@ def extractCGPointValues(dictObj):
 def extractEdgeInsets(dictObj):
     insets = {k: v for k, v in dictObj.iteritems() if type(v) == dict and set(v.keys()) == set(["top", "left", "bottom", "right"])}
     return insets
+
+def extractRects(dictObj):
+    rects = {k: v for k, v in dictObj.iteritems() if type(v) == dict and set(v.keys()) == set(["x", "y", "width", "height"])}
+    return rects
 
 ######################
 ##### Generators #####
@@ -629,6 +658,7 @@ def generateComponentsClassHeaderFileContent(className, components):
                                         [createValuePropertyDefinition(component.key, b.key, 'BOOL', 'readonly') for b in component.bools],
                                         [createValuePropertyDefinition(component.key, p.key, 'CGPoint', 'readonly') for p in component.points],
                                         [createValuePropertyDefinition(component.key, i.key, 'UIEdgeInsets', 'readonly') for i in component.insets],
+                                        [createValuePropertyDefinition(component.key, r.key, 'CGRect', 'readonly') for r in component.rects],
                                         ['']
                                         ] for component in components]
     OriginateThemePublicProperties = list(itertools.chain.from_iterable(itertools.chain.from_iterable((OriginateThemePublicProperties))))
@@ -662,6 +692,7 @@ def generateComponentsClassMainFileContent(className, components):
                                             [createComponentKeyPathKeyDefinitions(component.key, b.key, 'bools') for b in component.bools],
                                             [createComponentKeyPathKeyDefinitions(component.key, p.key, 'points') for p in component.points],
                                             [createComponentKeyPathKeyDefinitions(component.key, i.key, 'insets') for i in component.insets],
+                                            [createComponentKeyPathKeyDefinitions(component.key, i.key, 'rects') for i in component.rects],
                                             ['']
                                             ] for component in components]
     OriginateThemePropertiesKeyPathKeys = list(itertools.chain.from_iterable(itertools.chain.from_iterable((OriginateThemePropertiesKeyPathKeys))))
@@ -671,7 +702,9 @@ def generateComponentsClassMainFileContent(className, components):
                                         [createPropertyDefinition(component.key, c.key, 'color', 'readwrite') for c in component.colors],
                                         [createPropertyDefinition(component.key, f.key, 'font', 'readwrite') for f in component.fonts],
                                         [createValuePropertyDefinition(component.key, b.key, 'BOOL', 'readwrite') for b in component.bools],
+                                        [createValuePropertyDefinition(component.key, p.key, 'CGPoint', 'readwrite') for p in component.points],
                                         [createValuePropertyDefinition(component.key, i.key, 'UIEdgeInsets', 'readwrite') for i in component.insets],
+                                        [createValuePropertyDefinition(component.key, r.key, 'CGRect', 'readwrite') for r in component.rects],
                                         ['']
                                         ] for component in components]
     OriginateThemePrivateProperties = list(itertools.chain.from_iterable(itertools.chain.from_iterable((OriginateThemePrivateProperties))))

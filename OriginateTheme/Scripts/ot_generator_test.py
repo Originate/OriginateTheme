@@ -71,9 +71,21 @@ class ParseEdgeInsetsTestCase(unittest.TestCase):
         self.assertEqual(output[0].bottom, data["textInsets"]["bottom"])
         self.assertEqual(output[0].right, data["textInsets"]["right"])
 
+class ParseRectsTestCase(unittest.TestCase):
+    def runTest(self):
+        data = json.loads('{ "elementFrame": { "x": 15, "y": 20, "width": 10, "height": 5 } }')
+        output = parseRects(data)
+
+        self.assertTrue(len(output))
+        self.assertEqual(output[0].key, 'elementFrame')
+        self.assertEqual(output[0].x, data["elementFrame"]["x"])
+        self.assertEqual(output[0].y, data["elementFrame"]["y"])
+        self.assertEqual(output[0].width, data["elementFrame"]["width"])
+        self.assertEqual(output[0].height, data["elementFrame"]["height"])
+
 class ParseComponents(unittest.TestCase):
     def runTest(self):
-        data = json.loads('{ "navigationBar" : { "colors" : { "background" : "84E0FA", "tint" : "000000" }, "fonts" : { "text" : { "name" : "HelveticaNeue-Light", "size" : 14.0 }, "description" : { "name" : "HelveticaNeue-Light", "size" : 12.0 } }, "isTranslucent" : true, "iconOffset":  { "x": 15, "y": 20 }, "textInsets": { "top": 15, "left": 20, "bottom": 10, "right": 5 } } }')
+        data = json.loads('{ "navigationBar" : { "colors" : { "background" : "84E0FA", "tint" : "000000" }, "fonts" : { "text" : { "name" : "HelveticaNeue-Light", "size" : 14.0 }, "description" : { "name" : "HelveticaNeue-Light", "size" : 12.0 } }, "isTranslucent" : true, "iconOffset":  { "x": 15, "y": 20 }, "textInsets": { "top": 15, "left": 20, "bottom": 10, "right": 5 }, "elementFrame": { "x": 15, "y": 20, "width": 10, "height": 5 } } }')
         output = parseComponents(data)
 
         self.assertTrue(len(output))
@@ -101,6 +113,11 @@ class ParseComponents(unittest.TestCase):
         self.assertEqual(output[0].insets[0].left, 20)
         self.assertEqual(output[0].insets[0].bottom, 10)
         self.assertEqual(output[0].insets[0].right, 5)
+        self.assertEqual(output[0].rects[0].key, 'elementFrame')
+        self.assertEqual(output[0].rects[0].x, 15)
+        self.assertEqual(output[0].rects[0].y, 20)
+        self.assertEqual(output[0].rects[0].width, 10)
+        self.assertEqual(output[0].rects[0].height, 5)
 
 class UpcaseFirstLetterTestCase(unittest.TestCase):
     def runTest(self):
@@ -166,7 +183,7 @@ class GenerateUITypeClassFontContentTestCase(unittest.TestCase):
 
 class GenerateComponentsContentTestCase(unittest.TestCase):
     def runTest(self):
-        data = json.loads('{ "fonts" : { "default" : { "name" : "HelveticaNeue", "size" : 22.0 }, "defaultBold" : { "name" : "HelveticaNeue-Bold", "size" : 14.0 }, "defaultLight" : { "name" : "HelveticaNeue-Light", "size" : 16.0 }, "defaultItalic" : { "name" : "HelveticaNeue-Thin", "size" : 14.0 } }, "colors" : { "primary" : "70CFFF" , "secondary" : "FCD92B", "title" : "000000", "caption" : "545454", "success" : "95BE22", "warning" : "FFA500", "error" : "BD2C00" }, "components" : { "navigationBar" : { "colors" : { "background" : "84E0FA", "tint" : "979797" }, "fonts" : { "text" : { "name" : "HelveticaNeue-Light", "size" : 14.0 }, "description" : {"name" : "HelveticaNeue-Light", "size" : 12.0 } }, "isTranslucent" : true }, "tabBar" : { "colors" : { "background" : "FFFFFF", "tint" : "FF9600" }, "fonts" : { "text" : { "name" : "HelveticaNeue-Light", "size" : 14.0 } }, "iconOffset":  { "x": 15, "y": 20 } }, "textView" : {"textInsets": { "top": 15, "left": 20, "bottom": 10, "right": 5 } } } }')
+        data = json.loads('{ "fonts" : { "default" : { "name" : "HelveticaNeue", "size" : 22.0 }, "defaultBold" : { "name" : "HelveticaNeue-Bold", "size" : 14.0 }, "defaultLight" : { "name" : "HelveticaNeue-Light", "size" : 16.0 }, "defaultItalic" : { "name" : "HelveticaNeue-Thin", "size" : 14.0 } }, "colors" : { "primary" : "70CFFF" , "secondary" : "FCD92B", "title" : "000000", "caption" : "545454", "success" : "95BE22", "warning" : "FFA500", "error" : "BD2C00" }, "components" : { "navigationBar" : { "colors" : { "background" : "84E0FA", "tint" : "979797" }, "fonts" : { "text" : { "name" : "HelveticaNeue-Light", "size" : 14.0 }, "description" : {"name" : "HelveticaNeue-Light", "size" : 12.0 } }, "isTranslucent" : true }, "tabBar" : { "colors" : { "background" : "FFFFFF", "tint" : "FF9600" }, "fonts" : { "text" : { "name" : "HelveticaNeue-Light", "size" : 14.0 } }, "iconOffset":  { "x": 15, "y": 20 } }, "textView" : {"textInsets": { "top": 15, "left": 20, "bottom": 10, "right": 5 }, "frame": { "x": 15, "y": 20, "width": 10, "height": 5 } } } }')
 
         # Prepare the component content generation test cases.
         (fonts, colors, components) = ([], [], [])

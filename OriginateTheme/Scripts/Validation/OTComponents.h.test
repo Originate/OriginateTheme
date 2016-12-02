@@ -22,6 +22,7 @@
 @property (nonatomic, assign, readonly) CGPoint tabBarIconOffset;
 
 @property (nonatomic, assign, readonly) UIEdgeInsets textViewTextInsets;
+@property (nonatomic, assign, readonly) CGRect textViewFrame;
 
 #pragma mark - Methods
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
