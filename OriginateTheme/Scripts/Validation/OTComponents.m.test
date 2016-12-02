@@ -21,6 +21,8 @@ NSString * const OTComponentsTabBarColorsTintKeyPathKey = @"components.tabBar.co
 NSString * const OTComponentsTabBarFontsTextKeyPathKey = @"components.tabBar.fonts.text";
 NSString * const OTComponentsTabBarPointsIconOffsetKeyPathKey = @"components.tabBar.points.iconOffset";
 
+NSString * const OTComponentsTextViewInsetsTextInsetsKeyPathKey = @"components.textView.insets.textInsets";
+
 @interface OTComponents ()
 
 #pragma mark - Properties
@@ -30,10 +32,13 @@ NSString * const OTComponentsTabBarPointsIconOffsetKeyPathKey = @"components.tab
 @property (nonatomic, strong, readwrite) UIColor *navigationBarTintColor;
 @property (nonatomic, strong, readwrite) UIFont *navigationBarDescriptionFont;
 @property (nonatomic, strong, readwrite) UIFont *navigationBarTextFont;
+@property (nonatomic, assign, readwrite) BOOL navigationBarIsTranslucent;
 
 @property (nonatomic, strong, readwrite) UIColor *tabBarBackgroundColor;
 @property (nonatomic, strong, readwrite) UIColor *tabBarTintColor;
 @property (nonatomic, strong, readwrite) UIFont *tabBarTextFont;
+
+@property (nonatomic, assign, readwrite) UIEdgeInsets textViewTextInsets;
 
 @end
 
@@ -143,6 +148,13 @@ NSString * const OTComponentsTabBarPointsIconOffsetKeyPathKey = @"components.tab
     return [[NSValue valueForKeyPath:OTComponentsTabBarPointsIconOffsetKeyPathKey
                               source:self.definition
                             fallback:@(CGPointFromString(@"{15,20}"))] CGPointValue];
+}
+
+- (UIEdgeInsets)textViewTextInsetsInset
+{
+    return [[NSValue valueForKeyPath:OTComponentsTextViewInsetsTextInsetsKeyPathKey
+                              source:self.definition
+                            fallback:@(CGPointFromString(@"{15,20,10,5}"))] UIEdgeInsetsValue];
 }
 
 @end
