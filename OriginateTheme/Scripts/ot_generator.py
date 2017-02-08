@@ -635,6 +635,15 @@ def generateUITypeClass(outputDirectory, className, dictionary, uiType, getter):
     with open(outputDirectory + className + '.m', 'wb') as outputFile:
         outputFile.write(generateUITypeClassMainFileContent(className, dictionary, uiType, getter))
 
+# Component specific lambda functions.
+createComponentPropertyName = lambda componentKey, key, uiType: componentKey + upcaseFirstLetter(key) + upcaseFirstLetter(uiType)
+createPropertyDefinition = lambda componentKey, key, uiType, accessType: createProperty('strong', accessType, 'UI' + upcaseFirstLetter(uiType), createComponentPropertyName(componentKey, key, uiType))
+createValuePropertyDefinition = lambda componentKey, key, objcType, accessType: createValueProperty(accessType, objcType, createComponentPropertyName(componentKey, key, ""))
+
+# Create the properties' keys.
+createComponentPropertyKeyPathKey = lambda componentKey, typeKey, typeKeyPath: createPropertyKeyPathKey('Components' + upcaseFirstLetter(componentKey) + upcaseFirstLetter(typeKeyPath), typeKey)
+createComponentKeyPathKeyDefinitions = lambda componentKey, typeKey, typeKeyPath: createPropertyKeyPathKeyDefinition(createComponentPropertyKeyPathKey(componentKey, typeKey, typeKeyPath), 'components.' + componentKey + '.' + typeKeyPath + '.' + typeKey)
+
 def generateComponentsClassHeaderFileContent(className, components):
     """
         Create the content of the header file for an OriginateTheme class specifying component definitions.
@@ -646,10 +655,6 @@ def generateComponentsClassHeaderFileContent(className, components):
         components: Object
             Object containing all key/value pairs for the component definitions.
     """
-    # Component specific lambda functions.
-    createComponentPropertyName = lambda componentKey, key, uiType:  componentKey + upcaseFirstLetter(key) + upcaseFirstLetter(uiType)
-    createPropertyDefinition = lambda componentKey, key, uiType, accessType: createProperty('strong', accessType, 'UI' + upcaseFirstLetter(uiType), createComponentPropertyName(componentKey, key, uiType))
-    createValuePropertyDefinition = lambda componentKey, key, objcType, accessType: createValueProperty(accessType, objcType, createComponentPropertyName(componentKey, key, ""))
 
     # Create the public properties.
     OriginateThemePublicProperties = [[
@@ -666,7 +671,6 @@ def generateComponentsClassHeaderFileContent(className, components):
     # Substitute the properties.
     return string.Template(headerTemplate()).substitute({'OriginateThemePublicProperties' : '\n'.join(OriginateThemePublicProperties), 'OriginateThemeClassName' : className})
 
-
 def generateComponentsClassMainFileContent(className, components):
     """
         Create the content of the main file for an OriginateTheme class specifying component definitions.
@@ -678,14 +682,7 @@ def generateComponentsClassMainFileContent(className, components):
         components: Object
             Object containing all key/value pairs for the component definitions.
     """
-    # Component specific lambda functions.
-    createComponentPropertyName = lambda componentKey, key, uiType: componentKey + upcaseFirstLetter(key) + upcaseFirstLetter(uiType)
-    createPropertyDefinition = lambda componentKey, key, uiType, accessType: createProperty('strong', accessType, 'UI' + upcaseFirstLetter(uiType), createComponentPropertyName(componentKey, key, uiType))
-    createValuePropertyDefinition = lambda componentKey, key, objcType, accessType: createValueProperty(accessType, objcType, createComponentPropertyName(componentKey, key, ""))
 
-    # Create the properties' keys.
-    createComponentPropertyKeyPathKey = lambda componentKey, typeKey, typeKeyPath: createPropertyKeyPathKey('Components' + upcaseFirstLetter(componentKey) + upcaseFirstLetter(typeKeyPath), typeKey)
-    createComponentKeyPathKeyDefinitions = lambda componentKey, typeKey, typeKeyPath: createPropertyKeyPathKeyDefinition(createComponentPropertyKeyPathKey(componentKey, typeKey, typeKeyPath), 'components.' + componentKey + '.' + typeKeyPath + '.' + typeKey)
     OriginateThemePropertiesKeyPathKeys = [[
                                             [createComponentKeyPathKeyDefinitions(component.key, c.key, 'colors') for c in component.colors],
                                             [createComponentKeyPathKeyDefinitions(component.key, f.key, 'fonts') for f in component.fonts],
