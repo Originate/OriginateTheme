@@ -19,6 +19,10 @@
 @property (nonatomic, strong, readonly) UIColor *tabBarBackgroundColor;
 @property (nonatomic, strong, readonly) UIColor *tabBarTintColor;
 @property (nonatomic, strong, readonly) UIFont *tabBarTextFont;
+@property (nonatomic, assign, readonly) CGPoint tabBarIconOffset;
+
+@property (nonatomic, assign, readonly) UIEdgeInsets textViewTextInsets;
+@property (nonatomic, assign, readonly) CGRect textViewFrame;
 
 #pragma mark - Methods
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;

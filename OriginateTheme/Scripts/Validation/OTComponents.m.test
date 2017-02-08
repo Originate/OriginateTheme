@@ -19,6 +19,10 @@ NSString * const OTComponentsNavigationBarBoolsIsTranslucentKeyPathKey = @"compo
 NSString * const OTComponentsTabBarColorsBackgroundKeyPathKey = @"components.tabBar.colors.background";
 NSString * const OTComponentsTabBarColorsTintKeyPathKey = @"components.tabBar.colors.tint";
 NSString * const OTComponentsTabBarFontsTextKeyPathKey = @"components.tabBar.fonts.text";
+NSString * const OTComponentsTabBarPointsIconOffsetKeyPathKey = @"components.tabBar.points.iconOffset";
+
+NSString * const OTComponentsTextViewInsetsTextInsetsKeyPathKey = @"components.textView.insets.textInsets";
+NSString * const OTComponentsTextViewRectsFrameKeyPathKey = @"components.textView.rects.frame";
 
 @interface OTComponents ()
 
@@ -29,10 +33,15 @@ NSString * const OTComponentsTabBarFontsTextKeyPathKey = @"components.tabBar.fon
 @property (nonatomic, strong, readwrite) UIColor *navigationBarTintColor;
 @property (nonatomic, strong, readwrite) UIFont *navigationBarDescriptionFont;
 @property (nonatomic, strong, readwrite) UIFont *navigationBarTextFont;
+@property (nonatomic, assign, readwrite) BOOL navigationBarIsTranslucent;
 
 @property (nonatomic, strong, readwrite) UIColor *tabBarBackgroundColor;
 @property (nonatomic, strong, readwrite) UIColor *tabBarTintColor;
 @property (nonatomic, strong, readwrite) UIFont *tabBarTextFont;
+@property (nonatomic, assign, readwrite) CGPoint tabBarIconOffset;
+
+@property (nonatomic, assign, readwrite) UIEdgeInsets textViewTextInsets;
+@property (nonatomic, assign, readwrite) CGRect textViewFrame;
 
 @end
 
@@ -135,6 +144,20 @@ NSString * const OTComponentsTabBarFontsTextKeyPathKey = @"components.tabBar.fon
     }
 
     return _tabBarTextFont;
+}
+
+- (CGPoint)tabBarIconOffsetPoint
+{
+    return [[NSValue valueForKeyPath:OTComponentsTabBarPointsIconOffsetKeyPathKey
+                               source:self.definition
+                             fallback:[NSValue valueWithCGPoint:CGPointFromString(@"{15,20}")]] CGPointValue];
+}
+
+- (UIEdgeInsets)textViewTextInsetsInset
+{
+    return [[NSValue valueForKeyPath:OTComponentsTextViewInsetsTextInsetsKeyPathKey
+                              source:self.definition
+                            fallback:[NSValue valueWithUIEdgeInsets:UIEdgeInsetsFromString(@"{15,20,10,5}")] UIEdgeInsetsValue];
 }
 
 @end
