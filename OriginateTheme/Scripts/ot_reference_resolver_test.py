@@ -13,27 +13,27 @@ import pprint
 
 from ot_reference_resolver import *
 
-pp = pprint.PrettyPrinter(indent=4)
+testJSONString = """{
+  "colors": {
+    "primary": "FFFF00"
+  },
+  "fonts": {
+    "default" : {
+        "name" : "HelveticaNeue",
+        "size" : "14.0"
+    }
+  },
+  "components": {
+    "tabBar": {
+      "backgroundColor": "$colors.primary",
+      "tabItemFont": "$fonts.default"
+    }
+  }
+}"""
 
 class ResolveComponentReferencesTestCase(unittest.TestCase):
     def runTest(self):
-        data = json.loads("""{
-          "colors": {
-            "primary": "FFFF00"
-          },
-          "fonts": {
-            "default" : {
-                "name" : "HelveticaNeue",
-                "size" : "14.0"
-            }
-          },
-          "components": {
-            "tabBar": {
-              "backgroundColor": "$colors.primary",
-              "tabItemFont": "$fonts.default"
-            }
-          }
-        }""")
+        data = json.loads(testJSONString)
         expectedData = copy.deepcopy(data)
         expectedData["components"]["tabBar"]["backgroundColor"] = data["colors"]["primary"]
         expectedData["components"]["tabBar"]["tabItemFont"] = data["fonts"]["default"]
@@ -42,23 +42,7 @@ class ResolveComponentReferencesTestCase(unittest.TestCase):
 
 class ResolveReferenceTestCase(unittest.TestCase):
     def runTest(self):
-        data = json.loads("""{
-          "colors": {
-            "primary": "FFFF00"
-          },
-          "fonts": {
-            "default" : {
-                "name" : "HelveticaNeue",
-                "size" : "14.0"
-            }
-          },
-          "components": {
-            "tabBar": {
-              "backgroundColor": "$colors.primary",
-              "tabItemFont": "$fonts.default"
-            }
-          }
-        }""")
+        data = json.loads(testJSONString)
         aRef = data["components"]["tabBar"]["backgroundColor"]
         resolvedRefData = resolveRef(aRef, data)
         expectedData = data["colors"]["primary"]
