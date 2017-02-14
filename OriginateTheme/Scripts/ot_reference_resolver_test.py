@@ -2,14 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-    otgenerator.py
-    Collection of tests for the ot_generator.py script.
+    ot_reference_resolver.py
+    Collection of tests for the ot_reference_resolver.py script.
 """
 
 import os
 import unittest
 import copy
-import pprint
 
 from ot_reference_resolver import *
 
