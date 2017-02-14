@@ -16,8 +16,6 @@ def main(argv):
         argv: Array
             Array containing all programs' arguments
     """
-    # Initialize variables for extracted fonts, colors and components.
-    (fonts, colors, components) = ([], [], [])
 
     # Extract the inputFile and outputDirectory.
     (inputFile) = parseArguments(argv)
@@ -26,6 +24,9 @@ def main(argv):
     with open(inputFile, 'r') as file:
         try:
             data = json.load(file, 'utf-8')
+            resolveComponentReferencesInData(data)
+            inputFile.write(data)
+            inputFile.close()
 
         except ValueError:
             print 'Decoding JSON input file failed!'
@@ -70,7 +71,3 @@ def resolveComponentReferencesInData(data):
     for componentName, componentProperties in components.iteritems():
         for key, aRef in componentProperties.iteritems():
             data["components"][componentName][key] = resolveRef(aRef, data)
-            # resolvedComponents[componentName] = {key: resolveRef(aRef, data)}
-            # data["components"].update(resolvedComponents)
-
-    # components.update(resolvedComponents)
