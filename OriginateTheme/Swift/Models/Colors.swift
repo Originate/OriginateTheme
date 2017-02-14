@@ -6,12 +6,16 @@
 //  Copyright © 2017 Originate Inc. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-struct Colors {
-    var dictionary: [String: Any]?
+public struct Colors {
+    var dictionary: ThemeDefinition
     
-    init(dictionary: [String: Any]?) {
+    public var text: UIColor {
+        return UIColor.color("colors.red", dictionary: dictionary, fallback: UIColor.green)
+    }
+    
+    public init(dictionary: ThemeDefinition = [:]) {
         self.dictionary = dictionary
     }
 }

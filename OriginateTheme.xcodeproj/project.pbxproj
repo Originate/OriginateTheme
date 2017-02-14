@@ -86,7 +86,7 @@
 		64574FEB1E53014100EAB331 /* Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Components.swift; path = OriginateTheme/Swift/Models/Components.swift; sourceTree = SOURCE_ROOT; };
 		649754481D8B19DB00A3B3D0 /* OriginateThemeObjectiveC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OriginateThemeObjectiveC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6497547B1D8B1B3E00A3B3D0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		64EB47EC1E5281DF0089DA2B /* OriginateThemeSwift3_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OriginateThemeSwift3_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64EB47EC1E5281DF0089DA2B /* OriginateThemeSwift3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OriginateThemeSwift3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F13C2EA1DECE769003BA24D /* OriginateThemeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OriginateThemeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F13C2EC1DECE769003BA24D /* OriginateThemeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OriginateThemeTests.m; sourceTree = "<group>"; };
 		9F13C2EE1DECE769003BA24D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 			children = (
 				649754481D8B19DB00A3B3D0 /* OriginateThemeObjectiveC.framework */,
 				9F13C2EA1DECE769003BA24D /* OriginateThemeTests.xctest */,
-				64EB47EC1E5281DF0089DA2B /* OriginateThemeSwift3_0.framework */,
+				64EB47EC1E5281DF0089DA2B /* OriginateThemeSwift3.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -307,9 +307,9 @@
 			productReference = 649754481D8B19DB00A3B3D0 /* OriginateThemeObjectiveC.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		64EB47EB1E5281DF0089DA2B /* OriginateThemeSwift3_0 */ = {
+		64EB47EB1E5281DF0089DA2B /* OriginateThemeSwift3 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 64EB47FD1E5281DF0089DA2B /* Build configuration list for PBXNativeTarget "OriginateThemeSwift3_0" */;
+			buildConfigurationList = 64EB47FD1E5281DF0089DA2B /* Build configuration list for PBXNativeTarget "OriginateThemeSwift3" */;
 			buildPhases = (
 				64EB47E71E5281DF0089DA2B /* Sources */,
 				64EB47E81E5281DF0089DA2B /* Frameworks */,
@@ -320,9 +320,9 @@
 			);
 			dependencies = (
 			);
-			name = OriginateThemeSwift3_0;
+			name = OriginateThemeSwift3;
 			productName = "OriginateTheme-swift3.0";
-			productReference = 64EB47EC1E5281DF0089DA2B /* OriginateThemeSwift3_0.framework */;
+			productReference = 64EB47EC1E5281DF0089DA2B /* OriginateThemeSwift3.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		9F13C2E91DECE769003BA24D /* OriginateThemeTests */ = {
@@ -382,7 +382,7 @@
 			targets = (
 				649754471D8B19DB00A3B3D0 /* OriginateThemeObjectiveC */,
 				9F13C2E91DECE769003BA24D /* OriginateThemeTests */,
-				64EB47EB1E5281DF0089DA2B /* OriginateThemeSwift3_0 */,
+				64EB47EB1E5281DF0089DA2B /* OriginateThemeSwift3 */,
 			);
 		};
 /* End PBXProject section */
@@ -687,7 +687,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		64EB47FD1E5281DF0089DA2B /* Build configuration list for PBXNativeTarget "OriginateThemeSwift3_0" */ = {
+		64EB47FD1E5281DF0089DA2B /* Build configuration list for PBXNativeTarget "OriginateThemeSwift3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				64EB47FE1E5281DF0089DA2B /* Debug */,

@@ -6,12 +6,16 @@
 //  Copyright © 2017 Originate Inc. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Fonts {
-    var dictionary: [String: Any]?
+    var dictionary: ThemeDefinition
+
+    public var body: UIFont {
+        return UIFont.font(keyPath: "fonts.text", dictionary: dictionary, fallback: UIFont.systemFont(ofSize: 16.0))
+    }
     
-    init(dictionary: [String: Any]?) {
+    public init(dictionary: ThemeDefinition = [:]) {
         self.dictionary = dictionary
     }
 }

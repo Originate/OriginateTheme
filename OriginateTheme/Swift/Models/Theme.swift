@@ -8,10 +8,12 @@
 
 import Foundation
 
-class Theme {
+public typealias ThemeDefinition = [String: Any]
 
-    private var _dictionary: [String: Any]?
-    public internal(set) var dictionary: [String: Any]? {
+struct Theme {
+
+    private var _dictionary: ThemeDefinition = [:]
+    public internal(set) var dictionary: ThemeDefinition {
         get {
             return _dictionary
         }
@@ -20,35 +22,17 @@ class Theme {
         }
     }
     
-    private var _colors: Colors?
-    public internal(set) var colors: Colors? {
-        get {
-            return Colors(dictionary: self.dictionary)
-        }
-        set {
-            _colors = newValue
-        }
+    public var colors: Colors {
+        return Colors(dictionary: self.dictionary)
     }
     
-    private var _components: Components?
-    public internal(set) var components: Components? {
-        get {
-            return Components(dictionary: self.dictionary)
-        }
-        set {
-            _components = newValue
-        }
+    public var components: Components {
+        return Components(dictionary: self.dictionary)
     }
     
     
-    private var _fonts: Fonts?
-    public internal(set) var fonts: Fonts? {
-        get {
-            return Fonts(dictionary: self.dictionary)
-        }
-        set {
-            _fonts = newValue
-        }
+    public var fonts: Fonts {
+        return Fonts(dictionary: self.dictionary)
     }
     
     public init(URL: URL) {
@@ -62,8 +46,10 @@ class Theme {
             }
             
             do {
-                let dictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-                _dictionary = dictionary
+                let serializedObject = try JSONSerialization.jsonObject(with: data, options: [])
+                if let dictionary = serializedObject as? ThemeDefinition {
+                    _dictionary = dictionary
+                }
             }
             catch let error {
                 print("OriginateTheme > Cannot Serialize JSON. Error: \(error)")
@@ -75,7 +61,7 @@ class Theme {
         
     }
     
-    public init(dictionary: [String: Any]?) {
+    public init(dictionary: ThemeDefinition = [:]) {
         _dictionary = dictionary
     }
 }

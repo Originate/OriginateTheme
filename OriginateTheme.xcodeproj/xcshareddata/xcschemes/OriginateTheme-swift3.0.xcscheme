@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "64EB47EB1E5281DF0089DA2B"
-               BuildableName = "OriginateThemeSwift3_0.framework"
-               BlueprintName = "OriginateThemeSwift3_0"
+               BuildableName = "OriginateThemeSwift3.framework"
+               BlueprintName = "OriginateThemeSwift3"
                ReferencedContainer = "container:OriginateTheme.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "64EB47EB1E5281DF0089DA2B"
-            BuildableName = "OriginateThemeSwift3_0.framework"
-            BlueprintName = "OriginateThemeSwift3_0"
+            BuildableName = "OriginateThemeSwift3.framework"
+            BlueprintName = "OriginateThemeSwift3"
             ReferencedContainer = "container:OriginateTheme.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -65,8 +65,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "64EB47EB1E5281DF0089DA2B"
-            BuildableName = "OriginateThemeSwift3_0.framework"
-            BlueprintName = "OriginateThemeSwift3_0"
+            BuildableName = "OriginateThemeSwift3.framework"
+            BlueprintName = "OriginateThemeSwift3"
             ReferencedContainer = "container:OriginateTheme.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -83,8 +83,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "64EB47EB1E5281DF0089DA2B"
-            BuildableName = "OriginateThemeSwift3_0.framework"
-            BlueprintName = "OriginateThemeSwift3_0"
+            BuildableName = "OriginateThemeSwift3.framework"
+            BlueprintName = "OriginateThemeSwift3"
             ReferencedContainer = "container:OriginateTheme.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

@@ -6,12 +6,12 @@
 //  Copyright © 2017 Originate Inc. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Components {
-    var dictionary: [String: Any]?
+    var dictionary: ThemeDefinition
     
-    init(dictionary: [String: Any]?) {
+    public init(dictionary: ThemeDefinition = [:]) {
         self.dictionary = dictionary
     }
 }
