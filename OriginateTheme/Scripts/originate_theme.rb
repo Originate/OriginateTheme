@@ -37,7 +37,7 @@ end
 def add_originatetheme_build_phase(project:)
   target            = project.targets.find { |t| t.name == 'OriginateTheme' }
   build_script_name = '[OriginateTheme] Generate Theme Files'
-  build_script      = '"${PODS_ROOT}/OriginateTheme/OriginateTheme/Scripts/ot_generator.py" -i "${OTTHEME}" -o "${PODS_ROOT}/OriginateTheme/OriginateTheme/Sources/Classes/"'
+  build_script      = '"${PODS_ROOT}/OriginateTheme/OriginateTheme/Scripts/ot_generator.py" -i "${OTTHEME}" -o "${PODS_ROOT}/OriginateTheme/OriginateTheme/Objective-C/Sources/Classes/"'
 
   # create build phase
   build_phase = begin
