@@ -15,7 +15,7 @@ struct Components {
     
     public init(dictionary: ThemeDefinition = [:]) {
         self.dictionary = dictionary
-        self.component = NavigationBar(dictionary: dictionary)
+        self.navigationBar = NavigationBar(dictionary: dictionary)
     }
     
     public struct NavigationBar {
