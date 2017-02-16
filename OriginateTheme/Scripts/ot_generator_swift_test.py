@@ -33,28 +33,61 @@ varType = "UIColor"
 
 exColorStruct = """public struct Colors {
     var dictionary: ThemeDefinition
-    \n    public var red: UIColor {
+    \n\
+    public var red: UIColor {
         return UIColor.color("colors.red", dictionary: dictionary, fallback: UIColor.green)
     }
-    \n    public init(dictionary: ThemeDefinition = [:]) {
+    \n\
+    public init(dictionary: ThemeDefinition = [:]) {
         self.dictionary = dictionary
     }
 }"""
 
 exFontStruct = """public struct Fonts {
     var dictionary: ThemeDefinition
-    \n    public var text: UIFont {
+    \n\
+    public var text: UIFont {
         return UIFont.font("fonts.text", dictionary: dictionary, fallback: UIFont(name: "HelveticaNeue", size: 15))
     }
-    \n    public init(dictionary: ThemeDefinition = [:]) {
+    \n\
+    public init(dictionary: ThemeDefinition = [:]) {
         self.dictionary = dictionary
     }
 }"""
 
-otThemeObjectDictionaryVar = varWith('dictionary', 'ThemeDefinition')
-otThemeObjectInit = """public init(dictionary: ThemeDefinition = [:]) {
+exInitItem = """public init(dictionary: ThemeDefinition = [:]) {
     self.dictionary = dictionary
+    self.navigationBar = NavigationBar(dictionary: dictionary)
 }"""
+
+exComponentsStruct = """public struct Components {
+    var dictionary: ThemeDefinition
+    \n\
+    var navigationBar: NavigationBar
+    \n\
+    public init(dictionary: ThemeDefinition = [:]) {
+        self.dictionary = dictionary
+        self.navigationBar = NavigationBar(dictionary: dictionary)
+    }
+    \n\
+    public struct NavigationBar {
+        var dictionary: ThemeDefinition
+        \n\
+        public var red: UIColor {
+            return UIColor.color("colors.red", dictionary: dictionary, fallback: UIColor.green)
+        }
+        \n\
+        public var text: UIFont {
+            return UIFont.font("fonts.text", dictionary: dictionary, fallback: UIFont(name: "HelveticaNeue", size: 15))
+        }
+        \n\
+        public init(dictionary: ThemeDefinition = [:]) {
+            self.dictionary = dictionary
+        }
+    }
+}"""
+
+otThemeObjectDictionaryVar = varWith('dictionary', 'ThemeDefinition')
 
 def failureMessageWith(expected, actual):
     return '\nexpected: ' + expected + '!=\n' + 'actual: ' + actual
@@ -114,16 +147,40 @@ class IndentTestCase(unittest.TestCase):
         data = indent(beforeIndent, 4)
         self.assertEqual(expected, data, msg=failureMessageWith(expected, data))
 
-class CreateColorStructTestCase(unittest.TestCase):
+class CreateColorsStructTestCase(unittest.TestCase):
     def runTest(self):
         expected = exColorStruct
-        implementationItems = [otThemeObjectDictionaryVar, createColorProperty(Color('red', 'UIColor.green')), otThemeObjectInit]
+        implementationItems = [otThemeObjectDictionaryVar, createColorProperty(Color('red', 'UIColor.green')), otThemeObjectInitWithItems()]
         data = structWithItems("Colors", implementationItems)
         self.assertEqual(expected, data, msg=failureMessageWith(expected,data))
 
-class CreateFontStructTestCase(unittest.TestCase):
+class CreateFontsStructTestCase(unittest.TestCase):
     def runTest(self):
         expected = exFontStruct
-        implementationItems = [otThemeObjectDictionaryVar, createFontProperty(Font('text', 'HelveticaNeue', 15)), otThemeObjectInit]
+        implementationItems = [otThemeObjectDictionaryVar, createFontProperty(Font('text', 'HelveticaNeue', 15)), otThemeObjectInitWithItems()]
         data = structWithItems("Fonts", implementationItems)
+        self.assertEqual(expected, data, msg=failureMessageWith(expected,data))
+
+class ThemeObjectInitExtraTestCase(unittest.TestCase):
+    def runTest(self):
+        expected = exInitItem
+        items = [otThemeObjectStandardInitLine, "self.navigationBar = NavigationBar(dictionary: dictionary)"]
+        data = otThemeObjectInitWithItems(items)
+        self.assertEqual(expected, data, msg=failureMessageWith(expected,data))
+
+class CreateComponentsTestCase(unittest.TestCase):
+    def runTest(self):
+        expected = exComponentsStruct
+        navBarName = 'NavigationBar'
+        componentVars = [varWith('dictionary', 'ThemeDefinition'), varWith('navigationBar', navBarName)]
+        init = otThemeObjectInitWithItems([otThemeObjectStandardInitLine, "self.navigationBar = NavigationBar(dictionary: dictionary)"])
+
+        navigationBarImplementationItems = [otThemeObjectDictionaryVar, createColorProperty(Color('red', 'UIColor.green')), createFontProperty(Font('text', 'HelveticaNeue', 15)), otThemeObjectInitWithItems()]
+        navigationBarStruct = structWithItems(navBarName, navigationBarImplementationItems)
+
+        items = []
+        items.extend(componentVars)
+        items.append(init)
+        items.append(navigationBarStruct)
+        data = structWithItems('Components',items)
         self.assertEqual(expected, data, msg=failureMessageWith(expected,data))

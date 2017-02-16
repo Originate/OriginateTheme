@@ -10,6 +10,12 @@ computedStaticPropertyTemplate ="""public $var {
 otComputationTemplate = """$convenience("$path", dictionary: $dict, fallback: $fb)"""
 fontTemplate = """UIFont(name: "$fontName", size: $fontSize)"""
 
+otThemeObjectInitTemplate = """public init(dictionary: ThemeDefinition = [:]) {
+$body
+}"""
+
+otThemeObjectStandardInitLine = "self.dictionary = dictionary"
+
 tabLength = 4
 
 def varWith(varName, varType):
@@ -42,3 +48,15 @@ def structWithItems(structName, implementationItems):
     joined = '\n\n'.join(implementationItems)
     body = indent(joined, tabLength)
     return structWithBody(structName, body)
+
+def otThemeObjectInitWithItems(items = [otThemeObjectStandardInitLine]):
+    joined = '\n'.join(items)
+    initialization = indent(joined, tabLength)
+    return string.Template(otThemeObjectInitTemplate).substitute({'body': initialization})
+
+def otThemObjectFactoryInit(type, dictionary):
+    "%s(dictionary: %s)" % (type, dictionary)
+    return "NavigationBar(dictionary: dictionary)"
+
+def setValueStatement(receiver, aProperty, value):
+    return "%s.%s = %s" % (receiver, aProperty, value)
