@@ -21,6 +21,12 @@ import os
 import re
 import string
 import sys
+from ot_generator_utils import *
+from ot_generator_swift import createColorsTheme
+from ot_generator_swift import createFontsTheme
+from ot_generator_swift import createComponentsTheme
+from ot_generator_swift import generateSwiftFile
+
 
 #################################
 ##### Objective-C Templates #####
@@ -93,25 +99,6 @@ $OriginateThemePrivateProperties
 $OriginateThemePropertiesGetters
 
 @end
-"""
-
-###########################
-##### Swift Templates #####
-###########################
-
-def swiftTemplate():
-    """
-        Template for an OriginateTheme swift file.
-    """
-    return """//
-//  $OriginateThemeStructName.swift
-//  OriginateTheme
-//
-//  Copyright (c) 2017 Originate. All rights reserved.
-//
-
-import UIKit
-
 """
 
 ######################
@@ -333,7 +320,7 @@ def parseArguments(argv):
 
     # Extract the inputFile and outputDirectory arguments.
     try:
-        opts, args = getopt.getopt(argv, "hi:o:", ["input=", "output="])
+        opts, args = getopt.getopt(argv, "hi:o:l:", ["input=", "output=", "language="])
     except getopt.GetoptError:
         print helpString
         sys.exit(2)
@@ -345,7 +332,7 @@ def parseArguments(argv):
             inputFile = arg
         elif opt in ("-o", "--output"):
             outputDirectory = arg
-        elif opt in ("-t", "--type"):
+        elif opt in ("-l", "--language"):
             language = arg
 
     # Check if inputFile and outputDirectory have concrete values.
@@ -504,17 +491,6 @@ def extractRects(dictObj):
 ######################
 ##### Generators #####
 ######################
-
-def upcaseFirstLetter(s):
-    """
-        Method which upercases the first letter of a string.
-
-        Parameters
-        -----------
-        s: String
-            String whose first letter should be upercase.
-    """
-    return s[0].upper() + s[1:] if s else s
 
 def createProperty(referenceType, accessMode, propertyType, propertyName):
     """
@@ -817,8 +793,10 @@ def main(argv):
 	    generateUITypeClass(outputDirectory, 'OTFonts', sorted(fonts, key = lambda x: x.key), 'font', createFontGetter)
 	    generateUITypeClass(outputDirectory, 'OTColors', sorted(colors, key = lambda x: x.key), 'color', createColorGetter)
 	    generateComponentsClass(outputDirectory, 'OTComponents', sorted(components, key = lambda x: x.key))
-	else		
-		
+    else:
+        saveFile(outputDirectory, 'Colors.swift', generateSwiftFile(createColorsTheme(colors)))
+        saveFile(outputDirectory, 'Fonts.swift', generateSwiftFile(createFontsTheme(fonts)))
+        saveFile(outputDirectory, 'Components.swift', generateSwiftFile(createComponentsTheme(components)))
 
 if __name__ == "__main__":
     main(sys.argv[1:])

@@ -1,6 +1,6 @@
 import string
-from ot_generator import upcaseFirstLetter
-from ot_generator import swiftTemplate
+from ot_generator_utils import *
+from ot_generator_templates import *
 
 structTemplate = """public struct $name {
 $body
@@ -93,19 +93,6 @@ def computedPropertyWith(varName, varType, computation):
             The body implmentation of the computed property without the return statement.
     """
     return string.Template(computedStaticPropertyTemplate).substitute({'var': varWith(varName,varType), 'comp': computation})
-
-def indent(string, numSpaces):
-    """
-        Indents every line of text in string
-
-        Parameters
-        -----------
-        string: String
-            The string to indent
-        numSpaces: Integer
-            Amount of spaces to indent by
-    """
-    return  '\n'.join([("".rjust(numSpaces)+s).rstrip() for s in string.split('\n')])
 
 def uiColorWithColor(color):
     """
