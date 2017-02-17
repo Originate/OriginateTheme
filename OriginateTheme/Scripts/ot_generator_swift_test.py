@@ -18,7 +18,8 @@ varType = "UIColor"
 
 testJson = '{ "fonts" : { "defaultText" : { "name" : "HelveticaNeue", "size" : 22.0 }, "defaultBold" : { "name" : "HelveticaNeue-Bold", "size" : 14.0 }, "defaultLight" : { "name" : "HelveticaNeue-Light", "size" : 16.0 }, "defaultItalic" : { "name" : "HelveticaNeue-Thin", "size" : 14.0 } }, "colors" : { "primary" : "70CFFF" , "secondary" : "FCD92B", "title" : "000000", "caption" : "545454", "success" : "95BE22", "warning" : "FFA500", "error" : "BD2C00" }, "components" : { "navigationBar" : { "colors" : { "background" : "84E0FA", "tint" : "979797" }, "fonts" : { "text" : { "name" : "HelveticaNeue-Light", "size" : 14.0 }, "description" : {"name" : "HelveticaNeue-Light", "size" : 12.0 } }, "isTranslucent" : true }, "tabBar" : { "colors" : { "background" : "FFFFFF", "tint" : "FF9600" }, "fonts" : { "text" : { "name" : "HelveticaNeue-Light", "size" : 14.0 } }, "iconOffset":  { "x": 15, "y": 20 } }, "textView" : {"textInsets": { "top": 15, "left": 20, "bottom": 10, "right": 5 }, "frame": { "x": 15, "y": 20, "width": 10, "height": 5 } } } }'
 
-exComponentsStruct = """public struct Components {
+exComponentsStruct = """\
+public struct Components {
     var dictionary: ThemeDefinition
 
     lazy var navigationBar: NavigationBar = {
@@ -42,23 +43,23 @@ public struct NavigationBar {
     var dictionary: ThemeDefinition
 
     public var description: UIFont {
-        return UIFont.font("fonts.description", dictionary: dictionary, fallback: UIFont(name: "HelveticaNeue-Light", size: 12.0)!)
+        return UIFont.font("components.navigationBar.fonts.description", dictionary: dictionary, fallback: UIFont(name: "HelveticaNeue-Light", size: 12.0)!)
     }
 
     public var text: UIFont {
-        return UIFont.font("fonts.text", dictionary: dictionary, fallback: UIFont(name: "HelveticaNeue-Light", size: 14.0)!)
+        return UIFont.font("components.navigationBar.fonts.text", dictionary: dictionary, fallback: UIFont(name: "HelveticaNeue-Light", size: 14.0)!)
     }
 
     public var background: UIColor {
-        return UIColor.color("colors.background", dictionary: dictionary, fallback: UIColor.color("84E0FAFF"))
+        return UIColor.color("components.navigationBar.colors.background", dictionary: dictionary, fallback: UIColor.color("84E0FAFF"))
     }
 
     public var tint: UIColor {
-        return UIColor.color("colors.tint", dictionary: dictionary, fallback: UIColor.color("979797FF"))
+        return UIColor.color("components.navigationBar.colors.tint", dictionary: dictionary, fallback: UIColor.color("979797FF"))
     }
 
     public var isTranslucent: Bool {
-        return NSNumber.number("bool.isTranslucent", dictionary: dictionary, fallback: NSNumber(value: true)).boolValue
+        return NSNumber.number("components.navigationBar.bools.isTranslucent", dictionary: dictionary, fallback: NSNumber(value: true)).boolValue
     }
 
     public init(dictionary: ThemeDefinition = [:]) {
@@ -70,11 +71,11 @@ public struct TextView {
     var dictionary: ThemeDefinition
 
     public var textInsets: UIEdgeInsets {
-        return NSValue.value("insets.textInsets", dictionary: dictionary, fallback: NSValue(uiEdgeInsets: UIEdgeInsets(top: 15, left: 20, bottom: 10, right: 5))).uiEdgeInsetsValue
+        return NSValue.value("components.textView.insets.textInsets", dictionary: dictionary, fallback: NSValue(uiEdgeInsets: UIEdgeInsets(top: 15, left: 20, bottom: 10, right: 5))).uiEdgeInsetsValue
     }
 
     public var frame: CGRect {
-        return NSValue.value("rects.frame", dictionary: dictionary, fallback: NSValue(cgRect: CGRect(x: 15, y: 20, width: 10, height: 5))).cgRectValue
+        return NSValue.value("components.textView.rects.frame", dictionary: dictionary, fallback: NSValue(cgRect: CGRect(x: 15, y: 20, width: 10, height: 5))).cgRectValue
     }
 
     public init(dictionary: ThemeDefinition = [:]) {
@@ -86,19 +87,19 @@ public struct TabBar {
     var dictionary: ThemeDefinition
 
     public var text: UIFont {
-        return UIFont.font("fonts.text", dictionary: dictionary, fallback: UIFont(name: "HelveticaNeue-Light", size: 14.0)!)
+        return UIFont.font("components.tabBar.fonts.text", dictionary: dictionary, fallback: UIFont(name: "HelveticaNeue-Light", size: 14.0)!)
     }
 
     public var background: UIColor {
-        return UIColor.color("colors.background", dictionary: dictionary, fallback: UIColor.color("FFFFFFFF"))
+        return UIColor.color("components.tabBar.colors.background", dictionary: dictionary, fallback: UIColor.color("FFFFFFFF"))
     }
 
     public var tint: UIColor {
-        return UIColor.color("colors.tint", dictionary: dictionary, fallback: UIColor.color("FF9600FF"))
+        return UIColor.color("components.tabBar.colors.tint", dictionary: dictionary, fallback: UIColor.color("FF9600FF"))
     }
 
     public var iconOffset: CGPoint {
-        return NSValue.value("point.iconOffset", dictionary: dictionary, fallback: NSValue(cgPoint: CGPoint(x: 15, y: 20))).cgPointValue
+        return NSValue.value("components.tabBar.points.iconOffset", dictionary: dictionary, fallback: NSValue(cgPoint: CGPoint(x: 15, y: 20))).cgPointValue
     }
 
     public init(dictionary: ThemeDefinition = [:]) {

@@ -161,7 +161,7 @@ def cgRectValueWithRect(rect):
     """
     return "NSValue(cgRect: CGRect(x: %s, y: %s, width: %s, height: %s))" % (rect.x, rect.y, rect.width, rect.height)
 
-def createColorProperty(color):
+def createColorProperty(color, prefix = None):
     """
         Returns code for UIColor property
 
@@ -170,11 +170,12 @@ def createColorProperty(color):
         color: Color Object
             The source Color
     """
-    value = otComputationWith('UIColor.color', 'colors.'+color.key, 'dictionary', uiColorWithColor(color))
+    keyPath = prefixKeyPath(prefix, 'colors.'+color.key)
+    value = otComputationWith('UIColor.color', keyPath, 'dictionary', uiColorWithColor(color))
     return computedPropertyWith(color.key, 'UIColor', value)
 
 
-def createFontProperty(font):
+def createFontProperty(font, prefix = None):
     """
         Returns code for UIFont property
 
@@ -183,10 +184,11 @@ def createFontProperty(font):
         color: Font Object
             The source Font
     """
-    value = otComputationWith('UIFont.font', 'fonts.'+font.key, 'dictionary', swiftFontInstanceWith(font)+'!')
+    keyPath = prefixKeyPath(prefix, 'fonts.'+font.key)
+    value = otComputationWith('UIFont.font', keyPath, 'dictionary', swiftFontInstanceWith(font)+'!')
     return computedPropertyWith(font.key, 'UIFont', value)
 
-def createBoolProperty(bool):
+def createBoolProperty(bool, prefix = None):
     """
         Returns code for Bool property
 
@@ -195,10 +197,11 @@ def createBoolProperty(bool):
         color: Bool Object
             The source Bool
     """
-    value = otComputationWith('NSNumber.number', 'bool.'+bool.key, 'dictionary', nsNumberWithBool(bool))
+    keyPath = prefixKeyPath(prefix, 'bools.'+bool.key)
+    value = otComputationWith('NSNumber.number', keyPath, 'dictionary', nsNumberWithBool(bool))
     return computedPropertyWith(bool.key, 'Bool', value+'.boolValue')
 
-def createPointProperty(point):
+def createPointProperty(point, prefix = None):
     """
         Returns code for CGPoint property
 
@@ -207,10 +210,11 @@ def createPointProperty(point):
         color: Point Object
             The source Point
     """
-    value = otComputationWith('NSValue.value', 'point.'+point.key, 'dictionary', cgPointValue(point))
+    keyPath = prefixKeyPath(prefix, 'points.'+point.key)
+    value = otComputationWith('NSValue.value', keyPath, 'dictionary', cgPointValue(point))
     return computedPropertyWith(point.key, 'CGPoint', value+'.cgPointValue')
 
-def createUIEdgeInsetProperty(insets):
+def createUIEdgeInsetProperty(insets, prefix = None):
     """
         Returns code for UIEdgeInsets property
 
@@ -219,10 +223,11 @@ def createUIEdgeInsetProperty(insets):
         color: EdgeInset Object
             The source EdgeInset
     """
-    value = otComputationWith('NSValue.value', 'insets.'+insets.key, 'dictionary', uiEdgeInsetsValueWithInsets(insets))
+    keyPath = prefixKeyPath(prefix, 'insets.'+insets.key)
+    value = otComputationWith('NSValue.value', keyPath, 'dictionary', uiEdgeInsetsValueWithInsets(insets))
     return computedPropertyWith(insets.key, 'UIEdgeInsets', value+'.uiEdgeInsetsValue')
 
-def createCGRectProperty(rect):
+def createCGRectProperty(rect, prefix = None):
     """
         Returns code for CGRect property
 
@@ -231,7 +236,8 @@ def createCGRectProperty(rect):
         color: Rect Object
             The source Rect
     """
-    value = otComputationWith('NSValue.value', 'rects.'+rect.key, 'dictionary', cgRectValueWithRect(rect))
+    keyPath = prefixKeyPath(prefix, 'rects.'+rect.key)
+    value = otComputationWith('NSValue.value', keyPath, 'dictionary', cgRectValueWithRect(rect))
     return computedPropertyWith(rect.key, 'CGRect', value+'.cgRectValue')
 
 def structWithBody(structName, structBody):
@@ -324,12 +330,12 @@ def createComponentStruct(component):
             The source Component
     """
     structName = upcaseFirstLetter(component.key)
-    fonts = [createFontProperty(f) for f in component.fonts]
-    colors = [createColorProperty(c) for c in component.colors]
-    bools = [createBoolProperty(b) for b in component.bools]
-    points = [createPointProperty(p) for p in component.points]
-    insets = [createUIEdgeInsetProperty(i) for i in component.insets]
-    rects = [createCGRectProperty(r) for r in component.rects]
+    fonts = [createFontProperty(f, 'components.'+component.key) for f in component.fonts]
+    colors = [createColorProperty(c, 'components.'+component.key) for c in component.colors]
+    bools = [createBoolProperty(b, 'components.'+component.key) for b in component.bools]
+    points = [createPointProperty(p, 'components.'+component.key) for p in component.points]
+    insets = [createUIEdgeInsetProperty(i, 'components.'+component.key) for i in component.insets]
+    rects = [createCGRectProperty(r, 'components.'+component.key) for r in component.rects]
 
     componentVars = []
     componentVars.extend(fonts)

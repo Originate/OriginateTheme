@@ -24,6 +24,9 @@ def indent(string, numSpaces):
     """
     return  '\n'.join([("".rjust(numSpaces)+s).rstrip() for s in string.split('\n')])
 
+def prefixKeyPath(prefix, keyPath):
+    return prefix + '.' + keyPath if prefix else keyPath
+
 ######################
 ##### File Utils #####
 ######################
