@@ -33,101 +33,308 @@ otThemeObjectStandardInitLine = "self.dictionary = dictionary"
 tabLength = 4
 
 def varWith(varName, varType):
+    """
+        Returns Swift statement for defining a variable in structs/classes.
+        Follows the format: "var $varName: varType"
+
+        Parameters
+        -----------
+        varName: String
+            The name of the var
+        varType: String
+            The type of the var
+    """
     return string.Template(varTemplate).substitute({'name': varName, 'type': varType})
 
 def otLazyComponentVar(varName, varType = None):
+    """
+        Returns code for Swift lazy loaded Originate Theme component.
+        This component must implement the convenience init $varType(dictionary: ThemeDefinition)
+
+        Parameters
+        -----------
+        varName: String
+            The name of the var
+        varType: String
+            The type of the var.  If ommited, defaults to varName with first letter capitalized
+    """
     theType = varType if varType else upcaseFirstLetter(varName)
     return string.Template(otLazyVarTemplate).substitute({'name': varName, 'type': theType})
 
 def otComputationWith(convenienceConstructor, keyPath, dictionary, fallback):
+    """
+        Returns code for instantiating an object with $convenience("$keyPath", dictionary: $dictionary, fallback: $fallback)
+
+        Parameters
+        -----------
+        convenienceConstructor: String
+            Convenience constructor.  Usually the type name.
+        keyPath: String
+            Key path for use in ThemeDefinition
+        dictionary: String
+            dictionary that defines the ThemeDefinition
+        fallback: String
+            Swift instance for return value for fallback
+    """
     return string.Template(otComputationTemplate).substitute({'convenience': convenienceConstructor, 'path': keyPath, 'dict': dictionary, 'fb': fallback})
 
 def computedPropertyWith(varName, varType, computation):
+    """
+        Returns code for a computed property.
+
+        Parameters
+        -----------
+        varName: String
+            The name of the property
+        varType: String
+            The type of the property
+        computation: String
+            The body implmentation of the computed property without the return statement.
+    """
     return string.Template(computedStaticPropertyTemplate).substitute({'var': varWith(varName,varType), 'comp': computation})
 
-def structWithBody(structName, structBody):
-    return string.Template(structTemplate).substitute({'name': structName, 'body': structBody})
-
 def indent(string, numSpaces):
+    """
+        Indents every line of text in string
+
+        Parameters
+        -----------
+        string: String
+            The string to indent
+        numSpaces: Integer
+            Amount of spaces to indent by
+    """
     return  '\n'.join(["".rjust(numSpaces)+s for s in string.split('\n')])
 
 def uiColorWithColor(color):
+    """
+        Returns code to instantiate a UIColor object.
+
+        Parameters
+        -----------
+        color: Color Object
+            The source Color
+    """
     return "UIColor.color(\"%s\")" % color.code
 
-def createColorProperty(color):
-    value = otComputationWith('UIColor.color', 'colors.'+color.key, 'dictionary', uiColorWithColor(color))
-    return computedPropertyWith(color.key, 'UIColor', value)
+def swiftFontInstanceWith(font):
+    """
+        Returns code to instantiate a UIFont object.
 
-def NSNumberWithBool(bool):
+        Parameters
+        -----------
+        font: Font Object
+            The source Font
+    """
+    return string.Template(fontTemplate).substitute({'fontName': font.name, 'fontSize': font.size})
+
+
+def nsNumberWithBool(bool):
+    """
+        Returns code for NSNumber representing Bool
+
+        Parameters
+        -----------
+        bool: Bool Object
+            The source Bool
+    """
     return "NSNumber(value: %s)" % str(bool.boolValue).lower()
 
 def cgPointValue(point):
+    """
+        Returns code for NSValue representing Point
+
+        Parameters
+        -----------
+        poinht: Point Object
+            The source Point
+    """
     return "NSValue(cgPoint: CGPoint(x: %s, y: %s))" % (point.x, point.y)
 
 def uiEdgeInsetsValueWithInsets(insets):
+    """
+        Returns code for NSValue representing EdgeInset
+
+        Parameters
+        -----------
+        insets: EdgeInset Object
+            The source EdgeInset
+    """
     return "NSValue(uiEdgeInsets: UIEdgeInsets(top: %s, left: %s, bottom: %s, right: %s))" % (insets.top, insets.left, insets.bottom, insets.right)
 
 def cgRectValueWithRect(rect):
+    """
+        Returns code for NSValue representing Rect
+
+        Parameters
+        -----------
+        insets: Rect Object
+            The source Rect
+    """
     return "NSValue(cgRect: CGRect(x: %s, y: %s, width: %s, height: %s))" % (rect.x, rect.y, rect.width, rect.height)
 
+def createColorProperty(color):
+    """
+        Returns code for UIColor property
+
+        Parameters
+        -----------
+        color: Color Object
+            The source Color
+    """
+    value = otComputationWith('UIColor.color', 'colors.'+color.key, 'dictionary', uiColorWithColor(color))
+    return computedPropertyWith(color.key, 'UIColor', value)
+
+
+def createFontProperty(font):
+    """
+        Returns code for UIFont property
+
+        Parameters
+        -----------
+        color: Font Object
+            The source Font
+    """
+    value = otComputationWith('UIFont.font', 'fonts.'+font.key, 'dictionary', swiftFontInstanceWith(font)+'!')
+    return computedPropertyWith(font.key, 'UIFont', value)
+
 def createBoolProperty(bool):
-    value = otComputationWith('NSNumber.number', 'bool.'+bool.key, 'dictionary', NSNumberWithBool(bool))
+    """
+        Returns code for Bool property
+
+        Parameters
+        -----------
+        color: Bool Object
+            The source Bool
+    """
+    value = otComputationWith('NSNumber.number', 'bool.'+bool.key, 'dictionary', nsNumberWithBool(bool))
     return computedPropertyWith(bool.key, 'Bool', value+'.boolValue')
 
 def createPointProperty(point):
+    """
+        Returns code for CGPoint property
+
+        Parameters
+        -----------
+        color: Point Object
+            The source Point
+    """
     value = otComputationWith('NSValue.value', 'point.'+point.key, 'dictionary', cgPointValue(point))
     return computedPropertyWith(point.key, 'CGPoint', value+'.cgPointValue')
 
 def createUIEdgeInsetProperty(insets):
+    """
+        Returns code for UIEdgeInsets property
+
+        Parameters
+        -----------
+        color: EdgeInset Object
+            The source EdgeInset
+    """
     value = otComputationWith('NSValue.value', 'insets.'+insets.key, 'dictionary', uiEdgeInsetsValueWithInsets(insets))
     return computedPropertyWith(insets.key, 'UIEdgeInsets', value+'.uiEdgeInsetsValue')
 
 def createCGRectProperty(rect):
+    """
+        Returns code for CGRect property
+
+        Parameters
+        -----------
+        color: Rect Object
+            The source Rect
+    """
     value = otComputationWith('NSValue.value', 'rects.'+rect.key, 'dictionary', cgRectValueWithRect(rect))
     return computedPropertyWith(rect.key, 'CGRect', value+'.cgRectValue')
 
-def swiftFontInstanceWith(font):
-    return string.Template(fontTemplate).substitute({'fontName': font.name, 'fontSize': font.size})
+def structWithBody(structName, structBody):
+    """
+        Returns struct code
 
-def createFontProperty(font):
-    value = otComputationWith('UIFont.font', 'fonts.'+font.key, 'dictionary', swiftFontInstanceWith(font)+'!')
-    return computedPropertyWith(font.key, 'UIFont', value)
+        Parameters
+        -----------
+        structName: String
+            The name of the struct
+        structBody: String
+            The body of the struct
+    """
+    return string.Template(structTemplate).substitute({'name': structName, 'body': structBody})
 
 def structWithItems(structName, implementationItems):
+    """
+        Returns struct code
+
+        Parameters
+        -----------
+        structName: String
+            The name of the struct
+        implementationItems: [String]
+            Places all implementationItems within body of struct, separated by one line
+    """
     joined = '\n\n'.join(implementationItems)
     body = indent(joined, tabLength)
     return structWithBody(structName, body)
 
 def otThemeObjectInitWithItems(items = [otThemeObjectStandardInitLine]):
+    """
+        Returns Originate Theme init with dictionary code plus other
+
+        Parameters
+        -----------
+        items: [String]
+            Initialization body statements.  Defaults to "self.dictionary = dictionary"
+    """
     joined = '\n'.join(items)
     initialization = indent(joined, tabLength)
     return string.Template(otThemeObjectInitTemplate).substitute({'body': initialization})
 
-def otThemObjectFactoryInit(type, dictionary):
-    "%s(dictionary: %s)" % (type, dictionary)
-    return "NavigationBar(dictionary: dictionary)"
+def otStructWithItems(structName, items):
+    """
+        Returns Originate Theme struct with init with dictionary code
 
-def setValueStatement(receiver, aProperty, value):
-    return "%s.%s = %s" % (receiver, aProperty, value)
+        Parameters
+        -----------
+        structName: String
+            The name of the struct
 
-otThemeObjectDictionaryVar = varWith('dictionary', 'ThemeDefinition')
+        items: [String]
+            Implmentation items in struct body
+    """
+    implementationItems = [varWith('dictionary', 'ThemeDefinition')]
+    implementationItems.extend(items)
+    implementationItems.append(otThemeObjectInitWithItems())
+    return structWithItems(structName, implementationItems)
 
-def createColorStruct(color):
-    implementationItems = [otThemeObjectDictionaryVar, createColorProperty(color), otThemeObjectInitWithItems()]
-    return structWithItems("Colors", implementationItems)
+def createColorsTheme(colors):
+    """
+        Returns Originate Theme Colors struct
 
-def createFontStruct(font):
-    implementationItems = [otThemeObjectDictionaryVar, createFontProperty(font), otThemeObjectInitWithItems()]
-    return structWithItems("Fonts", implementationItems)
+        Parameters
+        -----------
+        color: [Color]
+            List of Color objects
+    """
+    return otStructWithItems("Colors", [createColorProperty(c) for c in colors])
 
-def createOTStructWithImplemenationItems(structName, items):
-    actualItems = [otThemeObjectDictionaryVar]
-    actualItems.extend(items)
-    actualItems.append(otThemeObjectInitWithItems())
-    return structWithItems(structName, actualItems)
+def createFontTheme(fonts):
+    """
+        Returns Originate Theme Fonts struct
+
+        Parameters
+        -----------
+        color: [Font]
+            List of Font objects
+    """
+    return otStructWithItems("Fonts", [createFontProperty(f) for f in fonts])
 
 def createComponentStruct(component):
-    # for every component, make a struct
+    """
+        Returns a component struct
+
+        Parameters
+        -----------
+        component: Component
+            The source Component
+    """
     structName = upcaseFirstLetter(component.key)
     fonts = [createFontProperty(f) for f in component.fonts]
     colors = [createColorProperty(c) for c in component.colors]
@@ -143,11 +350,19 @@ def createComponentStruct(component):
     componentVars.extend(points)
     componentVars.extend(insets)
     componentVars.extend(rects)
-    return (createOTStructWithImplemenationItems(structName, componentVars))
+    return (otStructWithItems(structName, componentVars))
 
-def createAggregatedComponents(name, components):
+def createComponentsTheme(name, components):
+    """
+        Returns an Originate Theme Components struct that aggregates the components
+
+        Parameters
+        -----------
+        components: [Component]
+            The source Component objects to aggreate into a Components theme file
+    """
     componentsInterface = [otLazyComponentVar(comp.key) for comp in components]
     componentImplementations = [createComponentStruct(comp) for comp in components]
-    componentsStruct = [createOTStructWithImplemenationItems('Components', componentsInterface)]
+    componentsStruct = [otStructWithItems('Components', componentsInterface)]
     componentsStruct.extend(componentImplementations)
     return '\n\n'.join(componentsStruct)

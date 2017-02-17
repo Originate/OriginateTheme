@@ -146,7 +146,7 @@ public struct Colors {
     }
 }"""
         color = Color('red', 'FF0000')
-        data = createColorStruct(color)
+        data = createColorsTheme([color])
         self.assertEqual(expected, data, msg=failureMessageWith(expected,data))
 
 class CreateFontsStructTestCase(unittest.TestCase):
@@ -164,7 +164,7 @@ public struct Fonts {
     }
 }"""
         font = Font('text', 'HelveticaNeue', 15)
-        data = createFontStruct(font)
+        data = createFontTheme([font])
         self.assertEqual(expected, data, msg=failureMessageWith(expected,data))
 
 class ThemeObjectInitExtraTestCase(unittest.TestCase):
@@ -183,5 +183,5 @@ class CreateComponentsTestCase(unittest.TestCase):
         expected = exComponentsStruct
         jsonData = json.loads('{ "navigationBar" : { "colors" : { "background" : "84E0FA", "tint" : "000000" }, "fonts" : { "text" : { "name" : "HelveticaNeue-Light", "size" : 14.0 }, "description" : { "name" : "HelveticaNeue-Light", "size" : 12.0 } }, "isTranslucent" : true, "iconOffset":  { "x": 15, "y": 20 }, "textInsets": { "top": 15, "left": 20, "bottom": 10, "right": 5 }, "elementFrame": { "x": 15, "y": 20, "width": 10, "height": 5 } } }')
         components = parseComponents(jsonData)
-        data = createAggregatedComponents('Components',components)
+        data = createComponentsTheme('Components',components)
         self.assertEqual(expected, data, msg=failureMessageWith(expected,data))
