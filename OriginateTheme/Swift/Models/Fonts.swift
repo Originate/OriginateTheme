@@ -8,13 +8,9 @@
 
 import UIKit
 
-struct Fonts {
+public struct Fonts {
     var dictionary: ThemeDefinition
 
-    public var body: UIFont {
-        return UIFont.font("fonts.text", dictionary: dictionary, fallback: UIFont.systemFont(ofSize: 16.0))
-    }
-    
     public init(dictionary: ThemeDefinition = [:]) {
         self.dictionary = dictionary
     }
