@@ -21,20 +21,26 @@ import os
 import re
 import string
 import sys
+from ot_generator_utils import *
+from ot_generator_swift import createColorsTheme
+from ot_generator_swift import createFontsTheme
+from ot_generator_swift import createComponentsTheme
+from ot_generator_swift import generateSwiftFile
 
-#####################
-##### Templates #####
-#####################
+
+#################################
+##### Objective-C Templates #####
+#################################
 
 def headerTemplate():
     """
-        Template for an OriginateTheme header file.
+        Template for an OriginateTheme Objective-C header file.
     """
     return """//
 //  $OriginateThemeClassName.h
 //  OriginateTheme
 //
-//  Copyright (c) 2016 Originate. All rights reserved.
+//  Copyright (c) 2017 Originate. All rights reserved.
 //
 
 @import UIKit;
@@ -51,13 +57,13 @@ $OriginateThemePublicProperties
 
 def mainTemplate():
     """
-        Template for an OriginateTheme main file.
+        Template for an OriginateTheme Objective-C main file.
     """
     return """//
 //  $OriginateThemeClassName.m
 //  OriginateTheme
 //
-//  Copyright (c) 2016 Originate. All rights reserved.
+//  Copyright (c) 2017 Originate. All rights reserved.
 //
 
 #import "$OriginateThemeClassName.h"
@@ -304,14 +310,17 @@ def parseArguments(argv):
             Path to the .json file containing the theme definitions.
         outputDirectory: String
             Path to the directory where the new files should be generated.
+        language: String
+            Code generation output language. The allowed values are 'objc' or 'swift3.0'. Default is objc.
     """
     inputFile = ''
     outputDirectory = ''
-    helpString = './ot_generator.py -i <inputFile> -o <outputDirectory>'
+    language = ''
+    helpString = "./ot_generator.py -i <inputFile> -o <outputDirectory> -l <language - one of 'objc' or 'swift3.0'>"
 
     # Extract the inputFile and outputDirectory arguments.
     try:
-        opts, args = getopt.getopt(argv, "hi:o:", ["input=", "output="])
+        opts, args = getopt.getopt(argv, "hi:o:l:", ["input=", "output=", "language="])
     except getopt.GetoptError:
         print helpString
         sys.exit(2)
@@ -323,6 +332,8 @@ def parseArguments(argv):
             inputFile = arg
         elif opt in ("-o", "--output"):
             outputDirectory = arg
+        elif opt in ("-l", "--language"):
+            language = arg
 
     # Check if inputFile and outputDirectory have concrete values.
     if len(inputFile) is 0 or len(outputDirectory) is 0:
@@ -339,7 +350,11 @@ def parseArguments(argv):
         print '"' + outputDirectory + '" is not a directory or does not exist.'
         sys.exit()
 
-    return (inputFile, outputDirectory)
+    # Set default language to Objective-C
+    if len(language) is 0:
+        language = 'objc'
+
+    return (inputFile, outputDirectory, language)
 
 def parseFonts(fonts):
     """
@@ -476,17 +491,6 @@ def extractRects(dictObj):
 ######################
 ##### Generators #####
 ######################
-
-def upcaseFirstLetter(s):
-    """
-        Method which upercases the first letter of a string.
-
-        Parameters
-        -----------
-        s: String
-            String whose first letter should be upercase.
-    """
-    return s[0].upper() + s[1:] if s else s
 
 def createProperty(referenceType, accessMode, propertyType, propertyName):
     """
@@ -773,7 +777,7 @@ def main(argv):
     (fonts, colors, components) = ([], [], [])
 
     # Extract the inputFile and outputDirectory.
-    (inputFile, outputDirectory) = parseArguments(argv)
+    (inputFile, outputDirectory, language) = parseArguments(argv)
 
     # Open the .JSON file and parse the fonts, colors and components.
     with open(inputFile, 'r') as file:
@@ -785,9 +789,14 @@ def main(argv):
             sys.exit()
 
     # Create the fonts, colors and components output files.
-    generateUITypeClass(outputDirectory, 'OTFonts', sorted(fonts, key = lambda x: x.key), 'font', createFontGetter)
-    generateUITypeClass(outputDirectory, 'OTColors', sorted(colors, key = lambda x: x.key), 'color', createColorGetter)
-    generateComponentsClass(outputDirectory, 'OTComponents', sorted(components, key = lambda x: x.key))
+    if language is 'objc':
+	    generateUITypeClass(outputDirectory, 'OTFonts', sorted(fonts, key = lambda x: x.key), 'font', createFontGetter)
+	    generateUITypeClass(outputDirectory, 'OTColors', sorted(colors, key = lambda x: x.key), 'color', createColorGetter)
+	    generateComponentsClass(outputDirectory, 'OTComponents', sorted(components, key = lambda x: x.key))
+    else:
+        saveFile(outputDirectory, 'Colors.swift', generateSwiftFile(createColorsTheme(colors)))
+        saveFile(outputDirectory, 'Fonts.swift', generateSwiftFile(createFontsTheme(fonts)))
+        saveFile(outputDirectory, 'Components.swift', generateSwiftFile(createComponentsTheme(components)))
 
 if __name__ == "__main__":
     main(sys.argv[1:])

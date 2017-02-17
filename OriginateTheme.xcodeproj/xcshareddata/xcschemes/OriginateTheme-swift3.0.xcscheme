@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "649754471D8B19DB00A3B3D0"
-               BuildableName = "OriginateThemeObjectiveC.framework"
-               BlueprintName = "OriginateThemeObjectiveC"
+               BlueprintIdentifier = "64EB47EB1E5281DF0089DA2B"
+               BuildableName = "OriginateThemeSwift3.framework"
+               BlueprintName = "OriginateThemeSwift3"
                ReferencedContainer = "container:OriginateTheme.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9F13C2E91DECE769003BA24D"
-               BuildableName = "OriginateThemeTests.xctest"
-               BlueprintName = "OriginateThemeTests"
+               BlueprintIdentifier = "64EB47F31E5281DF0089DA2B"
+               BuildableName = "OriginateTheme-swift3.0Tests.xctest"
+               BlueprintName = "OriginateTheme-swift3.0Tests"
                ReferencedContainer = "container:OriginateTheme.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "649754471D8B19DB00A3B3D0"
-            BuildableName = "OriginateThemeObjectiveC.framework"
-            BlueprintName = "OriginateThemeObjectiveC"
+            BlueprintIdentifier = "64EB47EB1E5281DF0089DA2B"
+            BuildableName = "OriginateThemeSwift3.framework"
+            BlueprintName = "OriginateThemeSwift3"
             ReferencedContainer = "container:OriginateTheme.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,9 +64,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "649754471D8B19DB00A3B3D0"
-            BuildableName = "OriginateThemeObjectiveC.framework"
-            BlueprintName = "OriginateThemeObjectiveC"
+            BlueprintIdentifier = "64EB47EB1E5281DF0089DA2B"
+            BuildableName = "OriginateThemeSwift3.framework"
+            BlueprintName = "OriginateThemeSwift3"
             ReferencedContainer = "container:OriginateTheme.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +82,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "649754471D8B19DB00A3B3D0"
-            BuildableName = "OriginateThemeObjectiveC.framework"
-            BlueprintName = "OriginateThemeObjectiveC"
+            BlueprintIdentifier = "64EB47EB1E5281DF0089DA2B"
+            BuildableName = "OriginateThemeSwift3.framework"
+            BlueprintName = "OriginateThemeSwift3"
             ReferencedContainer = "container:OriginateTheme.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

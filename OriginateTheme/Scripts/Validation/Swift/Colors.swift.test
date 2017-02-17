@@ -1,0 +1,44 @@
+//
+//  $OriginateThemeStructName.swift
+//  OriginateTheme
+//
+//  Copyright (c) 2017 Originate. All rights reserved.
+//
+
+import UIKit
+
+public struct Colors {
+    var dictionary: ThemeDefinition
+
+    public var success: UIColor {
+        return UIColor.color("colors.success", dictionary: dictionary, fallback: UIColor.color("95BE22FF"))
+    }
+
+    public var title: UIColor {
+        return UIColor.color("colors.title", dictionary: dictionary, fallback: UIColor.color("000000FF"))
+    }
+
+    public var primary: UIColor {
+        return UIColor.color("colors.primary", dictionary: dictionary, fallback: UIColor.color("70CFFFFF"))
+    }
+
+    public var caption: UIColor {
+        return UIColor.color("colors.caption", dictionary: dictionary, fallback: UIColor.color("545454FF"))
+    }
+
+    public var warning: UIColor {
+        return UIColor.color("colors.warning", dictionary: dictionary, fallback: UIColor.color("FFA500FF"))
+    }
+
+    public var error: UIColor {
+        return UIColor.color("colors.error", dictionary: dictionary, fallback: UIColor.color("BD2C00FF"))
+    }
+
+    public var secondary: UIColor {
+        return UIColor.color("colors.secondary", dictionary: dictionary, fallback: UIColor.color("FCD92BFF"))
+    }
+
+    public init(dictionary: ThemeDefinition = [:]) {
+        self.dictionary = dictionary
+    }
+}
