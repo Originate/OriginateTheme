@@ -9,7 +9,7 @@
 import Foundation
 
 extension NSValue {
-    class func value(keyPath: String, definition: [String: Any], fallback: NSValue) -> NSValue {
-        return definition[keyPath: KeyPath(keyPath)] as? NSValue ?? fallback
+    class func value(_ keyPath: String, dictionary: [String: Any], fallback: NSValue) -> NSValue {
+        return dictionary[keyPath: KeyPath(keyPath)] as? NSValue ?? fallback
     }
 }

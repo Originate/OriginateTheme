@@ -40,6 +40,7 @@
 		64574FF01E53017100EAB331 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64574FE91E53013700EAB331 /* Fonts.swift */; };
 		9F13C2ED1DECE769003BA24D /* OriginateThemeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F13C2EC1DECE769003BA24D /* OriginateThemeTests.m */; };
 		9F13C2EF1DECE769003BA24D /* OriginateThemeObjectiveC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 649754481D8B19DB00A3B3D0 /* OriginateThemeObjectiveC.framework */; };
+		CE1D400A1E567FD40072B523 /* NSNumber+KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D40091E567FD40072B523 /* NSNumber+KeyPath.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		9F13C2EA1DECE769003BA24D /* OriginateThemeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OriginateThemeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F13C2EC1DECE769003BA24D /* OriginateThemeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OriginateThemeTests.m; sourceTree = "<group>"; };
 		9F13C2EE1DECE769003BA24D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE1D40091E567FD40072B523 /* NSNumber+KeyPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSNumber+KeyPath.swift"; path = "OriginateTheme/Swift/Extensions/NSNumber+KeyPath.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 			children = (
 				64574FD01E52FB9400EAB331 /* NSDictionary+KeyPath.swift */,
 				64574FDE1E52FEFB00EAB331 /* NSValue+KeyPath.swift */,
+				CE1D40091E567FD40072B523 /* NSNumber+KeyPath.swift */,
 				64574FD51E52FCB900EAB331 /* String+StringInitializable.swift */,
 				64574FC81E52FB1E00EAB331 /* UIColor+Hex.swift */,
 				64574FC91E52FB1E00EAB331 /* UIColor+KeyPath.swift */,
@@ -435,6 +438,7 @@
 				64574FEF1E53016D00EAB331 /* Components.swift in Sources */,
 				64574FF01E53017100EAB331 /* Fonts.swift in Sources */,
 				64574FEE1E53016900EAB331 /* Colors.swift in Sources */,
+				CE1D400A1E567FD40072B523 /* NSNumber+KeyPath.swift in Sources */,
 				64574FDB1E52FCE300EAB331 /* String+StringInitializable.swift in Sources */,
 				64574FDD1E52FCF200EAB331 /* KeyPath.swift in Sources */,
 				64574FD91E52FCE300EAB331 /* UIColor+KeyPath.swift in Sources */,

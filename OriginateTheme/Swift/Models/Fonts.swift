@@ -12,7 +12,7 @@ struct Fonts {
     var dictionary: ThemeDefinition
 
     public var body: UIFont {
-        return UIFont.font(keyPath: "fonts.text", dictionary: dictionary, fallback: UIFont.systemFont(ofSize: 16.0))
+        return UIFont.font("fonts.text", dictionary: dictionary, fallback: UIFont.systemFont(ofSize: 16.0))
     }
     
     public init(dictionary: ThemeDefinition = [:]) {
