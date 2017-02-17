@@ -16,13 +16,23 @@ from ot_generator import *
 varName = "backgroundColor"
 varType = "UIColor"
 
+testJson = '{ "fonts" : { "defaultText" : { "name" : "HelveticaNeue", "size" : 22.0 }, "defaultBold" : { "name" : "HelveticaNeue-Bold", "size" : 14.0 }, "defaultLight" : { "name" : "HelveticaNeue-Light", "size" : 16.0 }, "defaultItalic" : { "name" : "HelveticaNeue-Thin", "size" : 14.0 } }, "colors" : { "primary" : "70CFFF" , "secondary" : "FCD92B", "title" : "000000", "caption" : "545454", "success" : "95BE22", "warning" : "FFA500", "error" : "BD2C00" }, "components" : { "navigationBar" : { "colors" : { "background" : "84E0FA", "tint" : "979797" }, "fonts" : { "text" : { "name" : "HelveticaNeue-Light", "size" : 14.0 }, "description" : {"name" : "HelveticaNeue-Light", "size" : 12.0 } }, "isTranslucent" : true }, "tabBar" : { "colors" : { "background" : "FFFFFF", "tint" : "FF9600" }, "fonts" : { "text" : { "name" : "HelveticaNeue-Light", "size" : 14.0 } }, "iconOffset":  { "x": 15, "y": 20 } }, "textView" : {"textInsets": { "top": 15, "left": 20, "bottom": 10, "right": 5 }, "frame": { "x": 15, "y": 20, "width": 10, "height": 5 } } } }'
+
 exComponentsStruct = """public struct Components {
     var dictionary: ThemeDefinition
-    \n\
+
     lazy var navigationBar: NavigationBar = {
         return NavigationBar(dictionary: self.dictionary)
     }()
-    \n\
+
+    lazy var textView: TextView = {
+        return TextView(dictionary: self.dictionary)
+    }()
+
+    lazy var tabBar: TabBar = {
+        return TabBar(dictionary: self.dictionary)
+    }()
+
     public init(dictionary: ThemeDefinition = [:]) {
         self.dictionary = dictionary
     }
@@ -30,39 +40,67 @@ exComponentsStruct = """public struct Components {
 
 public struct NavigationBar {
     var dictionary: ThemeDefinition
-    \n\
+
     public var description: UIFont {
         return UIFont.font("fonts.description", dictionary: dictionary, fallback: UIFont(name: "HelveticaNeue-Light", size: 12.0)!)
     }
-    \n\
+
     public var text: UIFont {
         return UIFont.font("fonts.text", dictionary: dictionary, fallback: UIFont(name: "HelveticaNeue-Light", size: 14.0)!)
     }
-    \n\
+
     public var background: UIColor {
         return UIColor.color("colors.background", dictionary: dictionary, fallback: UIColor.color("84E0FAFF"))
     }
-    \n\
+
     public var tint: UIColor {
-        return UIColor.color("colors.tint", dictionary: dictionary, fallback: UIColor.color("000000FF"))
+        return UIColor.color("colors.tint", dictionary: dictionary, fallback: UIColor.color("979797FF"))
     }
-    \n\
+
     public var isTranslucent: Bool {
         return NSNumber.number("bool.isTranslucent", dictionary: dictionary, fallback: NSNumber(value: true)).boolValue
     }
-    \n\
-    public var iconOffset: CGPoint {
-        return NSValue.value("point.iconOffset", dictionary: dictionary, fallback: NSValue(cgPoint: CGPoint(x: 15, y: 20))).cgPointValue
+
+    public init(dictionary: ThemeDefinition = [:]) {
+        self.dictionary = dictionary
     }
-    \n\
+}
+
+public struct TextView {
+    var dictionary: ThemeDefinition
+
     public var textInsets: UIEdgeInsets {
         return NSValue.value("insets.textInsets", dictionary: dictionary, fallback: NSValue(uiEdgeInsets: UIEdgeInsets(top: 15, left: 20, bottom: 10, right: 5))).uiEdgeInsetsValue
     }
-    \n\
-    public var elementFrame: CGRect {
-        return NSValue.value("rects.elementFrame", dictionary: dictionary, fallback: NSValue(cgRect: CGRect(x: 15, y: 20, width: 10, height: 5))).cgRectValue
+
+    public var frame: CGRect {
+        return NSValue.value("rects.frame", dictionary: dictionary, fallback: NSValue(cgRect: CGRect(x: 15, y: 20, width: 10, height: 5))).cgRectValue
     }
-    \n\
+
+    public init(dictionary: ThemeDefinition = [:]) {
+        self.dictionary = dictionary
+    }
+}
+
+public struct TabBar {
+    var dictionary: ThemeDefinition
+
+    public var text: UIFont {
+        return UIFont.font("fonts.text", dictionary: dictionary, fallback: UIFont(name: "HelveticaNeue-Light", size: 14.0)!)
+    }
+
+    public var background: UIColor {
+        return UIColor.color("colors.background", dictionary: dictionary, fallback: UIColor.color("FFFFFFFF"))
+    }
+
+    public var tint: UIColor {
+        return UIColor.color("colors.tint", dictionary: dictionary, fallback: UIColor.color("FF9600FF"))
+    }
+
+    public var iconOffset: CGPoint {
+        return NSValue.value("point.iconOffset", dictionary: dictionary, fallback: NSValue(cgPoint: CGPoint(x: 15, y: 20))).cgPointValue
+    }
+
     public init(dictionary: ThemeDefinition = [:]) {
         self.dictionary = dictionary
     }
@@ -136,11 +174,11 @@ class CreateColorsStructTestCase(unittest.TestCase):
         expected = """\
 public struct Colors {
     var dictionary: ThemeDefinition
-    \n\
+
     public var red: UIColor {
         return UIColor.color("colors.red", dictionary: dictionary, fallback: UIColor.color("FF0000"))
     }
-    \n\
+
     public init(dictionary: ThemeDefinition = [:]) {
         self.dictionary = dictionary
     }
@@ -154,17 +192,17 @@ class CreateFontsStructTestCase(unittest.TestCase):
         expected = """\
 public struct Fonts {
     var dictionary: ThemeDefinition
-    \n\
+
     public var text: UIFont {
         return UIFont.font("fonts.text", dictionary: dictionary, fallback: UIFont(name: "HelveticaNeue", size: 15)!)
     }
-    \n\
+
     public init(dictionary: ThemeDefinition = [:]) {
         self.dictionary = dictionary
     }
 }"""
         font = Font('text', 'HelveticaNeue', 15)
-        data = createFontTheme([font])
+        data = createFontsTheme([font])
         self.assertEqual(expected, data, msg=failureMessageWith(expected,data))
 
 class ThemeObjectInitExtraTestCase(unittest.TestCase):
@@ -181,7 +219,42 @@ public init(dictionary: ThemeDefinition = [:]) {
 class CreateComponentsTestCase(unittest.TestCase):
     def runTest(self):
         expected = exComponentsStruct
-        jsonData = json.loads('{ "navigationBar" : { "colors" : { "background" : "84E0FA", "tint" : "000000" }, "fonts" : { "text" : { "name" : "HelveticaNeue-Light", "size" : 14.0 }, "description" : { "name" : "HelveticaNeue-Light", "size" : 12.0 } }, "isTranslucent" : true, "iconOffset":  { "x": 15, "y": 20 }, "textInsets": { "top": 15, "left": 20, "bottom": 10, "right": 5 }, "elementFrame": { "x": 15, "y": 20, "width": 10, "height": 5 } } }')
-        components = parseComponents(jsonData)
-        data = createComponentsTheme('Components',components)
+        jsonData = json.loads(testJson)
+        components = parseComponents(jsonData['components'])
+        data = createComponentsTheme(components)
         self.assertEqual(expected, data, msg=failureMessageWith(expected,data))
+
+class CreateColorsFileTestCase(unittest.TestCase):
+    def runTest(self):
+        jsonData = json.loads(testJson)
+        code = createColorsTheme(parseColors(jsonData['colors']))
+        data = generateSwiftFile(code)
+
+        testDirectory = os.path.dirname(__file__)
+        filePath = os.path.join(testDirectory, 'Validation/Swift/Colors.swift.test')
+        with open(filePath) as file:
+            expected = file.read()
+            self.assertEqual(data, expected, msg=failureMessageWith(expected,data))
+
+class CreateFontsFileTestCase(unittest.TestCase):
+    def runTest(self):
+        jsonData = json.loads(testJson)
+        code = createFontsTheme(parseFonts(jsonData['fonts']))
+        data = generateSwiftFile(code)
+
+        testDirectory = os.path.dirname(__file__)
+        filePath = os.path.join(testDirectory, 'Validation/Swift/Fonts.swift.test')
+        with open(filePath) as file:
+            expected = file.read()
+            self.assertEqual(data, expected, msg=failureMessageWith(expected,data))
+
+class CreateComponentsFileTestCase(unittest.TestCase):
+    def runTest(self):
+        jsonData = json.loads(testJson)
+        code = createComponentsTheme(parseComponents(jsonData['components']))
+        data = generateSwiftFile(code)
+        testDirectory = os.path.dirname(__file__)
+        filePath = os.path.join(testDirectory, 'Validation/Swift/Components.swift.test')
+        with open(filePath) as file:
+            expected = file.read()
+            self.assertEqual(data, expected, msg=failureMessageWith(expected,data))

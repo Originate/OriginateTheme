@@ -1,5 +1,6 @@
 import string
 from ot_generator import upcaseFirstLetter
+from ot_generator import swiftTemplate
 
 structTemplate = """public struct $name {
 $body
@@ -104,7 +105,7 @@ def indent(string, numSpaces):
         numSpaces: Integer
             Amount of spaces to indent by
     """
-    return  '\n'.join(["".rjust(numSpaces)+s for s in string.split('\n')])
+    return  '\n'.join([("".rjust(numSpaces)+s).rstrip() for s in string.split('\n')])
 
 def uiColorWithColor(color):
     """
@@ -315,7 +316,7 @@ def createColorsTheme(colors):
     """
     return otStructWithItems("Colors", [createColorProperty(c) for c in colors])
 
-def createFontTheme(fonts):
+def createFontsTheme(fonts):
     """
         Returns Originate Theme Fonts struct
 
@@ -352,7 +353,7 @@ def createComponentStruct(component):
     componentVars.extend(rects)
     return (otStructWithItems(structName, componentVars))
 
-def createComponentsTheme(name, components):
+def createComponentsTheme(components):
     """
         Returns an Originate Theme Components struct that aggregates the components
 
@@ -366,3 +367,6 @@ def createComponentsTheme(name, components):
     componentsStruct = [otStructWithItems('Components', componentsInterface)]
     componentsStruct.extend(componentImplementations)
     return '\n\n'.join(componentsStruct)
+
+def generateSwiftFile(code):
+    return swiftTemplate() + code + '\n'
