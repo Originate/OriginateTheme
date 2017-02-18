@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
   s.requires_arc        = true
   s.source_files        = 'OriginateTheme/Sources/**/*.{h,m,swift}'
   s.public_header_files = 'OriginateTheme/Sources/**/*.h'
-  s.preserve_path       = 'OriginateTheme/Scripts/ot_generator.py'
+  s.preserve_path       = 'OriginateTheme/Scripts/*.py'
 end
