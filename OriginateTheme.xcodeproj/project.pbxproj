@@ -7,40 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		64574FA61E52FA1600EAB331 /* NSValue+OTKeySource.h in Headers */ = {isa = PBXBuildFile; fileRef = 64574F9E1E52FA1600EAB331 /* NSValue+OTKeySource.h */; };
-		64574FA71E52FA1600EAB331 /* NSValue+OTKeySource.m in Sources */ = {isa = PBXBuildFile; fileRef = 64574F9F1E52FA1600EAB331 /* NSValue+OTKeySource.m */; };
-		64574FA81E52FA1600EAB331 /* UIColor+OTHex.h in Headers */ = {isa = PBXBuildFile; fileRef = 64574FA01E52FA1600EAB331 /* UIColor+OTHex.h */; };
-		64574FA91E52FA1600EAB331 /* UIColor+OTHex.m in Sources */ = {isa = PBXBuildFile; fileRef = 64574FA11E52FA1600EAB331 /* UIColor+OTHex.m */; };
-		64574FAA1E52FA1600EAB331 /* UIColor+OTKeySource.h in Headers */ = {isa = PBXBuildFile; fileRef = 64574FA21E52FA1600EAB331 /* UIColor+OTKeySource.h */; };
-		64574FAB1E52FA1600EAB331 /* UIColor+OTKeySource.m in Sources */ = {isa = PBXBuildFile; fileRef = 64574FA31E52FA1600EAB331 /* UIColor+OTKeySource.m */; };
-		64574FAC1E52FA1600EAB331 /* UIFont+OTKeySource.h in Headers */ = {isa = PBXBuildFile; fileRef = 64574FA41E52FA1600EAB331 /* UIFont+OTKeySource.h */; };
-		64574FAD1E52FA1600EAB331 /* UIFont+OTKeySource.m in Sources */ = {isa = PBXBuildFile; fileRef = 64574FA51E52FA1600EAB331 /* UIFont+OTKeySource.m */; };
-		64574FB71E52FA2300EAB331 /* OTColors.h in Headers */ = {isa = PBXBuildFile; fileRef = 64574FAE1E52FA2300EAB331 /* OTColors.h */; };
-		64574FB81E52FA2300EAB331 /* OTColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 64574FAF1E52FA2300EAB331 /* OTColors.m */; };
-		64574FB91E52FA2300EAB331 /* OTComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 64574FB01E52FA2300EAB331 /* OTComponents.h */; };
-		64574FBA1E52FA2300EAB331 /* OTComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 64574FB11E52FA2300EAB331 /* OTComponents.m */; };
-		64574FBB1E52FA2300EAB331 /* OTFonts.h in Headers */ = {isa = PBXBuildFile; fileRef = 64574FB21E52FA2300EAB331 /* OTFonts.h */; };
-		64574FBC1E52FA2300EAB331 /* OTFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 64574FB31E52FA2300EAB331 /* OTFonts.m */; };
-		64574FBD1E52FA2300EAB331 /* OTTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 64574FB41E52FA2300EAB331 /* OTTheme.h */; };
-		64574FBE1E52FA2300EAB331 /* OTTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 64574FB51E52FA2300EAB331 /* OTTheme.m */; };
-		64574FBF1E52FA2300EAB331 /* OTThemeable.h in Headers */ = {isa = PBXBuildFile; fileRef = 64574FB61E52FA2300EAB331 /* OTThemeable.h */; };
-		64574FC11E52FA2C00EAB331 /* OriginateTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 64574FC01E52FA2C00EAB331 /* OriginateTheme.h */; };
-		64574FD71E52FCE300EAB331 /* NSDictionary+KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64574FD01E52FB9400EAB331 /* NSDictionary+KeyPath.swift */; };
-		64574FD81E52FCE300EAB331 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64574FC81E52FB1E00EAB331 /* UIColor+Hex.swift */; };
-		64574FD91E52FCE300EAB331 /* UIColor+KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64574FC91E52FB1E00EAB331 /* UIColor+KeyPath.swift */; };
-		64574FDA1E52FCE300EAB331 /* UIFont+KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64574FCA1E52FB1E00EAB331 /* UIFont+KeyPath.swift */; };
-		64574FDB1E52FCE300EAB331 /* String+StringInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64574FD51E52FCB900EAB331 /* String+StringInitializable.swift */; };
-		64574FDC1E52FCEF00EAB331 /* StringInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64574FD31E52FC7500EAB331 /* StringInitializable.swift */; };
-		64574FDD1E52FCF200EAB331 /* KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64574FCE1E52FB6D00EAB331 /* KeyPath.swift */; };
-		64574FE01E52FF1100EAB331 /* NSValue+KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64574FDE1E52FEFB00EAB331 /* NSValue+KeyPath.swift */; };
-		64574FE51E52FF5A00EAB331 /* Themeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64574FE11E52FF2E00EAB331 /* Themeable.swift */; };
-		64574FE61E52FF6C00EAB331 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64574FE31E52FF5400EAB331 /* Theme.swift */; };
-		64574FEE1E53016900EAB331 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64574FE71E53012B00EAB331 /* Colors.swift */; };
-		64574FEF1E53016D00EAB331 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64574FEB1E53014100EAB331 /* Components.swift */; };
-		64574FF01E53017100EAB331 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64574FE91E53013700EAB331 /* Fonts.swift */; };
 		9F13C2ED1DECE769003BA24D /* OriginateThemeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F13C2EC1DECE769003BA24D /* OriginateThemeTests.m */; };
 		9F13C2EF1DECE769003BA24D /* OriginateThemeObjectiveC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 649754481D8B19DB00A3B3D0 /* OriginateThemeObjectiveC.framework */; };
-		CE1D400A1E567FD40072B523 /* NSNumber+KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D40091E567FD40072B523 /* NSNumber+KeyPath.swift */; };
+		9F6F9BCF1E5AA5C500FA3F45 /* OriginateTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F6F9BCE1E5AA5C500FA3F45 /* OriginateTheme.h */; };
+		9F6F9BD81E5AA5CD00FA3F45 /* NSValue+OTKeySource.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F6F9BD01E5AA5CD00FA3F45 /* NSValue+OTKeySource.h */; };
+		9F6F9BD91E5AA5CD00FA3F45 /* NSValue+OTKeySource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6F9BD11E5AA5CD00FA3F45 /* NSValue+OTKeySource.m */; };
+		9F6F9BDA1E5AA5CD00FA3F45 /* UIColor+OTHex.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F6F9BD21E5AA5CD00FA3F45 /* UIColor+OTHex.h */; };
+		9F6F9BDB1E5AA5CD00FA3F45 /* UIColor+OTHex.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6F9BD31E5AA5CD00FA3F45 /* UIColor+OTHex.m */; };
+		9F6F9BDC1E5AA5CD00FA3F45 /* UIColor+OTKeySource.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F6F9BD41E5AA5CD00FA3F45 /* UIColor+OTKeySource.h */; };
+		9F6F9BDD1E5AA5CD00FA3F45 /* UIColor+OTKeySource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6F9BD51E5AA5CD00FA3F45 /* UIColor+OTKeySource.m */; };
+		9F6F9BDE1E5AA5CD00FA3F45 /* UIFont+OTKeySource.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F6F9BD61E5AA5CD00FA3F45 /* UIFont+OTKeySource.h */; };
+		9F6F9BDF1E5AA5CD00FA3F45 /* UIFont+OTKeySource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6F9BD71E5AA5CD00FA3F45 /* UIFont+OTKeySource.m */; };
+		9F6F9BE91E5AA5D600FA3F45 /* OTColors.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F6F9BE01E5AA5D600FA3F45 /* OTColors.h */; };
+		9F6F9BEA1E5AA5D600FA3F45 /* OTColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6F9BE11E5AA5D600FA3F45 /* OTColors.m */; };
+		9F6F9BEB1E5AA5D600FA3F45 /* OTComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F6F9BE21E5AA5D600FA3F45 /* OTComponents.h */; };
+		9F6F9BEC1E5AA5D600FA3F45 /* OTComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6F9BE31E5AA5D600FA3F45 /* OTComponents.m */; };
+		9F6F9BED1E5AA5D600FA3F45 /* OTFonts.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F6F9BE41E5AA5D600FA3F45 /* OTFonts.h */; };
+		9F6F9BEE1E5AA5D600FA3F45 /* OTFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6F9BE51E5AA5D600FA3F45 /* OTFonts.m */; };
+		9F6F9BEF1E5AA5D600FA3F45 /* OTTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F6F9BE61E5AA5D600FA3F45 /* OTTheme.h */; };
+		9F6F9BF01E5AA5D600FA3F45 /* OTTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6F9BE71E5AA5D600FA3F45 /* OTTheme.m */; };
+		9F6F9BF11E5AA5D600FA3F45 /* OTThemeable.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F6F9BE81E5AA5D600FA3F45 /* OTThemeable.h */; };
+		9F6F9BF41E5AA5E300FA3F45 /* StringInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6F9BF21E5AA5E300FA3F45 /* StringInitializable.swift */; };
+		9F6F9BF51E5AA5E300FA3F45 /* Themeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6F9BF31E5AA5E300FA3F45 /* Themeable.swift */; };
+		9F6F9BFD1E5AA5EC00FA3F45 /* NSDictionary+KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6F9BF61E5AA5EC00FA3F45 /* NSDictionary+KeyPath.swift */; };
+		9F6F9BFE1E5AA5EC00FA3F45 /* NSNumber+KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6F9BF71E5AA5EC00FA3F45 /* NSNumber+KeyPath.swift */; };
+		9F6F9BFF1E5AA5EC00FA3F45 /* NSValue+KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6F9BF81E5AA5EC00FA3F45 /* NSValue+KeyPath.swift */; };
+		9F6F9C001E5AA5EC00FA3F45 /* String+StringInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6F9BF91E5AA5EC00FA3F45 /* String+StringInitializable.swift */; };
+		9F6F9C011E5AA5EC00FA3F45 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6F9BFA1E5AA5EC00FA3F45 /* UIColor+Hex.swift */; };
+		9F6F9C021E5AA5EC00FA3F45 /* UIColor+KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6F9BFB1E5AA5EC00FA3F45 /* UIColor+KeyPath.swift */; };
+		9F6F9C031E5AA5EC00FA3F45 /* UIFont+KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6F9BFC1E5AA5EC00FA3F45 /* UIFont+KeyPath.swift */; };
+		9F6F9C091E5AA5F400FA3F45 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6F9C041E5AA5F400FA3F45 /* Colors.swift */; };
+		9F6F9C0A1E5AA5F400FA3F45 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6F9C051E5AA5F400FA3F45 /* Components.swift */; };
+		9F6F9C0B1E5AA5F400FA3F45 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6F9C061E5AA5F400FA3F45 /* Fonts.swift */; };
+		9F6F9C0C1E5AA5F400FA3F45 /* KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6F9C071E5AA5F400FA3F45 /* KeyPath.swift */; };
+		9F6F9C0D1E5AA5F400FA3F45 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6F9C081E5AA5F400FA3F45 /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,44 +54,44 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		64574F9E1E52FA1600EAB331 /* NSValue+OTKeySource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSValue+OTKeySource.h"; path = "OriginateTheme/Objective-C/Categories/NSValue+OTKeySource.h"; sourceTree = SOURCE_ROOT; };
-		64574F9F1E52FA1600EAB331 /* NSValue+OTKeySource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSValue+OTKeySource.m"; path = "OriginateTheme/Objective-C/Categories/NSValue+OTKeySource.m"; sourceTree = SOURCE_ROOT; };
-		64574FA01E52FA1600EAB331 /* UIColor+OTHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+OTHex.h"; path = "OriginateTheme/Objective-C/Categories/UIColor+OTHex.h"; sourceTree = SOURCE_ROOT; };
-		64574FA11E52FA1600EAB331 /* UIColor+OTHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+OTHex.m"; path = "OriginateTheme/Objective-C/Categories/UIColor+OTHex.m"; sourceTree = SOURCE_ROOT; };
-		64574FA21E52FA1600EAB331 /* UIColor+OTKeySource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+OTKeySource.h"; path = "OriginateTheme/Objective-C/Categories/UIColor+OTKeySource.h"; sourceTree = SOURCE_ROOT; };
-		64574FA31E52FA1600EAB331 /* UIColor+OTKeySource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+OTKeySource.m"; path = "OriginateTheme/Objective-C/Categories/UIColor+OTKeySource.m"; sourceTree = SOURCE_ROOT; };
-		64574FA41E52FA1600EAB331 /* UIFont+OTKeySource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+OTKeySource.h"; path = "OriginateTheme/Objective-C/Categories/UIFont+OTKeySource.h"; sourceTree = SOURCE_ROOT; };
-		64574FA51E52FA1600EAB331 /* UIFont+OTKeySource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+OTKeySource.m"; path = "OriginateTheme/Objective-C/Categories/UIFont+OTKeySource.m"; sourceTree = SOURCE_ROOT; };
-		64574FAE1E52FA2300EAB331 /* OTColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTColors.h; path = "OriginateTheme/Objective-C/Classes/OTColors.h"; sourceTree = SOURCE_ROOT; };
-		64574FAF1E52FA2300EAB331 /* OTColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTColors.m; path = "OriginateTheme/Objective-C/Classes/OTColors.m"; sourceTree = SOURCE_ROOT; };
-		64574FB01E52FA2300EAB331 /* OTComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTComponents.h; path = "OriginateTheme/Objective-C/Classes/OTComponents.h"; sourceTree = SOURCE_ROOT; };
-		64574FB11E52FA2300EAB331 /* OTComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTComponents.m; path = "OriginateTheme/Objective-C/Classes/OTComponents.m"; sourceTree = SOURCE_ROOT; };
-		64574FB21E52FA2300EAB331 /* OTFonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTFonts.h; path = "OriginateTheme/Objective-C/Classes/OTFonts.h"; sourceTree = SOURCE_ROOT; };
-		64574FB31E52FA2300EAB331 /* OTFonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTFonts.m; path = "OriginateTheme/Objective-C/Classes/OTFonts.m"; sourceTree = SOURCE_ROOT; };
-		64574FB41E52FA2300EAB331 /* OTTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTTheme.h; path = "OriginateTheme/Objective-C/Classes/OTTheme.h"; sourceTree = SOURCE_ROOT; };
-		64574FB51E52FA2300EAB331 /* OTTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTTheme.m; path = "OriginateTheme/Objective-C/Classes/OTTheme.m"; sourceTree = SOURCE_ROOT; };
-		64574FB61E52FA2300EAB331 /* OTThemeable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTThemeable.h; path = "OriginateTheme/Objective-C/Classes/OTThemeable.h"; sourceTree = SOURCE_ROOT; };
-		64574FC01E52FA2C00EAB331 /* OriginateTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OriginateTheme.h; path = "OriginateTheme/Objective-C/OriginateTheme.h"; sourceTree = SOURCE_ROOT; };
-		64574FC81E52FB1E00EAB331 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Hex.swift"; path = "OriginateTheme/Swift/Extensions/UIColor+Hex.swift"; sourceTree = SOURCE_ROOT; };
-		64574FC91E52FB1E00EAB331 /* UIColor+KeyPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+KeyPath.swift"; path = "OriginateTheme/Swift/Extensions/UIColor+KeyPath.swift"; sourceTree = SOURCE_ROOT; };
-		64574FCA1E52FB1E00EAB331 /* UIFont+KeyPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIFont+KeyPath.swift"; path = "OriginateTheme/Swift/Extensions/UIFont+KeyPath.swift"; sourceTree = SOURCE_ROOT; };
-		64574FCE1E52FB6D00EAB331 /* KeyPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyPath.swift; path = OriginateTheme/Swift/Models/KeyPath.swift; sourceTree = SOURCE_ROOT; };
-		64574FD01E52FB9400EAB331 /* NSDictionary+KeyPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDictionary+KeyPath.swift"; path = "OriginateTheme/Swift/Extensions/NSDictionary+KeyPath.swift"; sourceTree = SOURCE_ROOT; };
-		64574FD31E52FC7500EAB331 /* StringInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringInitializable.swift; path = OriginateTheme/Swift/Protocols/StringInitializable.swift; sourceTree = SOURCE_ROOT; };
-		64574FD51E52FCB900EAB331 /* String+StringInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+StringInitializable.swift"; path = "OriginateTheme/Swift/Extensions/String+StringInitializable.swift"; sourceTree = SOURCE_ROOT; };
-		64574FDE1E52FEFB00EAB331 /* NSValue+KeyPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSValue+KeyPath.swift"; path = "OriginateTheme/Swift/Extensions/NSValue+KeyPath.swift"; sourceTree = SOURCE_ROOT; };
-		64574FE11E52FF2E00EAB331 /* Themeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Themeable.swift; path = OriginateTheme/Swift/Protocols/Themeable.swift; sourceTree = SOURCE_ROOT; };
-		64574FE31E52FF5400EAB331 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = OriginateTheme/Swift/Models/Theme.swift; sourceTree = SOURCE_ROOT; };
-		64574FE71E53012B00EAB331 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = OriginateTheme/Swift/Models/Colors.swift; sourceTree = SOURCE_ROOT; };
-		64574FE91E53013700EAB331 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fonts.swift; path = OriginateTheme/Swift/Models/Fonts.swift; sourceTree = SOURCE_ROOT; };
-		64574FEB1E53014100EAB331 /* Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Components.swift; path = OriginateTheme/Swift/Models/Components.swift; sourceTree = SOURCE_ROOT; };
 		649754481D8B19DB00A3B3D0 /* OriginateThemeObjectiveC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OriginateThemeObjectiveC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6497547B1D8B1B3E00A3B3D0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64EB47EC1E5281DF0089DA2B /* OriginateThemeSwift3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OriginateThemeSwift3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F13C2EA1DECE769003BA24D /* OriginateThemeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OriginateThemeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F13C2EC1DECE769003BA24D /* OriginateThemeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OriginateThemeTests.m; sourceTree = "<group>"; };
 		9F13C2EE1DECE769003BA24D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE1D40091E567FD40072B523 /* NSNumber+KeyPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSNumber+KeyPath.swift"; path = "OriginateTheme/Swift/Extensions/NSNumber+KeyPath.swift"; sourceTree = SOURCE_ROOT; };
+		9F6F9BCE1E5AA5C500FA3F45 /* OriginateTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OriginateTheme.h; path = "OriginateTheme/Sources/Objective-C/OriginateTheme.h"; sourceTree = SOURCE_ROOT; };
+		9F6F9BD01E5AA5CD00FA3F45 /* NSValue+OTKeySource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSValue+OTKeySource.h"; path = "OriginateTheme/Sources/Objective-C/Categories/NSValue+OTKeySource.h"; sourceTree = SOURCE_ROOT; };
+		9F6F9BD11E5AA5CD00FA3F45 /* NSValue+OTKeySource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSValue+OTKeySource.m"; path = "OriginateTheme/Sources/Objective-C/Categories/NSValue+OTKeySource.m"; sourceTree = SOURCE_ROOT; };
+		9F6F9BD21E5AA5CD00FA3F45 /* UIColor+OTHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+OTHex.h"; path = "OriginateTheme/Sources/Objective-C/Categories/UIColor+OTHex.h"; sourceTree = SOURCE_ROOT; };
+		9F6F9BD31E5AA5CD00FA3F45 /* UIColor+OTHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+OTHex.m"; path = "OriginateTheme/Sources/Objective-C/Categories/UIColor+OTHex.m"; sourceTree = SOURCE_ROOT; };
+		9F6F9BD41E5AA5CD00FA3F45 /* UIColor+OTKeySource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+OTKeySource.h"; path = "OriginateTheme/Sources/Objective-C/Categories/UIColor+OTKeySource.h"; sourceTree = SOURCE_ROOT; };
+		9F6F9BD51E5AA5CD00FA3F45 /* UIColor+OTKeySource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+OTKeySource.m"; path = "OriginateTheme/Sources/Objective-C/Categories/UIColor+OTKeySource.m"; sourceTree = SOURCE_ROOT; };
+		9F6F9BD61E5AA5CD00FA3F45 /* UIFont+OTKeySource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+OTKeySource.h"; path = "OriginateTheme/Sources/Objective-C/Categories/UIFont+OTKeySource.h"; sourceTree = SOURCE_ROOT; };
+		9F6F9BD71E5AA5CD00FA3F45 /* UIFont+OTKeySource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+OTKeySource.m"; path = "OriginateTheme/Sources/Objective-C/Categories/UIFont+OTKeySource.m"; sourceTree = SOURCE_ROOT; };
+		9F6F9BE01E5AA5D600FA3F45 /* OTColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTColors.h; path = "OriginateTheme/Sources/Objective-C/Classes/OTColors.h"; sourceTree = SOURCE_ROOT; };
+		9F6F9BE11E5AA5D600FA3F45 /* OTColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTColors.m; path = "OriginateTheme/Sources/Objective-C/Classes/OTColors.m"; sourceTree = SOURCE_ROOT; };
+		9F6F9BE21E5AA5D600FA3F45 /* OTComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTComponents.h; path = "OriginateTheme/Sources/Objective-C/Classes/OTComponents.h"; sourceTree = SOURCE_ROOT; };
+		9F6F9BE31E5AA5D600FA3F45 /* OTComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTComponents.m; path = "OriginateTheme/Sources/Objective-C/Classes/OTComponents.m"; sourceTree = SOURCE_ROOT; };
+		9F6F9BE41E5AA5D600FA3F45 /* OTFonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTFonts.h; path = "OriginateTheme/Sources/Objective-C/Classes/OTFonts.h"; sourceTree = SOURCE_ROOT; };
+		9F6F9BE51E5AA5D600FA3F45 /* OTFonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTFonts.m; path = "OriginateTheme/Sources/Objective-C/Classes/OTFonts.m"; sourceTree = SOURCE_ROOT; };
+		9F6F9BE61E5AA5D600FA3F45 /* OTTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTTheme.h; path = "OriginateTheme/Sources/Objective-C/Classes/OTTheme.h"; sourceTree = SOURCE_ROOT; };
+		9F6F9BE71E5AA5D600FA3F45 /* OTTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTTheme.m; path = "OriginateTheme/Sources/Objective-C/Classes/OTTheme.m"; sourceTree = SOURCE_ROOT; };
+		9F6F9BE81E5AA5D600FA3F45 /* OTThemeable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTThemeable.h; path = "OriginateTheme/Sources/Objective-C/Classes/OTThemeable.h"; sourceTree = SOURCE_ROOT; };
+		9F6F9BF21E5AA5E300FA3F45 /* StringInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringInitializable.swift; path = OriginateTheme/Sources/Swift/Protocols/StringInitializable.swift; sourceTree = SOURCE_ROOT; };
+		9F6F9BF31E5AA5E300FA3F45 /* Themeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Themeable.swift; path = OriginateTheme/Sources/Swift/Protocols/Themeable.swift; sourceTree = SOURCE_ROOT; };
+		9F6F9BF61E5AA5EC00FA3F45 /* NSDictionary+KeyPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDictionary+KeyPath.swift"; path = "OriginateTheme/Sources/Swift/Extensions/NSDictionary+KeyPath.swift"; sourceTree = SOURCE_ROOT; };
+		9F6F9BF71E5AA5EC00FA3F45 /* NSNumber+KeyPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSNumber+KeyPath.swift"; path = "OriginateTheme/Sources/Swift/Extensions/NSNumber+KeyPath.swift"; sourceTree = SOURCE_ROOT; };
+		9F6F9BF81E5AA5EC00FA3F45 /* NSValue+KeyPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSValue+KeyPath.swift"; path = "OriginateTheme/Sources/Swift/Extensions/NSValue+KeyPath.swift"; sourceTree = SOURCE_ROOT; };
+		9F6F9BF91E5AA5EC00FA3F45 /* String+StringInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+StringInitializable.swift"; path = "OriginateTheme/Sources/Swift/Extensions/String+StringInitializable.swift"; sourceTree = SOURCE_ROOT; };
+		9F6F9BFA1E5AA5EC00FA3F45 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Hex.swift"; path = "OriginateTheme/Sources/Swift/Extensions/UIColor+Hex.swift"; sourceTree = SOURCE_ROOT; };
+		9F6F9BFB1E5AA5EC00FA3F45 /* UIColor+KeyPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+KeyPath.swift"; path = "OriginateTheme/Sources/Swift/Extensions/UIColor+KeyPath.swift"; sourceTree = SOURCE_ROOT; };
+		9F6F9BFC1E5AA5EC00FA3F45 /* UIFont+KeyPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIFont+KeyPath.swift"; path = "OriginateTheme/Sources/Swift/Extensions/UIFont+KeyPath.swift"; sourceTree = SOURCE_ROOT; };
+		9F6F9C041E5AA5F400FA3F45 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = OriginateTheme/Sources/Swift/Models/Colors.swift; sourceTree = SOURCE_ROOT; };
+		9F6F9C051E5AA5F400FA3F45 /* Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Components.swift; path = OriginateTheme/Sources/Swift/Models/Components.swift; sourceTree = SOURCE_ROOT; };
+		9F6F9C061E5AA5F400FA3F45 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fonts.swift; path = OriginateTheme/Sources/Swift/Models/Fonts.swift; sourceTree = SOURCE_ROOT; };
+		9F6F9C071E5AA5F400FA3F45 /* KeyPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyPath.swift; path = OriginateTheme/Sources/Swift/Models/KeyPath.swift; sourceTree = SOURCE_ROOT; };
+		9F6F9C081E5AA5F400FA3F45 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = OriginateTheme/Sources/Swift/Models/Theme.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +123,8 @@
 		64574FD21E52FC3600EAB331 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				64574FD31E52FC7500EAB331 /* StringInitializable.swift */,
-				64574FE11E52FF2E00EAB331 /* Themeable.swift */,
+				9F6F9BF21E5AA5E300FA3F45 /* StringInitializable.swift */,
+				9F6F9BF31E5AA5E300FA3F45 /* Themeable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -177,14 +177,14 @@
 		6497545B1D8B1AEA00A3B3D0 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				64574F9E1E52FA1600EAB331 /* NSValue+OTKeySource.h */,
-				64574F9F1E52FA1600EAB331 /* NSValue+OTKeySource.m */,
-				64574FA01E52FA1600EAB331 /* UIColor+OTHex.h */,
-				64574FA11E52FA1600EAB331 /* UIColor+OTHex.m */,
-				64574FA21E52FA1600EAB331 /* UIColor+OTKeySource.h */,
-				64574FA31E52FA1600EAB331 /* UIColor+OTKeySource.m */,
-				64574FA41E52FA1600EAB331 /* UIFont+OTKeySource.h */,
-				64574FA51E52FA1600EAB331 /* UIFont+OTKeySource.m */,
+				9F6F9BD01E5AA5CD00FA3F45 /* NSValue+OTKeySource.h */,
+				9F6F9BD11E5AA5CD00FA3F45 /* NSValue+OTKeySource.m */,
+				9F6F9BD21E5AA5CD00FA3F45 /* UIColor+OTHex.h */,
+				9F6F9BD31E5AA5CD00FA3F45 /* UIColor+OTHex.m */,
+				9F6F9BD41E5AA5CD00FA3F45 /* UIColor+OTKeySource.h */,
+				9F6F9BD51E5AA5CD00FA3F45 /* UIColor+OTKeySource.m */,
+				9F6F9BD61E5AA5CD00FA3F45 /* UIFont+OTKeySource.h */,
+				9F6F9BD71E5AA5CD00FA3F45 /* UIFont+OTKeySource.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -192,15 +192,15 @@
 		6497545C1D8B1AEF00A3B3D0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				64574FAE1E52FA2300EAB331 /* OTColors.h */,
-				64574FAF1E52FA2300EAB331 /* OTColors.m */,
-				64574FB01E52FA2300EAB331 /* OTComponents.h */,
-				64574FB11E52FA2300EAB331 /* OTComponents.m */,
-				64574FB21E52FA2300EAB331 /* OTFonts.h */,
-				64574FB31E52FA2300EAB331 /* OTFonts.m */,
-				64574FB41E52FA2300EAB331 /* OTTheme.h */,
-				64574FB51E52FA2300EAB331 /* OTTheme.m */,
-				64574FB61E52FA2300EAB331 /* OTThemeable.h */,
+				9F6F9BE01E5AA5D600FA3F45 /* OTColors.h */,
+				9F6F9BE11E5AA5D600FA3F45 /* OTColors.m */,
+				9F6F9BE21E5AA5D600FA3F45 /* OTComponents.h */,
+				9F6F9BE31E5AA5D600FA3F45 /* OTComponents.m */,
+				9F6F9BE41E5AA5D600FA3F45 /* OTFonts.h */,
+				9F6F9BE51E5AA5D600FA3F45 /* OTFonts.m */,
+				9F6F9BE61E5AA5D600FA3F45 /* OTTheme.h */,
+				9F6F9BE71E5AA5D600FA3F45 /* OTTheme.m */,
+				9F6F9BE81E5AA5D600FA3F45 /* OTThemeable.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -208,7 +208,7 @@
 		64EB47E51E52816B0089DA2B /* Objective-C */ = {
 			isa = PBXGroup;
 			children = (
-				64574FC01E52FA2C00EAB331 /* OriginateTheme.h */,
+				9F6F9BCE1E5AA5C500FA3F45 /* OriginateTheme.h */,
 				6497545B1D8B1AEA00A3B3D0 /* Categories */,
 				6497545C1D8B1AEF00A3B3D0 /* Classes */,
 			);
@@ -230,13 +230,13 @@
 		64EB48031E5282FA0089DA2B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				64574FD01E52FB9400EAB331 /* NSDictionary+KeyPath.swift */,
-				64574FDE1E52FEFB00EAB331 /* NSValue+KeyPath.swift */,
-				CE1D40091E567FD40072B523 /* NSNumber+KeyPath.swift */,
-				64574FD51E52FCB900EAB331 /* String+StringInitializable.swift */,
-				64574FC81E52FB1E00EAB331 /* UIColor+Hex.swift */,
-				64574FC91E52FB1E00EAB331 /* UIColor+KeyPath.swift */,
-				64574FCA1E52FB1E00EAB331 /* UIFont+KeyPath.swift */,
+				9F6F9BF61E5AA5EC00FA3F45 /* NSDictionary+KeyPath.swift */,
+				9F6F9BF71E5AA5EC00FA3F45 /* NSNumber+KeyPath.swift */,
+				9F6F9BF81E5AA5EC00FA3F45 /* NSValue+KeyPath.swift */,
+				9F6F9BF91E5AA5EC00FA3F45 /* String+StringInitializable.swift */,
+				9F6F9BFA1E5AA5EC00FA3F45 /* UIColor+Hex.swift */,
+				9F6F9BFB1E5AA5EC00FA3F45 /* UIColor+KeyPath.swift */,
+				9F6F9BFC1E5AA5EC00FA3F45 /* UIFont+KeyPath.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -244,11 +244,11 @@
 		64EB48041E5283110089DA2B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				64574FE71E53012B00EAB331 /* Colors.swift */,
-				64574FEB1E53014100EAB331 /* Components.swift */,
-				64574FE91E53013700EAB331 /* Fonts.swift */,
-				64574FCE1E52FB6D00EAB331 /* KeyPath.swift */,
-				64574FE31E52FF5400EAB331 /* Theme.swift */,
+				9F6F9C041E5AA5F400FA3F45 /* Colors.swift */,
+				9F6F9C051E5AA5F400FA3F45 /* Components.swift */,
+				9F6F9C061E5AA5F400FA3F45 /* Fonts.swift */,
+				9F6F9C071E5AA5F400FA3F45 /* KeyPath.swift */,
+				9F6F9C081E5AA5F400FA3F45 /* Theme.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -269,16 +269,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64574FAA1E52FA1600EAB331 /* UIColor+OTKeySource.h in Headers */,
-				64574FB91E52FA2300EAB331 /* OTComponents.h in Headers */,
-				64574FB71E52FA2300EAB331 /* OTColors.h in Headers */,
-				64574FBD1E52FA2300EAB331 /* OTTheme.h in Headers */,
-				64574FBF1E52FA2300EAB331 /* OTThemeable.h in Headers */,
-				64574FBB1E52FA2300EAB331 /* OTFonts.h in Headers */,
-				64574FA61E52FA1600EAB331 /* NSValue+OTKeySource.h in Headers */,
-				64574FAC1E52FA1600EAB331 /* UIFont+OTKeySource.h in Headers */,
-				64574FA81E52FA1600EAB331 /* UIColor+OTHex.h in Headers */,
-				64574FC11E52FA2C00EAB331 /* OriginateTheme.h in Headers */,
+				9F6F9BDA1E5AA5CD00FA3F45 /* UIColor+OTHex.h in Headers */,
+				9F6F9BEB1E5AA5D600FA3F45 /* OTComponents.h in Headers */,
+				9F6F9BDE1E5AA5CD00FA3F45 /* UIFont+OTKeySource.h in Headers */,
+				9F6F9BDC1E5AA5CD00FA3F45 /* UIColor+OTKeySource.h in Headers */,
+				9F6F9BED1E5AA5D600FA3F45 /* OTFonts.h in Headers */,
+				9F6F9BEF1E5AA5D600FA3F45 /* OTTheme.h in Headers */,
+				9F6F9BF11E5AA5D600FA3F45 /* OTThemeable.h in Headers */,
+				9F6F9BD81E5AA5CD00FA3F45 /* NSValue+OTKeySource.h in Headers */,
+				9F6F9BE91E5AA5D600FA3F45 /* OTColors.h in Headers */,
+				9F6F9BCF1E5AA5C500FA3F45 /* OriginateTheme.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,14 +419,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64574FAB1E52FA1600EAB331 /* UIColor+OTKeySource.m in Sources */,
-				64574FA71E52FA1600EAB331 /* NSValue+OTKeySource.m in Sources */,
-				64574FBE1E52FA2300EAB331 /* OTTheme.m in Sources */,
-				64574FBA1E52FA2300EAB331 /* OTComponents.m in Sources */,
-				64574FAD1E52FA1600EAB331 /* UIFont+OTKeySource.m in Sources */,
-				64574FA91E52FA1600EAB331 /* UIColor+OTHex.m in Sources */,
-				64574FB81E52FA2300EAB331 /* OTColors.m in Sources */,
-				64574FBC1E52FA2300EAB331 /* OTFonts.m in Sources */,
+				9F6F9BDF1E5AA5CD00FA3F45 /* UIFont+OTKeySource.m in Sources */,
+				9F6F9BDB1E5AA5CD00FA3F45 /* UIColor+OTHex.m in Sources */,
+				9F6F9BDD1E5AA5CD00FA3F45 /* UIColor+OTKeySource.m in Sources */,
+				9F6F9BEE1E5AA5D600FA3F45 /* OTFonts.m in Sources */,
+				9F6F9BD91E5AA5CD00FA3F45 /* NSValue+OTKeySource.m in Sources */,
+				9F6F9BEC1E5AA5D600FA3F45 /* OTComponents.m in Sources */,
+				9F6F9BF01E5AA5D600FA3F45 /* OTTheme.m in Sources */,
+				9F6F9BEA1E5AA5D600FA3F45 /* OTColors.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,20 +434,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64574FDC1E52FCEF00EAB331 /* StringInitializable.swift in Sources */,
-				64574FEF1E53016D00EAB331 /* Components.swift in Sources */,
-				64574FF01E53017100EAB331 /* Fonts.swift in Sources */,
-				64574FEE1E53016900EAB331 /* Colors.swift in Sources */,
-				CE1D400A1E567FD40072B523 /* NSNumber+KeyPath.swift in Sources */,
-				64574FDB1E52FCE300EAB331 /* String+StringInitializable.swift in Sources */,
-				64574FDD1E52FCF200EAB331 /* KeyPath.swift in Sources */,
-				64574FD91E52FCE300EAB331 /* UIColor+KeyPath.swift in Sources */,
-				64574FDA1E52FCE300EAB331 /* UIFont+KeyPath.swift in Sources */,
-				64574FE51E52FF5A00EAB331 /* Themeable.swift in Sources */,
-				64574FD71E52FCE300EAB331 /* NSDictionary+KeyPath.swift in Sources */,
-				64574FE61E52FF6C00EAB331 /* Theme.swift in Sources */,
-				64574FD81E52FCE300EAB331 /* UIColor+Hex.swift in Sources */,
-				64574FE01E52FF1100EAB331 /* NSValue+KeyPath.swift in Sources */,
+				9F6F9BFD1E5AA5EC00FA3F45 /* NSDictionary+KeyPath.swift in Sources */,
+				9F6F9C0A1E5AA5F400FA3F45 /* Components.swift in Sources */,
+				9F6F9C091E5AA5F400FA3F45 /* Colors.swift in Sources */,
+				9F6F9BF51E5AA5E300FA3F45 /* Themeable.swift in Sources */,
+				9F6F9C031E5AA5EC00FA3F45 /* UIFont+KeyPath.swift in Sources */,
+				9F6F9C0B1E5AA5F400FA3F45 /* Fonts.swift in Sources */,
+				9F6F9C001E5AA5EC00FA3F45 /* String+StringInitializable.swift in Sources */,
+				9F6F9BF41E5AA5E300FA3F45 /* StringInitializable.swift in Sources */,
+				9F6F9C0C1E5AA5F400FA3F45 /* KeyPath.swift in Sources */,
+				9F6F9C0D1E5AA5F400FA3F45 /* Theme.swift in Sources */,
+				9F6F9C021E5AA5EC00FA3F45 /* UIColor+KeyPath.swift in Sources */,
+				9F6F9BFF1E5AA5EC00FA3F45 /* NSValue+KeyPath.swift in Sources */,
+				9F6F9C011E5AA5EC00FA3F45 /* UIColor+Hex.swift in Sources */,
+				9F6F9BFE1E5AA5EC00FA3F45 /* NSNumber+KeyPath.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
