@@ -90,8 +90,6 @@ def parseArguments(argv):
             Path to the .json file containing the theme definitions.
         outputDirectory: String
             Path to the directory where the new files should be generated.
-        language: String
-            Code generation output language. The allowed values are 'objc' or 'swift3.0'. Default is objc.
     """
     inputFile = ''
     outputDirectory = ''
