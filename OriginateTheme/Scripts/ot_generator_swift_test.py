@@ -22,17 +22,17 @@ exComponentsStruct = """\
 public struct Components {
     var dictionary: ThemeDefinition
 
-    lazy var navigationBar: NavigationBar = {
+    public var navigationBar: NavigationBar {
         return NavigationBar(dictionary: self.dictionary)
-    }()
+    }
 
-    lazy var textView: TextView = {
+    public var textView: TextView {
         return TextView(dictionary: self.dictionary)
-    }()
+    }
 
-    lazy var tabBar: TabBar = {
+    public var tabBar: TabBar {
         return TabBar(dictionary: self.dictionary)
-    }()
+    }
 
     public init(dictionary: ThemeDefinition = [:]) {
         self.dictionary = dictionary
