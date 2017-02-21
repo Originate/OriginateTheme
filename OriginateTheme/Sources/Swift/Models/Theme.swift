@@ -10,7 +10,7 @@ import Foundation
 
 public typealias ThemeDefinition = [String: Any]
 
-struct Theme {
+public struct Theme {
 
     private var _dictionary: ThemeDefinition = [:]
     public internal(set) var dictionary: ThemeDefinition {

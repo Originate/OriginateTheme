@@ -9,9 +9,9 @@ $body
 varTemplate = """var $name: $type"""
 
 otLazyVarTemplate = """\
-lazy var $name: $type = {
+public var $name: $type {
     return $type(dictionary: self.dictionary)
-}()"""
+}"""
 
 computedStaticPropertyTemplate ="""public $var {
     return $comp
