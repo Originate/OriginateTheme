@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 """
     ot_reference_resolver.py
     Script which resolves references in OriginateTheme class files in a JSON file.
@@ -32,7 +35,7 @@ def resolveJSONFile(inputFile, outputDirectory):
         try:
             data = json.load(file, 'utf-8')
             resolveComponentReferencesInData(data)
-            filePath = outputDirectory + inputFile
+            filePath = os.path.join(outputDirectory, inputFile)
             if os.path.isfile(filePath):
                 os.chmod(filePath, 0755)
             with open(filePath, 'wb') as outputFile:
@@ -78,7 +81,9 @@ def resolveComponentReferencesInData(data):
     resolvedComponents = {}
     for componentName, componentProperties in components.iteritems():
         for key, aRef in componentProperties.iteritems():
-            data["components"][componentName][key] = resolveRef(aRef, data)
+            if type(data) == str:
+                if data[0] == "$":
+                    data["components"][componentName][key] = resolveRef(aRef, data)
 
 def parseArguments(argv):
     """
