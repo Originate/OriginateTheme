@@ -35,10 +35,12 @@ def resolveJSONFile(inputFile, outputDirectory):
         try:
             data = json.load(file, 'utf-8')
             resolveComponentReferencesInData(data)
-            filePath = os.path.join(outputDirectory, inputFile)
+            filename = os.path.basename(inputFile)
+            filePath = os.path.join(outputDirectory, filename)
             if os.path.isfile(filePath):
                 os.chmod(filePath, 0755)
             with open(filePath, 'wb') as outputFile:
+                print "Resolved JSON %s to %s" % (inputFile, filePath)
                 outputFile.write(json.dumps(data, indent=2))
         except ValueError:
             print 'Decoding JSON input file failed!'
@@ -80,10 +82,15 @@ def resolveComponentReferencesInData(data):
     components = data['components']
     resolvedComponents = {}
     for componentName, componentProperties in components.iteritems():
-        for key, aRef in componentProperties.iteritems():
-            if type(data) == str:
-                if data[0] == "$":
-                    data["components"][componentName][key] = resolveRef(aRef, data)
+        resolveDictionary(componentProperties, data)
+
+def resolveDictionary(aDict, root):
+    for key, aRef in aDict.iteritems():
+        if type(aRef) == str or type(aRef) == unicode:
+            if aRef[0] == "$":
+                aDict[key] = resolveRef(aRef, root)
+        elif type(aRef) == dict:
+            resolveDictionary(aRef, root)
 
 def parseArguments(argv):
     """
