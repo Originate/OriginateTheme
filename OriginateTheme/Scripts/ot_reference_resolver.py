@@ -137,6 +137,58 @@ def parseArguments(argv):
 
     return (inputFile, outputDirectory)
 
+def parseArguments(argv):
+    """
+        Parse programs' arguments and extract the input file and output directory.
+
+        Parameters
+        -----------
+        inputFile: String
+            Path to the .json file containing the theme definitions.
+        outputDirectory: String
+            Path to the directory where the new files should be generated.
+    """
+    inputFile = ''
+    outputDirectory = ''
+    language = ''
+    helpString = "./ot_generator.py -i <inputFile> -o <outputDirectory>"
+
+    # Extract the inputFile and outputDirectory arguments.
+    try:
+        opts, args = getopt.getopt(argv, "hi:o:", ["input=", "output="])
+    except getopt.GetoptError:
+        print helpString
+        sys.exit(2)
+    for opt, arg in opts:
+        if opt == '-h':
+            print helpString
+            sys.exit()
+        elif opt in ("-i", "--input"):
+            inputFile = arg
+        elif opt in ("-o", "--output"):
+            outputDirectory = arg
+
+    # Check if inputFile and outputDirectory have concrete values.
+    if len(inputFile) is 0 or len(outputDirectory) is 0:
+        print helpString
+        sys.exit()
+
+    # Check if inputFile is a valid path to a file.
+    if os.path.isfile(inputFile) is False:
+        print '"' + inputFile + '" does not exist!'
+        sys.exit()
+
+    # Check if outputDirectory exists and is a directory.
+    if os.path.isdir(outputDirectory) is False:
+        print '"' + outputDirectory + '" is not a directory or does not exist.'
+        sys.exit()
+
+    # Set default language to Objective-C
+    if len(language) is 0:
+        language = 'objc'
+
+    return (inputFile, outputDirectory)
+
 def main(argv):
     """
         Method responsible for the program execution.
