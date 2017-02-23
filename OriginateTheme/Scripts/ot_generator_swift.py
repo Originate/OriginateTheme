@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 import string
 from ot_generator_utils import *
 from ot_generator_templates import *
