@@ -1,8 +1,9 @@
 <img src="OriginateThemeLogo.png" alt="OriginateTheme Logo" width="500"/>
 <hr />
-[![Build Status](https://travis-ci.org/Originate/OriginateTheme.svg?branch=master)](https://travis-ci.org/Originate/OriginateTheme)
-[![CocoaPods compatible](https://img.shields.io/badge/CocoaPods-compatible-4BC51D.svg?style=flat)](https://cocoapods.org)
+
+[![Build Status](https://travis-ci.org/Originate/OriginateTheme.svg?branch=master)](https://travis-ci.org/Originate/OriginateTheme) [![CocoaPods compatible](https://img.shields.io/badge/CocoaPods-compatible-4BC51D.svg?style=flat)](https://cocoapods.org)
 <br />
+
 > **OriginateTheme** is a lightweight user interface theming framework.
 
 # About OriginateTheme
