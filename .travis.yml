@@ -17,4 +17,4 @@ install:
 
 script:
   - python -m unittest discover -s OriginateTheme/Scripts -p "*_test.py"
-  - bundle exec scan --scheme "OriginateTheme" --clean
+  - bundle exec fastlane scan --scheme "OriginateTheme" --clean
